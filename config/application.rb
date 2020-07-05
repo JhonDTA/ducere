@@ -18,5 +18,8 @@ module Ducere
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+    # Specify the available locales
+    config.i18n.available_locales = %w[en es-MX]
   end
 end
