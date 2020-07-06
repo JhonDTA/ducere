@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   get 'help', to: 'static_pages#help'
   get 'about', to: 'static_pages#about'
   get 'contact', to: 'static_pages#contact'
-  devise_for :users
+
+  devise_for :user
 end

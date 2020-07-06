@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="container">
+    <%= link_to 'Ducere', root_path, class: 'navbar-brand' %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarNavigation" aria-controls="navbarNavigation"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavigation">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><%= link_to 'Home', root_url, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to 'Help', help_url, class: 'nav-link' %></li>
+        <% if user_signed_in? %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+               role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Account
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to 'Profile', '#', class: 'dropdown-item' %>
+              <%= link_to 'Settings', '#', class: 'dropdown-item' %>
+              <div class="dropdown-divider"></div>
+              <%= link_to 'Log out', '#', method: 'delete', class: 'dropdown-item' %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item"><%= link_to 'Log in', '#', class: 'nav-link' %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
