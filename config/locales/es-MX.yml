@@ -6,6 +6,7 @@ es-MX:
       country: "País"
       school: "Escuela"
       campu: "Plantel"
+      academic_year: "Año escolar"
     attributes:
       user:
         first_name: "Nombre"
@@ -27,6 +28,10 @@ es-MX:
       campu:
         name: "Nombre"
         school_id: "Escuela"
+      academic_year:
+        start: "Inicio"
+        finish: "Final"
+        campu_id: "Plantel"
     errors:
       messages:
         record_invalid: 'La validación falló: %{errors}'
@@ -280,7 +285,6 @@ es-MX:
   contact: "Contacto"
   start: "Inicio"
   main: "Principal"
-  countries: "Paises"
   show: "Mostrar"
   edit: "Editar"
   destroy: "Eliminar"
@@ -290,5 +294,7 @@ es-MX:
   created_object: "El %{resource} fue creado correctamente"
   edited_object: "El %{resource} fue actualizado correctamente."
   destroyed_object: "El %{resource} fue eliminado correctamente."
+  countries: "Paises"
   schools: "Escuelas"
   campus: "Planteles"
+  academic_years: "Ciclos escolares"

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :campus
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'static_pages#home'
   get 'help', to: 'static_pages#help'
@@ -11,4 +10,6 @@ Rails.application.routes.draw do
   devise_for :user
   resources :countries
   resources :schools
+  resources :campus
+  resources :academic_years
 end
