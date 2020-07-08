@@ -1,5 +1,6 @@
+<% provide(:title, t('resend_confirmation')) %>
 <div class="col col-md-6 offset-md-3">
-  <h2>Resend confirmation instructions</h2>
+  <h2><%= t('resend_confirmation') %></h2>
 
   <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
@@ -12,7 +13,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "Resend confirmation instructions", class: 'btn btn-primary' %>
+      <%= f.submit t('resend_confirmation'), class: 'btn btn-primary' %>
     </div>
   <% end %>
 

@@ -1,6 +1,18 @@
 ---
 es-MX:
   activerecord:
+    models:
+      user: "Usuario"
+    attributes:
+      user:
+        first_name: "Nombre"
+        last_name: "Apellido paterno"
+        second_last_name: "Apellido materno"
+        email: "Correo"
+        password: "Contraseña"
+        password_confirmation: "Confirmación"
+        current_password: "Contraseña actual"
+        remember_me: "Recordarme"
     errors:
       messages:
         record_invalid: 'La validación falló: %{errors}'
@@ -222,3 +234,31 @@ es-MX:
     previous_label: "&#8592; Ant"
     next_label: "Sig &#8594;"
     page_gap: "&hellip;"
+
+  app_name: "Ducere"
+  home: "Inicio"
+  help: "Ayuda"
+  account: "Cuenta"
+  profile: "Perfil"
+  settings: "Ajustes"
+  sign_out: "Cerrar sesión"
+  sign_in: "Iniciar sesión"
+  sign_up: "Registrarse"
+  forgot_password: "¿Olvidaste tu contraseña?"
+  not_confirmation: "¿No has recibido las instrucciones de confirmación?"
+  not_unlock: "¿No has recibido las instrucciones de desbloqueo?"
+  resend_confirmation: "Reenviar instrucciones de confirmación"
+  change_password: "Cambiar tu contraseña"
+  new_password: "Nueva contraseña"
+  confirm_password: "Confirmar contraseña"
+  password_minimum: "mínimo %{char_count} caracteres"
+  send_password_instructions: "Enviarme instrucciones de restablecimiento de contraseña"
+  waiting_confirmation: "Esperando confirmación para %{email}."
+  leave_blank: "deja en blanco si no quieres cambiarla"
+  current_password_changes: "necesitamos tu contraseña actual para confirmar los cambios"
+  update: "Actualizar"
+  cancel_account: "Cancelar cuenta"
+  you_sure: "¿Estás seguro?"
+  unhappy: "¿Descontento?"
+  edit_user: "Editar usuario"
+  resend_unlock: "Reenviar instrucciones de desbloqueo"
