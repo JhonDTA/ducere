@@ -4,6 +4,7 @@ es-MX:
     models:
       user: "Usuario"
       country: "País"
+      school: "Escuela"
     attributes:
       user:
         first_name: "Nombre"
@@ -18,6 +19,10 @@ es-MX:
         name: "Nombre"
         iso_code: "Clave ISO"
         calling_code: "Clave telefónica"
+      school:
+        name: "Nombre"
+        code: "Clave"
+        country_id: "País"
     errors:
       messages:
         record_invalid: 'La validación falló: %{errors}'
@@ -281,3 +286,4 @@ es-MX:
   created_object: "El %{resource} fue creado correctamente"
   edited_object: "El %{resource} fue actualizado correctamente."
   destroyed_object: "El %{resource} fue eliminado correctamente."
+  schools: "Escuelas"

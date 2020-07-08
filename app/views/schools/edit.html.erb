@@ -1,0 +1,8 @@
+<% provide(:title, t('editing_object', resource: t('activerecord.models.school'))) %>
+
+<h1><%= t('editing_object', resource: t('activerecord.models.school')) %></h1>
+
+<%= render 'form', school: @school %>
+
+<%= link_to t('show'), @school %> |
+<%= link_to t('back'), schools_path %>

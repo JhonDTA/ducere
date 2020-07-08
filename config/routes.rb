@@ -9,4 +9,5 @@ Rails.application.routes.draw do
 
   devise_for :user
   resources :countries
+  resources :schools
 end
