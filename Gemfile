@@ -31,6 +31,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'http_accept_language'
 # Use Devise for authentication
 gem 'devise'
+# Use Font Awesome for icons
+gem 'font-awesome-sass', '~> 5.13.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
