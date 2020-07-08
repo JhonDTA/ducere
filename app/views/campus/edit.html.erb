@@ -1,0 +1,8 @@
+<% t('editing_object', resource: t('activerecord.models.campu')) %>
+
+<h1><%= t('editing_object', resource: t('activerecord.models.campu')) %></h1>
+
+<%= render 'form', campu: @campu %>
+
+<%= link_to t('show'), @campu %> |
+<%= link_to t('back'), campus_path %>

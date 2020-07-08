@@ -5,6 +5,7 @@ es-MX:
       user: "Usuario"
       country: "País"
       school: "Escuela"
+      campu: "Plantel"
     attributes:
       user:
         first_name: "Nombre"
@@ -23,6 +24,9 @@ es-MX:
         name: "Nombre"
         code: "Clave"
         country_id: "País"
+      campu:
+        name: "Nombre"
+        school_id: "Escuela"
     errors:
       messages:
         record_invalid: 'La validación falló: %{errors}'
@@ -287,3 +291,4 @@ es-MX:
   edited_object: "El %{resource} fue actualizado correctamente."
   destroyed_object: "El %{resource} fue eliminado correctamente."
   schools: "Escuelas"
+  campus: "Planteles"

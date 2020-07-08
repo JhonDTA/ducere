@@ -1,0 +1,29 @@
+<% provide(:title, t('campus')) %>
+
+<h1><%= t('campus') %></h1>
+
+<table>
+  <thead>
+  <tr>
+    <th><%= t('activerecord.attributes.campu.name') %></th>
+    <th><%= t('activerecord.attributes.campu.school_id') %></th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @campus.each do |campu| %>
+    <tr>
+      <td><%= campu.name %></td>
+      <td><%= campu.school_id %></td>
+      <td><%= link_to t('show'), campu %></td>
+      <td><%= link_to t('edit'), edit_campu_path(campu) %></td>
+      <td><%= link_to t('destroy'), campu, method: :delete, data: { confirm: t('you_sure') } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to t('new_object', resource: t('activerecord.models.campu')), new_campu_path %>

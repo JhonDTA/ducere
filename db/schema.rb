@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_08_092500) do
+ActiveRecord::Schema.define(version: 2020_07_08_101552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "campus", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "school_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["school_id"], name: "index_campus_on_school_id"
+  end
 
   create_table "countries", force: :cascade do |t|
     t.string "name", null: false
@@ -65,5 +73,6 @@ ActiveRecord::Schema.define(version: 2020_07_08_092500) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "campus", "schools"
   add_foreign_key "schools", "countries"
 end

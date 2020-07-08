@@ -72,3 +72,4 @@ en:
   edited_object: "%{resource} was successfully updated."
   destroyed_object: "%{resource} was successfully destroyed."
   schools: "Schools"
+  campus: "Campus"
