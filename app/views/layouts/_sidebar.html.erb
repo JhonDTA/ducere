@@ -3,21 +3,14 @@
 
   <ul class="list-unstyled components">
     <li>
-      <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+      <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"
+         class="dropdown-toggle"><%= icon('fas', 'home') %> <%= t('main') %></a>
       <ul class="collapse list-unstyled" id="homeSubmenu">
-        <li>
-          <a href="#">Home 1</a>
-        </li>
-        <li>
-          <a href="#">Home 2</a>
-        </li>
-        <li>
-          <a href="#">Home 3</a>
-        </li>
+        <li><%= link_to t('home'), root_path %></li>
+        <li><%= link_to t('help'), help_path %></li>
+        <li><%= link_to t('about'), about_path %></li>
+        <li><%= link_to t('contact'), contact_path %></li>
       </ul>
-    </li>
-    <li>
-      <a href="#">About</a>
     </li>
     <li>
       <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
