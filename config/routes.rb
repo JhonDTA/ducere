@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get 'contact', to: 'static_pages#contact'
 
   devise_for :user
+  resources :countries
 end

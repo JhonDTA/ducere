@@ -3,6 +3,7 @@ es-MX:
   activerecord:
     models:
       user: "Usuario"
+      country: "País"
     attributes:
       user:
         first_name: "Nombre"
@@ -13,6 +14,10 @@ es-MX:
         password_confirmation: "Confirmación"
         current_password: "Contraseña actual"
         remember_me: "Recordarme"
+      country:
+        name: "Nombre"
+        iso_code: "Clave ISO"
+        calling_code: "Clave telefónica"
     errors:
       messages:
         record_invalid: 'La validación falló: %{errors}'
@@ -266,3 +271,13 @@ es-MX:
   contact: "Contacto"
   start: "Inicio"
   main: "Principal"
+  countries: "Paises"
+  show: "Mostrar"
+  edit: "Editar"
+  destroy: "Eliminar"
+  new_object: "Nuevo %{resource}"
+  back: "Atrás"
+  editing_object: "Editar %{resource}"
+  created_object: "El %{resource} fue creado correctamente"
+  edited_object: "El %{resource} fue actualizado correctamente."
+  destroyed_object: "El %{resource} fue eliminado correctamente."

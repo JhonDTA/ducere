@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_05_084337) do
+ActiveRecord::Schema.define(version: 2020_07_08_083212) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "countries", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "iso_code", limit: 4, null: false
+    t.string "calling_code", limit: 10
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["iso_code"], name: "index_countries_on_iso_code", unique: true
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name", default: "", null: false

@@ -2,7 +2,6 @@
 
 # Application Helper
 module ApplicationHelper
-
   # @param [String] type
   # @return [String]
   #
