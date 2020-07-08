@@ -15,7 +15,7 @@
   <% @campus.each do |campu| %>
     <tr>
       <td><%= campu.name %></td>
-      <td><%= campu.school_id %></td>
+      <td><%= campu.school.name %></td>
       <td><%= link_to t('show'), campu %></td>
       <td><%= link_to t('edit'), edit_campu_path(campu) %></td>
       <td><%= link_to t('destroy'), campu, method: :delete, data: { confirm: t('you_sure') } %></td>
