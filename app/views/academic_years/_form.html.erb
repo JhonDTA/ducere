@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :campu_id %>
+    <%= form.collection_select(:campu_id, Campu.all, :id, :name, class: 'form-control') %>
+  </div>
+
+  <div class="field">
     <%= form.label :start %>
     <%= form.date_select :start, class: 'form-control' %>
   </div>
@@ -19,11 +24,6 @@
   <div class="field">
     <%= form.label :finish %>
     <%= form.date_select :finish, class: 'form-control' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :campu_id %>
-    <%= form.collection_select(:campu_id, Campu.all, :id, :name, class: 'form-control') %>
   </div>
 
   <div class="actions">

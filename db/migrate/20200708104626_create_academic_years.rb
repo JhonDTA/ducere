@@ -1,9 +1,9 @@
 class CreateAcademicYears < ActiveRecord::Migration[6.0]
   def change
     create_table :academic_years do |t|
+      t.references :campu, null: false, foreign_key: true
       t.date :start, null: false
       t.date :finish, null: false
-      t.references :campu, null: false, foreign_key: true
 
       t.timestamps
     end

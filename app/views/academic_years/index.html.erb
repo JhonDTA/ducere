@@ -5,9 +5,9 @@
 <table>
   <thead>
   <tr>
+    <th><%= t('activerecord.attributes.academic_year.campu_id') %></th>
     <th><%= t('activerecord.attributes.academic_year.start') %></th>
     <th><%= t('activerecord.attributes.academic_year.finish') %></th>
-    <th><%= t('activerecord.attributes.academic_year.campu_id') %></th>
     <th colspan="3"></th>
   </tr>
   </thead>
@@ -15,9 +15,9 @@
   <tbody>
   <% @academic_years.each do |academic_year| %>
     <tr>
+      <td><%= academic_year.campu.name %></td>
       <td><%= academic_year.start %></td>
       <td><%= academic_year.finish %></td>
-      <td><%= academic_year.campu.name %></td>
       <td><%= link_to t('show'), academic_year %></td>
       <td><%= link_to t('edit'), edit_academic_year_path(academic_year) %></td>
       <td><%= link_to t('destroy'), academic_year, method: :delete, data: { confirm: 'Are you sure?' } %></td>

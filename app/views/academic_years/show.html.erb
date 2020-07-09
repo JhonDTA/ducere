@@ -1,6 +1,11 @@
 <% provide(:title, full_name(@academic_year)) %>
 
 <p>
+  <strong><%= t('activerecord.attributes.academic_year.campu_id') %>:</strong>
+  <%= @academic_year.campu.name %>
+</p>
+
+<p>
   <strong><%= t('activerecord.attributes.academic_year.start') %>:</strong>
   <%= @academic_year.start %>
 </p>
@@ -8,11 +13,6 @@
 <p>
   <strong><%= t('activerecord.attributes.academic_year.finish') %>:</strong>
   <%= @academic_year.finish %>
-</p>
-
-<p>
-  <strong><%= t('activerecord.attributes.academic_year.campu_id') %>:</strong>
-  <%= @academic_year.campu.name %>
 </p>
 
 <%= link_to t('edit'), edit_academic_year_path(@academic_year) %> |

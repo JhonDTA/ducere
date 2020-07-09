@@ -1,6 +1,6 @@
 <div class="container">
   <% flash.each do |type, msg| %>
-    <div class='alert alert-<%= "#{flash_type type}" %>'>
+    <div class='alert alert-<%= "#{flash_type(type)}" %>'>
       <a href="#" class="close" data-dismiss="alert">&#215;</a>
       <ul>
         <li><%= msg %></li>

@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 2020_07_08_104626) do
   enable_extension "plpgsql"
 
   create_table "academic_years", force: :cascade do |t|
+    t.bigint "campu_id", null: false
     t.date "start", null: false
     t.date "finish", null: false
-    t.bigint "campu_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["campu_id"], name: "index_academic_years_on_campu_id"
@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 2020_07_08_104626) do
   end
 
   create_table "campus", force: :cascade do |t|
-    t.string "name", null: false
     t.bigint "school_id", null: false
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["school_id"], name: "index_campus_on_school_id"
