@@ -2,6 +2,7 @@
 
 # Academic years controller
 class AcademicYearsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_academic_year, only: %i[show edit update destroy]
 
   # GET /academic_years

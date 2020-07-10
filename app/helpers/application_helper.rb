@@ -11,6 +11,8 @@ module ApplicationHelper
       'success'
     when 'alert'
       'danger'
+    when 'timedout'
+      'warning'
     else
       type
     end

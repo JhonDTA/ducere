@@ -2,6 +2,7 @@
 
 # Schools controller
 class SchoolsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_school, only: %i[show edit update destroy]
 
   # GET /schools
