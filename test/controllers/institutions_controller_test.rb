@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class InstitutionsControllerTest < ActionDispatch::IntegrationTest
@@ -5,17 +7,17 @@ class InstitutionsControllerTest < ActionDispatch::IntegrationTest
     @institution = institutions(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get institutions_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_institution_url
     assert_response :success
   end
 
-  test "should create institution" do
+  test 'should create institution' do
     assert_difference('Institution.count') do
       post institutions_url, params: { institution: { country_id: @institution.country_id, name: @institution.name } }
     end
@@ -23,22 +25,22 @@ class InstitutionsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to institution_url(Institution.last)
   end
 
-  test "should show institution" do
+  test 'should show institution' do
     get institution_url(@institution)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_institution_url(@institution)
     assert_response :success
   end
 
-  test "should update institution" do
+  test 'should update institution' do
     patch institution_url(@institution), params: { institution: { country_id: @institution.country_id, name: @institution.name } }
     assert_redirected_to institution_url(@institution)
   end
 
-  test "should destroy institution" do
+  test 'should destroy institution' do
     assert_difference('Institution.count', -1) do
       delete institution_url(@institution)
     end
