@@ -9,7 +9,4 @@ Rails.application.routes.draw do
 
   devise_for :user
   resources :countries
-  resources :schools
-  resources :campus
-  resources :academic_years
 end

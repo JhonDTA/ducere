@@ -4,7 +4,7 @@
   <ul class="list-unstyled components">
     <li>
       <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"
-         class="dropdown-toggle"><%= icon('fas', 'home') %><%= t('main') %></a>
+         class="dropdown-toggle"><%= icon('fas', 'home') %><%= t('start') %></a>
       <ul class="collapse list-unstyled" id="homeSubmenu">
         <li><%= link_to t('home'), root_path %></li>
         <li><%= link_to t('help'), help_path %></li>
@@ -20,21 +20,6 @@
         <li>
           <%= link_to countries_path do %>
             <%= icon('fas', 'globe') %><%= t('countries') %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to schools_path do %>
-            <%= icon('fas', 'school') %><%= t('schools') %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to campus_path do %>
-            <%= icon('fas', 'building') %><%= t('campus') %>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to academic_years_path do %>
-            <%= icon('fas', 'calendar') %><%= t('academic_years') %>
           <% end %>
         </li>
       </ul>
