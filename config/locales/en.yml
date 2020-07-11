@@ -134,3 +134,4 @@ en:
   destroyed_object: "%{resource} was successfully destroyed."
   countries: "Countries"
   catalogs: "Catalogs"
+  institutions: "Institutions"

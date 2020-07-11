@@ -355,3 +355,4 @@ es-MX:
   destroyed_object: "El %{resource} fue eliminado correctamente."
   countries: "Paises"
   catalogs: "Catalogos"
+  institutions: "Instituciones"
