@@ -1,10 +1,10 @@
-<%= form_with(model: institution, local: true) do |form| %>
-  <% if institution.errors.any? %>
+<%= form_with(model: status, local: true) do |form| %>
+  <% if status.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(institution.errors.count, "error") %> prohibited this institution from being saved:</h2>
+      <h2><%= pluralize(status.errors.count, "error") %> prohibited this status from being saved:</h2>
 
       <ul>
-        <% institution.errors.full_messages.each do |message| %>
+        <% status.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
@@ -24,11 +24,6 @@
   <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :status_id %>
-    <%= form.text_field :status_id %>
   </div>
 
   <div class="actions">

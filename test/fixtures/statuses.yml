@@ -4,10 +4,8 @@ one:
   code: MyString
   name: MyString
   description: MyText
-  status: one
 
 two:
   code: MyString
   name: MyString
   description: MyText
-  status: two
