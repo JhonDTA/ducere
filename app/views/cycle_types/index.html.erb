@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cycle Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Duration</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cycle_types.each do |cycle_type| %>
+      <tr>
+        <td><%= cycle_type.code %></td>
+        <td><%= cycle_type.name %></td>
+        <td><%= cycle_type.description %></td>
+        <td><%= cycle_type.duration %></td>
+        <td><%= cycle_type.status_id %></td>
+        <td><%= link_to 'Show', cycle_type %></td>
+        <td><%= link_to 'Edit', edit_cycle_type_path(cycle_type) %></td>
+        <td><%= link_to 'Destroy', cycle_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cycle Type', new_cycle_type_path %>

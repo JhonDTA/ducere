@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :cycle_types
   resources :courses
   resources :grades
   resources :syllabuses

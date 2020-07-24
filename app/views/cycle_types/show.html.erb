@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @cycle_type.code %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @cycle_type.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @cycle_type.description %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @cycle_type.duration %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @cycle_type.status_id %>
+</p>
+
+<%= link_to 'Edit', edit_cycle_type_path(@cycle_type) %> |
+<%= link_to 'Back', cycle_types_path %>
