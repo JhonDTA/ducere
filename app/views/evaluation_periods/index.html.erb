@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Evaluation Periods</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @evaluation_periods.each do |evaluation_period| %>
+      <tr>
+        <td><%= evaluation_period.code %></td>
+        <td><%= evaluation_period.name %></td>
+        <td><%= evaluation_period.description %></td>
+        <td><%= evaluation_period.status_id %></td>
+        <td><%= link_to 'Show', evaluation_period %></td>
+        <td><%= link_to 'Edit', edit_evaluation_period_path(evaluation_period) %></td>
+        <td><%= link_to 'Destroy', evaluation_period, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Evaluation Period', new_evaluation_period_path %>

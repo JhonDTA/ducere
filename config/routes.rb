@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :evaluation_periods
   resources :turns
   resources :modalities
   resources :academic_cycles
