@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :relationships
   resources :attendance_types
   resources :groups
   resources :evaluation_periods
