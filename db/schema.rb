@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_11_033958) do
+ActiveRecord::Schema.define(version: 2020_07_24_181816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,11 +25,21 @@ ActiveRecord::Schema.define(version: 2020_07_11_033958) do
   end
 
   create_table "institutions", force: :cascade do |t|
-    t.string "name", null: false
-    t.bigint "country_id", null: false
+    t.string "code", limit: 16
+    t.string "name", limit: 255
+    t.text "description"
+    t.bigint "status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["country_id"], name: "index_institutions_on_country_id"
+    t.index ["status_id"], name: "index_institutions_on_status_id"
+  end
+
+  create_table "statuses", force: :cascade do |t|
+    t.string "code", limit: 16
+    t.string "name", limit: 255
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -63,5 +73,5 @@ ActiveRecord::Schema.define(version: 2020_07_11_033958) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
-  add_foreign_key "institutions", "countries"
+  add_foreign_key "institutions", "statuses"
 end
