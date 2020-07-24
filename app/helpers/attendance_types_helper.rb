@@ -1,0 +1,2 @@
+module AttendanceTypesHelper
+end

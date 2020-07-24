@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Attendance Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @attendance_types.each do |attendance_type| %>
+      <tr>
+        <td><%= attendance_type.code %></td>
+        <td><%= attendance_type.name %></td>
+        <td><%= attendance_type.description %></td>
+        <td><%= attendance_type.status_id %></td>
+        <td><%= link_to 'Show', attendance_type %></td>
+        <td><%= link_to 'Edit', edit_attendance_type_path(attendance_type) %></td>
+        <td><%= link_to 'Destroy', attendance_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Attendance Type', new_attendance_type_path %>
