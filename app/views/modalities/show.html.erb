@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @modality.code %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @modality.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @modality.description %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @modality.status_id %>
+</p>
+
+<%= link_to 'Edit', edit_modality_path(@modality) %> |
+<%= link_to 'Back', modalities_path %>

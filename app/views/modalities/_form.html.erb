@@ -1,0 +1,37 @@
+<%= form_with(model: modality, local: true) do |form| %>
+  <% if modality.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(modality.errors.count, "error") %> prohibited this modality from being saved:</h2>
+
+      <ul>
+        <% modality.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :code %>
+    <%= form.text_field :code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status_id %>
+    <%= form.text_field :status_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
