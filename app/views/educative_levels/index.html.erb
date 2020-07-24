@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Educative Levels</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @educative_levels.each do |educative_level| %>
+      <tr>
+        <td><%= educative_level.code %></td>
+        <td><%= educative_level.name %></td>
+        <td><%= educative_level.description %></td>
+        <td><%= educative_level.status_id %></td>
+        <td><%= link_to 'Show', educative_level %></td>
+        <td><%= link_to 'Edit', edit_educative_level_path(educative_level) %></td>
+        <td><%= link_to 'Destroy', educative_level, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Educative Level', new_educative_level_path %>

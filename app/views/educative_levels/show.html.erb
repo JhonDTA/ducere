@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @educative_level.code %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @educative_level.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @educative_level.description %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @educative_level.status_id %>
+</p>
+
+<%= link_to 'Edit', edit_educative_level_path(@educative_level) %> |
+<%= link_to 'Back', educative_levels_path %>
