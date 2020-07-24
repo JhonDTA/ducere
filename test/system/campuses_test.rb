@@ -16,6 +16,7 @@ class CampusesTest < ApplicationSystemTestCase
 
     fill_in "Code", with: @campus.code
     fill_in "Description", with: @campus.description
+    fill_in "Institution", with: @campus.institution_id
     fill_in "Name", with: @campus.name
     fill_in "Status", with: @campus.status_id
     click_on "Create Campus"
@@ -30,6 +31,7 @@ class CampusesTest < ApplicationSystemTestCase
 
     fill_in "Code", with: @campus.code
     fill_in "Description", with: @campus.description
+    fill_in "Institution", with: @campus.institution_id
     fill_in "Name", with: @campus.name
     fill_in "Status", with: @campus.status_id
     click_on "Update Campus"

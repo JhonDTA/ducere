@@ -69,6 +69,6 @@ class CampusesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def campus_params
-      params.require(:campus).permit(:code, :name, :description, :status_id)
+      params.require(:campus).permit(:code, :name, :description, :institution_id, :status_id)
     end
 end

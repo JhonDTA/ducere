@@ -17,7 +17,7 @@ class CampusesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create campus" do
     assert_difference('Campus.count') do
-      post campuses_url, params: { campus: { code: @campus.code, description: @campus.description, name: @campus.name, status_id: @campus.status_id } }
+      post campuses_url, params: { campus: { code: @campus.code, description: @campus.description, institution_id: @campus.institution_id, name: @campus.name, status_id: @campus.status_id } }
     end
 
     assert_redirected_to campus_url(Campus.last)
@@ -34,7 +34,7 @@ class CampusesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update campus" do
-    patch campus_url(@campus), params: { campus: { code: @campus.code, description: @campus.description, name: @campus.name, status_id: @campus.status_id } }
+    patch campus_url(@campus), params: { campus: { code: @campus.code, description: @campus.description, institution_id: @campus.institution_id, name: @campus.name, status_id: @campus.status_id } }
     assert_redirected_to campus_url(@campus)
   end
 

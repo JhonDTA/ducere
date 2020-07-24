@@ -4,10 +4,12 @@ one:
   code: MyString
   name: MyString
   description: MyText
+  institution: one
   status: one
 
 two:
   code: MyString
   name: MyString
   description: MyText
+  institution: two
   status: two
