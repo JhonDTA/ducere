@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @syllabus.code %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @syllabus.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @syllabus.description %>
+</p>
+
+<p>
+  <strong>Approval credits:</strong>
+  <%= @syllabus.approval_credits %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @syllabus.status_id %>
+</p>
+
+<%= link_to 'Edit', edit_syllabus_path(@syllabus) %> |
+<%= link_to 'Back', syllabuses_path %>
