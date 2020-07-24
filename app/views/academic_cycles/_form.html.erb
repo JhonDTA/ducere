@@ -1,0 +1,52 @@
+<%= form_with(model: academic_cycle, local: true) do |form| %>
+  <% if academic_cycle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(academic_cycle.errors.count, "error") %> prohibited this academic_cycle from being saved:</h2>
+
+      <ul>
+        <% academic_cycle.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :code %>
+    <%= form.text_field :code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cycle_type_id %>
+    <%= form.text_field :cycle_type_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status_id %>
+    <%= form.text_field :status_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start %>
+    <%= form.date_select :start %>
+  </div>
+
+  <div class="field">
+    <%= form.label :finish %>
+    <%= form.date_select :finish %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

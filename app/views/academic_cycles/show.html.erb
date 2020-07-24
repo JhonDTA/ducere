@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @academic_cycle.code %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @academic_cycle.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @academic_cycle.description %>
+</p>
+
+<p>
+  <strong>Cycle type:</strong>
+  <%= @academic_cycle.cycle_type_id %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @academic_cycle.status_id %>
+</p>
+
+<p>
+  <strong>Start:</strong>
+  <%= @academic_cycle.start %>
+</p>
+
+<p>
+  <strong>Finish:</strong>
+  <%= @academic_cycle.finish %>
+</p>
+
+<%= link_to 'Edit', edit_academic_cycle_path(@academic_cycle) %> |
+<%= link_to 'Back', academic_cycles_path %>
