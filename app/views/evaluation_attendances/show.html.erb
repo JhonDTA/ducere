@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @evaluation_attendance.student_id %>
+</p>
+
+<p>
+  <strong>Course evaluation:</strong>
+  <%= @evaluation_attendance.course_evaluation_id %>
+</p>
+
+<p>
+  <strong>Attendance type:</strong>
+  <%= @evaluation_attendance.attendance_type_id %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @evaluation_attendance.date %>
+</p>
+
+<%= link_to 'Edit', edit_evaluation_attendance_path(@evaluation_attendance) %> |
+<%= link_to 'Back', evaluation_attendances_path %>

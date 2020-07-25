@@ -1,0 +1,2 @@
+module EvaluationAttendancesHelper
+end
