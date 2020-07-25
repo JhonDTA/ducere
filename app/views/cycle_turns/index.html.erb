@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cycle Turns</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cycle modality</th>
+      <th>Turn</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cycle_turns.each do |cycle_turn| %>
+      <tr>
+        <td><%= cycle_turn.cycle_modality_id %></td>
+        <td><%= cycle_turn.turn_id %></td>
+        <td><%= link_to 'Show', cycle_turn %></td>
+        <td><%= link_to 'Edit', edit_cycle_turn_path(cycle_turn) %></td>
+        <td><%= link_to 'Destroy', cycle_turn, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cycle Turn', new_cycle_turn_path %>
