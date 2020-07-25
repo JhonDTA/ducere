@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Campus:</strong>
+  <%= @campus_evaluation.campus_id %>
+</p>
+
+<p>
+  <strong>Turn evaluation:</strong>
+  <%= @campus_evaluation.turn_evaluation_id %>
+</p>
+
+<%= link_to 'Edit', edit_campus_evaluation_path(@campus_evaluation) %> |
+<%= link_to 'Back', campus_evaluations_path %>
