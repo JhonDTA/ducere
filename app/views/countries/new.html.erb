@@ -1,7 +1,9 @@
 <% provide(:title, t('new_object', resource: t('activerecord.models.country'))) %>
 
-<h1><%= t('new_object', resource: t('activerecord.models.country')) %></h1>
+<div class="col col-md-6 offset-md-3">
+  <h1><%= t('new_object', resource: t('activerecord.models.country')) %></h1>
 
-<%= render 'form', country: @country %>
+  <%= render 'form', country: @country %>
 
-<%= link_to t('back'), countries_path %>
+  <%= link_to t('back'), countries_path %>
+</div>
