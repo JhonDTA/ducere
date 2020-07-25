@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :tutors
   resources :parents
   resources :students
   resources :course_evaluations
