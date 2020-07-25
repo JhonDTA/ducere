@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Course evaluation:</strong>
+  <%= @course_homework.course_evaluation_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @course_homework.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @course_homework.description %>
+</p>
+
+<%= link_to 'Edit', edit_course_homework_path(@course_homework) %> |
+<%= link_to 'Back', course_homeworks_path %>
