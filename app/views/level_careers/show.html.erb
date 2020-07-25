@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Educative level:</strong>
+  <%= @level_career.educative_level_id %>
+</p>
+
+<p>
+  <strong>Career:</strong>
+  <%= @level_career.career_id %>
+</p>
+
+<%= link_to 'Edit', edit_level_career_path(@level_career) %> |
+<%= link_to 'Back', level_careers_path %>
