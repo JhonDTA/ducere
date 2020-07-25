@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Course homework:</strong>
+  <%= @student_homework.course_homework_id %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @student_homework.student_id %>
+</p>
+
+<p>
+  <strong>Observations:</strong>
+  <%= @student_homework.observations %>
+</p>
+
+<%= link_to 'Edit', edit_student_homework_path(@student_homework) %> |
+<%= link_to 'Back', student_homeworks_path %>
