@@ -10,10 +10,78 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_24_181816) do
+ActiveRecord::Schema.define(version: 2020_07_24_202824) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "academic_cycles", force: :cascade do |t|
+    t.string "code", limit: 16
+    t.string "name", limit: 255
+    t.text "description"
+    t.bigint "cycle_type_id", null: false
+    t.bigint "status_id", null: false
+    t.date "start"
+    t.date "finish"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cycle_type_id"], name: "index_academic_cycles_on_cycle_type_id"
+    t.index ["status_id"], name: "index_academic_cycles_on_status_id"
+  end
+
+  create_table "attendance_types", force: :cascade do |t|
+    t.string "code", limit: 16
+    t.string "name", limit: 255
+    t.text "description"
+    t.bigint "status_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["status_id"], name: "index_attendance_types_on_status_id"
+  end
+
+  create_table "buildings", force: :cascade do |t|
+    t.string "code", limit: 16
+    t.text "description"
+    t.bigint "campus_id", null: false
+    t.bigint "status_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["campus_id"], name: "index_buildings_on_campus_id"
+    t.index ["status_id"], name: "index_buildings_on_status_id"
+  end
+
+  create_table "campuses", force: :cascade do |t|
+    t.string "code", limit: 16
+    t.string "name", limit: 255
+    t.text "description"
+    t.bigint "institution_id", null: false
+    t.bigint "status_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["institution_id"], name: "index_campuses_on_institution_id"
+    t.index ["status_id"], name: "index_campuses_on_status_id"
+  end
+
+  create_table "careers", force: :cascade do |t|
+    t.string "code", limit: 16
+    t.string "name", limit: 255
+    t.text "description"
+    t.bigint "status_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["status_id"], name: "index_careers_on_status_id"
+  end
+
+  create_table "classrooms", force: :cascade do |t|
+    t.string "code", limit: 16
+    t.text "description"
+    t.bigint "building_id", null: false
+    t.bigint "status_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["building_id"], name: "index_classrooms_on_building_id"
+    t.index ["status_id"], name: "index_classrooms_on_status_id"
+  end
 
   create_table "countries", force: :cascade do |t|
     t.string "name", null: false
@@ -22,6 +90,68 @@ ActiveRecord::Schema.define(version: 2020_07_24_181816) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["iso_code"], name: "index_countries_on_iso_code", unique: true
+  end
+
+  create_table "courses", force: :cascade do |t|
+    t.string "code", limit: 16
+    t.string "name", limit: 255
+    t.text "description"
+    t.integer "credits", limit: 2
+    t.bigint "status_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["status_id"], name: "index_courses_on_status_id"
+  end
+
+  create_table "cycle_types", force: :cascade do |t|
+    t.string "code", limit: 16
+    t.string "name", limit: 255
+    t.text "description"
+    t.integer "duration", limit: 2
+    t.bigint "status_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["status_id"], name: "index_cycle_types_on_status_id"
+  end
+
+  create_table "educative_levels", force: :cascade do |t|
+    t.string "code", limit: 16
+    t.string "name", limit: 255
+    t.text "description"
+    t.bigint "status_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["status_id"], name: "index_educative_levels_on_status_id"
+  end
+
+  create_table "evaluation_periods", force: :cascade do |t|
+    t.string "code", limit: 16
+    t.string "name", limit: 255
+    t.text "description"
+    t.bigint "status_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["status_id"], name: "index_evaluation_periods_on_status_id"
+  end
+
+  create_table "grades", force: :cascade do |t|
+    t.string "code", limit: 16
+    t.string "name", limit: 255
+    t.text "description"
+    t.bigint "status_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["status_id"], name: "index_grades_on_status_id"
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "code", limit: 16
+    t.string "name", limit: 255
+    t.text "description"
+    t.bigint "status_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["status_id"], name: "index_groups_on_status_id"
   end
 
   create_table "institutions", force: :cascade do |t|
@@ -34,12 +164,51 @@ ActiveRecord::Schema.define(version: 2020_07_24_181816) do
     t.index ["status_id"], name: "index_institutions_on_status_id"
   end
 
+  create_table "modalities", force: :cascade do |t|
+    t.string "code", limit: 16
+    t.string "name", limit: 255
+    t.text "description"
+    t.bigint "status_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["status_id"], name: "index_modalities_on_status_id"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.string "name", limit: 255
+    t.bigint "status_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["status_id"], name: "index_relationships_on_status_id"
+  end
+
   create_table "statuses", force: :cascade do |t|
     t.string "code", limit: 16
     t.string "name", limit: 255
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "syllabuses", force: :cascade do |t|
+    t.string "code", limit: 16
+    t.string "name", limit: 255
+    t.text "description"
+    t.integer "approval_credits", limit: 2
+    t.bigint "status_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["status_id"], name: "index_syllabuses_on_status_id"
+  end
+
+  create_table "turns", force: :cascade do |t|
+    t.string "code", limit: 16
+    t.string "name", limit: 255
+    t.text "description"
+    t.bigint "status_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["status_id"], name: "index_turns_on_status_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -73,5 +242,25 @@ ActiveRecord::Schema.define(version: 2020_07_24_181816) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "academic_cycles", "cycle_types"
+  add_foreign_key "academic_cycles", "statuses"
+  add_foreign_key "attendance_types", "statuses"
+  add_foreign_key "buildings", "campuses"
+  add_foreign_key "buildings", "statuses"
+  add_foreign_key "campuses", "institutions"
+  add_foreign_key "campuses", "statuses"
+  add_foreign_key "careers", "statuses"
+  add_foreign_key "classrooms", "buildings"
+  add_foreign_key "classrooms", "statuses"
+  add_foreign_key "courses", "statuses"
+  add_foreign_key "cycle_types", "statuses"
+  add_foreign_key "educative_levels", "statuses"
+  add_foreign_key "evaluation_periods", "statuses"
+  add_foreign_key "grades", "statuses"
+  add_foreign_key "groups", "statuses"
   add_foreign_key "institutions", "statuses"
+  add_foreign_key "modalities", "statuses"
+  add_foreign_key "relationships", "statuses"
+  add_foreign_key "syllabuses", "statuses"
+  add_foreign_key "turns", "statuses"
 end
