@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Grade course:</strong>
+  <%= @course_evaluation.grade_course_id %>
+</p>
+
+<p>
+  <strong>Campus evaluation:</strong>
+  <%= @course_evaluation.campus_evaluation_id %>
+</p>
+
+<p>
+  <strong>Professor:</strong>
+  <%= @course_evaluation.professor_id %>
+</p>
+
+<p>
+  <strong>Group:</strong>
+  <%= @course_evaluation.group_id %>
+</p>
+
+<%= link_to 'Edit', edit_course_evaluation_path(@course_evaluation) %> |
+<%= link_to 'Back', course_evaluations_path %>
