@@ -1,0 +1,2 @@
+module SyllabusGradesHelper
+end

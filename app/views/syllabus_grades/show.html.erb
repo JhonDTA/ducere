@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Career syllabus:</strong>
+  <%= @syllabus_grade.career_syllabus_id %>
+</p>
+
+<p>
+  <strong>Grade:</strong>
+  <%= @syllabus_grade.grade_id %>
+</p>
+
+<%= link_to 'Edit', edit_syllabus_grade_path(@syllabus_grade) %> |
+<%= link_to 'Back', syllabus_grades_path %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Syllabus Grades</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Career syllabus</th>
+      <th>Grade</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @syllabus_grades.each do |syllabus_grade| %>
+      <tr>
+        <td><%= syllabus_grade.career_syllabus_id %></td>
+        <td><%= syllabus_grade.grade_id %></td>
+        <td><%= link_to 'Show', syllabus_grade %></td>
+        <td><%= link_to 'Edit', edit_syllabus_grade_path(syllabus_grade) %></td>
+        <td><%= link_to 'Destroy', syllabus_grade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Syllabus Grade', new_syllabus_grade_path %>

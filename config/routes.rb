@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :syllabus_grades
   resources :career_syllabuses
   resources :level_careers
   root 'static_pages#home'
