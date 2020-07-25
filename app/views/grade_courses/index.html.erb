@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Grade Courses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Syllabus grade</th>
+      <th>Course</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @grade_courses.each do |grade_course| %>
+      <tr>
+        <td><%= grade_course.syllabus_grade_id %></td>
+        <td><%= grade_course.course_id %></td>
+        <td><%= link_to 'Show', grade_course %></td>
+        <td><%= link_to 'Edit', edit_grade_course_path(grade_course) %></td>
+        <td><%= link_to 'Destroy', grade_course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Grade Course', new_grade_course_path %>

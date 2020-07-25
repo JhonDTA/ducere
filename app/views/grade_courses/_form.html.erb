@@ -1,0 +1,27 @@
+<%= form_with(model: grade_course, local: true) do |form| %>
+  <% if grade_course.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(grade_course.errors.count, "error") %> prohibited this grade_course from being saved:</h2>
+
+      <ul>
+        <% grade_course.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :syllabus_grade_id %>
+    <%= form.text_field :syllabus_grade_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :course_id %>
+    <%= form.text_field :course_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
