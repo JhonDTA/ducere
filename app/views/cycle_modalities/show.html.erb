@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Academic cycle:</strong>
+  <%= @cycle_modality.academic_cycle_id %>
+</p>
+
+<p>
+  <strong>Modality:</strong>
+  <%= @cycle_modality.modality_id %>
+</p>
+
+<%= link_to 'Edit', edit_cycle_modality_path(@cycle_modality) %> |
+<%= link_to 'Back', cycle_modalities_path %>

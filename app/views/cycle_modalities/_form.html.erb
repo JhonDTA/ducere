@@ -1,0 +1,27 @@
+<%= form_with(model: cycle_modality, local: true) do |form| %>
+  <% if cycle_modality.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cycle_modality.errors.count, "error") %> prohibited this cycle_modality from being saved:</h2>
+
+      <ul>
+        <% cycle_modality.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :academic_cycle_id %>
+    <%= form.text_field :academic_cycle_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :modality_id %>
+    <%= form.text_field :modality_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :cycle_modalities
   resources :grade_courses
   resources :syllabus_grades
   resources :career_syllabuses
