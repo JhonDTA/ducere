@@ -16,8 +16,13 @@
 </p>
 
 <p>
+  <strong>Country:</strong>
+  <%= @institution.country.name %>
+</p>
+
+<p>
   <strong>Status:</strong>
-  <%= @institution.status_id %>
+  <%= @institution.status.name %>
 </p>
 
 <%= link_to 'Edit', edit_institution_path(@institution) %> |

@@ -8,6 +8,7 @@
       <th>Code</th>
       <th>Name</th>
       <th>Description</th>
+      <th>Country</th>
       <th>Status</th>
       <th colspan="3"></th>
     </tr>
@@ -19,7 +20,8 @@
         <td><%= institution.code %></td>
         <td><%= institution.name %></td>
         <td><%= institution.description %></td>
-        <td><%= institution.status_id %></td>
+        <td><%= institution.country.name %></td>
+        <td><%= institution.status.name %></td>
         <td><%= link_to 'Show', institution %></td>
         <td><%= link_to 'Edit', edit_institution_path(institution) %></td>
         <td><%= link_to 'Destroy', institution, method: :delete, data: { confirm: 'Are you sure?' } %></td>
