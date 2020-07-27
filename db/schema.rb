@@ -267,9 +267,11 @@ ActiveRecord::Schema.define(version: 2020_07_25_061029) do
     t.string "code", limit: 16
     t.string "name", limit: 255
     t.text "description"
+    t.bigint "country_id", null: false
     t.bigint "status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["country_id"], name: "index_institutions_on_country_id"
     t.index ["status_id"], name: "index_institutions_on_status_id"
   end
 
@@ -470,6 +472,7 @@ ActiveRecord::Schema.define(version: 2020_07_25_061029) do
   add_foreign_key "grades", "statuses"
   add_foreign_key "groups", "statuses"
   add_foreign_key "homework_evaluations", "student_homeworks"
+  add_foreign_key "institutions", "countries"
   add_foreign_key "institutions", "statuses"
   add_foreign_key "level_careers", "careers"
   add_foreign_key "level_careers", "educative_levels"
