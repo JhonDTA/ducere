@@ -1,7 +1,8 @@
 <%= form_with(model: professor_course, local: true) do |form| %>
   <% if professor_course.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(professor_course.errors.count, "error") %> prohibited this professor_course from being saved:</h2>
+      <h2><%= pluralize(professor_course.errors.count, "error") %> prohibited
+        this professor_course from being saved:</h2>
 
       <ul>
         <% professor_course.errors.full_messages.each do |message| %>
@@ -13,12 +14,14 @@
 
   <div class="field">
     <%= form.label :professor_id %>
-    <%= form.text_field :professor_id, class: 'form-control' %>
+    <%= form.collection_select :professor_id, Professor.all, :id, :name,
+                               class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :course_id %>
-    <%= form.text_field :course_id, class: 'form-control' %>
+    <%= form.collection_select :course_id, Course.all, :id, :name,
+                               class: 'form-control' %>
   </div>
 
   <div class="actions">

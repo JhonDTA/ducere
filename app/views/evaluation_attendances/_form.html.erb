@@ -1,7 +1,8 @@
 <%= form_with(model: evaluation_attendance, local: true) do |form| %>
   <% if evaluation_attendance.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(evaluation_attendance.errors.count, "error") %> prohibited this evaluation_attendance from being saved:</h2>
+      <h2><%= pluralize(evaluation_attendance.errors.count, "error") %>
+        prohibited this evaluation_attendance from being saved:</h2>
 
       <ul>
         <% evaluation_attendance.errors.full_messages.each do |message| %>
@@ -13,17 +14,20 @@
 
   <div class="field">
     <%= form.label :student_id %>
-    <%= form.text_field :student_id, class: 'form-control' %>
+    <%= form.collection_select :student_id, Student.all, :id, :name,
+                               class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :course_evaluation_id %>
-    <%= form.text_field :course_evaluation_id, class: 'form-control' %>
+    <%= form.collection_select :course_evaluation_id, CourseEvaluation.all, :id, :name,
+                               class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :attendance_type_id %>
-    <%= form.text_field :attendance_type_id, class: 'form-control' %>
+    <%= form.collection_select :attendance_type_id, AttendanceType.all, :id, :name,
+                               class: 'form-control' %>
   </div>
 
   <div class="field">

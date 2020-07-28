@@ -29,12 +29,14 @@
 
   <div class="field">
     <%= form.label :country_id %>
-    <%= form.text_field :country_id, class: 'form-control' %>
+    <%= form.collection_select :country_id, Country.all, :id, :name,
+                               class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :status_id %>
-    <%= form.text_field :status_id, class: 'form-control' %>
+    <%= form.collection_select :status_id, Status.all, :id, :name,
+                               class: 'form-control' %>
   </div>
 
   <div class="actions">

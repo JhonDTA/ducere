@@ -1,7 +1,8 @@
 <%= form_with(model: syllabus_grade, local: true) do |form| %>
   <% if syllabus_grade.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(syllabus_grade.errors.count, "error") %> prohibited this syllabus_grade from being saved:</h2>
+      <h2><%= pluralize(syllabus_grade.errors.count, "error") %> prohibited this
+        syllabus_grade from being saved:</h2>
 
       <ul>
         <% syllabus_grade.errors.full_messages.each do |message| %>
@@ -13,12 +14,14 @@
 
   <div class="field">
     <%= form.label :career_syllabus_id %>
-    <%= form.text_field :career_syllabus_id, class: 'form-control' %>
+    <%= form.collection_select :career_syllabus_id, CareerSyllabus.all, :id, :name,
+                               class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :grade_id %>
-    <%= form.text_field :grade_id, class: 'form-control' %>
+    <%= form.collection_select :grade_id, Grade.all, :id, :name,
+                               class: 'form-control' %>
   </div>
 
   <div class="actions">

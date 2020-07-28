@@ -18,6 +18,11 @@
         <%= icon('fas', 'book') %><%= t('catalogs') %></a>
       <ul class="collapse list-unstyled" id="institutionSubmenu">
         <li>
+          <%= link_to statuses_path do %>
+            <%= icon('fas', 'school') %><%= t('statuses') %>
+          <% end %>
+        </li>
+        <li>
           <%= link_to countries_path do %>
             <%= icon('fas', 'globe') %><%= t('countries') %>
           <% end %>

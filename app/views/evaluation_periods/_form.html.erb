@@ -1,7 +1,8 @@
 <%= form_with(model: evaluation_period, local: true) do |form| %>
   <% if evaluation_period.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(evaluation_period.errors.count, "error") %> prohibited this evaluation_period from being saved:</h2>
+      <h2><%= pluralize(evaluation_period.errors.count, "error") %> prohibited
+        this evaluation_period from being saved:</h2>
 
       <ul>
         <% evaluation_period.errors.full_messages.each do |message| %>
@@ -28,7 +29,8 @@
 
   <div class="field">
     <%= form.label :status_id %>
-    <%= form.text_field :status_id %>
+    <%= form.collection_select :status_id, Status.all, :id, :name,
+                               class: 'form-control' %>
   </div>
 
   <div class="actions">

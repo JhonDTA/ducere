@@ -1,7 +1,8 @@
 <%= form_with(model: cycle_type, local: true) do |form| %>
   <% if cycle_type.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(cycle_type.errors.count, "error") %> prohibited this cycle_type from being saved:</h2>
+      <h2><%= pluralize(cycle_type.errors.count, "error") %> prohibited this
+        cycle_type from being saved:</h2>
 
       <ul>
         <% cycle_type.errors.full_messages.each do |message| %>
@@ -33,7 +34,8 @@
 
   <div class="field">
     <%= form.label :status_id %>
-    <%= form.text_field :status_id, class: 'form-control' %>
+    <%= form.collection_select :status_id, Status.all, :id, :name,
+                               class: 'form-control' %>
   </div>
 
   <div class="actions">

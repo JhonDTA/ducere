@@ -1,7 +1,8 @@
 <%= form_with(model: tutor, local: true) do |form| %>
   <% if tutor.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(tutor.errors.count, "error") %> prohibited this tutor from being saved:</h2>
+      <h2><%= pluralize(tutor.errors.count, "error") %> prohibited this tutor
+        from being saved:</h2>
 
       <ul>
         <% tutor.errors.full_messages.each do |message| %>
@@ -13,17 +14,20 @@
 
   <div class="field">
     <%= form.label :student_id %>
-    <%= form.text_field :student_id, class: 'form-control' %>
+    <%= form.collection_select :student_id, Student.all, :id, :name,
+                               class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :parent_id %>
-    <%= form.text_field :parent_id, class: 'form-control' %>
+    <%= form.collection_select :parent_id, Parent.all, :id, :name,
+                               class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :relationship_id %>
-    <%= form.text_field :relationship_id, class: 'form-control' %>
+    <%= form.collection_select :relationship_id, Relationship.all, :id, :name,
+                               class: 'form-control' %>
   </div>
 
   <div class="actions">
