@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_25_061029) do
+ActiveRecord::Schema.define(version: 2020_07_28_041418) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -301,6 +301,15 @@ ActiveRecord::Schema.define(version: 2020_07_25_061029) do
     t.index ["user_id"], name: "index_parents_on_user_id"
   end
 
+  create_table "professor_courses", force: :cascade do |t|
+    t.bigint "professor_id", null: false
+    t.bigint "course_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id"], name: "index_professor_courses_on_course_id"
+    t.index ["professor_id"], name: "index_professor_courses_on_professor_id"
+  end
+
   create_table "professors", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "enrollment", limit: 32
@@ -478,6 +487,8 @@ ActiveRecord::Schema.define(version: 2020_07_25_061029) do
   add_foreign_key "level_careers", "educative_levels"
   add_foreign_key "modalities", "statuses"
   add_foreign_key "parents", "users"
+  add_foreign_key "professor_courses", "courses"
+  add_foreign_key "professor_courses", "professors"
   add_foreign_key "professors", "users"
   add_foreign_key "relationships", "statuses"
   add_foreign_key "student_courses", "course_evaluations"
