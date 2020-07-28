@@ -305,8 +305,8 @@ es-MX:
     pm: pm
 
   will_paginate:
-    previous_label: "&#8592; Ant"
-    next_label: "Sig &#8594;"
+    previous_label: "&#8592;"
+    next_label: "&#8594;"
     page_gap: "&hellip;"
 
   app_name: "Ducere"

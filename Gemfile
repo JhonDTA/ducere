@@ -37,10 +37,16 @@ gem 'http_accept_language'
 gem 'devise'
 # Use Font Awesome for icons
 gem 'font-awesome-sass', '~> 5.13.0'
+# Use will_paginate for pagination
+gem 'will_paginate'
+# Style for pagination
+gem 'bootstrap-will_paginate'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  # Use Faker for creating sample data
+  gem 'faker'
 end
 
 group :development do
