@@ -13,10 +13,10 @@
       </ul>
     </li>
     <li>
-      <a href="#pageSubmenu" data-toggle="collapse"
+      <a href="#institutionSubmenu" data-toggle="collapse"
          aria-expanded="false" class="dropdown-toggle">
         <%= icon('fas', 'book') %><%= t('catalogs') %></a>
-      <ul class="collapse list-unstyled" id="pageSubmenu">
+      <ul class="collapse list-unstyled" id="institutionSubmenu">
         <li>
           <%= link_to countries_path do %>
             <%= icon('fas', 'globe') %><%= t('countries') %>
@@ -25,6 +25,191 @@
         <li>
           <%= link_to institutions_path do %>
             <%= icon('fas', 'school') %><%= t('institutions') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to campuses_path do %>
+            <%= icon('fas', 'school') %><%= t('campuses') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to buildings_path do %>
+            <%= icon('fas', 'school') %><%= t('buildings') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to classrooms_path do %>
+            <%= icon('fas', 'school') %><%= t('classrooms') %>
+          <% end %>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="#educativeLevelSubmenu" data-toggle="collapse"
+         aria-expanded="false" class="dropdown-toggle">
+        <%= icon('fas', 'book') %><%= t('educative_levels') %></a>
+      <ul class="collapse list-unstyled" id="educativeLevelSubmenu">
+        <li>
+          <%= link_to educative_levels_path do %>
+            <%= icon('fas', 'school') %><%= t('educative_levels') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to careers_path do %>
+            <%= icon('fas', 'school') %><%= t('careers') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to syllabuses_path do %>
+            <%= icon('fas', 'school') %><%= t('syllabuses') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to grades_path do %>
+            <%= icon('fas', 'school') %><%= t('grades') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to courses_path do %>
+            <%= icon('fas', 'school') %><%= t('courses') %>
+          <% end %>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="#groupSubmenu" data-toggle="collapse"
+         aria-expanded="false" class="dropdown-toggle">
+        <%= icon('fas', 'book') %><%= t('groups') %></a>
+      <ul class="collapse list-unstyled" id="groupSubmenu">
+        <li>
+          <%= link_to cycle_modalities_path do %>
+            <%= icon('fas', 'school') %><%= t('cycle_modalities') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to cycle_turns_path do %>
+            <%= icon('fas', 'school') %><%= t('cycle_turns') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to turn_evaluations_path do %>
+            <%= icon('fas', 'school') %><%= t('turn_evaluations') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to campus_evaluations_url do %>
+            <%= icon('fas', 'school') %><%= t('campus_evaluations') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to groups_path do %>
+            <%= icon('fas', 'school') %><%= t('groups') %>
+          <% end %>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="#gradeCourseSubmenu" data-toggle="collapse"
+         aria-expanded="false" class="dropdown-toggle">
+        <%= icon('fas', 'book') %><%= t('grade_courses') %></a>
+      <ul class="collapse list-unstyled" id="gradeCourseSubmenu">
+        <li>
+          <%= link_to level_careers_path do %>
+            <%= icon('fas', 'school') %><%= t('level_careers') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to career_syllabuses_path do %>
+            <%= icon('fas', 'school') %><%= t('career_syllabuses') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to syllabus_grades_path do %>
+            <%= icon('fas', 'school') %><%= t('syllabus_grades') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to grade_courses_path do %>
+            <%= icon('fas', 'school') %><%= t('grade_courses') %>
+          <% end %>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="#userSubmenu" data-toggle="collapse"
+         aria-expanded="false" class="dropdown-toggle">
+        <%= icon('fas', 'book') %><%= t('users') %></a>
+      <ul class="collapse list-unstyled" id="userSubmenu">
+        <li>
+          <%= link_to students_path do %>
+            <%= icon('fas', 'school') %><%= t('students') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to professors_path do %>
+            <%= icon('fas', 'school') %><%= t('professors') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to professor_courses do %>
+            <%= icon('fas', 'school') %><%= t('professors') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to parents_path do %>
+            <%= icon('fas', 'school') %><%= t('parents') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to relationships_path do %>
+            <%= icon('fas', 'school') %><%= t('relationships') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to tutors_path do %>
+            <%= icon('fas', 'school') %><%= t('tutors') %>
+          <% end %>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="#evaluationSubmenu" data-toggle="collapse"
+         aria-expanded="false" class="dropdown-toggle">
+        <%= icon('fas', 'book') %><%= t('course_evaluations') %></a>
+      <ul class="collapse list-unstyled" id="evaluationSubmenu">
+        <li>
+          <%= link_to course_evaluations_path do %>
+            <%= icon('fas', 'school') %><%= t('course_evaluations') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to student_courses_path do %>
+            <%= icon('fas', 'school') %><%= t('student_courses') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to course_homeworks_path do %>
+            <%= icon('fas', 'school') %><%= t('course_homeworks') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to student_homeworks_path do %>
+            <%= icon('fas', 'school') %><%= t('student_homeworks') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to homework_evaluations_path do %>
+            <%= icon('fas', 'school') %><%= t('homework_evaluations') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to attendance_types_path do %>
+            <%= icon('fas', 'school') %><%= t('attendance_types') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to evaluation_attendances_path do %>
+            <%= icon('fas', 'school') %><%= t('evaluation_attendances') %>
           <% end %>
         </li>
       </ul>
