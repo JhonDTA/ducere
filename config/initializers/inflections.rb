@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Be sure to restart your server when you modify this file.
 
 # Add new inflection rules using the following format. Inflections
@@ -9,8 +10,8 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
   # inflect.singular /^(ox)en/i, '\1'
   # inflect.irregular 'person', 'people'
   # inflect.uncountable %w( fish sheep )
-  inflect.singular /^(campus)(es)?$/i, '\1'
-  inflect.plural /^(campus)$/i, '\1es'
+  inflect.singular(/^(campus)(es)?$/i, '\1')
+  inflect.plural(/^(campus)$/i, '\1es')
 end
 
 # These inflection rules are supported but not enabled by default:

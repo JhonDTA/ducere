@@ -1,1 +1,1 @@
-json.array! @syllabuses, partial: "syllabuses/syllabus", as: :syllabus
+json.array! @syllabuses, partial: 'syllabuses/syllabus', as: :syllabus

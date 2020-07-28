@@ -1,1 +1,1 @@
-json.partial! "turns/turn", turn: @turn
+json.partial! 'turns/turn', turn: @turn

@@ -1,5 +1,5 @@
 class EvaluationAttendancesController < ApplicationController
-  before_action :set_evaluation_attendance, only: [:show, :edit, :update, :destroy]
+  before_action :set_evaluation_attendance, only: %i[show edit update destroy]
 
   # GET /evaluation_attendances
   # GET /evaluation_attendances.json
@@ -9,8 +9,7 @@ class EvaluationAttendancesController < ApplicationController
 
   # GET /evaluation_attendances/1
   # GET /evaluation_attendances/1.json
-  def show
-  end
+  def show; end
 
   # GET /evaluation_attendances/new
   def new
@@ -18,8 +17,7 @@ class EvaluationAttendancesController < ApplicationController
   end
 
   # GET /evaluation_attendances/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /evaluation_attendances
   # POST /evaluation_attendances.json
@@ -62,13 +60,14 @@ class EvaluationAttendancesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_evaluation_attendance
-      @evaluation_attendance = EvaluationAttendance.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def evaluation_attendance_params
-      params.require(:evaluation_attendance).permit(:student_id, :course_evaluation_id, :attendance_type_id, :date)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_evaluation_attendance
+    @evaluation_attendance = EvaluationAttendance.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def evaluation_attendance_params
+    params.require(:evaluation_attendance).permit(:student_id, :course_evaluation_id, :attendance_type_id, :date)
+  end
 end

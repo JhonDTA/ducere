@@ -1,5 +1,5 @@
 class RelationshipsController < ApplicationController
-  before_action :set_relationship, only: [:show, :edit, :update, :destroy]
+  before_action :set_relationship, only: %i[show edit update destroy]
 
   # GET /relationships
   # GET /relationships.json
@@ -9,8 +9,7 @@ class RelationshipsController < ApplicationController
 
   # GET /relationships/1
   # GET /relationships/1.json
-  def show
-  end
+  def show; end
 
   # GET /relationships/new
   def new
@@ -18,8 +17,7 @@ class RelationshipsController < ApplicationController
   end
 
   # GET /relationships/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /relationships
   # POST /relationships.json
@@ -62,13 +60,14 @@ class RelationshipsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_relationship
-      @relationship = Relationship.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def relationship_params
-      params.require(:relationship).permit(:name, :status_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_relationship
+    @relationship = Relationship.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def relationship_params
+    params.require(:relationship).permit(:name, :status_id)
+  end
 end

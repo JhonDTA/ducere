@@ -1,1 +1,1 @@
-json.partial! "buildings/building", building: @building
+json.partial! 'buildings/building', building: @building

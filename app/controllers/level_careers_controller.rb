@@ -1,5 +1,5 @@
 class LevelCareersController < ApplicationController
-  before_action :set_level_career, only: [:show, :edit, :update, :destroy]
+  before_action :set_level_career, only: %i[show edit update destroy]
 
   # GET /level_careers
   # GET /level_careers.json
@@ -9,8 +9,7 @@ class LevelCareersController < ApplicationController
 
   # GET /level_careers/1
   # GET /level_careers/1.json
-  def show
-  end
+  def show; end
 
   # GET /level_careers/new
   def new
@@ -18,8 +17,7 @@ class LevelCareersController < ApplicationController
   end
 
   # GET /level_careers/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /level_careers
   # POST /level_careers.json
@@ -62,13 +60,14 @@ class LevelCareersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_level_career
-      @level_career = LevelCareer.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def level_career_params
-      params.require(:level_career).permit(:educative_level_id, :career_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_level_career
+    @level_career = LevelCareer.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def level_career_params
+    params.require(:level_career).permit(:educative_level_id, :career_id)
+  end
 end

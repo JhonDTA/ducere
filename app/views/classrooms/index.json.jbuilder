@@ -1,1 +1,1 @@
-json.array! @classrooms, partial: "classrooms/classroom", as: :classroom
+json.array! @classrooms, partial: 'classrooms/classroom', as: :classroom

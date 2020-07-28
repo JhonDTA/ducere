@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_course, only: %i[show edit update destroy]
 
   # GET /courses
   # GET /courses.json
@@ -9,8 +9,7 @@ class CoursesController < ApplicationController
 
   # GET /courses/1
   # GET /courses/1.json
-  def show
-  end
+  def show; end
 
   # GET /courses/new
   def new
@@ -18,8 +17,7 @@ class CoursesController < ApplicationController
   end
 
   # GET /courses/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /courses
   # POST /courses.json
@@ -62,13 +60,14 @@ class CoursesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_course
-      @course = Course.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def course_params
-      params.require(:course).permit(:code, :name, :description, :credits, :status_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_course
+    @course = Course.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def course_params
+    params.require(:course).permit(:code, :name, :description, :credits, :status_id)
+  end
 end

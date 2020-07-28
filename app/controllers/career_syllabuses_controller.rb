@@ -1,5 +1,5 @@
 class CareerSyllabusesController < ApplicationController
-  before_action :set_career_syllabus, only: [:show, :edit, :update, :destroy]
+  before_action :set_career_syllabus, only: %i[show edit update destroy]
 
   # GET /career_syllabuses
   # GET /career_syllabuses.json
@@ -9,8 +9,7 @@ class CareerSyllabusesController < ApplicationController
 
   # GET /career_syllabuses/1
   # GET /career_syllabuses/1.json
-  def show
-  end
+  def show; end
 
   # GET /career_syllabuses/new
   def new
@@ -18,8 +17,7 @@ class CareerSyllabusesController < ApplicationController
   end
 
   # GET /career_syllabuses/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /career_syllabuses
   # POST /career_syllabuses.json
@@ -62,13 +60,14 @@ class CareerSyllabusesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_career_syllabus
-      @career_syllabus = CareerSyllabus.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def career_syllabus_params
-      params.require(:career_syllabus).permit(:level_career_id, :syllabus_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_career_syllabus
+    @career_syllabus = CareerSyllabus.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def career_syllabus_params
+    params.require(:career_syllabus).permit(:level_career_id, :syllabus_id)
+  end
 end

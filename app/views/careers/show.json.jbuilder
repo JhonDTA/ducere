@@ -1,1 +1,1 @@
-json.partial! "careers/career", career: @career
+json.partial! 'careers/career', career: @career

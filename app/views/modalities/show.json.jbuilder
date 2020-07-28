@@ -1,1 +1,1 @@
-json.partial! "modalities/modality", modality: @modality
+json.partial! 'modalities/modality', modality: @modality

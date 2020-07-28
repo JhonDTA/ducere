@@ -5,17 +5,17 @@ class TurnsControllerTest < ActionDispatch::IntegrationTest
     @turn = turns(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get turns_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_turn_url
     assert_response :success
   end
 
-  test "should create turn" do
+  test 'should create turn' do
     assert_difference('Turn.count') do
       post turns_url, params: { turn: { code: @turn.code, description: @turn.description, name: @turn.name, status_id: @turn.status_id } }
     end
@@ -23,22 +23,22 @@ class TurnsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to turn_url(Turn.last)
   end
 
-  test "should show turn" do
+  test 'should show turn' do
     get turn_url(@turn)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_turn_url(@turn)
     assert_response :success
   end
 
-  test "should update turn" do
+  test 'should update turn' do
     patch turn_url(@turn), params: { turn: { code: @turn.code, description: @turn.description, name: @turn.name, status_id: @turn.status_id } }
     assert_redirected_to turn_url(@turn)
   end
 
-  test "should destroy turn" do
+  test 'should destroy turn' do
     assert_difference('Turn.count', -1) do
       delete turn_url(@turn)
     end

@@ -1,5 +1,5 @@
 class SyllabusesController < ApplicationController
-  before_action :set_syllabus, only: [:show, :edit, :update, :destroy]
+  before_action :set_syllabus, only: %i[show edit update destroy]
 
   # GET /syllabuses
   # GET /syllabuses.json
@@ -9,8 +9,7 @@ class SyllabusesController < ApplicationController
 
   # GET /syllabuses/1
   # GET /syllabuses/1.json
-  def show
-  end
+  def show; end
 
   # GET /syllabuses/new
   def new
@@ -18,8 +17,7 @@ class SyllabusesController < ApplicationController
   end
 
   # GET /syllabuses/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /syllabuses
   # POST /syllabuses.json
@@ -62,13 +60,14 @@ class SyllabusesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_syllabus
-      @syllabus = Syllabus.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def syllabus_params
-      params.require(:syllabus).permit(:code, :name, :description, :approval_credits, :status_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_syllabus
+    @syllabus = Syllabus.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def syllabus_params
+    params.require(:syllabus).permit(:code, :name, :description, :approval_credits, :status_id)
+  end
 end

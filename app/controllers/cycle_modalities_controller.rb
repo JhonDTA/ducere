@@ -1,5 +1,5 @@
 class CycleModalitiesController < ApplicationController
-  before_action :set_cycle_modality, only: [:show, :edit, :update, :destroy]
+  before_action :set_cycle_modality, only: %i[show edit update destroy]
 
   # GET /cycle_modalities
   # GET /cycle_modalities.json
@@ -9,8 +9,7 @@ class CycleModalitiesController < ApplicationController
 
   # GET /cycle_modalities/1
   # GET /cycle_modalities/1.json
-  def show
-  end
+  def show; end
 
   # GET /cycle_modalities/new
   def new
@@ -18,8 +17,7 @@ class CycleModalitiesController < ApplicationController
   end
 
   # GET /cycle_modalities/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /cycle_modalities
   # POST /cycle_modalities.json
@@ -62,13 +60,14 @@ class CycleModalitiesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_cycle_modality
-      @cycle_modality = CycleModality.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def cycle_modality_params
-      params.require(:cycle_modality).permit(:academic_cycle_id, :modality_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_cycle_modality
+    @cycle_modality = CycleModality.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def cycle_modality_params
+    params.require(:cycle_modality).permit(:academic_cycle_id, :modality_id)
+  end
 end

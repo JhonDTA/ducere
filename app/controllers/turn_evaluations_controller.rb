@@ -1,5 +1,5 @@
 class TurnEvaluationsController < ApplicationController
-  before_action :set_turn_evaluation, only: [:show, :edit, :update, :destroy]
+  before_action :set_turn_evaluation, only: %i[show edit update destroy]
 
   # GET /turn_evaluations
   # GET /turn_evaluations.json
@@ -9,8 +9,7 @@ class TurnEvaluationsController < ApplicationController
 
   # GET /turn_evaluations/1
   # GET /turn_evaluations/1.json
-  def show
-  end
+  def show; end
 
   # GET /turn_evaluations/new
   def new
@@ -18,8 +17,7 @@ class TurnEvaluationsController < ApplicationController
   end
 
   # GET /turn_evaluations/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /turn_evaluations
   # POST /turn_evaluations.json
@@ -62,13 +60,14 @@ class TurnEvaluationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_turn_evaluation
-      @turn_evaluation = TurnEvaluation.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def turn_evaluation_params
-      params.require(:turn_evaluation).permit(:cycle_turn_id, :evaluation_period_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_turn_evaluation
+    @turn_evaluation = TurnEvaluation.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def turn_evaluation_params
+    params.require(:turn_evaluation).permit(:cycle_turn_id, :evaluation_period_id)
+  end
 end

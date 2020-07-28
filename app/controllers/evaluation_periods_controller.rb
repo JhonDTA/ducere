@@ -1,5 +1,5 @@
 class EvaluationPeriodsController < ApplicationController
-  before_action :set_evaluation_period, only: [:show, :edit, :update, :destroy]
+  before_action :set_evaluation_period, only: %i[show edit update destroy]
 
   # GET /evaluation_periods
   # GET /evaluation_periods.json
@@ -9,8 +9,7 @@ class EvaluationPeriodsController < ApplicationController
 
   # GET /evaluation_periods/1
   # GET /evaluation_periods/1.json
-  def show
-  end
+  def show; end
 
   # GET /evaluation_periods/new
   def new
@@ -18,8 +17,7 @@ class EvaluationPeriodsController < ApplicationController
   end
 
   # GET /evaluation_periods/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /evaluation_periods
   # POST /evaluation_periods.json
@@ -62,13 +60,14 @@ class EvaluationPeriodsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_evaluation_period
-      @evaluation_period = EvaluationPeriod.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def evaluation_period_params
-      params.require(:evaluation_period).permit(:code, :name, :description, :status_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_evaluation_period
+    @evaluation_period = EvaluationPeriod.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def evaluation_period_params
+    params.require(:evaluation_period).permit(:code, :name, :description, :status_id)
+  end
 end

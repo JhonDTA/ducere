@@ -1,5 +1,5 @@
 class EducativeLevelsController < ApplicationController
-  before_action :set_educative_level, only: [:show, :edit, :update, :destroy]
+  before_action :set_educative_level, only: %i[show edit update destroy]
 
   # GET /educative_levels
   # GET /educative_levels.json
@@ -9,8 +9,7 @@ class EducativeLevelsController < ApplicationController
 
   # GET /educative_levels/1
   # GET /educative_levels/1.json
-  def show
-  end
+  def show; end
 
   # GET /educative_levels/new
   def new
@@ -18,8 +17,7 @@ class EducativeLevelsController < ApplicationController
   end
 
   # GET /educative_levels/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /educative_levels
   # POST /educative_levels.json
@@ -62,13 +60,14 @@ class EducativeLevelsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_educative_level
-      @educative_level = EducativeLevel.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def educative_level_params
-      params.require(:educative_level).permit(:code, :name, :description, :status_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_educative_level
+    @educative_level = EducativeLevel.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def educative_level_params
+    params.require(:educative_level).permit(:code, :name, :description, :status_id)
+  end
 end

@@ -5,17 +5,17 @@ class GradesControllerTest < ActionDispatch::IntegrationTest
     @grade = grades(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get grades_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_grade_url
     assert_response :success
   end
 
-  test "should create grade" do
+  test 'should create grade' do
     assert_difference('Grade.count') do
       post grades_url, params: { grade: { code: @grade.code, description: @grade.description, name: @grade.name, status_id: @grade.status_id } }
     end
@@ -23,22 +23,22 @@ class GradesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to grade_url(Grade.last)
   end
 
-  test "should show grade" do
+  test 'should show grade' do
     get grade_url(@grade)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_grade_url(@grade)
     assert_response :success
   end
 
-  test "should update grade" do
+  test 'should update grade' do
     patch grade_url(@grade), params: { grade: { code: @grade.code, description: @grade.description, name: @grade.name, status_id: @grade.status_id } }
     assert_redirected_to grade_url(@grade)
   end
 
-  test "should destroy grade" do
+  test 'should destroy grade' do
     assert_difference('Grade.count', -1) do
       delete grade_url(@grade)
     end

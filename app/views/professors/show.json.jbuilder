@@ -1,1 +1,1 @@
-json.partial! "professors/professor", professor: @professor
+json.partial! 'professors/professor', professor: @professor

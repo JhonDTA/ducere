@@ -1,5 +1,5 @@
 class CycleTurnsController < ApplicationController
-  before_action :set_cycle_turn, only: [:show, :edit, :update, :destroy]
+  before_action :set_cycle_turn, only: %i[show edit update destroy]
 
   # GET /cycle_turns
   # GET /cycle_turns.json
@@ -9,8 +9,7 @@ class CycleTurnsController < ApplicationController
 
   # GET /cycle_turns/1
   # GET /cycle_turns/1.json
-  def show
-  end
+  def show; end
 
   # GET /cycle_turns/new
   def new
@@ -18,8 +17,7 @@ class CycleTurnsController < ApplicationController
   end
 
   # GET /cycle_turns/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /cycle_turns
   # POST /cycle_turns.json
@@ -62,13 +60,14 @@ class CycleTurnsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_cycle_turn
-      @cycle_turn = CycleTurn.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def cycle_turn_params
-      params.require(:cycle_turn).permit(:cycle_modality_id, :turn_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_cycle_turn
+    @cycle_turn = CycleTurn.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def cycle_turn_params
+    params.require(:cycle_turn).permit(:cycle_modality_id, :turn_id)
+  end
 end

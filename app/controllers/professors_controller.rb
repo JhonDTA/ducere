@@ -1,5 +1,5 @@
 class ProfessorsController < ApplicationController
-  before_action :set_professor, only: [:show, :edit, :update, :destroy]
+  before_action :set_professor, only: %i[show edit update destroy]
 
   # GET /professors
   # GET /professors.json
@@ -9,8 +9,7 @@ class ProfessorsController < ApplicationController
 
   # GET /professors/1
   # GET /professors/1.json
-  def show
-  end
+  def show; end
 
   # GET /professors/new
   def new
@@ -18,8 +17,7 @@ class ProfessorsController < ApplicationController
   end
 
   # GET /professors/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /professors
   # POST /professors.json
@@ -62,13 +60,14 @@ class ProfessorsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_professor
-      @professor = Professor.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def professor_params
-      params.require(:professor).permit(:user_id, :enrollment)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_professor
+    @professor = Professor.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def professor_params
+    params.require(:professor).permit(:user_id, :enrollment)
+  end
 end

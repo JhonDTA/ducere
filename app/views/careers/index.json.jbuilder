@@ -1,1 +1,1 @@
-json.array! @careers, partial: "careers/career", as: :career
+json.array! @careers, partial: 'careers/career', as: :career

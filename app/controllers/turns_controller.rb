@@ -1,5 +1,5 @@
 class TurnsController < ApplicationController
-  before_action :set_turn, only: [:show, :edit, :update, :destroy]
+  before_action :set_turn, only: %i[show edit update destroy]
 
   # GET /turns
   # GET /turns.json
@@ -9,8 +9,7 @@ class TurnsController < ApplicationController
 
   # GET /turns/1
   # GET /turns/1.json
-  def show
-  end
+  def show; end
 
   # GET /turns/new
   def new
@@ -18,8 +17,7 @@ class TurnsController < ApplicationController
   end
 
   # GET /turns/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /turns
   # POST /turns.json
@@ -62,13 +60,14 @@ class TurnsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_turn
-      @turn = Turn.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def turn_params
-      params.require(:turn).permit(:code, :name, :description, :status_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_turn
+    @turn = Turn.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def turn_params
+    params.require(:turn).permit(:code, :name, :description, :status_id)
+  end
 end

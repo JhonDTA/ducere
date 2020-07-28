@@ -1,5 +1,5 @@
 class ModalitiesController < ApplicationController
-  before_action :set_modality, only: [:show, :edit, :update, :destroy]
+  before_action :set_modality, only: %i[show edit update destroy]
 
   # GET /modalities
   # GET /modalities.json
@@ -9,8 +9,7 @@ class ModalitiesController < ApplicationController
 
   # GET /modalities/1
   # GET /modalities/1.json
-  def show
-  end
+  def show; end
 
   # GET /modalities/new
   def new
@@ -18,8 +17,7 @@ class ModalitiesController < ApplicationController
   end
 
   # GET /modalities/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /modalities
   # POST /modalities.json
@@ -62,13 +60,14 @@ class ModalitiesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_modality
-      @modality = Modality.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def modality_params
-      params.require(:modality).permit(:code, :name, :description, :status_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_modality
+    @modality = Modality.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def modality_params
+    params.require(:modality).permit(:code, :name, :description, :status_id)
+  end
 end

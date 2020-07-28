@@ -1,1 +1,1 @@
-json.array! @turns, partial: "turns/turn", as: :turn
+json.array! @turns, partial: 'turns/turn', as: :turn

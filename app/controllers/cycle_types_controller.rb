@@ -1,5 +1,5 @@
 class CycleTypesController < ApplicationController
-  before_action :set_cycle_type, only: [:show, :edit, :update, :destroy]
+  before_action :set_cycle_type, only: %i[show edit update destroy]
 
   # GET /cycle_types
   # GET /cycle_types.json
@@ -9,8 +9,7 @@ class CycleTypesController < ApplicationController
 
   # GET /cycle_types/1
   # GET /cycle_types/1.json
-  def show
-  end
+  def show; end
 
   # GET /cycle_types/new
   def new
@@ -18,8 +17,7 @@ class CycleTypesController < ApplicationController
   end
 
   # GET /cycle_types/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /cycle_types
   # POST /cycle_types.json
@@ -62,13 +60,14 @@ class CycleTypesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_cycle_type
-      @cycle_type = CycleType.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def cycle_type_params
-      params.require(:cycle_type).permit(:code, :name, :description, :duration, :status_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_cycle_type
+    @cycle_type = CycleType.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def cycle_type_params
+    params.require(:cycle_type).permit(:code, :name, :description, :duration, :status_id)
+  end
 end

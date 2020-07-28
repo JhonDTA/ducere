@@ -1,1 +1,1 @@
-json.partial! "syllabuses/syllabus", syllabus: @syllabus
+json.partial! 'syllabuses/syllabus', syllabus: @syllabus

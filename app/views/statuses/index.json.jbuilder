@@ -1,1 +1,1 @@
-json.array! @statuses, partial: "statuses/status", as: :status
+json.array! @statuses, partial: 'statuses/status', as: :status

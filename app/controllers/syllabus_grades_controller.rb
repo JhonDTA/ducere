@@ -1,5 +1,5 @@
 class SyllabusGradesController < ApplicationController
-  before_action :set_syllabus_grade, only: [:show, :edit, :update, :destroy]
+  before_action :set_syllabus_grade, only: %i[show edit update destroy]
 
   # GET /syllabus_grades
   # GET /syllabus_grades.json
@@ -9,8 +9,7 @@ class SyllabusGradesController < ApplicationController
 
   # GET /syllabus_grades/1
   # GET /syllabus_grades/1.json
-  def show
-  end
+  def show; end
 
   # GET /syllabus_grades/new
   def new
@@ -18,8 +17,7 @@ class SyllabusGradesController < ApplicationController
   end
 
   # GET /syllabus_grades/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /syllabus_grades
   # POST /syllabus_grades.json
@@ -62,13 +60,14 @@ class SyllabusGradesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_syllabus_grade
-      @syllabus_grade = SyllabusGrade.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def syllabus_grade_params
-      params.require(:syllabus_grade).permit(:career_syllabus_id, :grade_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_syllabus_grade
+    @syllabus_grade = SyllabusGrade.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def syllabus_grade_params
+    params.require(:syllabus_grade).permit(:career_syllabus_id, :grade_id)
+  end
 end

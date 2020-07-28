@@ -1,5 +1,5 @@
 class AcademicCyclesController < ApplicationController
-  before_action :set_academic_cycle, only: [:show, :edit, :update, :destroy]
+  before_action :set_academic_cycle, only: %i[show edit update destroy]
 
   # GET /academic_cycles
   # GET /academic_cycles.json
@@ -9,8 +9,7 @@ class AcademicCyclesController < ApplicationController
 
   # GET /academic_cycles/1
   # GET /academic_cycles/1.json
-  def show
-  end
+  def show; end
 
   # GET /academic_cycles/new
   def new
@@ -18,8 +17,7 @@ class AcademicCyclesController < ApplicationController
   end
 
   # GET /academic_cycles/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /academic_cycles
   # POST /academic_cycles.json
@@ -62,13 +60,14 @@ class AcademicCyclesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_academic_cycle
-      @academic_cycle = AcademicCycle.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def academic_cycle_params
-      params.require(:academic_cycle).permit(:code, :name, :description, :cycle_type_id, :status_id, :start, :finish)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_academic_cycle
+    @academic_cycle = AcademicCycle.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def academic_cycle_params
+    params.require(:academic_cycle).permit(:code, :name, :description, :cycle_type_id, :status_id, :start, :finish)
+  end
 end

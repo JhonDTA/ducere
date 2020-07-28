@@ -1,1 +1,1 @@
-json.partial! "relationships/relationship", relationship: @relationship
+json.partial! 'relationships/relationship', relationship: @relationship

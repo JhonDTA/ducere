@@ -1,5 +1,5 @@
 class AttendanceTypesController < ApplicationController
-  before_action :set_attendance_type, only: [:show, :edit, :update, :destroy]
+  before_action :set_attendance_type, only: %i[show edit update destroy]
 
   # GET /attendance_types
   # GET /attendance_types.json
@@ -9,8 +9,7 @@ class AttendanceTypesController < ApplicationController
 
   # GET /attendance_types/1
   # GET /attendance_types/1.json
-  def show
-  end
+  def show; end
 
   # GET /attendance_types/new
   def new
@@ -18,8 +17,7 @@ class AttendanceTypesController < ApplicationController
   end
 
   # GET /attendance_types/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /attendance_types
   # POST /attendance_types.json
@@ -62,13 +60,14 @@ class AttendanceTypesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_attendance_type
-      @attendance_type = AttendanceType.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def attendance_type_params
-      params.require(:attendance_type).permit(:code, :name, :description, :status_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_attendance_type
+    @attendance_type = AttendanceType.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def attendance_type_params
+    params.require(:attendance_type).permit(:code, :name, :description, :status_id)
+  end
 end

@@ -1,5 +1,5 @@
 class HomeworkEvaluationsController < ApplicationController
-  before_action :set_homework_evaluation, only: [:show, :edit, :update, :destroy]
+  before_action :set_homework_evaluation, only: %i[show edit update destroy]
 
   # GET /homework_evaluations
   # GET /homework_evaluations.json
@@ -9,8 +9,7 @@ class HomeworkEvaluationsController < ApplicationController
 
   # GET /homework_evaluations/1
   # GET /homework_evaluations/1.json
-  def show
-  end
+  def show; end
 
   # GET /homework_evaluations/new
   def new
@@ -18,8 +17,7 @@ class HomeworkEvaluationsController < ApplicationController
   end
 
   # GET /homework_evaluations/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /homework_evaluations
   # POST /homework_evaluations.json
@@ -62,13 +60,14 @@ class HomeworkEvaluationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_homework_evaluation
-      @homework_evaluation = HomeworkEvaluation.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def homework_evaluation_params
-      params.require(:homework_evaluation).permit(:student_homework_id, :mark, :observations)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_homework_evaluation
+    @homework_evaluation = HomeworkEvaluation.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def homework_evaluation_params
+    params.require(:homework_evaluation).permit(:student_homework_id, :mark, :observations)
+  end
 end

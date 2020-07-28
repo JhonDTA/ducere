@@ -1,45 +1,45 @@
-require "application_system_test_case"
+require 'application_system_test_case'
 
 class ProfessorsTest < ApplicationSystemTestCase
   setup do
     @professor = professors(:one)
   end
 
-  test "visiting the index" do
+  test 'visiting the index' do
     visit professors_url
-    assert_selector "h1", text: "Professors"
+    assert_selector 'h1', text: 'Professors'
   end
 
-  test "creating a Professor" do
+  test 'creating a Professor' do
     visit professors_url
-    click_on "New Professor"
+    click_on 'New Professor'
 
-    fill_in "Enrollment", with: @professor.enrollment
-    fill_in "User", with: @professor.user_id
-    click_on "Create Professor"
+    fill_in 'Enrollment', with: @professor.enrollment
+    fill_in 'User', with: @professor.user_id
+    click_on 'Create Professor'
 
-    assert_text "Professor was successfully created"
-    click_on "Back"
+    assert_text 'Professor was successfully created'
+    click_on 'Back'
   end
 
-  test "updating a Professor" do
+  test 'updating a Professor' do
     visit professors_url
-    click_on "Edit", match: :first
+    click_on 'Edit', match: :first
 
-    fill_in "Enrollment", with: @professor.enrollment
-    fill_in "User", with: @professor.user_id
-    click_on "Update Professor"
+    fill_in 'Enrollment', with: @professor.enrollment
+    fill_in 'User', with: @professor.user_id
+    click_on 'Update Professor'
 
-    assert_text "Professor was successfully updated"
-    click_on "Back"
+    assert_text 'Professor was successfully updated'
+    click_on 'Back'
   end
 
-  test "destroying a Professor" do
+  test 'destroying a Professor' do
     visit professors_url
     page.accept_confirm do
-      click_on "Destroy", match: :first
+      click_on 'Destroy', match: :first
     end
 
-    assert_text "Professor was successfully destroyed"
+    assert_text 'Professor was successfully destroyed'
   end
 end

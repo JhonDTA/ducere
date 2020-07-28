@@ -1,1 +1,1 @@
-json.partial! "statuses/status", status: @status
+json.partial! 'statuses/status', status: @status

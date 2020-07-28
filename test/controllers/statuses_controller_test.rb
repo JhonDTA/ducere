@@ -5,17 +5,17 @@ class StatusesControllerTest < ActionDispatch::IntegrationTest
     @status = statuses(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get statuses_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_status_url
     assert_response :success
   end
 
-  test "should create status" do
+  test 'should create status' do
     assert_difference('Status.count') do
       post statuses_url, params: { status: { code: @status.code, description: @status.description, name: @status.name } }
     end
@@ -23,22 +23,22 @@ class StatusesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to status_url(Status.last)
   end
 
-  test "should show status" do
+  test 'should show status' do
     get status_url(@status)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_status_url(@status)
     assert_response :success
   end
 
-  test "should update status" do
+  test 'should update status' do
     patch status_url(@status), params: { status: { code: @status.code, description: @status.description, name: @status.name } }
     assert_redirected_to status_url(@status)
   end
 
-  test "should destroy status" do
+  test 'should destroy status' do
     assert_difference('Status.count', -1) do
       delete status_url(@status)
     end

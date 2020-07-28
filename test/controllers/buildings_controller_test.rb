@@ -5,17 +5,17 @@ class BuildingsControllerTest < ActionDispatch::IntegrationTest
     @building = buildings(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get buildings_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_building_url
     assert_response :success
   end
 
-  test "should create building" do
+  test 'should create building' do
     assert_difference('Building.count') do
       post buildings_url, params: { building: { campus_id: @building.campus_id, code: @building.code, description: @building.description, status_id: @building.status_id } }
     end
@@ -23,22 +23,22 @@ class BuildingsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to building_url(Building.last)
   end
 
-  test "should show building" do
+  test 'should show building' do
     get building_url(@building)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_building_url(@building)
     assert_response :success
   end
 
-  test "should update building" do
+  test 'should update building' do
     patch building_url(@building), params: { building: { campus_id: @building.campus_id, code: @building.code, description: @building.description, status_id: @building.status_id } }
     assert_redirected_to building_url(@building)
   end
 
-  test "should destroy building" do
+  test 'should destroy building' do
     assert_difference('Building.count', -1) do
       delete building_url(@building)
     end

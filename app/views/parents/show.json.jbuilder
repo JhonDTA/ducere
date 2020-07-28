@@ -1,1 +1,1 @@
-json.partial! "parents/parent", parent: @parent
+json.partial! 'parents/parent', parent: @parent

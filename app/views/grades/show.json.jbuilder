@@ -1,1 +1,1 @@
-json.partial! "grades/grade", grade: @grade
+json.partial! 'grades/grade', grade: @grade

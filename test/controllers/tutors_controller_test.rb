@@ -5,17 +5,17 @@ class TutorsControllerTest < ActionDispatch::IntegrationTest
     @tutor = tutors(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get tutors_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_tutor_url
     assert_response :success
   end
 
-  test "should create tutor" do
+  test 'should create tutor' do
     assert_difference('Tutor.count') do
       post tutors_url, params: { tutor: { parent_id: @tutor.parent_id, relationship_id: @tutor.relationship_id, student_id: @tutor.student_id } }
     end
@@ -23,22 +23,22 @@ class TutorsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to tutor_url(Tutor.last)
   end
 
-  test "should show tutor" do
+  test 'should show tutor' do
     get tutor_url(@tutor)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_tutor_url(@tutor)
     assert_response :success
   end
 
-  test "should update tutor" do
+  test 'should update tutor' do
     patch tutor_url(@tutor), params: { tutor: { parent_id: @tutor.parent_id, relationship_id: @tutor.relationship_id, student_id: @tutor.student_id } }
     assert_redirected_to tutor_url(@tutor)
   end
 
-  test "should destroy tutor" do
+  test 'should destroy tutor' do
     assert_difference('Tutor.count', -1) do
       delete tutor_url(@tutor)
     end

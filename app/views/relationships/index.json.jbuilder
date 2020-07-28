@@ -1,1 +1,1 @@
-json.array! @relationships, partial: "relationships/relationship", as: :relationship
+json.array! @relationships, partial: 'relationships/relationship', as: :relationship

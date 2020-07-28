@@ -5,17 +5,17 @@ class ClassroomsControllerTest < ActionDispatch::IntegrationTest
     @classroom = classrooms(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get classrooms_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_classroom_url
     assert_response :success
   end
 
-  test "should create classroom" do
+  test 'should create classroom' do
     assert_difference('Classroom.count') do
       post classrooms_url, params: { classroom: { building_id: @classroom.building_id, code: @classroom.code, description: @classroom.description, status_id: @classroom.status_id } }
     end
@@ -23,22 +23,22 @@ class ClassroomsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to classroom_url(Classroom.last)
   end
 
-  test "should show classroom" do
+  test 'should show classroom' do
     get classroom_url(@classroom)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_classroom_url(@classroom)
     assert_response :success
   end
 
-  test "should update classroom" do
+  test 'should update classroom' do
     patch classroom_url(@classroom), params: { classroom: { building_id: @classroom.building_id, code: @classroom.code, description: @classroom.description, status_id: @classroom.status_id } }
     assert_redirected_to classroom_url(@classroom)
   end
 
-  test "should destroy classroom" do
+  test 'should destroy classroom' do
     assert_difference('Classroom.count', -1) do
       delete classroom_url(@classroom)
     end

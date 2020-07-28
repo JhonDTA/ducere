@@ -1,5 +1,5 @@
 class InstitutionsController < ApplicationController
-  before_action :set_institution, only: [:show, :edit, :update, :destroy]
+  before_action :set_institution, only: %i[show edit update destroy]
 
   # GET /institutions
   # GET /institutions.json
@@ -9,8 +9,7 @@ class InstitutionsController < ApplicationController
 
   # GET /institutions/1
   # GET /institutions/1.json
-  def show
-  end
+  def show; end
 
   # GET /institutions/new
   def new
@@ -18,8 +17,7 @@ class InstitutionsController < ApplicationController
   end
 
   # GET /institutions/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /institutions
   # POST /institutions.json
@@ -62,13 +60,14 @@ class InstitutionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_institution
-      @institution = Institution.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def institution_params
-      params.require(:institution).permit(:code, :name, :description, :country_id, :status_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_institution
+    @institution = Institution.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def institution_params
+    params.require(:institution).permit(:code, :name, :description, :country_id, :status_id)
+  end
 end
