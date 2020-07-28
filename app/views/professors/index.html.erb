@@ -14,7 +14,7 @@
   <tbody>
     <% @professors.each do |professor| %>
       <tr>
-        <td><%= professor.user_id %></td>
+        <td><%= professor.user.name %></td>
         <td><%= professor.enrollment %></td>
         <td><%= link_to 'Show', professor %></td>
         <td><%= link_to 'Edit', edit_professor_path(professor) %></td>

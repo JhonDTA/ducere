@@ -17,12 +17,12 @@
 
 <p>
   <strong>Institution:</strong>
-  <%= @campus.institution_id %>
+  <%= @campus.institution.name %>
 </p>
 
 <p>
   <strong>Status:</strong>
-  <%= @campus.status_id %>
+  <%= @campus.status.name %>
 </p>
 
 <%= link_to 'Edit', edit_campus_path(@campus) %> |

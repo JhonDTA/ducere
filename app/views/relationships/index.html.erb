@@ -15,7 +15,7 @@
     <% @relationships.each do |relationship| %>
       <tr>
         <td><%= relationship.name %></td>
-        <td><%= relationship.status_id %></td>
+        <td><%= relationship.status.name %></td>
         <td><%= link_to 'Show', relationship %></td>
         <td><%= link_to 'Edit', edit_relationship_path(relationship) %></td>
         <td><%= link_to 'Destroy', relationship, method: :delete, data: { confirm: 'Are you sure?' } %></td>

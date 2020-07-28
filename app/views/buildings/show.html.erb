@@ -12,12 +12,12 @@
 
 <p>
   <strong>Campus:</strong>
-  <%= @building.campus_id %>
+  <%= @building.campus.name %>
 </p>
 
 <p>
   <strong>Status:</strong>
-  <%= @building.status_id %>
+  <%= @building.status.name %>
 </p>
 
 <%= link_to 'Edit', edit_building_path(@building) %> |

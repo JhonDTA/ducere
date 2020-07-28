@@ -2,12 +2,12 @@
 
 <p>
   <strong>Professor:</strong>
-  <%= @professor_course.professor_id %>
+  <%= @professor_course.professor.name %>
 </p>
 
 <p>
   <strong>Course:</strong>
-  <%= @professor_course.course_id %>
+  <%= @professor_course.course.name %>
 </p>
 
 <%= link_to 'Edit', edit_professor_course_path(@professor_course) %> |

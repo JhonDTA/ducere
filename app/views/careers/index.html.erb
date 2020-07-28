@@ -19,7 +19,7 @@
         <td><%= career.code %></td>
         <td><%= career.name %></td>
         <td><%= career.description %></td>
-        <td><%= career.status_id %></td>
+        <td><%= career.status.name %></td>
         <td><%= link_to 'Show', career %></td>
         <td><%= link_to 'Edit', edit_career_path(career) %></td>
         <td><%= link_to 'Destroy', career, method: :delete, data: { confirm: 'Are you sure?' } %></td>

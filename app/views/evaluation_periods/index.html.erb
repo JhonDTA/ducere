@@ -19,7 +19,7 @@
         <td><%= evaluation_period.code %></td>
         <td><%= evaluation_period.name %></td>
         <td><%= evaluation_period.description %></td>
-        <td><%= evaluation_period.status_id %></td>
+        <td><%= evaluation_period.status.name %></td>
         <td><%= link_to 'Show', evaluation_period %></td>
         <td><%= link_to 'Edit', edit_evaluation_period_path(evaluation_period) %></td>
         <td><%= link_to 'Destroy', evaluation_period, method: :delete, data: { confirm: 'Are you sure?' } %></td>

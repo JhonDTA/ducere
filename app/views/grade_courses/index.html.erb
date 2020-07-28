@@ -14,8 +14,8 @@
   <tbody>
     <% @grade_courses.each do |grade_course| %>
       <tr>
-        <td><%= grade_course.syllabus_grade_id %></td>
-        <td><%= grade_course.course_id %></td>
+        <td><%= grade_course.syllabus_grade.name %></td>
+        <td><%= grade_course.course.name %></td>
         <td><%= link_to 'Show', grade_course %></td>
         <td><%= link_to 'Edit', edit_grade_course_path(grade_course) %></td>
         <td><%= link_to 'Destroy', grade_course, method: :delete, data: { confirm: 'Are you sure?' } %></td>

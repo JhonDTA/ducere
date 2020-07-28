@@ -14,8 +14,8 @@
   <tbody>
     <% @level_careers.each do |level_career| %>
       <tr>
-        <td><%= level_career.educative_level_id %></td>
-        <td><%= level_career.career_id %></td>
+        <td><%= level_career.educative_level.name %></td>
+        <td><%= level_career.career.name %></td>
         <td><%= link_to 'Show', level_career %></td>
         <td><%= link_to 'Edit', edit_level_career_path(level_career) %></td>
         <td><%= link_to 'Destroy', level_career, method: :delete, data: { confirm: 'Are you sure?' } %></td>

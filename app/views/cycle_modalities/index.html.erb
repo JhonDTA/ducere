@@ -14,8 +14,8 @@
   <tbody>
     <% @cycle_modalities.each do |cycle_modality| %>
       <tr>
-        <td><%= cycle_modality.academic_cycle_id %></td>
-        <td><%= cycle_modality.modality_id %></td>
+        <td><%= cycle_modality.academic_cycle.name %></td>
+        <td><%= cycle_modality.modality.name %></td>
         <td><%= link_to 'Show', cycle_modality %></td>
         <td><%= link_to 'Edit', edit_cycle_modality_path(cycle_modality) %></td>
         <td><%= link_to 'Destroy', cycle_modality, method: :delete, data: { confirm: 'Are you sure?' } %></td>

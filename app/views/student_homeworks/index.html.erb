@@ -15,8 +15,8 @@
   <tbody>
     <% @student_homeworks.each do |student_homework| %>
       <tr>
-        <td><%= student_homework.course_homework_id %></td>
-        <td><%= student_homework.student_id %></td>
+        <td><%= student_homework.course_homework.name %></td>
+        <td><%= student_homework.student.name %></td>
         <td><%= student_homework.observations %></td>
         <td><%= link_to 'Show', student_homework %></td>
         <td><%= link_to 'Edit', edit_student_homework_path(student_homework) %></td>

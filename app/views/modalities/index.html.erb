@@ -19,7 +19,7 @@
         <td><%= modality.code %></td>
         <td><%= modality.name %></td>
         <td><%= modality.description %></td>
-        <td><%= modality.status_id %></td>
+        <td><%= modality.status.name %></td>
         <td><%= link_to 'Show', modality %></td>
         <td><%= link_to 'Edit', edit_modality_path(modality) %></td>
         <td><%= link_to 'Destroy', modality, method: :delete, data: { confirm: 'Are you sure?' } %></td>

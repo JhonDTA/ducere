@@ -15,7 +15,7 @@
   <tbody>
     <% @course_homeworks.each do |course_homework| %>
       <tr>
-        <td><%= course_homework.course_evaluation_id %></td>
+        <td><%= course_homework.course_evaluation.name %></td>
         <td><%= course_homework.name %></td>
         <td><%= course_homework.description %></td>
         <td><%= link_to 'Show', course_homework %></td>

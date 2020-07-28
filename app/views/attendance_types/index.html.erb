@@ -19,7 +19,7 @@
         <td><%= attendance_type.code %></td>
         <td><%= attendance_type.name %></td>
         <td><%= attendance_type.description %></td>
-        <td><%= attendance_type.status_id %></td>
+        <td><%= attendance_type.status.name %></td>
         <td><%= link_to 'Show', attendance_type %></td>
         <td><%= link_to 'Edit', edit_attendance_type_path(attendance_type) %></td>
         <td><%= link_to 'Destroy', attendance_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>

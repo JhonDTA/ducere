@@ -17,7 +17,7 @@
 
 <p>
   <strong>Status:</strong>
-  <%= @evaluation_period.status_id %>
+  <%= @evaluation_period.status.name %>
 </p>
 
 <%= link_to 'Edit', edit_evaluation_period_path(@evaluation_period) %> |

@@ -14,8 +14,8 @@
   <tbody>
     <% @campus_evaluations.each do |campus_evaluation| %>
       <tr>
-        <td><%= campus_evaluation.campus_id %></td>
-        <td><%= campus_evaluation.turn_evaluation_id %></td>
+        <td><%= campus_evaluation.campus.name %></td>
+        <td><%= campus_evaluation.turn_evaluation.name %></td>
         <td><%= link_to 'Show', campus_evaluation %></td>
         <td><%= link_to 'Edit', edit_campus_evaluation_path(campus_evaluation) %></td>
         <td><%= link_to 'Destroy', campus_evaluation, method: :delete, data: { confirm: 'Are you sure?' } %></td>

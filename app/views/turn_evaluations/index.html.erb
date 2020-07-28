@@ -14,8 +14,8 @@
   <tbody>
     <% @turn_evaluations.each do |turn_evaluation| %>
       <tr>
-        <td><%= turn_evaluation.cycle_turn_id %></td>
-        <td><%= turn_evaluation.evaluation_period_id %></td>
+        <td><%= turn_evaluation.cycle_turn.name %></td>
+        <td><%= turn_evaluation.evaluation_period.name %></td>
         <td><%= link_to 'Show', turn_evaluation %></td>
         <td><%= link_to 'Edit', edit_turn_evaluation_path(turn_evaluation) %></td>
         <td><%= link_to 'Destroy', turn_evaluation, method: :delete, data: { confirm: 'Are you sure?' } %></td>

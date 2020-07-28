@@ -2,12 +2,12 @@
 
 <p>
   <strong>Academic cycle:</strong>
-  <%= @cycle_modality.academic_cycle_id %>
+  <%= @cycle_modality.academic_cycle.name %>
 </p>
 
 <p>
   <strong>Modality:</strong>
-  <%= @cycle_modality.modality_id %>
+  <%= @cycle_modality.modality.name %>
 </p>
 
 <%= link_to 'Edit', edit_cycle_modality_path(@cycle_modality) %> |

@@ -2,12 +2,12 @@
 
 <p>
   <strong>Educative level:</strong>
-  <%= @level_career.educative_level_id %>
+  <%= @level_career.educative_level.name %>
 </p>
 
 <p>
   <strong>Career:</strong>
-  <%= @level_career.career_id %>
+  <%= @level_career.career.name %>
 </p>
 
 <%= link_to 'Edit', edit_level_career_path(@level_career) %> |

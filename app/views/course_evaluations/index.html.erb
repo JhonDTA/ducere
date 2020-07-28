@@ -16,10 +16,10 @@
   <tbody>
     <% @course_evaluations.each do |course_evaluation| %>
       <tr>
-        <td><%= course_evaluation.grade_course_id %></td>
-        <td><%= course_evaluation.campus_evaluation_id %></td>
-        <td><%= course_evaluation.professor_id %></td>
-        <td><%= course_evaluation.group_id %></td>
+        <td><%= course_evaluation.grade_course.name %></td>
+        <td><%= course_evaluation.campus_evaluation.name %></td>
+        <td><%= course_evaluation.professor.name %></td>
+        <td><%= course_evaluation.group.name %></td>
         <td><%= link_to 'Show', course_evaluation %></td>
         <td><%= link_to 'Edit', edit_course_evaluation_path(course_evaluation) %></td>
         <td><%= link_to 'Destroy', course_evaluation, method: :delete, data: { confirm: 'Are you sure?' } %></td>

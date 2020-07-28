@@ -19,7 +19,7 @@
         <td><%= grade.code %></td>
         <td><%= grade.name %></td>
         <td><%= grade.description %></td>
-        <td><%= grade.status_id %></td>
+        <td><%= grade.status.name %></td>
         <td><%= link_to 'Show', grade %></td>
         <td><%= link_to 'Edit', edit_grade_path(grade) %></td>
         <td><%= link_to 'Destroy', grade, method: :delete, data: { confirm: 'Are you sure?' } %></td>

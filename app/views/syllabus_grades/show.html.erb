@@ -2,12 +2,12 @@
 
 <p>
   <strong>Career syllabus:</strong>
-  <%= @syllabus_grade.career_syllabus_id %>
+  <%= @syllabus_grade.career_syllabus.name %>
 </p>
 
 <p>
   <strong>Grade:</strong>
-  <%= @syllabus_grade.grade_id %>
+  <%= @syllabus_grade.grade.name %>
 </p>
 
 <%= link_to 'Edit', edit_syllabus_grade_path(@syllabus_grade) %> |

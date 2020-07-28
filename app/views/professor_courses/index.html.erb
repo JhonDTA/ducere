@@ -14,8 +14,8 @@
   <tbody>
     <% @professor_courses.each do |professor_course| %>
       <tr>
-        <td><%= professor_course.professor_id %></td>
-        <td><%= professor_course.course_id %></td>
+        <td><%= professor_course.professor.name %></td>
+        <td><%= professor_course.course.name %></td>
         <td><%= link_to 'Show', professor_course %></td>
         <td><%= link_to 'Edit', edit_professor_course_path(professor_course) %></td>
         <td><%= link_to 'Destroy', professor_course, method: :delete, data: { confirm: 'Are you sure?' } %></td>

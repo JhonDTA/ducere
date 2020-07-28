@@ -21,7 +21,7 @@
         <td><%= syllabus.name %></td>
         <td><%= syllabus.description %></td>
         <td><%= syllabus.approval_credits %></td>
-        <td><%= syllabus.status_id %></td>
+        <td><%= syllabus.status.name %></td>
         <td><%= link_to 'Show', syllabus %></td>
         <td><%= link_to 'Edit', edit_syllabus_path(syllabus) %></td>
         <td><%= link_to 'Destroy', syllabus, method: :delete, data: { confirm: 'Are you sure?' } %></td>

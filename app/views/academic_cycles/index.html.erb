@@ -22,8 +22,8 @@
         <td><%= academic_cycle.code %></td>
         <td><%= academic_cycle.name %></td>
         <td><%= academic_cycle.description %></td>
-        <td><%= academic_cycle.cycle_type_id %></td>
-        <td><%= academic_cycle.status_id %></td>
+        <td><%= academic_cycle.cycle_type.name %></td>
+        <td><%= academic_cycle.status.name %></td>
         <td><%= academic_cycle.start %></td>
         <td><%= academic_cycle.finish %></td>
         <td><%= link_to 'Show', academic_cycle %></td>

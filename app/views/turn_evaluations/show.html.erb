@@ -2,12 +2,12 @@
 
 <p>
   <strong>Cycle turn:</strong>
-  <%= @turn_evaluation.cycle_turn_id %>
+  <%= @turn_evaluation.cycle_turn.name %>
 </p>
 
 <p>
   <strong>Evaluation period:</strong>
-  <%= @turn_evaluation.evaluation_period_id %>
+  <%= @turn_evaluation.evaluation_period.name %>
 </p>
 
 <%= link_to 'Edit', edit_turn_evaluation_path(@turn_evaluation) %> |

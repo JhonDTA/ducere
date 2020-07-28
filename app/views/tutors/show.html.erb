@@ -2,17 +2,17 @@
 
 <p>
   <strong>Student:</strong>
-  <%= @tutor.student_id %>
+  <%= @tutor.student.name %>
 </p>
 
 <p>
   <strong>Parent:</strong>
-  <%= @tutor.parent_id %>
+  <%= @tutor.parent.name %>
 </p>
 
 <p>
   <strong>Relationship:</strong>
-  <%= @tutor.relationship_id %>
+  <%= @tutor.relationship.name %>
 </p>
 
 <%= link_to 'Edit', edit_tutor_path(@tutor) %> |

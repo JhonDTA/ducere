@@ -18,8 +18,8 @@
       <tr>
         <td><%= building.code %></td>
         <td><%= building.description %></td>
-        <td><%= building.campus_id %></td>
-        <td><%= building.status_id %></td>
+        <td><%= building.campus.name %></td>
+        <td><%= building.status.name %></td>
         <td><%= link_to 'Show', building %></td>
         <td><%= link_to 'Edit', edit_building_path(building) %></td>
         <td><%= link_to 'Destroy', building, method: :delete, data: { confirm: 'Are you sure?' } %></td>

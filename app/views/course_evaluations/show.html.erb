@@ -2,22 +2,22 @@
 
 <p>
   <strong>Grade course:</strong>
-  <%= @course_evaluation.grade_course_id %>
+  <%= @course_evaluation.grade_course.name %>
 </p>
 
 <p>
   <strong>Campus evaluation:</strong>
-  <%= @course_evaluation.campus_evaluation_id %>
+  <%= @course_evaluation.campus_evaluation.name %>
 </p>
 
 <p>
   <strong>Professor:</strong>
-  <%= @course_evaluation.professor_id %>
+  <%= @course_evaluation.professor.name %>
 </p>
 
 <p>
   <strong>Group:</strong>
-  <%= @course_evaluation.group_id %>
+  <%= @course_evaluation.group.name %>
 </p>
 
 <%= link_to 'Edit', edit_course_evaluation_path(@course_evaluation) %> |

@@ -2,12 +2,12 @@
 
 <p>
   <strong>Cycle modality:</strong>
-  <%= @cycle_turn.cycle_modality_id %>
+  <%= @cycle_turn.cycle_modality.name %>
 </p>
 
 <p>
   <strong>Turn:</strong>
-  <%= @cycle_turn.turn_id %>
+  <%= @cycle_turn.turn.name %>
 </p>
 
 <%= link_to 'Edit', edit_cycle_turn_path(@cycle_turn) %> |

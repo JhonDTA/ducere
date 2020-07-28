@@ -15,9 +15,9 @@
   <tbody>
     <% @tutors.each do |tutor| %>
       <tr>
-        <td><%= tutor.student_id %></td>
-        <td><%= tutor.parent_id %></td>
-        <td><%= tutor.relationship_id %></td>
+        <td><%= tutor.student.name %></td>
+        <td><%= tutor.parent.name %></td>
+        <td><%= tutor.relationship.name %></td>
         <td><%= link_to 'Show', tutor %></td>
         <td><%= link_to 'Edit', edit_tutor_path(tutor) %></td>
         <td><%= link_to 'Destroy', tutor, method: :delete, data: { confirm: 'Are you sure?' } %></td>

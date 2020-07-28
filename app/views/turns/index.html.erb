@@ -19,7 +19,7 @@
         <td><%= turn.code %></td>
         <td><%= turn.name %></td>
         <td><%= turn.description %></td>
-        <td><%= turn.status_id %></td>
+        <td><%= turn.status.name %></td>
         <td><%= link_to 'Show', turn %></td>
         <td><%= link_to 'Edit', edit_turn_path(turn) %></td>
         <td><%= link_to 'Destroy', turn, method: :delete, data: { confirm: 'Are you sure?' } %></td>
