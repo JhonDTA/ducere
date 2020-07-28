@@ -166,3 +166,8 @@ en:
   attendance_types: "Attendance types"
   evaluation_attendances: "Evaluation attendances"
   professor_courses: "Professor courses"
+  academic_cycles: "Academic cycles"
+  cycle_types: "Cycle types"
+  modalities: "Modalities"
+  turns: "Turns"
+  evaluation_periods: "Evaluation periods"

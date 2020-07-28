@@ -77,10 +77,42 @@
       </ul>
     </li>
     <li>
-      <a href="#groupSubmenu" data-toggle="collapse"
+      <a href="#academicCycleSubmenu" data-toggle="collapse"
+         aria-expanded="false" class="dropdown-toggle">
+        <%= icon('fas', 'book') %><%= t('academic_cycles') %></a>
+      <ul class="collapse list-unstyled" id="academicCycleSubmenu">
+        <li>
+          <%= link_to cycle_types_path do %>
+            <%= icon('fas', 'school') %><%= t('cycle_types') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to academic_cycles_path do %>
+            <%= icon('fas', 'school') %><%= t('academic_cycles') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to modalities_path do %>
+            <%= icon('fas', 'school') %><%= t('modalities') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to turns_path do %>
+            <%= icon('fas', 'school') %><%= t('turns') %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to evaluation_periods_path do %>
+            <%= icon('fas', 'school') %><%= t('evaluation_periods') %>
+          <% end %>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="#campusEvaluationSubmenu" data-toggle="collapse"
          aria-expanded="false" class="dropdown-toggle">
         <%= icon('fas', 'book') %><%= t('groups') %></a>
-      <ul class="collapse list-unstyled" id="groupSubmenu">
+      <ul class="collapse list-unstyled" id="campusEvaluationSubmenu">
         <li>
           <%= link_to cycle_modalities_path do %>
             <%= icon('fas', 'school') %><%= t('cycle_modalities') %>

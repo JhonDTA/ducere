@@ -13,40 +13,40 @@
 
   <div class="field">
     <%= form.label :code %>
-    <%= form.text_field :code %>
+    <%= form.text_field :code, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :cycle_type_id %>
-    <%= form.text_field :cycle_type_id %>
+    <%= form.text_field :cycle_type_id, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :status_id %>
-    <%= form.text_field :status_id %>
+    <%= form.text_field :status_id, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :start %>
-    <%= form.date_select :start %>
+    <%= form.date_select :start, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :finish %>
-    <%= form.date_select :finish %>
+    <%= form.date_select :finish, class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'form-control' %>
   </div>
 <% end %>

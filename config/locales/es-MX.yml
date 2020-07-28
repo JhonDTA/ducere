@@ -382,3 +382,8 @@ es-MX:
   attendance_types: "Tipos de asistencia"
   evaluation_attendances: "Asistencias de la evaluacion"
   professor_courses: "Materias del profesor"
+  academic_cycles: "Ciclos escolares"
+  cycle_types: "Tipos de ciclo"
+  modalities: "Modalidades"
+  turns: "Turnos"
+  evaluation_periods: "Periodos de evaluación"
