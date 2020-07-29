@@ -12,7 +12,7 @@ def create_users
   User.create(first_name: 'John', last_name: 'Doe', second_last_name: 'Toe',
               email: 'foo@bar.com', password: 'password',
               password_confirmation: 'password', confirmed_at: Time.zone.now)
-  2999.times do |n|
+  299.times do |n|
     User.create(first_name: Faker::Name.first_name,
                 last_name: Faker::Name.last_name,
                 second_last_name: Faker::Name.last_name,
@@ -74,7 +74,7 @@ def create_syllabuses
                     description: row['description'],
                     approval_credits: row['credits'], status: @status)
   end
-  Career.all.each do |career|
+  Career.where.not(code: 'GEN').each do |career|
     ((rand * 2) + 1).floor.times do
       year = (2000..2020).to_a.sample
       Syllabus.create(code: "#{career.code}#{year}",
@@ -139,6 +139,14 @@ def create_academic_cycles
   end
 end
 
+def create_modalities
+  path = 'db/external_data/modalities.csv'
+  CSV.foreach(path, headers: true) do |row|
+    Modality.create(code: row['code'], name: row['name'],
+                    description: row['description'], status: @status)
+  end
+end
+
 Faker::Config.locale = 'es-MX'
 @status = Status.where(code: 'ACT').first
 create_users if false
@@ -152,4 +160,5 @@ create_syllabuses if false
 create_grades if false
 create_courses if false
 create_cycle_types if false
-create_academic_cycles if true
+create_academic_cycles if false
+create_modalities if true

@@ -3,5 +3,5 @@ AN,Anual,Ciclo anual,360
 SEM,Semestral,Ciclo semestral,180
 CUAT,Cuatrimestral,Ciclo cuatrimestral,120
 TRI,Trimestral,Ciclo Trimestral,90
-BI,Bimestral,Ciclo bimestral,60
+BIM,Bimestral,Ciclo bimestral,60
 MEN,Mensual,Ciclo mensual,30

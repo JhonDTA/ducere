@@ -4,10 +4,14 @@ one:
   code: MyString
   name: MyString
   description: MyText
+  start: 2020-07-28 22:05:07
+  finish: 2020-07-28 22:05:07
   status: one
 
 two:
   code: MyString
   name: MyString
   description: MyText
+  start: 2020-07-28 22:05:07
+  finish: 2020-07-28 22:05:07
   status: two

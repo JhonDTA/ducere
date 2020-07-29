@@ -28,6 +28,16 @@
   </div>
 
   <div class="field">
+    <%= form.label :start %>
+    <%= form.time_select :start, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :finish %>
+    <%= form.time_select :finish, class: 'form-control' %>
+  </div>
+
+  <div class="field">
     <%= form.label :status_id %>
     <%= form.collection_select :status_id, Status.all, :id, :name,
                                class: 'form-control' %>

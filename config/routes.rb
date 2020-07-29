@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :professor_courses
   root 'static_pages#home'
   get 'help', to: 'static_pages#help'
   get 'about', to: 'static_pages#about'
@@ -46,4 +45,5 @@ Rails.application.routes.draw do
   resources :syllabus_grades
   resources :career_syllabuses
   resources :level_careers
+  resources :professor_courses
 end

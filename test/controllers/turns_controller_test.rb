@@ -17,7 +17,7 @@ class TurnsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create turn' do
     assert_difference('Turn.count') do
-      post turns_url, params: { turn: { code: @turn.code, description: @turn.description, name: @turn.name, status_id: @turn.status_id } }
+      post turns_url, params: { turn: { code: @turn.code, description: @turn.description, finish: @turn.finish, name: @turn.name, start: @turn.start, status_id: @turn.status_id } }
     end
 
     assert_redirected_to turn_url(Turn.last)
@@ -34,7 +34,7 @@ class TurnsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should update turn' do
-    patch turn_url(@turn), params: { turn: { code: @turn.code, description: @turn.description, name: @turn.name, status_id: @turn.status_id } }
+    patch turn_url(@turn), params: { turn: { code: @turn.code, description: @turn.description, finish: @turn.finish, name: @turn.name, start: @turn.start, status_id: @turn.status_id } }
     assert_redirected_to turn_url(@turn)
   end
 

@@ -16,7 +16,9 @@ class TurnsTest < ApplicationSystemTestCase
 
     fill_in 'Code', with: @turn.code
     fill_in 'Description', with: @turn.description
+    fill_in 'Finish', with: @turn.finish
     fill_in 'Name', with: @turn.name
+    fill_in 'Start', with: @turn.start
     fill_in 'Status', with: @turn.status_id
     click_on 'Create Turn'
 
@@ -30,7 +32,9 @@ class TurnsTest < ApplicationSystemTestCase
 
     fill_in 'Code', with: @turn.code
     fill_in 'Description', with: @turn.description
+    fill_in 'Finish', with: @turn.finish
     fill_in 'Name', with: @turn.name
+    fill_in 'Start', with: @turn.start
     fill_in 'Status', with: @turn.status_id
     click_on 'Update Turn'
 

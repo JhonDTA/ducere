@@ -68,6 +68,6 @@ class TurnsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def turn_params
-    params.require(:turn).permit(:code, :name, :description, :status_id)
+    params.require(:turn).permit(:code, :name, :description, :start, :finish, :status_id)
   end
 end
