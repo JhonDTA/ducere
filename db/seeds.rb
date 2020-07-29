@@ -29,7 +29,6 @@ def create_countries
 end
 
 def create_institutions
-  Institution.delete_all
   country_codes = %w[MEX USA DEU]
   30.times do
     Institution.create(code: Faker::Alphanumeric.alphanumeric(number: 10).upcase,
@@ -95,8 +94,7 @@ def create_grades
 end
 
 def create_courses
-  Course.delete_all
-  150.times do
+  200.times do
     name = Faker::Educator.course_name
     code = "#{name[0..2].upcase}#{name.match(/\d+/)[0]}"
     Course.create(code: code, name: name, description: name, credits: 10,
@@ -105,7 +103,6 @@ def create_courses
 end
 
 def create_cycle_types
-  CycleType.delete_all
   path = 'db/external_data/cycle_types.csv'
   CSV.foreach(path, headers: true) do |row|
     CycleType.create(code: row['code'], name: row['name'],
@@ -115,7 +112,6 @@ def create_cycle_types
 end
 
 def create_academic_cycles
-  AcademicCycle.delete_all
   CycleType.all.where(status: 1).each do |cycle_type|
     years = (2015..2019)
     years.each do |year|
@@ -147,6 +143,15 @@ def create_modalities
   end
 end
 
+def create_turns
+  path = 'db/external_data/turns.csv'
+  CSV.foreach(path, headers: true) do |row|
+    Turn.create(code: row['code'], name: row['name'],
+                description: row['description'], start: row['start'],
+                finish: row['finish'], status: @status)
+  end
+end
+
 Faker::Config.locale = 'es-MX'
 @status = Status.where(code: 'ACT').first
 create_users if false
@@ -161,4 +166,5 @@ create_grades if false
 create_courses if false
 create_cycle_types if false
 create_academic_cycles if false
-create_modalities if true
+create_modalities if false
+create_turns if true

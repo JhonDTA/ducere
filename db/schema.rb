@@ -397,6 +397,8 @@ ActiveRecord::Schema.define(version: 2020_07_28_041418) do
     t.string "code", limit: 16
     t.string "name", limit: 255
     t.text "description"
+    t.time "start"
+    t.time "finish"
     t.bigint "status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
