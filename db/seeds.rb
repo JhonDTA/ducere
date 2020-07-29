@@ -114,6 +114,31 @@ def create_cycle_types
   end
 end
 
+def create_academic_cycles
+  AcademicCycle.delete_all
+  CycleType.all.where(status: 1).each do |cycle_type|
+    years = (2015..2019)
+    years.each do |year|
+      cycles_per_year = (360 / cycle_type.duration).floor
+      start_month = Date::MONTHNAMES.index('August')
+      start_date = Date.new(year, start_month, 1)
+
+      cycles_per_year.times do
+        finish_date = start_date + cycle_type.duration.days
+        code = AcademicCycle.create_code(cycle_type, start_date)
+        name = "Ciclo #{cycle_type.name} #{start_date.strftime('%b%Y')} - #{finish_date.strftime('%b%Y')}"
+
+        cycle_type.academic_cycles.create(code: code, name: name,
+                                          description: name,
+                                          status: @status,
+                                          start: start_date,
+                                          finish: finish_date)
+        start_date = finish_date + 1.day
+      end
+    end
+  end
+end
+
 Faker::Config.locale = 'es-MX'
 @status = Status.where(code: 'ACT').first
 create_users if false
@@ -126,4 +151,5 @@ create_careers if false
 create_syllabuses if false
 create_grades if false
 create_courses if false
-create_cycle_types if true
+create_cycle_types if false
+create_academic_cycles if true
