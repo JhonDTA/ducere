@@ -2,6 +2,8 @@ class AcademicCycle < ApplicationRecord
   belongs_to :cycle_type
   belongs_to :status
 
+  has_many :cycle_modalities
+
   # @param [CycleType] cycle_type
   # @param [Date] starting_date
   # @return [String]

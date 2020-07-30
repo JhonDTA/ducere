@@ -272,6 +272,14 @@ def create_professors
   end
 end
 
+def create_professor_courses
+  courses = Course.all
+  Professor.all.each do |professor|
+    course = courses.sample
+    ProfessorCourse.create(professor: professor, course: course)
+  end
+end
+
 def create_parents
   50.times do
     user = User.order(Arel.sql('RANDOM()')).first
@@ -287,6 +295,49 @@ def create_tutors
     parent = parents.sample
     relationship = relationships.sample
     Tutor.create(student: student, parent: parent, relationship: relationship)
+  end
+end
+
+def create_cycle_modalities
+  modality = Modality.find_by(code: 'ESC')
+  AcademicCycle.where(status: Status.where(code: 'ACT')).each do |academic_cycle|
+    CycleModality.create(academic_cycle: academic_cycle, modality: modality)
+  end
+end
+
+def create_cycle_turns
+  turns = Turn.where(code: %w[MAT VES])
+  CycleModality.all.each do |cycle_modality|
+    turns.each do |turn|
+      CycleTurn.create(cycle_modality: cycle_modality, turn: turn)
+    end
+  end
+end
+
+def create_evaluation_periods
+  cycle_turns = CycleTurn.joins(cycle_modality: :academic_cycle).where(academic_cycles: { start: Date.new(2019, 8, 1) })
+  cycle_turns.each do |cycle_turn|
+    cycle_modality = cycle_turn.cycle_modality
+    academic_cycle = cycle_modality.academic_cycle
+    cycle_type = academic_cycle.cycle_type
+    duration = cycle_type.duration
+    evaluations = duration / 60
+
+    evaluations.times do |n|
+      evaluation_period = EvaluationPeriod.find_by(code: "#{n + 1}")
+      TurnEvaluation.create(cycle_turn: cycle_turn, evaluation_period: evaluation_period)
+    end
+  end
+end
+
+def create_campus_evaluations
+  institution = Institution.first
+  campus = institution.campuses.first
+  turn_evaluations = TurnEvaluation.joins(cycle_turn: {
+      cycle_modality: {
+          academic_cycle: :cycle_type } }).where(cycle_types: { code: 'CUAT' })
+  turn_evaluations.each do |turn_evaluation|
+    CampusEvaluation.create(campus: campus, turn_evaluation: turn_evaluation)
   end
 end
 
@@ -317,6 +368,10 @@ create_syllabus_grades if false
 create_grade_courses if false
 create_students if false
 create_professors if false
+create_professor_courses if false
 create_parents if false
-create_tutors if true
-
+create_tutors if false
+create_cycle_modalities if false
+create_cycle_turns if false
+create_evaluation_periods if false
+create_campus_evaluations if false
