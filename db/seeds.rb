@@ -198,6 +198,63 @@ def create_groups
   end
 end
 
+def create_level_careers
+  path = 'db/external_data/level_careers.csv'
+  CSV.foreach(path, headers: true) do |row|
+    level = EducativeLevel.find_by(code: row['level'])
+    career = Career.find_by(code: row['career'])
+    LevelCareer.create(educative_level: level, career: career)
+  end
+  level = EducativeLevel.find_by(code: 'LIC')
+  careers = Career.where.not(code: 'GEN')
+  careers.each { |career| LevelCareer.create(educative_level: level, career: career) }
+end
+
+def create_career_syllabuses
+  path = 'db/external_data/career_syllabuses.csv'
+  CSV.foreach(path, headers: true) do |row|
+    level = EducativeLevel.find_by(code: row['level'])
+    career = Career.find_by(code: row['career'])
+    syllabus = Syllabus.find_by(code: row['syllabus'])
+    lc = LevelCareer.find_by(educative_level: level, career: career)
+    CareerSyllabus.create(level_career: lc, syllabus: syllabus)
+  end
+  syllabuses = Syllabus.all
+  level = EducativeLevel.find_by(code: 'LIC')
+  syllabuses.each do |syllabus|
+    code = syllabus.code.match(/\D+/)[0]
+    careers = Career.where(code: code)
+    careers.each do |career|
+      lc = LevelCareer.find_by(educative_level: level, career: career)
+      CareerSyllabus.create(level_career: lc, syllabus: syllabus)
+    end
+  end
+end
+
+def create_syllabus_grades
+  path = 'db/external_data/syllabus_grades.csv'
+  CSV.foreach(path, headers: true) do |row|
+    career_syllabuses = CareerSyllabus.joins(level_career: :educative_level).where(educative_levels: { code: row['level'] })
+    grades = row['grades'].to_i
+    grades.times do |n|
+      career_syllabuses.each do |career_syllabus|
+        grade = Grade.find_by(code: "#{n + 1}")
+        SyllabusGrade.create(career_syllabus: career_syllabus, grade: grade)
+      end
+    end
+  end
+end
+
+def create_grade_courses
+  courses = Course.all
+  SyllabusGrade.all.each do |syllabus_grade|
+    (5..10).to_a.sample.times do
+      course = courses.sample
+      GradeCourse.create(syllabus_grade: syllabus_grade, course: course)
+    end
+  end
+end
+
 Faker::Config.locale = 'es-MX'
 @status = Status.where(code: 'ACT').first
 create_users if false
@@ -205,8 +262,8 @@ create_countries if false
 create_statuses if false
 create_institutions if false
 create_campuses if false
-create_buildings if true
-create_classrooms if true
+create_buildings if false
+create_classrooms if false
 create_educative_levels if false
 create_careers if false
 create_syllabuses if false
@@ -219,3 +276,8 @@ create_turns if false
 create_evaluation_periods if false
 create_relationships if false
 create_groups if false
+create_level_careers if false
+create_career_syllabuses if false
+create_syllabus_grades if false
+create_grade_courses if false
+
