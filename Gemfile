@@ -41,12 +41,12 @@ gem 'font-awesome-sass', '~> 5.13.0'
 gem 'will_paginate'
 # Style for pagination
 gem 'bootstrap-will_paginate'
+# Use Faker for creating sample data
+gem 'faker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  # Use Faker for creating sample data
-  gem 'faker'
 end
 
 group :development do
