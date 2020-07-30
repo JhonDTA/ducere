@@ -5,4 +5,11 @@ class GradeCourse < ApplicationRecord
   def name
     "#{syllabus_grade.name} - #{course.name}"
   end
+
+  def self.collection
+    all.includes([{ syllabus_grade: [
+        { career_syllabus: [
+            { level_career: [:educative_level, :career] },
+            :syllabus] }, :grade] }, :course])
+  end
 end

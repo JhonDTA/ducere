@@ -14,25 +14,25 @@
 
   <div class="field">
     <%= form.label :grade_course_id %>
-    <%= form.collection_select :grade_course_id, GradeCourse.all, :id, :name,
-                               class: 'form-control' %>
+    <%= form.collection_select :grade_course_id, GradeCourse.collection,
+                               :id, :name, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :campus_evaluation_id %>
-    <%= form.collection_select :campus_evaluation_id, CampusEvaluation.all, :id, :name,
-                               class: 'form-control' %>
+    <%= form.collection_select :campus_evaluation_id, CampusEvaluation.collection,
+                               :id, :name, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :professor_id %>
-    <%= form.collection_select :professor_id, Professor.all, :id, :name,
-                               class: 'form-control' %>
+    <%= form.collection_select :professor_id, Professor.collection,
+                               :id, :name, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :group_id %>
-    <%= form.collection_select :group_id, Group.all, :id, :name,
+    <%= form.collection_select :group_id, Group.collection, :id, :name,
                                class: 'form-control' %>
   </div>
 
