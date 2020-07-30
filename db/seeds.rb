@@ -255,6 +255,41 @@ def create_grade_courses
   end
 end
 
+def create_students
+  User.all.each do |user|
+    enrollment = Faker::Alphanumeric.alphanumeric(number: 8).upcase
+    Student.create(user: user, enrollment: enrollment)
+  end
+end
+
+def create_professors
+  users = User.all
+  50.times do
+    user = users.sample
+    enrollment = Faker::Alphanumeric.alphanumeric(number: 6).upcase
+    professor = Professor.create(user: user, enrollment: enrollment)
+    redo unless professor.valid?
+  end
+end
+
+def create_parents
+  50.times do
+    user = User.order(Arel.sql('RANDOM()')).first
+    parent = Parent.create(user: user)
+    redo unless parent.valid?
+  end
+end
+
+def create_tutors
+  relationships = Relationship.all
+  parents = Parent.all
+  Student.all.each do |student|
+    parent = parents.sample
+    relationship = relationships.sample
+    Tutor.create(student: student, parent: parent, relationship: relationship)
+  end
+end
+
 Faker::Config.locale = 'es-MX'
 @status = Status.where(code: 'ACT').first
 create_users if false
@@ -280,4 +315,8 @@ create_level_careers if false
 create_career_syllabuses if false
 create_syllabus_grades if false
 create_grade_courses if false
+create_students if false
+create_professors if false
+create_parents if false
+create_tutors if true
 
