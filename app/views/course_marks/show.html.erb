@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Student course:</strong>
+  <%= @course_mark.student_course_id %>
+</p>
+
+<p>
+  <strong>Mark:</strong>
+  <%= @course_mark.mark %>
+</p>
+
+<p>
+  <strong>Attendance:</strong>
+  <%= @course_mark.attendance %>
+</p>
+
+<p>
+  <strong>Observations:</strong>
+  <%= @course_mark.observations %>
+</p>
+
+<%= link_to 'Edit', edit_course_mark_path(@course_mark) %> |
+<%= link_to 'Back', course_marks_path %>

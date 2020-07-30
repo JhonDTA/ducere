@@ -225,6 +225,11 @@
           <% end %>
         </li>
         <li>
+          <%= link_to course_marks_path do %>
+            <%= icon('fas', 'school') %><%= t('course_marks') %>
+          <% end %>
+        </li>
+        <li>
           <%= link_to course_homeworks_path do %>
             <%= icon('fas', 'school') %><%= t('course_homeworks') %>
           <% end %>

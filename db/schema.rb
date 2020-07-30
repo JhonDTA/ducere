@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_28_041418) do
+ActiveRecord::Schema.define(version: 2020_07_30_091307) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -151,6 +151,16 @@ ActiveRecord::Schema.define(version: 2020_07_28_041418) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["course_evaluation_id"], name: "index_course_homeworks_on_course_evaluation_id"
+  end
+
+  create_table "course_marks", force: :cascade do |t|
+    t.bigint "student_course_id", null: false
+    t.integer "mark", limit: 2
+    t.integer "attendance", limit: 2
+    t.text "observations"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["student_course_id"], name: "index_course_marks_on_student_course_id"
   end
 
   create_table "courses", force: :cascade do |t|
@@ -337,9 +347,6 @@ ActiveRecord::Schema.define(version: 2020_07_28_041418) do
   create_table "student_courses", force: :cascade do |t|
     t.bigint "student_id", null: false
     t.bigint "course_evaluation_id", null: false
-    t.integer "mark", limit: 2
-    t.integer "attendance", limit: 2
-    t.text "observations"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["course_evaluation_id"], name: "index_student_courses_on_course_evaluation_id"
@@ -467,6 +474,7 @@ ActiveRecord::Schema.define(version: 2020_07_28_041418) do
   add_foreign_key "course_evaluations", "groups"
   add_foreign_key "course_evaluations", "professors"
   add_foreign_key "course_homeworks", "course_evaluations"
+  add_foreign_key "course_marks", "student_courses"
   add_foreign_key "courses", "statuses"
   add_foreign_key "cycle_modalities", "academic_cycles"
   add_foreign_key "cycle_modalities", "modalities"

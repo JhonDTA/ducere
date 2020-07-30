@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   resources :student_homeworks
   resources :course_homeworks
   resources :student_courses
+  resources :course_marks
   resources :evaluation_attendances
   resources :tutors
   resources :parents
