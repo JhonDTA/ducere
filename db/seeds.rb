@@ -353,7 +353,7 @@ def create_course_evaluation
           :grade
       ]
   ).where(careers: { code: 'ISC' },
-          syllabuses: { code: 'ISC2015' },
+          syllabuses: { code: 'ISC2001' },
           grades: { code: '1' })
 
   campus_evaluation = CampusEvaluation.joins(
@@ -467,7 +467,7 @@ create_users if false
 create_countries if false
 create_statuses if false
 create_institutions if false
-create_campuses if true
+create_campuses if false
 create_buildings if false
 create_classrooms if false
 create_educative_levels if false
@@ -501,5 +501,5 @@ create_course_marks if true
 create_course_homeworks if true
 create_student_homeworks if true
 create_homework_evaluations if true
-create_attendance_types if true
+create_attendance_types if false
 create_evaluation_attendances if true
