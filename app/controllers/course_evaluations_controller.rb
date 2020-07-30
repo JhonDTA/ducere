@@ -4,7 +4,7 @@ class CourseEvaluationsController < ApplicationController
   # GET /course_evaluations
   # GET /course_evaluations.json
   def index
-    @course_evaluations = CourseEvaluation.all
+    @course_evaluations = CourseEvaluation.paginate(page: params[:page], per_page: 20)
   end
 
   # GET /course_evaluations/1

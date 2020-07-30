@@ -4,7 +4,7 @@ class AttendanceTypesController < ApplicationController
   # GET /attendance_types
   # GET /attendance_types.json
   def index
-    @attendance_types = AttendanceType.all
+    @attendance_types = AttendanceType.paginate(page: params[:page], per_page: 20)
   end
 
   # GET /attendance_types/1

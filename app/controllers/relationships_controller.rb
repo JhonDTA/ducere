@@ -4,7 +4,7 @@ class RelationshipsController < ApplicationController
   # GET /relationships
   # GET /relationships.json
   def index
-    @relationships = Relationship.all
+    @relationships = Relationship.paginate(page: params[:page], per_page: 20)
   end
 
   # GET /relationships/1

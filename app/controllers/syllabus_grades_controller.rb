@@ -4,7 +4,7 @@ class SyllabusGradesController < ApplicationController
   # GET /syllabus_grades
   # GET /syllabus_grades.json
   def index
-    @syllabus_grades = SyllabusGrade.all
+    @syllabus_grades = SyllabusGrade.paginate(page: params[:page], per_page: 20)
   end
 
   # GET /syllabus_grades/1

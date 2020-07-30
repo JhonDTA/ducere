@@ -4,7 +4,7 @@ class LevelCareersController < ApplicationController
   # GET /level_careers
   # GET /level_careers.json
   def index
-    @level_careers = LevelCareer.all
+    @level_careers = LevelCareer.paginate(page: params[:page], per_page: 20)
   end
 
   # GET /level_careers/1

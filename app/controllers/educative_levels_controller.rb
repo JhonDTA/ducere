@@ -4,7 +4,7 @@ class EducativeLevelsController < ApplicationController
   # GET /educative_levels
   # GET /educative_levels.json
   def index
-    @educative_levels = EducativeLevel.all
+    @educative_levels = EducativeLevel.paginate(page: params[:page], per_page: 20)
   end
 
   # GET /educative_levels/1

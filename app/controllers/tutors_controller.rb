@@ -4,7 +4,7 @@ class TutorsController < ApplicationController
   # GET /tutors
   # GET /tutors.json
   def index
-    @tutors = Tutor.all
+    @tutors = Tutor.paginate(page: params[:page], per_page: 20)
   end
 
   # GET /tutors/1

@@ -4,7 +4,7 @@ class ProfessorCoursesController < ApplicationController
   # GET /professor_courses
   # GET /professor_courses.json
   def index
-    @professor_courses = ProfessorCourse.all
+    @professor_courses = ProfessorCourse.paginate(page: params[:page], per_page: 20)
   end
 
   # GET /professor_courses/1

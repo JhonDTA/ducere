@@ -4,7 +4,7 @@ class CourseMarksController < ApplicationController
   # GET /course_marks
   # GET /course_marks.json
   def index
-    @course_marks = CourseMark.all
+    @course_marks = CourseMark.paginate(page: params[:page], per_page: 20)
   end
 
   # GET /course_marks/1

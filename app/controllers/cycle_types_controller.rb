@@ -4,7 +4,7 @@ class CycleTypesController < ApplicationController
   # GET /cycle_types
   # GET /cycle_types.json
   def index
-    @cycle_types = CycleType.all
+    @cycle_types = CycleType.paginate(page: params[:page], per_page: 20)
   end
 
   # GET /cycle_types/1

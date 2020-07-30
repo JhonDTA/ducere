@@ -4,7 +4,7 @@ class AcademicCyclesController < ApplicationController
   # GET /academic_cycles
   # GET /academic_cycles.json
   def index
-    @academic_cycles = AcademicCycle.all
+    @academic_cycles = AcademicCycle.paginate(page: params[:page], per_page: 20)
   end
 
   # GET /academic_cycles/1

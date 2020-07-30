@@ -4,36 +4,37 @@
 
 <table>
   <thead>
-    <tr>
-      <th>Code</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Cycle type</th>
-      <th>Status</th>
-      <th>Start</th>
-      <th>Finish</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>Code</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Cycle type</th>
+    <th>Status</th>
+    <th>Start</th>
+    <th>Finish</th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @academic_cycles.each do |academic_cycle| %>
-      <tr>
-        <td><%= academic_cycle.code %></td>
-        <td><%= academic_cycle.name %></td>
-        <td><%= academic_cycle.description %></td>
-        <td><%= academic_cycle.cycle_type.name %></td>
-        <td><%= academic_cycle.status.name %></td>
-        <td><%= academic_cycle.start %></td>
-        <td><%= academic_cycle.finish %></td>
-        <td><%= link_to 'Show', academic_cycle %></td>
-        <td><%= link_to 'Edit', edit_academic_cycle_path(academic_cycle) %></td>
-        <td><%= link_to 'Destroy', academic_cycle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <% @academic_cycles.each do |academic_cycle| %>
+    <tr>
+      <td><%= academic_cycle.code %></td>
+      <td><%= academic_cycle.name %></td>
+      <td><%= academic_cycle.description %></td>
+      <td><%= academic_cycle.cycle_type.name %></td>
+      <td><%= academic_cycle.status.name %></td>
+      <td><%= academic_cycle.start %></td>
+      <td><%= academic_cycle.finish %></td>
+      <td><%= link_to 'Show', academic_cycle %></td>
+      <td><%= link_to 'Edit', edit_academic_cycle_path(academic_cycle) %></td>
+      <td><%= link_to 'Destroy', academic_cycle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
   </tbody>
 </table>
 
 <br>
 
 <%= link_to 'New Academic Cycle', new_academic_cycle_path %>
+<%= will_paginate @academic_cycles %>

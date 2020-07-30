@@ -4,7 +4,7 @@ class HomeworkEvaluationsController < ApplicationController
   # GET /homework_evaluations
   # GET /homework_evaluations.json
   def index
-    @homework_evaluations = HomeworkEvaluation.all
+    @homework_evaluations = HomeworkEvaluation.paginate(page: params[:page], per_page: 20)
   end
 
   # GET /homework_evaluations/1
