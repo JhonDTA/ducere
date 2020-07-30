@@ -341,6 +341,77 @@ def create_campus_evaluations
   end
 end
 
+def create_course_evaluation
+  grade_courses = GradeCourse.joins(
+      syllabus_grade: [
+          { career_syllabus: [
+              { level_career: :career },
+              :syllabus] },
+          :grade
+      ]).where(careers: { code: 'ISC' },
+               syllabuses: { code: 'ISC2011' },
+               grades: { code: '1' })
+
+  campus_evaluation = CampusEvaluation.joins(
+      turn_evaluation: [
+          { cycle_turn: [
+              { cycle_modality: {
+                  academic_cycle: :cycle_type } },
+              :turn
+          ] },
+          :evaluation_period
+      ]).where(cycle_types: { code: 'CUAT' },
+               academic_cycles: { start: Date.new(2019, 8, 1) },
+               evaluation_periods: { code: '1' },
+               turns: { code: 'MAT' }).first
+  professors = Professor.all
+  group = Group.first
+
+  grade_courses.each do |grade_course|
+    professor = professors.sample
+    CourseEvaluation.create(grade_course: grade_course,
+                            campus_evaluation: campus_evaluation,
+                            professor: professor, group: group)
+  end
+end
+
+def create_student_courses
+  students = Student.all.take(40)
+  course_evaluations = CourseEvaluation.all
+  students.each do |student|
+    course_evaluations.each do |course_evaluation|
+      StudentCourse.create(student: student, course_evaluation: course_evaluation)
+    end
+  end
+end
+
+def create_student_marks
+  student_courses = StudentCourse.all
+  marks = (5..10).to_a
+  attendances = (10..20).to_a
+  student_courses.each do |student_course|
+    observations = Faker::Lorem.paragraph(sentence_count: 2)
+    StudentMark.create(student_course: student_course, mark: marks.sample,
+                       attendance: attendances.sample, observations: observations)
+  end
+end
+
+def create_course_homeworks
+  course_evaluations = CourseEvaluation.all
+  course_evaluations.each do |course_evaluation|
+    (1..3).to_a.sample.times do
+      name = "#{Faker::Educator.subject} in #{Faker::IndustrySegments.sub_sector}"
+      description = Faker::Lorem.paragraph(sentence_count: 3)
+      CourseHomework.create(course_evaluation: course_evaluation, name: name,
+                            description: description)
+    end
+  end
+end
+
+def create_student_homeworks
+  course_homeworks = CourseHomework.all
+end
+
 Faker::Config.locale = 'es-MX'
 @status = Status.where(code: 'ACT').first
 create_users if false
@@ -375,3 +446,6 @@ create_cycle_modalities if false
 create_cycle_turns if false
 create_evaluation_periods if false
 create_campus_evaluations if false
+create_course_evaluation if false
+create_student_courses if false
+create_course_homeworks if false
