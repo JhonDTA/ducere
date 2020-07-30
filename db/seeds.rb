@@ -314,7 +314,7 @@ def create_cycle_turns
   end
 end
 
-def create_evaluation_periods
+def create_turn_evaluations
   cycle_turns = CycleTurn.joins(cycle_modality: :academic_cycle).where(academic_cycles: { start: Date.new(2019, 8, 1) })
   cycle_turns.each do |cycle_turn|
     cycle_modality = cycle_turn.cycle_modality
@@ -334,10 +334,10 @@ def create_campus_evaluations
   institution = Institution.first
   campus = institution.campuses.first
   turn_evaluations = TurnEvaluation.joins(cycle_turn: {
-                                            cycle_modality: {
-                                              academic_cycle: :cycle_type
-                                            }
-                                          }).where(cycle_types: { code: 'CUAT' })
+      cycle_modality: {
+          academic_cycle: :cycle_type
+      }
+  }).where(cycle_types: { code: 'CUAT' })
   turn_evaluations.each do |turn_evaluation|
     CampusEvaluation.create(campus: campus, turn_evaluation: turn_evaluation)
   end
@@ -345,27 +345,27 @@ end
 
 def create_course_evaluation
   grade_courses = GradeCourse.joins(
-    syllabus_grade: [
-      { career_syllabus: [
-        { level_career: :career },
-        :syllabus
-      ] },
-      :grade
-    ]
+      syllabus_grade: [
+          { career_syllabus: [
+              { level_career: :career },
+              :syllabus
+          ] },
+          :grade
+      ]
   ).where(careers: { code: 'ISC' },
-          syllabuses: { code: 'ISC2011' },
+          syllabuses: { code: 'ISC2015' },
           grades: { code: '1' })
 
   campus_evaluation = CampusEvaluation.joins(
-    turn_evaluation: [
-      { cycle_turn: [
-        { cycle_modality: {
-          academic_cycle: :cycle_type
-        } },
-        :turn
-      ] },
-      :evaluation_period
-    ]
+      turn_evaluation: [
+          { cycle_turn: [
+              { cycle_modality: {
+                  academic_cycle: :cycle_type
+              } },
+              :turn
+          ] },
+          :evaluation_period
+      ]
   ).where(cycle_types: { code: 'CUAT' },
           academic_cycles: { start: Date.new(2019, 8, 1) },
           evaluation_periods: { code: '1' },
@@ -391,14 +391,14 @@ def create_student_courses
   end
 end
 
-def create_student_marks
+def create_course_marks
   student_courses = StudentCourse.all
   marks = (5..10).to_a
   attendances = (10..20).to_a
   student_courses.each do |student_course|
     observations = Faker::Lorem.paragraph(sentence_count: 2)
-    StudentMark.create(student_course: student_course, mark: marks.sample,
-                       attendance: attendances.sample, observations: observations)
+    CourseMark.create(student_course: student_course, mark: marks.sample,
+                      attendance: attendances.sample, observations: observations)
   end
 end
 
@@ -415,7 +415,50 @@ def create_course_homeworks
 end
 
 def create_student_homeworks
-  course_homeworks = CourseHomework.all
+  CourseHomework.all.each do |course_homework|
+    course_evaluation = course_homework.course_evaluation
+    course_students = course_evaluation.student_courses
+    course_students.each do |course_student|
+      student = course_student.student
+      observations = Faker::Lorem.paragraph(sentence_count: 4)
+      StudentHomework.create(course_homework: course_homework,
+                             student: student,
+                             observations: observations)
+    end
+  end
+end
+
+def create_homework_evaluations
+  marks = (5..10).to_a
+  StudentHomework.all.each do |student_homework|
+    observations = Faker::Lorem.paragraph(sentence_count: 2)
+    HomeworkEvaluation.create(student_homework: student_homework,
+                              mark: marks.sample, observations: observations)
+  end
+end
+
+def create_attendance_types
+  path = 'db/external_data/attendance_types.csv'
+  CSV.foreach(path, headers: true) do |row|
+    AttendanceType.create(code: row['code'], name: row['name'],
+                          description: row['description'], status: @status)
+  end
+end
+
+def create_evaluation_attendances
+  student_courses = StudentCourse.all
+  academic_cycle = AcademicCycle.find_by(code: 'CUA0819-1119')
+  attendance_type = AttendanceType.first
+  (academic_cycle.start..academic_cycle.finish).each do |date|
+    student_courses.each do |student_course|
+      student = student_course.student
+      course_evaluation = student_course.course_evaluation
+      EvaluationAttendance.create(student: student,
+                                  course_evaluation: course_evaluation,
+                                  attendance_type: attendance_type,
+                                  date: date)
+    end
+  end
 end
 
 Faker::Config.locale = 'es-MX'
@@ -450,8 +493,13 @@ create_parents if false
 create_tutors if false
 create_cycle_modalities if false
 create_cycle_turns if false
-create_evaluation_periods if false
+create_turn_evaluations if false
 create_campus_evaluations if false
 create_course_evaluation if false
 create_student_courses if false
+create_course_marks if false
 create_course_homeworks if false
+create_student_homeworks if false
+create_homework_evaluations if false
+create_attendance_types if false
+create_evaluation_attendances if true

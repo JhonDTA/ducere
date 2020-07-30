@@ -2,6 +2,8 @@ class TurnEvaluation < ApplicationRecord
   belongs_to :cycle_turn
   belongs_to :evaluation_period
 
+  has_many :campus_evaluations
+
   def name
     "#{cycle_turn.name} - #{evaluation_period.name} periodo"
   end

@@ -16,7 +16,7 @@
   <tbody>
     <% @course_marks.each do |course_mark| %>
       <tr>
-        <td><%= course_mark.student_course_id %></td>
+        <td><%= course_mark.student_course.name %></td>
         <td><%= course_mark.mark %></td>
         <td><%= course_mark.attendance %></td>
         <td><%= course_mark.observations %></td>
