@@ -463,9 +463,9 @@ end
 
 Faker::Config.locale = 'es-MX'
 @status = Status.where(code: 'ACT').first
-create_users if true
-create_countries if true
-create_statuses if true
+create_users if false
+create_countries if false
+create_statuses if false
 create_institutions if true
 create_campuses if true
 create_buildings if true
@@ -486,10 +486,10 @@ create_level_careers if true
 create_career_syllabuses if true
 create_syllabus_grades if true
 create_grade_courses if true
-create_students if true
-create_professors if true
+create_students if false
+create_professors if false
 create_professor_courses if true
-create_parents if true
+create_parents if false
 create_tutors if true
 create_cycle_modalities if true
 create_cycle_turns if true
