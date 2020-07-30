@@ -50,6 +50,27 @@ def create_campuses
   end
 end
 
+def create_buildings
+  Campus.all.each do |campus|
+    ((rand * 3) + 1).floor.times do
+      code = Faker::Alphanumeric.alphanumeric(number: 2, min_alpha: 1,
+                                              min_numeric: 1).upcase
+      campus.buildings.create(code: code, description: "Edificio #{code}",
+                              status: @status)
+    end
+  end
+end
+
+def create_classrooms
+  Building.all.each do |building|
+    ((rand * 4) + 2).floor.times do |n|
+      code = "#{building.code}-#{n + 1}"
+      building.classrooms.create(code: code, description: "Salon #{code}",
+                                 status: @status)
+    end
+  end
+end
+
 def create_educative_levels
   path = 'db/external_data/educative_levels.csv'
   CSV.foreach(path, headers: true) do |row|
@@ -152,6 +173,31 @@ def create_turns
   end
 end
 
+def create_evaluation_periods
+  periods = %w[Primer Segundo Tercer Cuarto Quinto Sexto Septimo Octavo Noveno
+               Decimo Onceavo Doceavo]
+  periods.each_with_index do |grade, index|
+    EvaluationPeriod.create(code: index + 1, name: grade,
+                            description: "#{grade} periodo de evaluación",
+                            status: @status)
+  end
+end
+
+def create_relationships
+  path = 'db/external_data/relationships.csv'
+  CSV.foreach(path, headers: true) do |row|
+    Relationship.create(name: row['name'], status: @status)
+  end
+end
+
+def create_groups
+  group_letters = %w[A B C D]
+  group_letters.each do |group_letter|
+    Group.create(code: group_letter, name: "Grupo #{group_letter}",
+                 description: "Grupo #{group_letter}", status: @status)
+  end
+end
+
 Faker::Config.locale = 'es-MX'
 @status = Status.where(code: 'ACT').first
 create_users if false
@@ -159,6 +205,8 @@ create_countries if false
 create_statuses if false
 create_institutions if false
 create_campuses if false
+create_buildings if true
+create_classrooms if true
 create_educative_levels if false
 create_careers if false
 create_syllabuses if false
@@ -167,4 +215,7 @@ create_courses if false
 create_cycle_types if false
 create_academic_cycles if false
 create_modalities if false
-create_turns if true
+create_turns if false
+create_evaluation_periods if false
+create_relationships if false
+create_groups if false
