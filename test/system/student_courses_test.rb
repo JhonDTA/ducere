@@ -14,10 +14,7 @@ class StudentCoursesTest < ApplicationSystemTestCase
     visit student_courses_url
     click_on 'New Student Course'
 
-    fill_in 'Attendance', with: @student_course.attendance
     fill_in 'Course evaluation', with: @student_course.course_evaluation_id
-    fill_in 'Mark', with: @student_course.mark
-    fill_in 'Observations', with: @student_course.observations
     fill_in 'Student', with: @student_course.student_id
     click_on 'Create Student course'
 
@@ -29,10 +26,7 @@ class StudentCoursesTest < ApplicationSystemTestCase
     visit student_courses_url
     click_on 'Edit', match: :first
 
-    fill_in 'Attendance', with: @student_course.attendance
     fill_in 'Course evaluation', with: @student_course.course_evaluation_id
-    fill_in 'Mark', with: @student_course.mark
-    fill_in 'Observations', with: @student_course.observations
     fill_in 'Student', with: @student_course.student_id
     click_on 'Update Student course'
 

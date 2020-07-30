@@ -10,20 +10,5 @@
   <%= @student_course.course_evaluation.name %>
 </p>
 
-<p>
-  <strong>Mark:</strong>
-  <%= @student_course.mark %>
-</p>
-
-<p>
-  <strong>Attendance:</strong>
-  <%= @student_course.attendance %>
-</p>
-
-<p>
-  <strong>Observations:</strong>
-  <%= @student_course.observations %>
-</p>
-
 <%= link_to 'Edit', edit_student_course_path(@student_course) %> |
 <%= link_to 'Back', student_courses_path %>

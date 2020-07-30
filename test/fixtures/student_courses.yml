@@ -3,13 +3,7 @@
 one:
   student: one
   course_evaluation: one
-  mark: 1
-  attendance: 1
-  observations: MyText
 
 two:
   student: two
   course_evaluation: two
-  mark: 1
-  attendance: 1
-  observations: MyText
