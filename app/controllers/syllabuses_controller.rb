@@ -4,7 +4,8 @@ class SyllabusesController < ApplicationController
   # GET /syllabuses
   # GET /syllabuses.json
   def index
-    @syllabuses = Syllabus.paginate(page: params[:page], per_page: 20)
+    pagination = { page: params[:page], per_page: 20 }
+    @syllabuses = Syllabus.paginate(pagination)
   end
 
   # GET /syllabuses/1

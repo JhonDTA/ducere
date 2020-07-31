@@ -334,10 +334,10 @@ def create_campus_evaluations
   institution = Institution.first
   campus = institution.campuses.first
   turn_evaluations = TurnEvaluation.joins(cycle_turn: {
-      cycle_modality: {
-          academic_cycle: :cycle_type
-      }
-  }).where(cycle_types: { code: 'CUAT' })
+                                            cycle_modality: {
+                                              academic_cycle: :cycle_type
+                                            }
+                                          }).where(cycle_types: { code: 'CUAT' })
   turn_evaluations.each do |turn_evaluation|
     CampusEvaluation.create(campus: campus, turn_evaluation: turn_evaluation)
   end
@@ -345,27 +345,27 @@ end
 
 def create_course_evaluation
   grade_courses = GradeCourse.joins(
-      syllabus_grade: [
-          { career_syllabus: [
-              { level_career: :career },
-              :syllabus
-          ] },
-          :grade
-      ]
+    syllabus_grade: [
+      { career_syllabus: [
+        { level_career: :career },
+        :syllabus
+      ] },
+      :grade
+    ]
   ).where(careers: { code: 'ISC' },
           syllabuses: { code: 'ISC2001' },
           grades: { code: '1' })
 
   campus_evaluation = CampusEvaluation.joins(
-      turn_evaluation: [
-          { cycle_turn: [
-              { cycle_modality: {
-                  academic_cycle: :cycle_type
-              } },
-              :turn
-          ] },
-          :evaluation_period
-      ]
+    turn_evaluation: [
+      { cycle_turn: [
+        { cycle_modality: {
+          academic_cycle: :cycle_type
+        } },
+        :turn
+      ] },
+      :evaluation_period
+    ]
   ).where(cycle_types: { code: 'CUAT' },
           academic_cycles: { start: Date.new(2019, 8, 1) },
           evaluation_periods: { code: '1' },

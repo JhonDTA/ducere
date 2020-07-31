@@ -4,7 +4,8 @@ class CycleTurnsController < ApplicationController
   # GET /cycle_turns
   # GET /cycle_turns.json
   def index
-    @cycle_turns = CycleTurn.paginate(page: params[:page], per_page: 20)
+    pagination = { page: params[:page], per_page: 20 }
+    @cycle_turns = CycleTurn.paginate(pagination)
   end
 
   # GET /cycle_turns/1

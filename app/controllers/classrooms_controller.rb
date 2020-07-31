@@ -4,7 +4,8 @@ class ClassroomsController < ApplicationController
   # GET /classrooms
   # GET /classrooms.json
   def index
-    @classrooms = Classroom.paginate(page: params[:page], per_page: 20)
+    pagination = { page: params[:page], per_page: 20 }
+    @classrooms = Classroom.paginate(pagination)
   end
 
   # GET /classrooms/1

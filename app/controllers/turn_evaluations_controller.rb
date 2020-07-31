@@ -4,7 +4,8 @@ class TurnEvaluationsController < ApplicationController
   # GET /turn_evaluations
   # GET /turn_evaluations.json
   def index
-    @turn_evaluations = TurnEvaluation.paginate(page: params[:page], per_page: 20)
+    pagination = { page: params[:page], per_page: 20 }
+    @turn_evaluations = TurnEvaluation.paginate(pagination)
   end
 
   # GET /turn_evaluations/1

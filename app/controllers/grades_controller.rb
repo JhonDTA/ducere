@@ -4,7 +4,8 @@ class GradesController < ApplicationController
   # GET /grades
   # GET /grades.json
   def index
-    @grades = Grade.paginate(page: params[:page], per_page: 20)
+    pagination = { page: params[:page], per_page: 20 }
+    @grades = Grade.paginate(pagination)
   end
 
   # GET /grades/1

@@ -4,7 +4,8 @@ class ModalitiesController < ApplicationController
   # GET /modalities
   # GET /modalities.json
   def index
-    @modalities = Modality.paginate(page: params[:page], per_page: 20)
+    pagination = { page: params[:page], per_page: 20 }
+    @modalities = Modality.paginate(pagination)
   end
 
   # GET /modalities/1

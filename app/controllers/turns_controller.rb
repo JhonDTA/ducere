@@ -4,7 +4,8 @@ class TurnsController < ApplicationController
   # GET /turns
   # GET /turns.json
   def index
-    @turns = Turn.paginate(page: params[:page], per_page: 20)
+    pagination = { page: params[:page], per_page: 20 }
+    @turns = Turn.paginate(pagination)
   end
 
   # GET /turns/1

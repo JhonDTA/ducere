@@ -9,6 +9,6 @@ class CampusEvaluation < ApplicationRecord
   end
 
   def self.collection
-    all.includes([{ turn_evaluation: [{ cycle_turn: [{ cycle_modality: [:academic_cycle, :modality] }, :turn] }, :evaluation_period] }, :campus])
+    all.includes([{ turn_evaluation: [{ cycle_turn: [{ cycle_modality: %i[academic_cycle modality] }, :turn] }, :evaluation_period] }, :campus])
   end
 end

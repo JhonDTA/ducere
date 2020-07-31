@@ -4,7 +4,8 @@ class CourseHomeworksController < ApplicationController
   # GET /course_homeworks
   # GET /course_homeworks.json
   def index
-    @course_homeworks = CourseHomework.paginate(page: params[:page], per_page: 20)
+    pagination = { page: params[:page], per_page: 20 }
+    @course_homeworks = CourseHomework.paginate(pagination)
   end
 
   # GET /course_homeworks/1

@@ -4,7 +4,8 @@ class EvaluationPeriodsController < ApplicationController
   # GET /evaluation_periods
   # GET /evaluation_periods.json
   def index
-    @evaluation_periods = EvaluationPeriod.paginate(page: params[:page], per_page: 20)
+    pagination = { page: params[:page], per_page: 20 }
+    @evaluation_periods = EvaluationPeriod.paginate(pagination)
   end
 
   # GET /evaluation_periods/1

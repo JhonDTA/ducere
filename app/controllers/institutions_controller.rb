@@ -4,7 +4,8 @@ class InstitutionsController < ApplicationController
   # GET /institutions
   # GET /institutions.json
   def index
-    @institutions = Institution.paginate(page: params[:page], per_page: 20)
+    pagination = { page: params[:page], per_page: 20 }
+    @institutions = Institution.paginate(pagination)
   end
 
   # GET /institutions/1

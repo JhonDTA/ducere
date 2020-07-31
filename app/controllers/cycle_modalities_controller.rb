@@ -4,7 +4,8 @@ class CycleModalitiesController < ApplicationController
   # GET /cycle_modalities
   # GET /cycle_modalities.json
   def index
-    @cycle_modalities = CycleModality.paginate(page: params[:page], per_page: 20)
+    pagination = { page: params[:page], per_page: 20 }
+    @cycle_modalities = CycleModality.paginate(pagination)
   end
 
   # GET /cycle_modalities/1

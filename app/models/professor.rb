@@ -1,7 +1,7 @@
 class Professor < ApplicationRecord
   belongs_to :user
 
-  validates_uniqueness_of :user_id
+  validates :user_id, uniqueness: true
 
   delegate :name, to: :user
 

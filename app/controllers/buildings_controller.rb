@@ -4,7 +4,8 @@ class BuildingsController < ApplicationController
   # GET /buildings
   # GET /buildings.json
   def index
-    @buildings = Building.paginate(page: params[:page], per_page: 20)
+    pagination = { page: params[:page], per_page: 20 }
+    @buildings = Building.paginate(pagination)
   end
 
   # GET /buildings/1
