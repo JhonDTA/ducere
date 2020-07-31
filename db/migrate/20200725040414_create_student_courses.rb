@@ -6,5 +6,7 @@ class CreateStudentCourses < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+    add_index :student_courses, %i[student_id course_evaluation_id],
+              unique: true, name: 'uidx_student_courses'
   end
 end

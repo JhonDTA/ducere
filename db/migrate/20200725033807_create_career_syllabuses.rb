@@ -6,5 +6,7 @@ class CreateCareerSyllabuses < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+    add_index :career_syllabuses, %i[level_career_id syllabus_id], unique: true,
+              name: 'uidx_career_syllabuses'
   end
 end

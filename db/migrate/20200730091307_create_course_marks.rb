@@ -8,5 +8,7 @@ class CreateCourseMarks < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+    add_index :course_marks, :student_course_id, unique: true,
+              name: 'uidx_course_marks'
   end
 end

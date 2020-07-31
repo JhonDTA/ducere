@@ -8,5 +8,8 @@ class CreateCourseEvaluations < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+    add_index :course_evaluations, %i[grade_course_id campus_evaluation_id
+                                      professor_id group_id], unique: true,
+              name: 'uidx_course_evaluations'
   end
 end

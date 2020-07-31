@@ -6,5 +6,7 @@ class CreateSyllabusGrades < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+    add_index :syllabus_grades, %i[career_syllabus_id grade_id], unique: true,
+              name: 'uidx_syllabus_grades'
   end
 end

@@ -7,5 +7,7 @@ class CreateTutors < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+    add_index :tutors, %i[student_id parent_id], unique: true,
+              name: 'uidx_tutors'
   end
 end

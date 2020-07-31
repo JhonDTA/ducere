@@ -6,5 +6,7 @@ class CreateProfessorCourses < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+    add_index :professor_courses, %i[professor_id course_id], unique: true,
+              name: 'uidx_professor_courses'
   end
 end

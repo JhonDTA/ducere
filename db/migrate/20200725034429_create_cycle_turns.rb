@@ -6,5 +6,7 @@ class CreateCycleTurns < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+    add_index :cycle_turns, %i[cycle_modality_id turn_id], unique: true,
+              name: 'uidx_cycle_turns'
   end
 end

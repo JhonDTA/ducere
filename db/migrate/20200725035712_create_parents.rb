@@ -5,5 +5,6 @@ class CreateParents < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+    add_index :parents, :user_id, unique: true, name: 'uidx_parents_user'
   end
 end

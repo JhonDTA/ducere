@@ -16,15 +16,16 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
   enable_extension "plpgsql"
 
   create_table "academic_cycles", force: :cascade do |t|
-    t.string "code", limit: 16
-    t.string "name", limit: 255
+    t.string "code", limit: 16, null: false
+    t.string "name", limit: 255, null: false
     t.text "description"
     t.bigint "cycle_type_id", null: false
     t.bigint "status_id", null: false
-    t.date "start"
-    t.date "finish"
+    t.date "start", null: false
+    t.date "finish", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["code"], name: "uidx_academic_cycles_code", unique: true
     t.index ["cycle_type_id"], name: "index_academic_cycles_on_cycle_type_id"
     t.index ["status_id"], name: "index_academic_cycles_on_status_id"
   end
@@ -51,22 +52,24 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
   end
 
   create_table "attendance_types", force: :cascade do |t|
-    t.string "code", limit: 16
-    t.string "name", limit: 255
+    t.string "code", limit: 16, null: false
+    t.string "name", limit: 255, null: false
     t.text "description"
     t.bigint "status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["code"], name: "uidx_attendance_types_code", unique: true
     t.index ["status_id"], name: "index_attendance_types_on_status_id"
   end
 
   create_table "buildings", force: :cascade do |t|
-    t.string "code", limit: 16
+    t.string "code", limit: 16, null: false
     t.text "description"
     t.bigint "campus_id", null: false
     t.bigint "status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["campus_id", "code"], name: "uidx_buildings_campus_code", unique: true
     t.index ["campus_id"], name: "index_buildings_on_campus_id"
     t.index ["status_id"], name: "index_buildings_on_status_id"
   end
@@ -76,18 +79,20 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
     t.bigint "turn_evaluation_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["campus_id", "turn_evaluation_id"], name: "uidx_campus_evaluations", unique: true
     t.index ["campus_id"], name: "index_campus_evaluations_on_campus_id"
     t.index ["turn_evaluation_id"], name: "index_campus_evaluations_on_turn_evaluation_id"
   end
 
   create_table "campuses", force: :cascade do |t|
-    t.string "code", limit: 16
-    t.string "name", limit: 255
+    t.string "code", limit: 16, null: false
+    t.string "name", limit: 255, null: false
     t.text "description"
     t.bigint "institution_id", null: false
     t.bigint "status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["institution_id", "code"], name: "uidx_campuses_institution_code", unique: true
     t.index ["institution_id"], name: "index_campuses_on_institution_id"
     t.index ["status_id"], name: "index_campuses_on_status_id"
   end
@@ -97,27 +102,30 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
     t.bigint "syllabus_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["level_career_id", "syllabus_id"], name: "uidx_career_syllabuses", unique: true
     t.index ["level_career_id"], name: "index_career_syllabuses_on_level_career_id"
     t.index ["syllabus_id"], name: "index_career_syllabuses_on_syllabus_id"
   end
 
   create_table "careers", force: :cascade do |t|
-    t.string "code", limit: 16
-    t.string "name", limit: 255
+    t.string "code", limit: 16, null: false
+    t.string "name", limit: 255, null: false
     t.text "description"
     t.bigint "status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["code"], name: "uidx_careers_code", unique: true
     t.index ["status_id"], name: "index_careers_on_status_id"
   end
 
   create_table "classrooms", force: :cascade do |t|
-    t.string "code", limit: 16
+    t.string "code", limit: 16, null: false
     t.text "description"
     t.bigint "building_id", null: false
     t.bigint "status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["building_id", "code"], name: "uidx_classrooms_building_code", unique: true
     t.index ["building_id"], name: "index_classrooms_on_building_id"
     t.index ["status_id"], name: "index_classrooms_on_status_id"
   end
@@ -128,7 +136,7 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
     t.string "calling_code", limit: 10
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["iso_code"], name: "index_countries_on_iso_code", unique: true
+    t.index ["iso_code"], name: "uidx_countries_iso_code", unique: true
   end
 
   create_table "course_evaluations", force: :cascade do |t|
@@ -139,6 +147,7 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["campus_evaluation_id"], name: "index_course_evaluations_on_campus_evaluation_id"
+    t.index ["grade_course_id", "campus_evaluation_id", "professor_id", "group_id"], name: "uidx_course_evaluations", unique: true
     t.index ["grade_course_id"], name: "index_course_evaluations_on_grade_course_id"
     t.index ["group_id"], name: "index_course_evaluations_on_group_id"
     t.index ["professor_id"], name: "index_course_evaluations_on_professor_id"
@@ -146,7 +155,7 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
 
   create_table "course_homeworks", force: :cascade do |t|
     t.bigint "course_evaluation_id", null: false
-    t.string "name", limit: 255
+    t.string "name", limit: 255, null: false
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -161,16 +170,18 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["student_course_id"], name: "index_course_marks_on_student_course_id"
+    t.index ["student_course_id"], name: "uidx_course_marks", unique: true
   end
 
   create_table "courses", force: :cascade do |t|
-    t.string "code", limit: 16
-    t.string "name", limit: 255
+    t.string "code", limit: 16, null: false
+    t.string "name", limit: 255, null: false
     t.text "description"
-    t.integer "credits", limit: 2
+    t.integer "credits", limit: 2, default: 0, null: false
     t.bigint "status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["code"], name: "uidx_courses_code", unique: true
     t.index ["status_id"], name: "index_courses_on_status_id"
   end
 
@@ -179,6 +190,7 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
     t.bigint "modality_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["academic_cycle_id", "modality_id"], name: "uidx_cycle_modalities", unique: true
     t.index ["academic_cycle_id"], name: "index_cycle_modalities_on_academic_cycle_id"
     t.index ["modality_id"], name: "index_cycle_modalities_on_modality_id"
   end
@@ -188,28 +200,31 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
     t.bigint "turn_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["cycle_modality_id", "turn_id"], name: "uidx_cycle_turns", unique: true
     t.index ["cycle_modality_id"], name: "index_cycle_turns_on_cycle_modality_id"
     t.index ["turn_id"], name: "index_cycle_turns_on_turn_id"
   end
 
   create_table "cycle_types", force: :cascade do |t|
-    t.string "code", limit: 16
-    t.string "name", limit: 255
+    t.string "code", limit: 16, null: false
+    t.string "name", limit: 255, null: false
     t.text "description"
-    t.integer "duration", limit: 2
+    t.integer "duration", limit: 2, default: 0, null: false
     t.bigint "status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["code"], name: "uidx_cycle_types_code", unique: true
     t.index ["status_id"], name: "index_cycle_types_on_status_id"
   end
 
   create_table "educative_levels", force: :cascade do |t|
-    t.string "code", limit: 16
-    t.string "name", limit: 255
+    t.string "code", limit: 16, null: false
+    t.string "name", limit: 255, null: false
     t.text "description"
     t.bigint "status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["code"], name: "uidx_edicative_levels_code", unique: true
     t.index ["status_id"], name: "index_educative_levels_on_status_id"
   end
 
@@ -222,16 +237,18 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["attendance_type_id"], name: "index_evaluation_attendances_on_attendance_type_id"
     t.index ["course_evaluation_id"], name: "index_evaluation_attendances_on_course_evaluation_id"
+    t.index ["student_id", "course_evaluation_id", "attendance_type_id", "date"], name: "uidx_evaluation_attendances", unique: true
     t.index ["student_id"], name: "index_evaluation_attendances_on_student_id"
   end
 
   create_table "evaluation_periods", force: :cascade do |t|
-    t.string "code", limit: 16
-    t.string "name", limit: 255
+    t.string "code", limit: 16, null: false
+    t.string "name", limit: 255, null: false
     t.text "description"
     t.bigint "status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["code"], name: "uidx_evaluation_periods_code", unique: true
     t.index ["status_id"], name: "index_evaluation_periods_on_status_id"
   end
 
@@ -241,26 +258,29 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["course_id"], name: "index_grade_courses_on_course_id"
+    t.index ["syllabus_grade_id", "course_id"], name: "uidx_grade_courses", unique: true
     t.index ["syllabus_grade_id"], name: "index_grade_courses_on_syllabus_grade_id"
   end
 
   create_table "grades", force: :cascade do |t|
-    t.string "code", limit: 16
-    t.string "name", limit: 255
+    t.string "code", limit: 16, null: false
+    t.string "name", limit: 255, null: false
     t.text "description"
     t.bigint "status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["code"], name: "uidx_gardes_code", unique: true
     t.index ["status_id"], name: "index_grades_on_status_id"
   end
 
   create_table "groups", force: :cascade do |t|
-    t.string "code", limit: 16
-    t.string "name", limit: 255
+    t.string "code", limit: 16, null: false
+    t.string "name", limit: 255, null: false
     t.text "description"
     t.bigint "status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["code"], name: "uidx_groups_code", unique: true
     t.index ["status_id"], name: "index_groups_on_status_id"
   end
 
@@ -271,16 +291,18 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["student_homework_id"], name: "index_homework_evaluations_on_student_homework_id"
+    t.index ["student_homework_id"], name: "uidx_homework_evaluations", unique: true
   end
 
   create_table "institutions", force: :cascade do |t|
-    t.string "code", limit: 16
-    t.string "name", limit: 255
+    t.string "code", limit: 16, null: false
+    t.string "name", limit: 255, null: false
     t.text "description"
     t.bigint "country_id", null: false
     t.bigint "status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["code"], name: "uidx_institutions_code", unique: true
     t.index ["country_id"], name: "index_institutions_on_country_id"
     t.index ["status_id"], name: "index_institutions_on_status_id"
   end
@@ -291,16 +313,18 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["career_id"], name: "index_level_careers_on_career_id"
+    t.index ["educative_level_id", "career_id"], name: "uidx_level_careers", unique: true
     t.index ["educative_level_id"], name: "index_level_careers_on_educative_level_id"
   end
 
   create_table "modalities", force: :cascade do |t|
-    t.string "code", limit: 16
-    t.string "name", limit: 255
+    t.string "code", limit: 16, null: false
+    t.string "name", limit: 255, null: false
     t.text "description"
     t.bigint "status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["code"], name: "uidx_modalities_code", unique: true
     t.index ["status_id"], name: "index_modalities_on_status_id"
   end
 
@@ -309,6 +333,7 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_parents_on_user_id"
+    t.index ["user_id"], name: "uidx_parents_user", unique: true
   end
 
   create_table "professor_courses", force: :cascade do |t|
@@ -317,6 +342,7 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["course_id"], name: "index_professor_courses_on_course_id"
+    t.index ["professor_id", "course_id"], name: "uidx_professor_courses", unique: true
     t.index ["professor_id"], name: "index_professor_courses_on_professor_id"
   end
 
@@ -326,10 +352,11 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_professors_on_user_id"
+    t.index ["user_id"], name: "uidx_professors_user", unique: true
   end
 
   create_table "relationships", force: :cascade do |t|
-    t.string "name", limit: 255
+    t.string "name", limit: 255, null: false
     t.bigint "status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -337,11 +364,12 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
   end
 
   create_table "statuses", force: :cascade do |t|
-    t.string "code", limit: 16
-    t.string "name", limit: 255
+    t.string "code", limit: 16, null: false
+    t.string "name", limit: 255, null: false
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["code"], name: "uidx_statuses_code", unique: true
   end
 
   create_table "student_courses", force: :cascade do |t|
@@ -350,6 +378,7 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["course_evaluation_id"], name: "index_student_courses_on_course_evaluation_id"
+    t.index ["student_id", "course_evaluation_id"], name: "uidx_student_courses", unique: true
     t.index ["student_id"], name: "index_student_courses_on_student_id"
   end
 
@@ -359,6 +388,7 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
     t.text "observations"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_homework_id", "student_id"], name: "uidx_student_homeworks", unique: true
     t.index ["course_homework_id"], name: "index_student_homeworks_on_course_homework_id"
     t.index ["student_id"], name: "index_student_homeworks_on_student_id"
   end
@@ -369,6 +399,7 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_students_on_user_id"
+    t.index ["user_id"], name: "uidx_students_user", unique: true
   end
 
   create_table "syllabus_grades", force: :cascade do |t|
@@ -376,18 +407,20 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
     t.bigint "grade_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["career_syllabus_id", "grade_id"], name: "uidx_syllabus_grades", unique: true
     t.index ["career_syllabus_id"], name: "index_syllabus_grades_on_career_syllabus_id"
     t.index ["grade_id"], name: "index_syllabus_grades_on_grade_id"
   end
 
   create_table "syllabuses", force: :cascade do |t|
-    t.string "code", limit: 16
-    t.string "name", limit: 255
+    t.string "code", limit: 16, null: false
+    t.string "name", limit: 255, null: false
     t.text "description"
-    t.integer "approval_credits", limit: 2
+    t.integer "approval_credits", limit: 2, default: 0, null: false
     t.bigint "status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["code"], name: "uidx_syllabuses_code", unique: true
     t.index ["status_id"], name: "index_syllabuses_on_status_id"
   end
 
@@ -396,19 +429,21 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
     t.bigint "evaluation_period_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["cycle_turn_id", "evaluation_period_id"], name: "uidx_turn_evaluations", unique: true
     t.index ["cycle_turn_id"], name: "index_turn_evaluations_on_cycle_turn_id"
     t.index ["evaluation_period_id"], name: "index_turn_evaluations_on_evaluation_period_id"
   end
 
   create_table "turns", force: :cascade do |t|
-    t.string "code", limit: 16
-    t.string "name", limit: 255
+    t.string "code", limit: 16, null: false
+    t.string "name", limit: 255, null: false
     t.text "description"
-    t.time "start"
-    t.time "finish"
+    t.time "start", null: false
+    t.time "finish", null: false
     t.bigint "status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["code"], name: "uidx_turns_code", unique: true
     t.index ["status_id"], name: "index_turns_on_status_id"
   end
 
@@ -420,6 +455,7 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["parent_id"], name: "index_tutors_on_parent_id"
     t.index ["relationship_id"], name: "index_tutors_on_relationship_id"
+    t.index ["student_id", "parent_id"], name: "uidx_tutors", unique: true
     t.index ["student_id"], name: "index_tutors_on_student_id"
   end
 
@@ -451,6 +487,7 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
     t.index ["first_name"], name: "index_users_on_first_name"
     t.index ["last_name"], name: "index_users_on_last_name"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["second_last_name"], name: "index_users_on_second_last_name"
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 

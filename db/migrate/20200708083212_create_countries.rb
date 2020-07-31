@@ -8,6 +8,7 @@ class CreateCountries < ActiveRecord::Migration[6.0]
       t.timestamps
     end
 
-    add_index :countries, :iso_code, unique: true
+    add_index :countries, :iso_code, unique: true,
+              name: 'uidx_countries_iso_code'
   end
 end

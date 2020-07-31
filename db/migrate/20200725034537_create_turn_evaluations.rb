@@ -6,5 +6,7 @@ class CreateTurnEvaluations < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+    add_index :turn_evaluations, %i[cycle_turn_id evaluation_period_id],
+              unique: true, name: 'uidx_turn_evaluations'
   end
 end

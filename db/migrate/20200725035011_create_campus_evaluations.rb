@@ -6,5 +6,7 @@ class CreateCampusEvaluations < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+    add_index :campus_evaluations, %i[campus_id turn_evaluation_id],
+              unique: true, name: 'uidx_campus_evaluations'
   end
 end

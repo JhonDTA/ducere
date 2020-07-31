@@ -6,5 +6,7 @@ class CreateLevelCareers < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+    add_index :level_careers, %i[educative_level_id career_id], unique: true,
+              name: 'uidx_level_careers'
   end
 end

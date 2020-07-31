@@ -7,5 +7,7 @@ class CreateHomeworkEvaluations < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+    add_index :homework_evaluations, :student_homework_id, unique: true,
+              name: 'uidx_homework_evaluations'
   end
 end

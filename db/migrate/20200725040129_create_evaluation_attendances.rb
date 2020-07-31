@@ -8,5 +8,8 @@ class CreateEvaluationAttendances < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+    add_index :evaluation_attendances, %i[student_id course_evaluation_id
+                                          attendance_type_id date],
+              unique: true, name: 'uidx_evaluation_attendances'
   end
 end

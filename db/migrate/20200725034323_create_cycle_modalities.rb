@@ -6,5 +6,7 @@ class CreateCycleModalities < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+    add_index :cycle_modalities, %i[academic_cycle_id modality_id], unique: true,
+              name: 'uidx_cycle_modalities'
   end
 end
