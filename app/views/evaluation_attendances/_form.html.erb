@@ -13,14 +13,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :student_id %>
-    <%= form.collection_select :student_id, Student.all, :id, :name,
-                               class: 'form-control' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :course_evaluation_id %>
-    <%= form.collection_select :course_evaluation_id, CourseEvaluation.all, :id, :name,
+    <%= form.label :student_course_id %>
+    <%= form.collection_select :student_course_id_id, StudentCourse.all, :id, :name,
                                class: 'form-control' %>
   </div>
 

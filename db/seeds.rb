@@ -281,8 +281,9 @@ def create_professor_courses
 end
 
 def create_parents
+  users = User.all
   50.times do
-    user = User.order(Arel.sql('RANDOM()')).first
+    user = users.sample
     parent = Parent.create(user: user)
     redo unless parent.valid?
   end
@@ -334,10 +335,10 @@ def create_campus_evaluations
   institution = Institution.first
   campus = institution.campuses.first
   turn_evaluations = TurnEvaluation.joins(cycle_turn: {
-                                            cycle_modality: {
-                                              academic_cycle: :cycle_type
-                                            }
-                                          }).where(cycle_types: { code: 'CUAT' })
+      cycle_modality: {
+          academic_cycle: :cycle_type
+      }
+  }).where(cycle_types: { code: 'CUAT' })
   turn_evaluations.each do |turn_evaluation|
     CampusEvaluation.create(campus: campus, turn_evaluation: turn_evaluation)
   end
@@ -345,27 +346,27 @@ end
 
 def create_course_evaluation
   grade_courses = GradeCourse.joins(
-    syllabus_grade: [
-      { career_syllabus: [
-        { level_career: :career },
-        :syllabus
-      ] },
-      :grade
-    ]
+      syllabus_grade: [
+          { career_syllabus: [
+              { level_career: :career },
+              :syllabus
+          ] },
+          :grade
+      ]
   ).where(careers: { code: 'ISC' },
           syllabuses: { code: 'ISC2001' },
           grades: { code: '1' })
 
   campus_evaluation = CampusEvaluation.joins(
-    turn_evaluation: [
-      { cycle_turn: [
-        { cycle_modality: {
-          academic_cycle: :cycle_type
-        } },
-        :turn
-      ] },
-      :evaluation_period
-    ]
+      turn_evaluation: [
+          { cycle_turn: [
+              { cycle_modality: {
+                  academic_cycle: :cycle_type
+              } },
+              :turn
+          ] },
+          :evaluation_period
+      ]
   ).where(cycle_types: { code: 'CUAT' },
           academic_cycles: { start: Date.new(2019, 8, 1) },
           evaluation_periods: { code: '1' },
@@ -463,43 +464,43 @@ end
 
 Faker::Config.locale = 'es-MX'
 @status = Status.where(code: 'ACT').first
-create_users if false
-create_countries if false
-create_statuses if false
-create_institutions if false
-create_campuses if false
-create_buildings if false
-create_classrooms if false
-create_educative_levels if false
-create_careers if false
-create_syllabuses if false
-create_grades if false
-create_courses if false
-create_cycle_types if false
-create_academic_cycles if false
-create_modalities if false
-create_turns if false
-create_evaluation_periods if false
-create_relationships if false
-create_groups if false
-create_level_careers if false
-create_career_syllabuses if false
-create_syllabus_grades if false
-create_grade_courses if false
-create_students if false
-create_professors if false
-create_professor_courses if false
-create_parents if false
-create_tutors if false
-create_cycle_modalities if false
-create_cycle_turns if false
-create_turn_evaluations if false
-create_campus_evaluations if false
-create_course_evaluation if false
-create_student_courses if false
-create_course_marks if false
-create_course_homeworks if false
-create_student_homeworks if false
-create_homework_evaluations if false
-create_attendance_types if false
-create_evaluation_attendances if false
+create_users
+create_countries
+create_statuses
+create_institutions
+create_campuses
+create_buildings
+create_classrooms
+create_educative_levels
+create_careers
+create_syllabuses
+create_grades
+create_courses
+create_cycle_types
+create_academic_cycles
+create_modalities
+create_turns
+create_evaluation_periods
+create_relationships
+create_groups
+create_level_careers
+create_career_syllabuses
+create_syllabus_grades
+create_grade_courses
+create_students
+create_professors
+create_professor_courses
+create_parents
+create_tutors
+create_cycle_modalities
+create_cycle_turns
+create_turn_evaluations
+create_campus_evaluations
+create_course_evaluation
+create_student_courses
+create_course_marks
+create_course_homeworks
+create_student_homeworks
+create_homework_evaluations
+create_attendance_types
+#create_evaluation_attendances

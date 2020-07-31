@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Tutor model
 class Tutor < ApplicationRecord
   belongs_to :student
   belongs_to :parent

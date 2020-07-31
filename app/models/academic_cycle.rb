@@ -1,11 +1,14 @@
+# frozen_string_literal: true
+
+# Academic cycle
 class AcademicCycle < ApplicationRecord
   belongs_to :cycle_type
   belongs_to :status
 
-  has_many :cycle_modalities
+  has_many :cycle_modalities, dependent: :restrict_with_error
 
   # @param [CycleType] cycle_type
-  # @param [Date] starting_date
+  # @param [Date] start_date
   # @return [String]
   def self.create_code(cycle_type, start_date)
     finish_date = start_date + cycle_type.duration.days

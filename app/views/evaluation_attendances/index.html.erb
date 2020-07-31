@@ -5,8 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Student</th>
-      <th>Course evaluation</th>
+      <th>Student course</th>
       <th>Attendance type</th>
       <th>Date</th>
       <th colspan="3"></th>
@@ -16,8 +15,7 @@
   <tbody>
     <% @evaluation_attendances.each do |evaluation_attendance| %>
       <tr>
-        <td><%= evaluation_attendance.student.name %></td>
-        <td><%= evaluation_attendance.course_evaluation.name %></td>
+        <td><%= evaluation_attendance.student_course.name %></td>
         <td><%= evaluation_attendance.attendance_type.name %></td>
         <td><%= evaluation_attendance.date %></td>
         <td><%= link_to 'Show', evaluation_attendance %></td>
