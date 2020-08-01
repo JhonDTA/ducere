@@ -229,16 +229,14 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
   end
 
   create_table "evaluation_attendances", force: :cascade do |t|
-    t.bigint "student_id", null: false
-    t.bigint "course_evaluation_id", null: false
+    t.bigint "student_course_id", null: false
     t.bigint "attendance_type_id", null: false
     t.date "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["attendance_type_id"], name: "index_evaluation_attendances_on_attendance_type_id"
-    t.index ["course_evaluation_id"], name: "index_evaluation_attendances_on_course_evaluation_id"
-    t.index ["student_id", "course_evaluation_id", "attendance_type_id", "date"], name: "uidx_evaluation_attendances", unique: true
-    t.index ["student_id"], name: "index_evaluation_attendances_on_student_id"
+    t.index ["student_course_id", "attendance_type_id", "date"], name: "uidx_evaluation_attendances", unique: true
+    t.index ["student_course_id"], name: "index_evaluation_attendances_on_student_course_id"
   end
 
   create_table "evaluation_periods", force: :cascade do |t|
@@ -520,8 +518,7 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
   add_foreign_key "cycle_types", "statuses"
   add_foreign_key "educative_levels", "statuses"
   add_foreign_key "evaluation_attendances", "attendance_types"
-  add_foreign_key "evaluation_attendances", "course_evaluations"
-  add_foreign_key "evaluation_attendances", "students"
+  add_foreign_key "evaluation_attendances", "student_courses"
   add_foreign_key "evaluation_periods", "statuses"
   add_foreign_key "grade_courses", "courses"
   add_foreign_key "grade_courses", "syllabus_grades"

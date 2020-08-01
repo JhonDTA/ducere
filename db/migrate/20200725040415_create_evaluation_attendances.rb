@@ -3,7 +3,7 @@ class CreateEvaluationAttendances < ActiveRecord::Migration[6.0]
     create_table :evaluation_attendances do |t|
       t.references :student_course, null: false, foreign_key: true
       t.references :attendance_type, null: false, foreign_key: true
-      t.date :date
+      t.date :date, null: false
 
       t.timestamps
     end

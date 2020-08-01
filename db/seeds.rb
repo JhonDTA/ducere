@@ -234,7 +234,8 @@ end
 def create_syllabus_grades
   path = 'db/external_data/syllabus_grades.csv'
   CSV.foreach(path, headers: true) do |row|
-    career_syllabuses = CareerSyllabus.joins(level_career: :educative_level).where(educative_levels: { code: row['level'] })
+    career_syllabuses = CareerSyllabus.joins(level_career: :educative_level)
+                                      .where(educative_levels: { code: row['level'] })
     grades = row['grades'].to_i
     grades.times do |n|
       career_syllabuses.each do |career_syllabus|
@@ -316,7 +317,8 @@ def create_cycle_turns
 end
 
 def create_turn_evaluations
-  cycle_turns = CycleTurn.joins(cycle_modality: :academic_cycle).where(academic_cycles: { start: Date.new(2019, 8, 1) })
+  cycle_turns = CycleTurn.joins(cycle_modality: :academic_cycle)
+                         .where(academic_cycles: { start: Date.new(2019, 8, 1) })
   cycle_turns.each do |cycle_turn|
     cycle_modality = cycle_turn.cycle_modality
     academic_cycle = cycle_modality.academic_cycle
@@ -334,43 +336,31 @@ end
 def create_campus_evaluations
   institution = Institution.first
   campus = institution.campuses.first
-  turn_evaluations = TurnEvaluation.joins(cycle_turn: {
-      cycle_modality: {
-          academic_cycle: :cycle_type
-      }
-  }).where(cycle_types: { code: 'CUAT' })
+  turn_evaluations = TurnEvaluation.joins(cycle_turn: { cycle_modality: { academic_cycle: :cycle_type } })
+                                   .where(cycle_types: { code: 'CUAT' })
   turn_evaluations.each do |turn_evaluation|
     CampusEvaluation.create(campus: campus, turn_evaluation: turn_evaluation)
   end
 end
 
 def create_course_evaluation
-  grade_courses = GradeCourse.joins(
-      syllabus_grade: [
-          { career_syllabus: [
-              { level_career: :career },
-              :syllabus
-          ] },
-          :grade
-      ]
-  ).where(careers: { code: 'ISC' },
-          syllabuses: { code: 'ISC2001' },
-          grades: { code: '1' })
+  grade_courses = GradeCourse.joins(syllabus_grade:
+                                        [{ career_syllabus:
+                                               [{ level_career: :career },
+                                                :syllabus] },
+                                         :grade])
+                             .where(careers: { code: 'ISC' },
+                                    grades: { code: '1' })
 
-  campus_evaluation = CampusEvaluation.joins(
-      turn_evaluation: [
-          { cycle_turn: [
-              { cycle_modality: {
-                  academic_cycle: :cycle_type
-              } },
-              :turn
-          ] },
-          :evaluation_period
-      ]
-  ).where(cycle_types: { code: 'CUAT' },
-          academic_cycles: { start: Date.new(2019, 8, 1) },
-          evaluation_periods: { code: '1' },
-          turns: { code: 'MAT' }).first
+  campus_evaluation = CampusEvaluation.joins(turn_evaluation:
+                                                 [{ cycle_turn:
+                                                        [{ cycle_modality: { academic_cycle: :cycle_type } },
+                                                         :turn] },
+                                                  :evaluation_period])
+                                      .where(cycle_types: { code: 'CUAT' },
+                                             academic_cycles: { start: Date.new(2019, 8, 1) },
+                                             evaluation_periods: { code: '1' },
+                                             turns: { code: 'MAT' }).first
   professors = Professor.all
   group = Group.first
 

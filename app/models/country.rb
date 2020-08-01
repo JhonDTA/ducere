@@ -2,10 +2,11 @@
 
 # Country model
 class Country < ApplicationRecord
-  validates :name, presence: true
-  validates :iso_code, presence: true, uniqueness: true,
-                       length: { minimum: 2, maximum: 4 }
-  validates :calling_code, presence: false, length: { minimum: 1, maximum: 10 }
-
+  # Has many associations -----------------------------------------------------
   has_many :institutions, dependent: :restrict_with_error
+
+  # Validations ---------------------------------------------------------------
+  validates :name, :iso_code, presence: true
+  validates :iso_code, uniqueness: true, length: { minimum: 2, maximum: 4 }
+  validates :calling_code, length: { maximum: 10 }
 end

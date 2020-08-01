@@ -2,8 +2,10 @@
 
 # Parent model
 class Parent < ApplicationRecord
+  # Belongs to associations ---------------------------------------------------
   belongs_to :user
 
+  # Has many associations -----------------------------------------------------
   has_many :tutors, dependent: :restrict_with_error
 
   delegate :name, to: :user
