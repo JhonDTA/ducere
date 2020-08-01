@@ -2,10 +2,10 @@
 
 one:
   student_homework: one
-  mark: 1
+  mark: 1.5
   observations: MyText
 
 two:
   student_homework: two
-  mark: 1
+  mark: 1.5
   observations: MyText

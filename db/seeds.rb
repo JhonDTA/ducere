@@ -419,12 +419,12 @@ def create_student_homeworks
   end
 end
 
-def create_homework_evaluations
+def create_homework_marks
   marks = (5..10).to_a
   StudentHomework.all.each do |student_homework|
     observations = Faker::Lorem.paragraph(sentence_count: 2)
-    HomeworkEvaluation.create(student_homework: student_homework,
-                              mark: marks.sample, observations: observations)
+    HomeworkMark.create(student_homework: student_homework,
+                        mark: marks.sample, observations: observations)
   end
 end
 
@@ -491,6 +491,6 @@ create_student_courses
 create_course_marks
 create_course_homeworks
 create_student_homeworks
-create_homework_evaluations
+create_homework_marks
 create_attendance_types
-#create_evaluation_attendances
+# create_evaluation_attendances

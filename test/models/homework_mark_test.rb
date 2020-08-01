@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class HomeworkEvaluationTest < ActiveSupport::TestCase
+class HomeworkMarkTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
