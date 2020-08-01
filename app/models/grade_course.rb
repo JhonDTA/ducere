@@ -10,6 +10,7 @@ class GradeCourse < ApplicationRecord
   has_many :course_evaluations, dependent: :restrict_with_error
 
   # Validations ---------------------------------------------------------------
+  validates :syllabus_grade_id, uniqueness: { scope: :course_id }
 
   def name
     "#{syllabus_grade.name} - #{course.name}"

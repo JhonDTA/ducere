@@ -9,5 +9,5 @@ class CourseHomework < ApplicationRecord
   has_many :student_homeworks, dependent: :restrict_with_error
 
   # Validations ---------------------------------------------------------------
-  validates :name, presence: true
+  validates :name, presence: true, length: { minimum: 1, maximum: 255 }
 end

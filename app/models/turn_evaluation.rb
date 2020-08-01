@@ -10,6 +10,7 @@ class TurnEvaluation < ApplicationRecord
   has_many :campus_evaluations, dependent: :restrict_with_error
 
   # Validations ---------------------------------------------------------------
+  validates :evaluation_period_id, uniqueness: { scope: :cycle_turn_id }
 
   def name
     "#{cycle_turn.name} - #{evaluation_period.name} periodo"

@@ -13,14 +13,14 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :course_homework_id %>
-    <%= form.collection_select :course_homework_id, CourseHomework.all, :id, :name,
+    <%= form.label :student_id %>
+    <%= form.collection_select :student_id, Student.all, :id, :name,
                                class: 'form-control' %>
   </div>
 
   <div class="field">
-    <%= form.label :student_id %>
-    <%= form.collection_select :student_id, Student.all, :id, :name,
+    <%= form.label :course_homework_id %>
+    <%= form.collection_select :course_homework_id, CourseHomework.all, :id, :name,
                                class: 'form-control' %>
   </div>
 

@@ -7,4 +7,5 @@ class EvaluationAttendance < ApplicationRecord
   belongs_to :attendance_type
 
   # Validations ---------------------------------------------------------------
+  validates :student_course_id, uniqueness: { scope: %i[attendance_type_id date] }
 end

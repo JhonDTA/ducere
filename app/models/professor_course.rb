@@ -7,4 +7,5 @@ class ProfessorCourse < ApplicationRecord
   belongs_to :course
 
   # Validations ---------------------------------------------------------------
+  validates :course_id, uniqueness: { scope: :professor_id }
 end

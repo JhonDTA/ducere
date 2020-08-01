@@ -378,7 +378,7 @@ es-MX:
   student_courses: "Materias del alumno"
   course_homeworks: "Tareas de la materia"
   student_homeworks: "Tareas del estudiante"
-  homework_evaluations: "Evaluacion de las tareas"
+  homework_marks: "Calificación de las tareas"
   attendance_types: "Tipos de asistencia"
   evaluation_attendances: "Asistencias de la evaluacion"
   professor_courses: "Materias del profesor"

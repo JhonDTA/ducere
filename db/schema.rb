@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_30_091307) do
+ActiveRecord::Schema.define(version: 2020_08_01_062250) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -282,14 +282,14 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
     t.index ["status_id"], name: "index_groups_on_status_id"
   end
 
-  create_table "homework_evaluations", force: :cascade do |t|
+  create_table "homework_marks", force: :cascade do |t|
     t.bigint "student_homework_id", null: false
-    t.integer "mark", limit: 2, default: 10, null: false
+    t.float "mark", default: 10.0, null: false
     t.text "observations"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["student_homework_id"], name: "index_homework_evaluations_on_student_homework_id"
-    t.index ["student_homework_id"], name: "uidx_homework_evaluations", unique: true
+    t.index ["student_homework_id"], name: "index_homework_marks_on_student_homework_id"
+    t.index ["student_homework_id"], name: "uidx_homework_marks", unique: true
   end
 
   create_table "institutions", force: :cascade do |t|
@@ -358,6 +358,7 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
     t.bigint "status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "uidx_relationships_name", unique: true
     t.index ["status_id"], name: "index_relationships_on_status_id"
   end
 
@@ -396,6 +397,7 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
     t.string "enrollment", limit: 32, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["enrollment"], name: "uidx_students_enrollment", unique: true
     t.index ["user_id"], name: "index_students_on_user_id"
     t.index ["user_id"], name: "uidx_students_user", unique: true
   end
@@ -524,7 +526,7 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
   add_foreign_key "grade_courses", "syllabus_grades"
   add_foreign_key "grades", "statuses"
   add_foreign_key "groups", "statuses"
-  add_foreign_key "homework_evaluations", "student_homeworks"
+  add_foreign_key "homework_marks", "student_homeworks"
   add_foreign_key "institutions", "countries"
   add_foreign_key "institutions", "statuses"
   add_foreign_key "level_careers", "careers"

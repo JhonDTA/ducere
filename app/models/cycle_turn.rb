@@ -10,6 +10,7 @@ class CycleTurn < ApplicationRecord
   has_many :turn_evaluations, dependent: :restrict_with_error
 
   # Validations ---------------------------------------------------------------
+  validates :cycle_modality_id, uniqueness: { scope: :turn_id }
 
   def name
     "#{cycle_modality.name} - #{turn.name}"

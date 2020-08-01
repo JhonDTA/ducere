@@ -7,9 +7,10 @@ class StudentHomework < ApplicationRecord
   belongs_to :student
 
   # Has many associations -----------------------------------------------------
-  has_one :homework_evaluation, dependent: :restrict_with_error
+  has_one :homework_mark, dependent: :restrict_with_error
 
   # Validations ---------------------------------------------------------------
+  validates :course_homework_id, uniqueness: { scope: :student_id }
 
   def name
     "#{course_homework.name} - #{student.name}"

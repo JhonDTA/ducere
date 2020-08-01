@@ -9,4 +9,8 @@ class Syllabus < ApplicationRecord
   has_many :career_syllabuses, dependent: :restrict_with_error
 
   # Validations ---------------------------------------------------------------
+  validates :code, :name, :approval_credits, presence: true
+  validates :code, uniqueness: true, length: { minimum: 1, maximum: 16 }
+  validates :name, length: { minimum: 1, maximum: 255 }
+  validates :approval_credits, numericality: true
 end

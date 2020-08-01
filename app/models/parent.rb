@@ -8,5 +8,8 @@ class Parent < ApplicationRecord
   # Has many associations -----------------------------------------------------
   has_many :tutors, dependent: :restrict_with_error
 
+  # Validations ---------------------------------------------------------------
+  validates :user_id, uniqueness: true
+
   delegate :name, to: :user
 end

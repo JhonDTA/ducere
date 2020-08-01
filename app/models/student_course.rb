@@ -10,6 +10,7 @@ class StudentCourse < ApplicationRecord
   has_one :course_mark, dependent: :restrict_with_error
 
   # Validations ---------------------------------------------------------------
+  validates :course_evaluation_id, uniqueness: { scope: :student_id }
 
   def name
     "#{student.name} #{course_evaluation.name}"

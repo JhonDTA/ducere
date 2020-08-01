@@ -9,6 +9,9 @@ class Student < ApplicationRecord
   has_many :student_homeworks, dependent: :restrict_with_error
 
   # Validations ---------------------------------------------------------------
+  validates :enrollment, presence: true
+  validates :user_id, :enrollment, uniqueness: true
+  validates :enrollment, length: { minimum: 1, maximum: 32 }
 
   delegate :name, to: :user
 end

@@ -10,6 +10,7 @@ class LevelCareer < ApplicationRecord
   has_many :career_syllabuses, dependent: :restrict_with_error
 
   # Validations ---------------------------------------------------------------
+  validates :career_id, uniqueness: { scope: :educative_level }
 
   def name
     "#{educative_level.name} #{career.name}"
