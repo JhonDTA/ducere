@@ -2,12 +2,12 @@
 
 one:
   student_course: one
-  mark: 1
+  mark: 9.99
   attendance: 1
   observations: MyText
 
 two:
   student_course: two
-  mark: 1
+  mark: 9.99
   attendance: 1
   observations: MyText

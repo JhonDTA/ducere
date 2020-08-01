@@ -164,8 +164,8 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
 
   create_table "course_marks", force: :cascade do |t|
     t.bigint "student_course_id", null: false
-    t.integer "mark", limit: 2
-    t.integer "attendance", limit: 2
+    t.float "mark", default: 10.0, null: false
+    t.integer "attendance", limit: 2, default: 0, null: false
     t.text "observations"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -231,7 +231,7 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
   create_table "evaluation_attendances", force: :cascade do |t|
     t.bigint "student_course_id", null: false
     t.bigint "attendance_type_id", null: false
-    t.date "date"
+    t.date "date", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["attendance_type_id"], name: "index_evaluation_attendances_on_attendance_type_id"
@@ -284,7 +284,7 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
 
   create_table "homework_evaluations", force: :cascade do |t|
     t.bigint "student_homework_id", null: false
-    t.integer "mark", limit: 2
+    t.integer "mark", limit: 2, default: 10, null: false
     t.text "observations"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -346,7 +346,7 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
 
   create_table "professors", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.string "enrollment", limit: 32
+    t.string "enrollment", limit: 32, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_professors_on_user_id"
@@ -393,7 +393,7 @@ ActiveRecord::Schema.define(version: 2020_07_30_091307) do
 
   create_table "students", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.string "enrollment", limit: 32
+    t.string "enrollment", limit: 32, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_students_on_user_id"
