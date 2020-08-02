@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Attendance types controller
 class AttendanceTypesController < ApplicationController
   before_action :set_attendance_type, only: %i[show edit update destroy]
 

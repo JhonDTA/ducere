@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Grades controller
 class GradesController < ApplicationController
   before_action :set_grade, only: %i[show edit update destroy]
 

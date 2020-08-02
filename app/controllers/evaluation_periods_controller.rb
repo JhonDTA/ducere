@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Evaluation periods controller
 class EvaluationPeriodsController < ApplicationController
   before_action :set_evaluation_period, only: %i[show edit update destroy]
 

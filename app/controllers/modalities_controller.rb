@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Modalities controller
 class ModalitiesController < ApplicationController
   before_action :set_modality, only: %i[show edit update destroy]
 

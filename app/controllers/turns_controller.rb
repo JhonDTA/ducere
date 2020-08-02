@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Turns controller
 class TurnsController < ApplicationController
   before_action :set_turn, only: %i[show edit update destroy]
 

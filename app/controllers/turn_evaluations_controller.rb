@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Turn evaluations controller
 class TurnEvaluationsController < ApplicationController
   before_action :set_turn_evaluation, only: %i[show edit update destroy]
 

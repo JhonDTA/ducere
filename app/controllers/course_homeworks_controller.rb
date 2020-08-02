@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Course homeworks  controller
 class CourseHomeworksController < ApplicationController
   before_action :set_course_homework, only: %i[show edit update destroy]
 

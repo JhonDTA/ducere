@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Level careers controller
 class LevelCareersController < ApplicationController
   before_action :set_level_career, only: %i[show edit update destroy]
 

@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Evaluation attendances controller
 class EvaluationAttendancesController < ApplicationController
   before_action :set_evaluation_attendance, only: %i[show edit update destroy]
 

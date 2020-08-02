@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Syllabus grades controller
 class SyllabusGradesController < ApplicationController
   before_action :set_syllabus_grade, only: %i[show edit update destroy]
 

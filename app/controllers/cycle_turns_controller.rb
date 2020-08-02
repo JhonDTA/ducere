@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Cycle turns controller
 class CycleTurnsController < ApplicationController
   before_action :set_cycle_turn, only: %i[show edit update destroy]
 

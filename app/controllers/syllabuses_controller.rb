@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Syllabuses controller
 class SyllabusesController < ApplicationController
   before_action :set_syllabus, only: %i[show edit update destroy]
 

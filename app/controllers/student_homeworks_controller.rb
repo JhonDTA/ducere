@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Student homeworks controller
 class StudentHomeworksController < ApplicationController
   before_action :set_student_homework, only: %i[show edit update destroy]
 

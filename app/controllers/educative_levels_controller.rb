@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Educative levels controller
 class EducativeLevelsController < ApplicationController
   before_action :set_educative_level, only: %i[show edit update destroy]
 

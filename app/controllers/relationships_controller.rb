@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Relationships controller
 class RelationshipsController < ApplicationController
   before_action :set_relationship, only: %i[show edit update destroy]
 

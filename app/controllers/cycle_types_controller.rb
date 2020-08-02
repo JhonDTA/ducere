@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Cycle types controller
 class CycleTypesController < ApplicationController
   before_action :set_cycle_type, only: %i[show edit update destroy]
 

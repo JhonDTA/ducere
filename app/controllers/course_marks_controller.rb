@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Course marks controller
 class CourseMarksController < ApplicationController
   before_action :set_course_mark, only: %i[show edit update destroy]
 

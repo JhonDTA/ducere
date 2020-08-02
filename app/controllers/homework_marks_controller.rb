@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Homework marks controller
 class HomeworkMarksController < ApplicationController
   before_action :set_homework_mark, only: %i[show edit update destroy]
 

@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Student courses controller
 class StudentCoursesController < ApplicationController
   before_action :set_student_course, only: %i[show edit update destroy]
 

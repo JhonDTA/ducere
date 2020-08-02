@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Career syllabuses controller
 class CareerSyllabusesController < ApplicationController
   before_action :set_career_syllabus, only: %i[show edit update destroy]
 

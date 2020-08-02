@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Campuses controller
 class CampusesController < ApplicationController
   before_action :set_campus, only: %i[show edit update destroy]
 

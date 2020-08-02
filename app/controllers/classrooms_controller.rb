@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Classrooms controller
 class ClassroomsController < ApplicationController
   before_action :set_classroom, only: %i[show edit update destroy]
 

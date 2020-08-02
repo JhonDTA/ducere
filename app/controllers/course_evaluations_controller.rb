@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Course evaluations controller
 class CourseEvaluationsController < ApplicationController
   before_action :set_course_evaluation, only: %i[show edit update destroy]
 

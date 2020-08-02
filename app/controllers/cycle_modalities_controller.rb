@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Cycle modalities controller
 class CycleModalitiesController < ApplicationController
   before_action :set_cycle_modality, only: %i[show edit update destroy]
 

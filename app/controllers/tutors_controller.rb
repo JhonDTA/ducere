@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Tutors controller
 class TutorsController < ApplicationController
   before_action :set_tutor, only: %i[show edit update destroy]
 
