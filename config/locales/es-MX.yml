@@ -46,7 +46,7 @@ es-MX:
       last_attempt: "Tienes un intento más antes de que tu cuenta sea bloqueada."
       not_found_in_database: "%{authentication_keys} o contraseña inválidos."
       timeout: "Tu sesión ha expirado. Por favor inicia sesión de nuevo para continuar."
-      unauthenticated: "Necestias iniciar sesión o registrarte antes de continuar."
+      unauthenticated: "Necesitas iniciar sesión o registrarte antes de continuar."
       unconfirmed: "Necesitas confirmar tu correo antes de continuar."
     mailer:
       confirmation_instructions:
