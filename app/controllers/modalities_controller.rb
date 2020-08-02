@@ -9,6 +9,7 @@ class ModalitiesController < ApplicationController
   def index
     pagination = { page: params[:page], per_page: 20 }
     @modalities = Modality.paginate(pagination)
+                          .includes(:status)
   end
 
   # GET /modalities/1

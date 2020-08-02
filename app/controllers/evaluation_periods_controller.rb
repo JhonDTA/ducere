@@ -9,6 +9,7 @@ class EvaluationPeriodsController < ApplicationController
   def index
     pagination = { page: params[:page], per_page: 20 }
     @evaluation_periods = EvaluationPeriod.paginate(pagination)
+                                          .includes(:status)
   end
 
   # GET /evaluation_periods/1

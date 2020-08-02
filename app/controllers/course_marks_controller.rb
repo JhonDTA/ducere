@@ -9,6 +9,7 @@ class CourseMarksController < ApplicationController
   def index
     pagination = { page: params[:page], per_page: 20 }
     @course_marks = CourseMark.paginate(pagination)
+                              .includes(index_includes)
   end
 
   # GET /course_marks/1
@@ -73,5 +74,26 @@ class CourseMarksController < ApplicationController
   # Only allow a list of trusted parameters through.
   def course_mark_params
     params.require(:course_mark).permit(:student_course_id, :mark, :attendance, :observations)
+  end
+
+  def index_includes
+    { student_course:
+          [{ course_evaluation:
+                 [{ grade_course:
+                        [{ syllabus_grade:
+                               [{ career_syllabus:
+                                      [{ level_career:
+                                             %i[educative_level career] },
+                                       :syllabus] }, :grade] }, :course] },
+                  { campus_evaluation:
+                        [{ turn_evaluation:
+                               [{ cycle_turn:
+                                      [{ cycle_modality:
+                                             %i[academic_cycle modality] },
+                                       :turn] },
+                                :evaluation_period] },
+                         :campus] },
+                  { professor: :user }, :group] },
+           { student: :user }] }
   end
 end

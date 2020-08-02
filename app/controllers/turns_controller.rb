@@ -9,6 +9,7 @@ class TurnsController < ApplicationController
   def index
     pagination = { page: params[:page], per_page: 20 }
     @turns = Turn.paginate(pagination)
+                 .includes(:status)
   end
 
   # GET /turns/1

@@ -9,6 +9,7 @@ class CoursesController < ApplicationController
   def index
     pagination = { page: params[:page], per_page: 20 }
     @courses = Course.paginate(pagination)
+                     .includes(:status)
   end
 
   # GET /courses/1

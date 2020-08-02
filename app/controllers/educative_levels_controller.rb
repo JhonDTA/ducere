@@ -9,6 +9,7 @@ class EducativeLevelsController < ApplicationController
   def index
     pagination = { page: params[:page], per_page: 20 }
     @educative_levels = EducativeLevel.paginate(pagination)
+                                      .includes(:status)
   end
 
   # GET /educative_levels/1

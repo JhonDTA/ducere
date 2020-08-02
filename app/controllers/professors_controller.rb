@@ -9,6 +9,7 @@ class ProfessorsController < ApplicationController
   def index
     pagination = { page: params[:page], per_page: 20 }
     @professors = Professor.paginate(pagination)
+                           .includes(:user)
   end
 
   # GET /professors/1

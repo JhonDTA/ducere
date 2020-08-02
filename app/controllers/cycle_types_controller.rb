@@ -9,6 +9,7 @@ class CycleTypesController < ApplicationController
   def index
     pagination = { page: params[:page], per_page: 20 }
     @cycle_types = CycleType.paginate(pagination)
+                            .includes(:status)
   end
 
   # GET /cycle_types/1

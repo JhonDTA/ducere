@@ -9,6 +9,7 @@ class LevelCareersController < ApplicationController
   def index
     pagination = { page: params[:page], per_page: 20 }
     @level_careers = LevelCareer.paginate(pagination)
+                                .includes(%i[educative_level career])
   end
 
   # GET /level_careers/1

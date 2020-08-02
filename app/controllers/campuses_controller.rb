@@ -9,6 +9,7 @@ class CampusesController < ApplicationController
   def index
     pagination = { page: params[:page], per_page: 20 }
     @campuses = Campus.paginate(pagination)
+                      .includes(%i[institution status])
   end
 
   # GET /campuses/1

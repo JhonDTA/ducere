@@ -9,6 +9,7 @@ class HomeworkMarksController < ApplicationController
   def index
     pagination = { page: params[:page], per_page: 20 }
     @homework_marks = HomeworkMark.paginate(pagination)
+                                  .includes(index_includes)
   end
 
   # GET /homework_marks/1
@@ -73,5 +74,11 @@ class HomeworkMarksController < ApplicationController
   # Only allow a list of trusted parameters through.
   def homework_mark_params
     params.require(:homework_mark).permit(:student_homework_id, :mark, :observations)
+  end
+
+  def index_includes
+    { student_homework:
+          [{ course_homework: { course_evaluation: { professor: :user } } },
+           { student: :user }] }
   end
 end

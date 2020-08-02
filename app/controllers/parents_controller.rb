@@ -9,6 +9,7 @@ class ParentsController < ApplicationController
   def index
     pagination = { page: params[:page], per_page: 20 }
     @parents = Parent.paginate(pagination)
+                     .includes(:user)
   end
 
   # GET /parents/1

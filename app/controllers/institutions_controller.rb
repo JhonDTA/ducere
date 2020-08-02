@@ -9,6 +9,7 @@ class InstitutionsController < ApplicationController
   def index
     pagination = { page: params[:page], per_page: 20 }
     @institutions = Institution.paginate(pagination)
+                               .includes(%i[country status])
   end
 
   # GET /institutions/1

@@ -9,6 +9,7 @@ class RelationshipsController < ApplicationController
   def index
     pagination = { page: params[:page], per_page: 20 }
     @relationships = Relationship.paginate(pagination)
+                                 .includes(:status)
   end
 
   # GET /relationships/1

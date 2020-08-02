@@ -9,6 +9,7 @@ class CycleModalitiesController < ApplicationController
   def index
     pagination = { page: params[:page], per_page: 20 }
     @cycle_modalities = CycleModality.paginate(pagination)
+                                     .includes(%i[academic_cycle modality])
   end
 
   # GET /cycle_modalities/1

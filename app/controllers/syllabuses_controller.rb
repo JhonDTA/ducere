@@ -9,6 +9,7 @@ class SyllabusesController < ApplicationController
   def index
     pagination = { page: params[:page], per_page: 20 }
     @syllabuses = Syllabus.paginate(pagination)
+                          .includes(:status)
   end
 
   # GET /syllabuses/1

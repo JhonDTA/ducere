@@ -9,6 +9,7 @@ class GroupsController < ApplicationController
   def index
     pagination = { page: params[:page], per_page: 20 }
     @groups = Group.paginate(pagination)
+                   .includes(:status)
   end
 
   # GET /groups/1

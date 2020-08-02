@@ -8,7 +8,9 @@ class CareerSyllabusesController < ApplicationController
   # GET /career_syllabuses.json
   def index
     pagination = { page: params[:page], per_page: 20 }
+    includes = [{ level_career: %i[educative_level career] }, :syllabus]
     @career_syllabuses = CareerSyllabus.paginate(pagination)
+                                       .includes(includes)
   end
 
   # GET /career_syllabuses/1

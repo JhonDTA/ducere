@@ -9,6 +9,7 @@ class CycleTurnsController < ApplicationController
   def index
     pagination = { page: params[:page], per_page: 20 }
     @cycle_turns = CycleTurn.paginate(pagination)
+                            .includes(index_includes)
   end
 
   # GET /cycle_turns/1
@@ -73,5 +74,9 @@ class CycleTurnsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def cycle_turn_params
     params.require(:cycle_turn).permit(:cycle_modality_id, :turn_id)
+  end
+
+  def index_includes
+    [{ cycle_modality: %i[academic_cycle modality] }, :turn]
   end
 end

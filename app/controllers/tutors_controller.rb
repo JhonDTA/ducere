@@ -9,6 +9,7 @@ class TutorsController < ApplicationController
   def index
     pagination = { page: params[:page], per_page: 20 }
     @tutors = Tutor.paginate(pagination)
+                   .includes(index_includes)
   end
 
   # GET /tutors/1
@@ -73,5 +74,9 @@ class TutorsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def tutor_params
     params.require(:tutor).permit(:student_id, :parent_id, :relationship_id)
+  end
+
+  def index_includes
+    [{ student: :user }, { parent: :user }, :relationship]
   end
 end

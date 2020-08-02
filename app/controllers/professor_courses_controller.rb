@@ -9,6 +9,7 @@ class ProfessorCoursesController < ApplicationController
   def index
     pagination = { page: params[:page], per_page: 20 }
     @professor_courses = ProfessorCourse.paginate(pagination)
+                                        .includes(index_includes)
   end
 
   # GET /professor_courses/1
@@ -73,5 +74,9 @@ class ProfessorCoursesController < ApplicationController
   # Only allow a list of trusted parameters through.
   def professor_course_params
     params.require(:professor_course).permit(:professor_id, :course_id)
+  end
+
+  def index_includes
+    [{ professor: :user }, :course]
   end
 end

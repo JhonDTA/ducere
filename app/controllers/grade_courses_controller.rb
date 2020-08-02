@@ -9,6 +9,7 @@ class GradeCoursesController < ApplicationController
   def index
     pagination = { page: params[:page], per_page: 20 }
     @grade_courses = GradeCourse.paginate(pagination)
+                                .includes(index_includes)
   end
 
   # GET /grade_courses/1
@@ -73,5 +74,14 @@ class GradeCoursesController < ApplicationController
   # Only allow a list of trusted parameters through.
   def grade_course_params
     params.require(:grade_course).permit(:syllabus_grade_id, :course_id)
+  end
+
+  def index_includes
+    [{ syllabus_grade:
+           [{ career_syllabus:
+                  [{ level_career: %i[educative_level career] },
+                   :syllabus] },
+            :grade] },
+     :course]
   end
 end

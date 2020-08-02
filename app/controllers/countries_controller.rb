@@ -2,7 +2,6 @@
 
 # Countries controller
 class CountriesController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_country, only: %i[show edit update destroy]
 
   # GET /countries

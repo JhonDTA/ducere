@@ -8,7 +8,11 @@ class CampusEvaluationsController < ApplicationController
   # GET /campus_evaluations.json
   def index
     pagination = { page: params[:page], per_page: 20 }
+    includes = [:campus, { turn_evaluation: [:evaluation_period,
+                                             { cycle_turn: [:turn,
+                                                            { cycle_modality: %i[academic_cycle modality] }] }] }]
     @campus_evaluations = CampusEvaluation.paginate(pagination)
+                                          .includes(includes)
   end
 
   # GET /campus_evaluations/1

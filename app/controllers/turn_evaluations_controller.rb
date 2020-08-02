@@ -9,6 +9,7 @@ class TurnEvaluationsController < ApplicationController
   def index
     pagination = { page: params[:page], per_page: 20 }
     @turn_evaluations = TurnEvaluation.paginate(pagination)
+                                      .includes(index_includes)
   end
 
   # GET /turn_evaluations/1
@@ -73,5 +74,12 @@ class TurnEvaluationsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def turn_evaluation_params
     params.require(:turn_evaluation).permit(:cycle_turn_id, :evaluation_period_id)
+  end
+
+  def index_includes
+    [{ cycle_turn:
+           [{ cycle_modality:
+                  %i[academic_cycle modality] },
+            :turn] }, :evaluation_period]
   end
 end
