@@ -4,8 +4,10 @@ require 'csv'
 require 'faker'
 
 def create_statuses
-  Status.create(code: 'ACT', name: 'Activo', description: 'Estatus activo general')
-  Status.create(code: 'INA', name: 'Inactivo', description: 'Estatus inactivo general')
+  CSV.foreach('db/external_data/statuses.csv', headers: true) do |row|
+    Status.create(code: row['code'], name: row['name'],
+                  description: row['description'])
+  end
 end
 
 def create_users
@@ -30,11 +32,12 @@ end
 
 def create_institutions
   country_codes = %w[MEX USA DEU]
+  countries = Country.where(iso_code: country_codes)
   30.times do
     Institution.create(code: Faker::Alphanumeric.alphanumeric(number: 10).upcase,
                        name: Faker::University.name,
                        description: Faker::Lorem.paragraph(sentence_count: 2),
-                       country: Country.where(iso_code: country_codes.sample).first,
+                       country: countries.sample,
                        status: @status)
   end
 end
@@ -452,11 +455,11 @@ def create_evaluation_attendances
   end
 end
 
+create_statuses
 Faker::Config.locale = 'es-MX'
 @status = Status.where(code: 'ACT').first
 create_users
 create_countries
-create_statuses
 create_institutions
 create_campuses
 create_buildings

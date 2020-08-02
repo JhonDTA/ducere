@@ -8,5 +8,5 @@ class Tutor < ApplicationRecord
   belongs_to :relationship
 
   # Validations ---------------------------------------------------------------
-  validates :parent_id, uniqueness: { scope: :user_id }
+  validates :parent_id, uniqueness: { scope: :student_id }
 end

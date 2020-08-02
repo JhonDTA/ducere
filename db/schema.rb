@@ -382,8 +382,8 @@ ActiveRecord::Schema.define(version: 2020_08_01_062250) do
   end
 
   create_table "student_homeworks", force: :cascade do |t|
-    t.bigint "course_homework_id", null: false
     t.bigint "student_id", null: false
+    t.bigint "course_homework_id", null: false
     t.text "observations"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
