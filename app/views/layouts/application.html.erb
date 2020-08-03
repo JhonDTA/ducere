@@ -1,27 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
   <title><%= full_title(yield(:title)) %></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   <%= render 'layouts/rails_default' %>
 </head>
 
-<body>
+<body data-scrollbar-auto-hide="n" class="hold-transition sidebar-mini layout-navbar-fixed layout-fixed layout-footer-fixed">
 <div class="wrapper">
-  <%= render 'layouts/sidebar' if user_signed_in? %>
-  <div id="content">
-    <%= render 'layouts/navbar' %>
-    <%= render 'shared/alert' %>
-    <div class="row">
-      <div class="col col-md-8 offset-md-2">
-        <%= yield %>
-      </div>
-    </div>
-  </div>
+  <%= render 'layouts/navbar' %>
+  <%= render 'layouts/sidebar' %>
+  <%= render 'layouts/content' %>
+  <%= render 'layouts/footer' %>
 </div>
 </body>
 </html>
-
-
-

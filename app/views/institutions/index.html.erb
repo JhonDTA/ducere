@@ -1,36 +1,51 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, t('institutions')) %>
+<% provide(:link, link_to(t('institutions'), institutions_path)) %>
 
-<h1>Institutions</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Code</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Country</th>
-      <th>Status</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @institutions.each do |institution| %>
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">Fixed Header Table</h3>
+    <div class="card-tools">
+      <%= will_paginate @institutions, class: 'pagination-sm float-right',
+                        :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+    </div>
+  </div>
+  <div class="card-body table-responsive p-0" style="height: 600px">
+    <table class="table table-head-fixed table-hover text-nowrap">
+      <thead>
       <tr>
-        <td><%= institution.code %></td>
-        <td><%= institution.name %></td>
-        <td><%= institution.description %></td>
-        <td><%= institution.country.name %></td>
-        <td><%= institution.status.name %></td>
-        <td><%= link_to 'Show', institution %></td>
-        <td><%= link_to 'Edit', edit_institution_path(institution) %></td>
-        <td><%= link_to 'Destroy', institution, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Code</th>
+        <th>Name</th>
+        <!-- th>Description</th -->
+        <th>Country</th>
+        <th>Status</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      </thead>
 
-<br>
-
-<%= link_to 'New Institution', new_institution_path %>
-<%= will_paginate @institutions %>
+      <tbody>
+      <% @institutions.each do |institution| %>
+        <tr>
+          <td><%= institution.code %></td>
+          <td><%= institution.name %></td>
+          <!-- td><%= institution.description %></td -->
+          <td><%= institution.country.name %></td>
+          <td><%= institution.status.name %></td>
+          <td>
+            <div class="btn-group">
+              <%= link_to 'Show', institution, class: 'btn btn-info' %>
+              <%= link_to 'Edit', edit_institution_path(institution), class: 'btn btn-success' %>
+              <%= link_to 'Destroy', institution, method: :delete, data: { confirm: 'Are you sure?' },
+                          class: 'btn btn-danger' %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer clearfix">
+    <%= will_paginate @institutions, class: 'pagination-sm m-0 float-right',
+                      :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+  </div>
+</div>
+<%= link_to 'New Institution', new_institution_path, class: 'btn btn-primary' %>

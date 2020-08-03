@@ -4,8 +4,8 @@ es-MX:
     models:
       user: "Usuario"
       country: "País"
-      school: "Escuela"
-      campu: "Plantel"
+      institution: "Escuela"
+      campus: "Plantel"
       academic_year: "Año escolar"
     attributes:
       user:
@@ -389,3 +389,4 @@ es-MX:
   evaluation_periods: "Periodos de evaluación"
   statuses: "Estatus"
   course_marks: "Calificaciones de la materia"
+  member_since: "Miembro desde %{date}"

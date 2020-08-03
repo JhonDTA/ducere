@@ -1,8 +1,9 @@
 <%= form_with(model: institution, local: true) do |form| %>
   <% if institution.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(institution.errors.count, "error") %> prohibited this
-        institution from being saved:</h2>
+    <div id="error_explanation" class="alert alert-danger alert-dismissible">
+      <h3><%= pluralize(institution.errors.count, "error") %> prohibited this
+        institution from being saved:
+      </h3>
 
       <ul>
         <% institution.errors.full_messages.each do |message| %>

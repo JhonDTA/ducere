@@ -1,5 +1,6 @@
-<h1>New Institution</h1>
+<% provide(:title, t('new_object', resource: t('activerecord.models.institution'))) %>
+<div class="col-md-6 offset-md-3">
+  <%= render 'form', institution: @institution %>
 
-<%= render 'form', institution: @institution %>
-
-<%= link_to 'Back', institutions_path %>
+  <%= link_to 'Back', institutions_path %>
+</div>

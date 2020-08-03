@@ -1,10 +1,12 @@
 <div class="container">
   <% flash.each do |type, msg| %>
-    <div class='alert alert-<%= "#{flash_type(type)}" %>'>
-      <a href="#" class="close" data-dismiss="alert">&#215;</a>
-      <ul>
-        <li><%= msg %></li>
-      </ul>
+    <div class='alert alert-<%= "#{flash_type(type)} alert-dismissible" %>'>
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <h5>
+        <%= icon('fas', "check") %>
+        <%= flash_type(type) %>
+      </h5>
+      <%= msg %>
     </div>
   <% end %>
 </div>
