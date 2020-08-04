@@ -174,3 +174,4 @@ en:
   statuses: "Statuses"
   course_marks: "Couse marks"
   member_since: "Member since %{date}"
+  menu: "Menu"

@@ -165,7 +165,9 @@
       </li>
     <% else %>
       <!-- Sign in link -->
-      <li class="nav-item"><%= link_to t('sign_in'), new_user_session_path, class: 'nav-link' %></li>
+      <li class="nav-item">
+        <%= link_to t('sign_in'), new_user_session_path, class: 'nav-link' %>
+      </li>
     <% end %>
   </ul>
 </nav>

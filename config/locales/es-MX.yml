@@ -390,3 +390,4 @@ es-MX:
   statuses: "Estatus"
   course_marks: "Calificaciones de la materia"
   member_since: "Miembro desde %{date}"
+  menu: "Menú"
