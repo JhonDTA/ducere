@@ -1,26 +1,24 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Professor Courses</h1>
 
 <table>
   <thead>
-    <tr>
-      <th>Professor</th>
-      <th>Course</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>Professor</th>
+    <th>Course</th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @professor_courses.each do |professor_course| %>
-      <tr>
-        <td><%= professor_course.professor.name %></td>
-        <td><%= professor_course.course.name %></td>
-        <td><%= link_to 'Show', professor_course %></td>
-        <td><%= link_to 'Edit', edit_professor_course_path(professor_course) %></td>
-        <td><%= link_to 'Destroy', professor_course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <% @professor_courses.each do |professor_course| %>
+    <tr>
+      <td><%= professor_course.professor.name %></td>
+      <td><%= professor_course.course.name %></td>
+      <td><%= link_to 'Show', professor_course %></td>
+      <td><%= link_to 'Edit', edit_professor_course_path(professor_course) %></td>
+      <td><%= link_to 'Destroy', professor_course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
   </tbody>
 </table>
 

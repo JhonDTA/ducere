@@ -1,32 +1,30 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Syllabuses</h1>
 
 <table>
   <thead>
-    <tr>
-      <th>Code</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Approval credits</th>
-      <th>Status</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>Code</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Approval credits</th>
+    <th>Status</th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @syllabuses.each do |syllabus| %>
-      <tr>
-        <td><%= syllabus.code %></td>
-        <td><%= syllabus.name %></td>
-        <td><%= syllabus.description %></td>
-        <td><%= syllabus.approval_credits %></td>
-        <td><%= syllabus.status.name %></td>
-        <td><%= link_to 'Show', syllabus %></td>
-        <td><%= link_to 'Edit', edit_syllabus_path(syllabus) %></td>
-        <td><%= link_to 'Destroy', syllabus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <% @syllabuses.each do |syllabus| %>
+    <tr>
+      <td><%= syllabus.code %></td>
+      <td><%= syllabus.name %></td>
+      <td><%= syllabus.description %></td>
+      <td><%= syllabus.approval_credits %></td>
+      <td><%= syllabus.status.name %></td>
+      <td><%= link_to 'Show', syllabus %></td>
+      <td><%= link_to 'Edit', edit_syllabus_path(syllabus) %></td>
+      <td><%= link_to 'Destroy', syllabus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
   </tbody>
 </table>
 

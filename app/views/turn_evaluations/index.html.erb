@@ -1,26 +1,24 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Turn Evaluations</h1>
 
 <table>
   <thead>
-    <tr>
-      <th>Cycle turn</th>
-      <th>Evaluation period</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>Cycle turn</th>
+    <th>Evaluation period</th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @turn_evaluations.each do |turn_evaluation| %>
-      <tr>
-        <td><%= turn_evaluation.cycle_turn.name %></td>
-        <td><%= turn_evaluation.evaluation_period.name %></td>
-        <td><%= link_to 'Show', turn_evaluation %></td>
-        <td><%= link_to 'Edit', edit_turn_evaluation_path(turn_evaluation) %></td>
-        <td><%= link_to 'Destroy', turn_evaluation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <% @turn_evaluations.each do |turn_evaluation| %>
+    <tr>
+      <td><%= turn_evaluation.cycle_turn.name %></td>
+      <td><%= turn_evaluation.evaluation_period.name %></td>
+      <td><%= link_to 'Show', turn_evaluation %></td>
+      <td><%= link_to 'Edit', edit_turn_evaluation_path(turn_evaluation) %></td>
+      <td><%= link_to 'Destroy', turn_evaluation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
   </tbody>
 </table>
 

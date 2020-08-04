@@ -9,25 +9,24 @@
                         :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
     </div>
   </div>
-  <div class="card-body table-responsive p-0" style="height: 600px">
-    <table class="table table-head-fixed table-hover text-nowrap">
+  <div class="card-body table-responsive p-0" style="height: 65vh">
+    <table class="table table-hover table-head-fixed text-nowrap">
       <thead>
       <tr>
         <th>Code</th>
         <th>Name</th>
-        <!-- th>Description</th -->
+        <th>Description</th>
         <th>Country</th>
         <th>Status</th>
         <th colspan="3"></th>
       </tr>
       </thead>
-
       <tbody>
       <% @institutions.each do |institution| %>
         <tr>
           <td><%= institution.code %></td>
           <td><%= institution.name %></td>
-          <!-- td><%= institution.description %></td -->
+          <td><%= institution.description %></td>
           <td><%= institution.country.name %></td>
           <td><%= institution.status.name %></td>
           <td>
@@ -44,8 +43,8 @@
     </table>
   </div>
   <div class="card-footer clearfix">
+    <%= link_to 'New Institution', new_institution_path, class: 'btn btn-primary' %>
     <%= will_paginate @institutions, class: 'pagination-sm m-0 float-right',
                       :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
   </div>
 </div>
-<%= link_to 'New Institution', new_institution_path, class: 'btn btn-primary' %>

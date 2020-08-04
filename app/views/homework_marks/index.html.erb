@@ -1,28 +1,26 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Homework Marks</h1>
 
 <table>
   <thead>
-    <tr>
-      <th>Student homework</th>
-      <th>Mark</th>
-      <th>Observations</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>Student homework</th>
+    <th>Mark</th>
+    <th>Observations</th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @homework_marks.each do |homework_mark| %>
-      <tr>
-        <td><%= homework_mark.student_homework.name %></td>
-        <td><%= homework_mark.mark %></td>
-        <td><%= homework_mark.observations %></td>
-        <td><%= link_to 'Show', homework_mark %></td>
-        <td><%= link_to 'Edit', edit_homework_mark_path(homework_mark) %></td>
-        <td><%= link_to 'Destroy', homework_mark, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <% @homework_marks.each do |homework_mark| %>
+    <tr>
+      <td><%= homework_mark.student_homework.name %></td>
+      <td><%= homework_mark.mark %></td>
+      <td><%= homework_mark.observations %></td>
+      <td><%= link_to 'Show', homework_mark %></td>
+      <td><%= link_to 'Edit', edit_homework_mark_path(homework_mark) %></td>
+      <td><%= link_to 'Destroy', homework_mark, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
   </tbody>
 </table>
 

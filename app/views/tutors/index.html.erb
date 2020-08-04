@@ -1,28 +1,26 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Tutors</h1>
 
 <table>
   <thead>
-    <tr>
-      <th>Student</th>
-      <th>Parent</th>
-      <th>Relationship</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>Student</th>
+    <th>Parent</th>
+    <th>Relationship</th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @tutors.each do |tutor| %>
-      <tr>
-        <td><%= tutor.student.name %></td>
-        <td><%= tutor.parent.name %></td>
-        <td><%= tutor.relationship.name %></td>
-        <td><%= link_to 'Show', tutor %></td>
-        <td><%= link_to 'Edit', edit_tutor_path(tutor) %></td>
-        <td><%= link_to 'Destroy', tutor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <% @tutors.each do |tutor| %>
+    <tr>
+      <td><%= tutor.student.name %></td>
+      <td><%= tutor.parent.name %></td>
+      <td><%= tutor.relationship.name %></td>
+      <td><%= link_to 'Show', tutor %></td>
+      <td><%= link_to 'Edit', edit_tutor_path(tutor) %></td>
+      <td><%= link_to 'Destroy', tutor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
   </tbody>
 </table>
 

@@ -1,26 +1,24 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Level Careers</h1>
 
 <table>
   <thead>
-    <tr>
-      <th>Educative level</th>
-      <th>Career</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>Educative level</th>
+    <th>Career</th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @level_careers.each do |level_career| %>
-      <tr>
-        <td><%= level_career.educative_level.name %></td>
-        <td><%= level_career.career.name %></td>
-        <td><%= link_to 'Show', level_career %></td>
-        <td><%= link_to 'Edit', edit_level_career_path(level_career) %></td>
-        <td><%= link_to 'Destroy', level_career, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <% @level_careers.each do |level_career| %>
+    <tr>
+      <td><%= level_career.educative_level.name %></td>
+      <td><%= level_career.career.name %></td>
+      <td><%= link_to 'Show', level_career %></td>
+      <td><%= link_to 'Edit', edit_level_career_path(level_career) %></td>
+      <td><%= link_to 'Destroy', level_career, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
   </tbody>
 </table>
 

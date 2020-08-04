@@ -1,28 +1,26 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Evaluation Attendances</h1>
 
 <table>
   <thead>
-    <tr>
-      <th>Student course</th>
-      <th>Attendance type</th>
-      <th>Date</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>Student course</th>
+    <th>Attendance type</th>
+    <th>Date</th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @evaluation_attendances.each do |evaluation_attendance| %>
-      <tr>
-        <td><%= evaluation_attendance.student_course.name %></td>
-        <td><%= evaluation_attendance.attendance_type.name %></td>
-        <td><%= evaluation_attendance.date %></td>
-        <td><%= link_to 'Show', evaluation_attendance %></td>
-        <td><%= link_to 'Edit', edit_evaluation_attendance_path(evaluation_attendance) %></td>
-        <td><%= link_to 'Destroy', evaluation_attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <% @evaluation_attendances.each do |evaluation_attendance| %>
+    <tr>
+      <td><%= evaluation_attendance.student_course.name %></td>
+      <td><%= evaluation_attendance.attendance_type.name %></td>
+      <td><%= evaluation_attendance.date %></td>
+      <td><%= link_to 'Show', evaluation_attendance %></td>
+      <td><%= link_to 'Edit', edit_evaluation_attendance_path(evaluation_attendance) %></td>
+      <td><%= link_to 'Destroy', evaluation_attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
   </tbody>
 </table>
 

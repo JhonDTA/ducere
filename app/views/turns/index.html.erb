@@ -1,34 +1,32 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Turns</h1>
 
 <table>
   <thead>
-    <tr>
-      <th>Code</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Start</th>
-      <th>Finish</th>
-      <th>Status</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>Code</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Start</th>
+    <th>Finish</th>
+    <th>Status</th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @turns.each do |turn| %>
-      <tr>
-        <td><%= turn.code %></td>
-        <td><%= turn.name %></td>
-        <td><%= turn.description %></td>
-        <td><%= turn.start %></td>
-        <td><%= turn.finish %></td>
-        <td><%= turn.status.name %></td>
-        <td><%= link_to 'Show', turn %></td>
-        <td><%= link_to 'Edit', edit_turn_path(turn) %></td>
-        <td><%= link_to 'Destroy', turn, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <% @turns.each do |turn| %>
+    <tr>
+      <td><%= turn.code %></td>
+      <td><%= turn.name %></td>
+      <td><%= turn.description %></td>
+      <td><%= turn.start %></td>
+      <td><%= turn.finish %></td>
+      <td><%= turn.status.name %></td>
+      <td><%= link_to 'Show', turn %></td>
+      <td><%= link_to 'Edit', edit_turn_path(turn) %></td>
+      <td><%= link_to 'Destroy', turn, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
   </tbody>
 </table>
 
