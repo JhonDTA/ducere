@@ -1,35 +1,47 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
+---
 en:
+  activerecord:
+    models:
+      academic_cycle: "Academic cycle"
+      attendance_type: "Attendance type"
+      building: "Building"
+      campus: "Campus"
+      campus_evaluation: "Campus evaluation"
+      career: "Career"
+      career_syllabus: "Career syllabus"
+      classroom: "Classroom"
+      country: "Country"
+      course: "Course"
+      course_evaluation: "Course evaluation"
+      course_homework: "Course homework"
+      course_mark: "Course mark"
+      cycle_modality: "Cycle modality"
+      cycle_turn: "Cycle turn"
+      cycle_type: "Cycle type"
+      educative_level: "Educative level"
+      evaluation_attendance: "Evaluation attendance"
+      evaluation_period: "Evaluation period"
+      grade: "Grade"
+      grade_course: "Grade course"
+      group: "Group"
+      homework_mark: "Homework mark"
+      institution: "Institution"
+      level_career: "Level career"
+      modality: "Modality"
+      parent: "Parent"
+      professor: "Professor"
+      professor_course: "Professor course"
+      relationship: "Relationship"
+      status: "Status"
+      student: "Student"
+      student_course: "Student course"
+      student_homework: "Student homework"
+      syllabus: "Syllabus"
+      syllabus_grade: "Syllabus grade"
+      turn: "Turn"
+      turn_evaluation: "Turn evaluation"
+      tutor: "Tutor"
+      user: "User"
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."
@@ -126,55 +138,53 @@ en:
   show: "Show"
   edit: "Edit"
   destroy: "Destroy"
-  new_object: "New %{resource}"
   back: "Back"
-  editing_object: "Editing %{resource}"
-  created_object: "%{resource} was successfully created."
-  edited_object: "%{resource} was successfully updated."
-  destroyed_object: "%{resource} was successfully destroyed."
-  countries: "Countries"
-  catalogs: "Catalogs"
-  institutions: "Institutions"
-  campuses: "Campuses"
+  new_resource: "New %{resource}"
+  edit_resource: "Editing %{resource}"
+  created_resource: "%{resource} was successfully created."
+  updated_resource: "%{resource} was successfully updated."
+  destroyed_resource: "%{resource} was successfully destroyed."
+
+  academic_cycles: "Academic cycles"
+  attendance_types: "Attendance types"
   buildings: "Buildings"
-  classrooms: "Classrooms"
-  educative_levels: "Educative levels"
+  campuses: "Campuses"
+  campus_evaluations: "Campus evaluations"
   careers: "Careers"
-  syllabuses: "Syllabuses"
-  grades: "Grades"
+  career_syllabuses: "Career syllabuses"
+  classrooms: "Classrooms"
+  catalogs: "Catalogs"
+  countries: "Countries"
   courses: "Courses"
-  groups: "Groups"
+  course_evaluations: "Course evaluations"
+  course_homeworks: "Course homeworks"
+  course_marks: "Couse marks"
   cycle_modalities: "Cycle modalities"
   cycle_turns: "Cycle turns"
-  turn_evaluations: "Turn evaluations"
-  campus_evaluations: "Campus evaluations"
-  level_careers: "Level careers"
-  career_syllabuses: "Career syllabuses"
-  syllabus_grades: "Syllabus grades"
-  grade_courses: "Grade courses"
-  course_evaluations: "Course evaluations"
-  students: "Students"
-  professors: "Professors"
-  parents: "Parents"
-  tutors: "Tutors"
-  relationships: "Relationships"
-  users: "Users"
-  student_courses: "Student courses"
-  course_homeworks: "Course homeworks"
-  student_homeworks: "Student homeworks"
-  homework_marks: "Homework marks"
-  attendance_types: "Attendance types"
-  evaluation_attendances: "Evaluation attendances"
-  professor_courses: "Professor courses"
-  academic_cycles: "Academic cycles"
   cycle_types: "Cycle types"
-  modalities: "Modalities"
-  turns: "Turns"
+  educative_levels: "Educative levels"
+  evaluation_attendances: "Evaluation attendances"
   evaluation_periods: "Evaluation periods"
+  grades: "Grades"
+  grade_courses: "Grade courses"
+  groups: "Groups"
+  homework_marks: "Homework marks"
+  institutions: "Institutions"
+  level_careers: "Level careers"
+  modalities: "Modalities"
+  parents: "Parents"
+  professors: "Professors"
+  professor_courses: "Professor courses"
+  relationships: "Relationships"
   statuses: "Statuses"
-  course_marks: "Couse marks"
+  students: "Students"
+  student_courses: "Student courses"
+  student_homeworks: "Student homeworks"
+  syllabuses: "Syllabuses"
+  syllabus_grades: "Syllabus grades"
+  turns: "Turns"
+  turn_evaluations: "Turn evaluations"
+  tutors: "Tutors"
+  users: "Users"
   member_since: "Member since %{date}"
   menu: "Menu"
-  activerecord:
-    models:
-      status: "Status"

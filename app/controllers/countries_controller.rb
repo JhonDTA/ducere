@@ -30,7 +30,7 @@ class CountriesController < ApplicationController
 
     respond_to do |format|
       if @country.save
-        format.html { redirect_to @country, notice: t('created_object', resource: t('activerecord.models.country')) }
+        format.html { redirect_to @country, notice: t('created_resource', resource: t('activerecord.models.country')) }
         format.json { render :show, status: :created, location: @country }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class CountriesController < ApplicationController
   def update
     respond_to do |format|
       if @country.update(country_params)
-        format.html { redirect_to @country, notice: t('edited_object', resource: t('activerecord.models.country')) }
+        format.html { redirect_to @country, notice: t('updated_resource', resource: t('activerecord.models.country')) }
         format.json { render :show, status: :ok, location: @country }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class CountriesController < ApplicationController
   def destroy
     @country.destroy
     respond_to do |format|
-      format.html { redirect_to countries_url, notice: t('destroyed_object', resource: t('activerecord.models.country')) }
+      format.html { redirect_to countries_url, notice: t('destroyed_resource', resource: t('activerecord.models.country')) }
       format.json { head :no_content }
     end
   end
