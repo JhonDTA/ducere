@@ -1,19 +1,18 @@
 <% provide(:title, t('resend_unlock')) %>
 
+<div class="col-md-6 offset-md-3">
+  <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-<h2><%= t('resend_unlock') %></h2>
+    <div class="field">
+      <%= f.label :email %><br/>
+      <%= f.email_field :email, class: 'form-control', autofocus: true, autocomplete: "email" %>
+    </div>
 
-<%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="actions">
+      <%= f.submit t('resend_unlock'), class: 'btn btn-primary' %>
+    </div>
+  <% end %>
 
-  <div class="field">
-    <%= f.label :email %><br/>
-    <%= f.email_field :email, class: 'form-control', autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit t('resend_unlock'), class: 'btn btn-primary' %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
+</div>

@@ -1,6 +1,8 @@
 <% provide(:title, t('edit_resource', resource: t('activerecord.models.academic_cycle'))) %>
 
-<%= render 'form', academic_cycle: @academic_cycle %>
+<div class="col-md-6 offset-md-3">
+  <%= render 'form', academic_cycle: @academic_cycle %>
 
-<%= link_to 'Show', @academic_cycle %> |
-<%= link_to 'Back', academic_cycles_path %>
+  <%= link_to 'Show', @academic_cycle %> |
+  <%= link_to 'Back', academic_cycles_path %>
+</div>

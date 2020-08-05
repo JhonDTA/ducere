@@ -1,6 +1,8 @@
 <% provide(:title, t('edit_resource', resource: t('activerecord.models.career_syllabus'))) %>
 
-<%= render 'form', career_syllabus: @career_syllabus %>
+<div class="col-md-6 offset-md-3">
+  <%= render 'form', career_syllabus: @career_syllabus %>
 
-<%= link_to 'Show', @career_syllabus %> |
-<%= link_to 'Back', career_syllabuses_path %>
+  <%= link_to 'Show', @career_syllabus %> |
+  <%= link_to 'Back', career_syllabuses_path %>
+</div>

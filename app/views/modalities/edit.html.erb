@@ -1,6 +1,8 @@
 <% provide(:title, t('edit_resource', resource: t('activerecord.models.modality'))) %>
 
-<%= render 'form', modality: @modality %>
+<div class="col-md-6 offset-md-3">
+  <%= render 'form', modality: @modality %>
 
-<%= link_to 'Show', @modality %> |
-<%= link_to 'Back', modalities_path %>
+  <%= link_to 'Show', @modality %> |
+  <%= link_to 'Back', modalities_path %>
+</div>

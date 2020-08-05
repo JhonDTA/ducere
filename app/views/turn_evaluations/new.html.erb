@@ -1,3 +1,7 @@
-<%= render 'form', turn_evaluation: @turn_evaluation %>
+<% provide(:title, t('new_resource', resource: t('activerecord.models.turn_evaluation'))) %>
 
-<%= link_to 'Back', turn_evaluations_path %>
+<div class="col-md-6 offset-md-3">
+  <%= render 'form', turn_evaluation: @turn_evaluation %>
+
+  <%= link_to 'Back', turn_evaluations_path %>
+</div>

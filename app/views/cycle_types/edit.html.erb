@@ -1,6 +1,8 @@
 <% provide(:title, t('edit_resource', resource: t('activerecord.models.cycle_type'))) %>
 
-<%= render 'form', cycle_type: @cycle_type %>
+<div class="col-md-6 offset-md-3">
+  <%= render 'form', cycle_type: @cycle_type %>
 
-<%= link_to 'Show', @cycle_type %> |
-<%= link_to 'Back', cycle_types_path %>
+  <%= link_to 'Show', @cycle_type %> |
+  <%= link_to 'Back', cycle_types_path %>
+</div>

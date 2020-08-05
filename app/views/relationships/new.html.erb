@@ -1,3 +1,7 @@
-<%= render 'form', relationship: @relationship %>
+<% provide(:title, t('new_resource', resource: t('activerecord.models.relationship'))) %>
 
-<%= link_to 'Back', relationships_path %>
+<div class="col-md-6 offset-md-3">
+  <%= render 'form', relationship: @relationship %>
+
+  <%= link_to 'Back', relationships_path %>
+</div>

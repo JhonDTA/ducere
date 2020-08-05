@@ -1,6 +1,8 @@
 <% provide(:title, t('edit_resource', resource: t('activerecord.models.educative_level'))) %>
 
-<%= render 'form', educative_level: @educative_level %>
+<div class="col-md-6 offset-md-3">
+  <%= render 'form', educative_level: @educative_level %>
 
-<%= link_to 'Show', @educative_level %> |
-<%= link_to 'Back', educative_levels_path %>
+  <%= link_to 'Show', @educative_level %> |
+  <%= link_to 'Back', educative_levels_path %>
+</div>

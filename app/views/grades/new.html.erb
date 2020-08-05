@@ -1,3 +1,7 @@
-<%= render 'form', grade: @grade %>
+<% provide(:title, t('new_resource', resource: t('activerecord.models.grade'))) %>
 
-<%= link_to 'Back', grades_path %>
+<div class="col-md-6 offset-md-3">
+  <%= render 'form', grade: @grade %>
+
+  <%= link_to 'Back', grades_path %>
+</div>

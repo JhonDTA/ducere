@@ -1,6 +1,8 @@
 <% provide(:title, t('edit_resource', resource: t('activerecord.models.cycle_turn'))) %>
 
-<%= render 'form', cycle_turn: @cycle_turn %>
+<div class="col-md-6 offset-md-3">
+  <%= render 'form', cycle_turn: @cycle_turn %>
 
-<%= link_to 'Show', @cycle_turn %> |
-<%= link_to 'Back', cycle_turns_path %>
+  <%= link_to 'Show', @cycle_turn %> |
+  <%= link_to 'Back', cycle_turns_path %>
+</div>

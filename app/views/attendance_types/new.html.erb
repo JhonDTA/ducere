@@ -1,3 +1,7 @@
-<%= render 'form', attendance_type: @attendance_type %>
+<% provide(:title, t('new_resource', resource: t('activerecord.models.attendance_type'))) %>
 
-<%= link_to 'Back', attendance_types_path %>
+<div class="col-md-6 offset-md-3">
+  <%= render 'form', attendance_type: @attendance_type %>
+
+  <%= link_to 'Back', attendance_types_path %>
+</div>

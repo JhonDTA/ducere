@@ -1,6 +1,8 @@
 <% provide(:title, t('edit_resource', resource: t('activerecord.models.tutor'))) %>
 
-<%= render 'form', tutor: @tutor %>
+<div class="col-md-6 offset-md-3">
+  <%= render 'form', tutor: @tutor %>
 
-<%= link_to 'Show', @tutor %> |
-<%= link_to 'Back', tutors_path %>
+  <%= link_to 'Show', @tutor %> |
+  <%= link_to 'Back', tutors_path %>
+</div>

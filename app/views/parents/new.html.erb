@@ -1,3 +1,7 @@
-<%= render 'form', parent: @parent %>
+<% provide(:title, t('new_resource', resource: t('activerecord.models.parent'))) %>
 
-<%= link_to 'Back', parents_path %>
+<div class="col-md-6 offset-md-3">
+  <%= render 'form', parent: @parent %>
+
+  <%= link_to 'Back', parents_path %>
+</div>

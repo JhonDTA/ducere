@@ -1,6 +1,8 @@
 <% provide(:title, t('edit_resource', resource: t('activerecord.models.course_mark'))) %>
 
-<%= render 'form', course_mark: @course_mark %>
+<div class="col-md-6 offset-md-3">
+  <%= render 'form', course_mark: @course_mark %>
 
-<%= link_to 'Show', @course_mark %> |
-<%= link_to 'Back', course_marks_path %>
+  <%= link_to 'Show', @course_mark %> |
+  <%= link_to 'Back', course_marks_path %>
+</div>

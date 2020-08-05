@@ -1,3 +1,7 @@
-<%= render 'form', student_course: @student_course %>
+<% provide(:title, t('new_resource', resource: t('activerecord.models.student_course'))) %>
 
-<%= link_to 'Back', student_courses_path %>
+<div class="col-md-6 offset-md-3">
+  <%= render 'form', student_course: @student_course %>
+
+  <%= link_to 'Back', student_courses_path %>
+</div>

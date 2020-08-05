@@ -1,3 +1,7 @@
-<%= render 'form', cycle_modality: @cycle_modality %>
+<% provide(:title, t('new_resource', resource: t('activerecord.models.cycle_modality'))) %>
 
-<%= link_to 'Back', cycle_modalities_path %>
+<div class="col-md-6 offset-md-3">
+  <%= render 'form', cycle_modality: @cycle_modality %>
+
+  <%= link_to 'Back', cycle_modalities_path %>
+</div>
