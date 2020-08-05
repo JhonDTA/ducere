@@ -1,5 +1,9 @@
-<%= render 'form', institution: @institution %>
+<% provide(:title, t('editing_object', resource: t('activerecord.models.institution'))) %>
+<% provide(:link, link_to(t('editing_object', resource: t('activerecord.models.institution')), edit_institution_path)) %>
 
-<%= link_to 'Show', @institution %> |
-<%= link_to 'Back', institutions_path %>
+<div class="col-md-6 offset-md-3">
+  <%= render 'form', institution: @institution %>
 
+  <%= link_to 'Show', @institution %> |
+  <%= link_to 'Back', institutions_path %>
+</div>

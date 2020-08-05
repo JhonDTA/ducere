@@ -7,6 +7,7 @@ es-MX:
       institution: "Escuela"
       campus: "Plantel"
       academic_year: "Año escolar"
+      status: "Estatus"
     attributes:
       user:
         first_name: "Nombre"
