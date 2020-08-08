@@ -1,14 +1,17 @@
 <% provide(:title, t('edit_resource', resource: t('activerecord.models.academic_cycle'))) %>
 
 <div class="col-md-8 offset-md-2">
-  <div class="card">
+  <div class="card card-primary">
+    <div class="card-header">
+      <h3 class="card-title"><%= t('activerecord.models.academic_cycle') %></h3>
+    </div>
     <div class="card-body">
       <%= render 'form', academic_cycle: @academic_cycle %>
     </div>
     <div class="card-footer">
       <div class="btn-group">
-      <%= link_to t('show'), @academic_cycle, class: 'btn btn-sm btn-info' %>
-      <%= link_to t('back'), academic_cycles_path, class: 'btn btn-sm btn-danger' %>
+        <%= link_to t('show'), @academic_cycle, class: 'btn btn-sm btn-info' %>
+        <%= link_to t('back'), academic_cycles_path, class: 'btn btn-sm btn-danger' %>
       </div>
     </div>
   </div>
