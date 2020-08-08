@@ -1,10 +1,11 @@
 <% if object.errors.any? %>
+  <% resource_key = "activerecord.models.#{object.class.to_s.underscore}" %>
   <div id="error_explanation">
     <h2>
-      <% locale_object = "activerecord.models.#{object.class.to_s.underscore}" %>
       <%= t('error_message',
-            errors: pluralize(object.errors.count, t('error')),
-            resource: t(locale_object)) %>:
+            errors: pluralize(object.errors.count,
+                              t('error'), locale: I18n.locale),
+            resource: t(resource_key).downcase) %>:
     </h2>
 
     <ul>
