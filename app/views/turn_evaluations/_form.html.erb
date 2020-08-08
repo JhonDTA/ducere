@@ -1,27 +1,16 @@
 <%= form_with(model: turn_evaluation, local: true) do |form| %>
-  <% if turn_evaluation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(turn_evaluation.errors.count, "error") %> prohibited
-        this turn_evaluation from being saved:</h2>
-
-      <ul>
-        <% turn_evaluation.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'shared/error_messages', object: form.object %>
 
   <div class="field">
     <%= form.label :cycle_turn_id %>
-    <%= form.collection_select :cycle_turn_id, CycleTurn.all, :id, :name,
+    <%= form.collection_select :cycle_turn_id, CycleTurn.all, :id, :name, {},
                                class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :evaluation_period_id %>
-    <%= form.collection_select :evaluation_period_id, EvaluationPeriod.all, :id, :name,
-                               class: 'form-control' %>
+    <%= form.collection_select :evaluation_period_id, EvaluationPeriod.all,
+                               :id, :name, {}, class: 'form-control' %>
   </div>
 
   <div class="actions">

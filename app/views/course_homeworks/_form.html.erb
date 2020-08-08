@@ -1,21 +1,10 @@
 <%= form_with(model: course_homework, local: true) do |form| %>
-  <% if course_homework.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(course_homework.errors.count, "error") %> prohibited
-        this course_homework from being saved:</h2>
-
-      <ul>
-        <% course_homework.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'shared/error_messages', object: form.object %>
 
   <div class="field">
     <%= form.label :course_evaluation_id %>
-    <%= form.collection_select :course_evaluation_id, CourseEvaluation.all, :id, :name,
-                               class: 'form-control' %>
+    <%= form.collection_select :course_evaluation_id, CourseEvaluation.all,
+                               :id, :name, {}, class: 'form-control' %>
   </div>
 
   <div class="field">

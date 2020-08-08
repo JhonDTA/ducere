@@ -1,32 +1,21 @@
 <%= form_with(model: evaluation_attendance, local: true) do |form| %>
-  <% if evaluation_attendance.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(evaluation_attendance.errors.count, "error") %>
-        prohibited this evaluation_attendance from being saved:</h2>
-
-      <ul>
-        <% evaluation_attendance.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'shared/error_messages', object: form.object %>
 
   <div class="field">
     <%= form.label :student_course_id %>
-    <%= form.collection_select :student_course_id_id, StudentCourse.all, :id, :name,
-                               class: 'form-control' %>
+    <%= form.collection_select :student_course_id_id, StudentCourse.all,
+                               :id, :name, {}, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :attendance_type_id %>
-    <%= form.collection_select :attendance_type_id, AttendanceType.all, :id, :name,
-                               class: 'form-control' %>
+    <%= form.collection_select :attendance_type_id, AttendanceType.all,
+                               :id, :name, {}, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :date %>
-    <%= form.date_select :date, class: 'form-control' %>
+    <%= form.date_select :date, {}, class: 'form-control' %>
   </div>
 
   <div class="actions">

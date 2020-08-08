@@ -1,27 +1,16 @@
 <%= form_with(model: campus_evaluation, local: true) do |form| %>
-  <% if campus_evaluation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(campus_evaluation.errors.count, "error") %> prohibited
-        this campus_evaluation from being saved:</h2>
-
-      <ul>
-        <% campus_evaluation.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'shared/error_messages', object: form.object %>
 
   <div class="field">
     <%= form.label :campus_id %>
-    <%= form.collection_select :campus_id, Campus.all, :id, :name,
+    <%= form.collection_select :campus_id, Campus.all, :id, :name, {},
                                class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :turn_evaluation_id %>
-    <%= form.collection_select :turn_evaluation_id, TurnEvaluation.all, :id, :name,
-                               class: 'form-control' %>
+    <%= form.collection_select :turn_evaluation_id, TurnEvaluation.all,
+                               :id, :name, {}, class: 'form-control' %>
   </div>
 
   <div class="actions">

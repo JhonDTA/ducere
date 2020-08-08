@@ -1,16 +1,5 @@
 <%= form_with(model: classroom, local: true) do |form| %>
-  <% if classroom.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(classroom.errors.count, "error") %> prohibited this
-        classroom from being saved:</h2>
-
-      <ul>
-        <% classroom.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'shared/error_messages', object: form.object %>
 
   <div class="field">
     <%= form.label :code %>
@@ -24,13 +13,13 @@
 
   <div class="field">
     <%= form.label :building_id %>
-    <%= form.collection_select :building_id, Building.all, :id, :name,
+    <%= form.collection_select :building_id, Building.all, :id, :name, {},
                                class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :status_id %>
-    <%= form.collection_select :status_id, Status.all, :id, :name,
+    <%= form.collection_select :status_id, Status.all, :id, :name, {},
                                class: 'form-control' %>
   </div>
 

@@ -1,16 +1,5 @@
 <%= form_with(model: course_evaluation, local: true) do |form| %>
-  <% if course_evaluation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(course_evaluation.errors.count, "error") %> prohibited
-        this course_evaluation from being saved:</h2>
-
-      <ul>
-        <% course_evaluation.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'shared/error_messages', object: form.object %>
 
   <div class="field">
     <%= form.label :grade_course_id %>
@@ -20,19 +9,20 @@
 
   <div class="field">
     <%= form.label :campus_evaluation_id %>
-    <%= form.collection_select :campus_evaluation_id, CampusEvaluation.collection,
-                               :id, :name, class: 'form-control' %>
+    <%= form.collection_select :campus_evaluation_id,
+                               CampusEvaluation.collection, :id, :name, {},
+                               class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :professor_id %>
-    <%= form.collection_select :professor_id, Professor.collection,
-                               :id, :name, class: 'form-control' %>
+    <%= form.collection_select :professor_id, Professor.collection, :id, :name,
+                               {}, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :group_id %>
-    <%= form.collection_select :group_id, Group.collection, :id, :name,
+    <%= form.collection_select :group_id, Group.collection, :id, :name, {},
                                class: 'form-control' %>
   </div>
 

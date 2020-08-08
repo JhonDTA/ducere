@@ -1,16 +1,5 @@
 <%= form_with(model: campus, local: true) do |form| %>
-  <% if campus.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(campus.errors.count, "error") %> prohibited this campus
-        from being saved:</h2>
-
-      <ul>
-        <% campus.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'shared/error_messages', object: form.object %>
 
   <div class="field">
     <%= form.label :code %>
@@ -29,13 +18,13 @@
 
   <div class="field">
     <%= form.label :institution_id %>
-    <%= form.collection_select :institution_id, Institution.all, :id, :name,
+    <%= form.collection_select :institution_id, Institution.all, :id, :name, {},
                                class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :status_id %>
-    <%= form.collection_select :status_id, Status.all, :id, :name,
+    <%= form.collection_select :status_id, Status.all, :id, :name, {},
                                class: 'form-control' %>
   </div>
 

@@ -1,26 +1,15 @@
 <%= form_with(model: cycle_modality, local: true) do |form| %>
-  <% if cycle_modality.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(cycle_modality.errors.count, "error") %> prohibited this
-        cycle_modality from being saved:</h2>
-
-      <ul>
-        <% cycle_modality.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'shared/error_messages', object: form.object %>
 
   <div class="field">
     <%= form.label :academic_cycle_id %>
-    <%= form.collection_select :academic_cycle_id, AcademicCycle.all, :id, :name,
-                               class: 'form-control' %>
+    <%= form.collection_select :academic_cycle_id, AcademicCycle.all,
+                               :id, :name, {}, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :modality_id %>
-    <%= form.collection_select :modality_id, Modality.all, :id, :name,
+    <%= form.collection_select :modality_id, Modality.all, :id, :name, {},
                                class: 'form-control' %>
   </div>
 
