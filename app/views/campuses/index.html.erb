@@ -18,9 +18,9 @@
       <td><%= campus.description %></td>
       <td><%= campus.institution.name %></td>
       <td><%= campus.status.name %></td>
-      <td><%= link_to 'Show', campus %></td>
-      <td><%= link_to 'Edit', edit_campus_path(campus) %></td>
-      <td><%= link_to 'Destroy', campus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to t('show'), campus %></td>
+      <td><%= link_to t('edit'), edit_campus_path(campus) %></td>
+      <td><%= link_to t('destroy'), campus, method: :delete, data: { confirm: t('you_sure') } %></td>
     </tr>
   <% end %>
   </tbody>

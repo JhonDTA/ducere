@@ -16,9 +16,9 @@
       <td><%= course_mark.mark %></td>
       <td><%= course_mark.attendance %></td>
       <td><%= course_mark.observations %></td>
-      <td><%= link_to 'Show', course_mark %></td>
-      <td><%= link_to 'Edit', edit_course_mark_path(course_mark) %></td>
-      <td><%= link_to 'Destroy', course_mark, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to t('show'), course_mark %></td>
+      <td><%= link_to t('edit'), edit_course_mark_path(course_mark) %></td>
+      <td><%= link_to t('destroy'), course_mark, method: :delete, data: { confirm: t('you_sure') } %></td>
     </tr>
   <% end %>
   </tbody>

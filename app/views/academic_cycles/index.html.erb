@@ -1,36 +1,52 @@
-<table>
-  <thead>
-  <tr>
-    <th>Code</th>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Cycle type</th>
-    <th>Status</th>
-    <th>Start</th>
-    <th>Finish</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
+<% provide(:title, t('academic_cycles')) %>
 
-  <tbody>
-  <% @academic_cycles.each do |academic_cycle| %>
-    <tr>
-      <td><%= academic_cycle.code %></td>
-      <td><%= academic_cycle.name %></td>
-      <td><%= academic_cycle.description %></td>
-      <td><%= academic_cycle.cycle_type.name %></td>
-      <td><%= academic_cycle.status.name %></td>
-      <td><%= academic_cycle.start %></td>
-      <td><%= academic_cycle.finish %></td>
-      <td><%= link_to 'Show', academic_cycle %></td>
-      <td><%= link_to 'Edit', edit_academic_cycle_path(academic_cycle) %></td>
-      <td><%= link_to 'Destroy', academic_cycle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+<div class="card">
+  <div class="card-header">
+    <div class="card-tools">
+      <%= will_paginate @academic_cycles, class: 'pagination-sm float-right',
+                        :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+    </div>
+  </div>
+  <div class="card-body table-responsive p-0" style="height: 65vh">
+    <table class="table table-hover table-head-fixed text-nowrap">
+      <thead>
+      <tr>
+        <th><%= t('activerecord.attributes.academic_cycle.code') %></th>
+        <th><%= t('activerecord.attributes.academic_cycle.name') %></th>
+        <th><%= t('activerecord.attributes.academic_cycle.description') %></th>
+        <th><%= t('activerecord.attributes.academic_cycle.cycle_type_id') %></th>
+        <th><%= t('activerecord.attributes.academic_cycle.status_id') %></th>
+        <th><%= t('activerecord.attributes.academic_cycle.start') %></th>
+        <th><%= t('activerecord.attributes.academic_cycle.finish') %></th>
+        <th colspan="3"></th>
+      </tr>
+      </thead>
 
-<br>
-
-<%= link_to 'New Academic Cycle', new_academic_cycle_path %>
-<%= will_paginate @academic_cycles %>
+      <tbody>
+      <% @academic_cycles.each do |academic_cycle| %>
+        <tr>
+          <td><%= academic_cycle.code %></td>
+          <td><%= academic_cycle.name %></td>
+          <td><%= academic_cycle.description %></td>
+          <td><%= academic_cycle.cycle_type.name %></td>
+          <td><%= academic_cycle.status.name %></td>
+          <td><%= academic_cycle.start %></td>
+          <td><%= academic_cycle.finish %></td>
+          <td class="btn-group">
+            <%= link_to t('show'), academic_cycle, class: 'btn btn-sm btn-info' %>
+            <%= link_to t('edit'), edit_academic_cycle_path(academic_cycle), class: 'btn btn-sm btn-success' %>
+            <%= link_to t('destroy'), academic_cycle, method: :delete, data: { confirm: t('you_sure') },
+                        class: 'btn btn-sm btn-danger' %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer clearfix">
+    <%= link_to t('new_resource', resource: t('activerecord.models.academic_cycle')),
+                new_academic_cycle_path, class: 'btn btn-sm btn-primary' %>
+    <%= will_paginate @academic_cycles, class: 'pagination-sm m-0 float-right',
+                      :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+  </div>
+</div>

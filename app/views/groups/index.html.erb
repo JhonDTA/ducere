@@ -16,9 +16,9 @@
       <td><%= group.name %></td>
       <td><%= group.description %></td>
       <td><%= group.status.name %></td>
-      <td><%= link_to 'Show', group %></td>
-      <td><%= link_to 'Edit', edit_group_path(group) %></td>
-      <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to t('show'), group %></td>
+      <td><%= link_to t('edit'), edit_group_path(group) %></td>
+      <td><%= link_to t('destroy'), group, method: :delete, data: { confirm: t('you_sure') } %></td>
     </tr>
   <% end %>
   </tbody>

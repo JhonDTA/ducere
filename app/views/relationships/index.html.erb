@@ -12,9 +12,9 @@
     <tr>
       <td><%= relationship.name %></td>
       <td><%= relationship.status.name %></td>
-      <td><%= link_to 'Show', relationship %></td>
-      <td><%= link_to 'Edit', edit_relationship_path(relationship) %></td>
-      <td><%= link_to 'Destroy', relationship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to t('show'), relationship %></td>
+      <td><%= link_to t('edit'), edit_relationship_path(relationship) %></td>
+      <td><%= link_to t('destroy'), relationship, method: :delete, data: { confirm: t('you_sure') } %></td>
     </tr>
   <% end %>
   </tbody>

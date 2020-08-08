@@ -586,3 +586,5 @@ es-MX:
   users: "Usuarios"
   member_since: "Miembro desde %{date}"
   menu: "Menú"
+  error_message: "%{errors} impidieron que se guardara este %{resource}"
+  error: "error"

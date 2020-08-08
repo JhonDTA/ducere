@@ -14,9 +14,9 @@
       <td><%= course_homework.course_evaluation.name %></td>
       <td><%= course_homework.name %></td>
       <td><%= course_homework.description %></td>
-      <td><%= link_to 'Show', course_homework %></td>
-      <td><%= link_to 'Edit', edit_course_homework_path(course_homework) %></td>
-      <td><%= link_to 'Destroy', course_homework, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to t('show'), course_homework %></td>
+      <td><%= link_to t('edit'), edit_course_homework_path(course_homework) %></td>
+      <td><%= link_to t('destroy'), course_homework, method: :delete, data: { confirm: t('you_sure') } %></td>
     </tr>
   <% end %>
   </tbody>

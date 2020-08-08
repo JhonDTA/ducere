@@ -12,9 +12,9 @@
     <tr>
       <td><%= professor_course.professor.name %></td>
       <td><%= professor_course.course.name %></td>
-      <td><%= link_to 'Show', professor_course %></td>
-      <td><%= link_to 'Edit', edit_professor_course_path(professor_course) %></td>
-      <td><%= link_to 'Destroy', professor_course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to t('show'), professor_course %></td>
+      <td><%= link_to t('edit'), edit_professor_course_path(professor_course) %></td>
+      <td><%= link_to t('destroy'), professor_course, method: :delete, data: { confirm: t('you_sure') } %></td>
     </tr>
   <% end %>
   </tbody>

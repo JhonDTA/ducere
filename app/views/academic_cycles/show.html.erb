@@ -1,37 +1,51 @@
-<p>
-  <strong>Code:</strong>
-  <%= @academic_cycle.code %>
-</p>
+<div class="card card-primary">
+  <div class="card-header">
+    <h3 class="card-title"><%= t('activerecord.models.academic_cycle') %></h3>
+  </div>
+  <div class="card-body">
+    <p>
+      <strong><%= t('activerecord.attributes.academic_cycle.code') %>:</strong>
+      <%= @academic_cycle.code %>
+    </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @academic_cycle.name %>
-</p>
+    <p>
+      <strong><%= t('activerecord.attributes.academic_cycle.name') %>:</strong>
+      <%= @academic_cycle.name %>
+    </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @academic_cycle.description %>
-</p>
+    <p>
+      <strong><%= t('activerecord.attributes.academic_cycle.description') %>
+        :</strong>
+      <%= @academic_cycle.description %>
+    </p>
 
-<p>
-  <strong>Cycle type:</strong>
-  <%= @academic_cycle.cycle_type.name %>
-</p>
+    <p>
+      <strong><%= t('activerecord.attributes.academic_cycle.cycle_type_id') %>
+        :</strong>
+      <%= @academic_cycle.cycle_type.name %>
+    </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @academic_cycle.status.name %>
-</p>
+    <p>
+      <strong><%= t('activerecord.attributes.academic_cycle.status_id') %>
+        :</strong>
+      <%= @academic_cycle.status.name %>
+    </p>
 
-<p>
-  <strong>Start:</strong>
-  <%= @academic_cycle.start %>
-</p>
+    <p>
+      <strong><%= t('activerecord.attributes.academic_cycle.start') %>:</strong>
+      <%= @academic_cycle.start %>
+    </p>
 
-<p>
-  <strong>Finish:</strong>
-  <%= @academic_cycle.finish %>
-</p>
-
-<%= link_to 'Edit', edit_academic_cycle_path(@academic_cycle) %> |
-<%= link_to 'Back', academic_cycles_path %>
+    <p>
+      <strong><%= t('activerecord.attributes.academic_cycle.finish') %>
+        :</strong>
+      <%= @academic_cycle.finish %>
+    </p>
+  </div>
+  <div class="card-footer">
+    <div class="btn-group">
+      <%= link_to t('edit'), edit_academic_cycle_path(@academic_cycle), class: 'btn btn-sm btn-success' %>
+      <%= link_to t('back'), academic_cycles_path, class: 'btn btn-sm btn-danger' %>
+    </div>
+  </div>
+</div>

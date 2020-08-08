@@ -1,0 +1,16 @@
+<% if object.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <% locale_object = "activerecord.models.#{object.class.to_s.underscore}" %>
+      <%= t('error_message',
+            errors: pluralize(object.errors.count, t('error')),
+            resource: t(locale_object)) %>:
+    </h2>
+
+    <ul>
+      <% object.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

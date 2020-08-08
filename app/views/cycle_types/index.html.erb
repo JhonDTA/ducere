@@ -18,9 +18,9 @@
       <td><%= cycle_type.description %></td>
       <td><%= cycle_type.duration %></td>
       <td><%= cycle_type.status.name %></td>
-      <td><%= link_to 'Show', cycle_type %></td>
-      <td><%= link_to 'Edit', edit_cycle_type_path(cycle_type) %></td>
-      <td><%= link_to 'Destroy', cycle_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to t('show'), cycle_type %></td>
+      <td><%= link_to t('edit'), edit_cycle_type_path(cycle_type) %></td>
+      <td><%= link_to t('destroy'), cycle_type, method: :delete, data: { confirm: t('you_sure') } %></td>
     </tr>
   <% end %>
   </tbody>

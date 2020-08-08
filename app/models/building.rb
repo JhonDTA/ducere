@@ -13,4 +13,8 @@ class Building < ApplicationRecord
   validates :code, presence: true
   validates :code, uniqueness: { scope: :campus_id },
                    length: { minimum: 1, maximum: 16 }
+
+  def name
+    "#{campus.name} - Edificio #{code}"
+  end
 end

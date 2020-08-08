@@ -27,10 +27,10 @@
           <td><%= status.description %></td>
           <td>
             <div class="btn-group">
-              <%= link_to 'Show', status, class: 'btn btn-info' %>
-              <%= link_to 'Edit', edit_status_path(status), class: 'btn btn-success' %>
-              <%= link_to 'Destroy', status, method: :delete, data: { confirm: 'Are you sure?' },
-                          class: 'btn btn-danger' %>
+              <%= link_to t('show'), status, class: 'btn btn-sm btn-info' %>
+              <%= link_to t('edit'), edit_status_path(status), class: 'btn btn-sm btn-success' %>
+              <%= link_to t('destroy'), status, method: :delete, data: { confirm: t('you_sure') },
+                          class: 'btn btn-sm btn-danger' %>
             </div>
           </td>
         </tr>

@@ -12,9 +12,9 @@
     <tr>
       <td><%= cycle_modality.academic_cycle.name %></td>
       <td><%= cycle_modality.modality.name %></td>
-      <td><%= link_to 'Show', cycle_modality %></td>
-      <td><%= link_to 'Edit', edit_cycle_modality_path(cycle_modality) %></td>
-      <td><%= link_to 'Destroy', cycle_modality, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to t('show'), cycle_modality %></td>
+      <td><%= link_to t('edit'), edit_cycle_modality_path(cycle_modality) %></td>
+      <td><%= link_to t('destroy'), cycle_modality, method: :delete, data: { confirm: t('you_sure') } %></td>
     </tr>
   <% end %>
   </tbody>

@@ -12,9 +12,9 @@
     <tr>
       <td><%= career_syllabus.level_career.name %></td>
       <td><%= career_syllabus.syllabus.name %></td>
-      <td><%= link_to 'Show', career_syllabus %></td>
-      <td><%= link_to 'Edit', edit_career_syllabus_path(career_syllabus) %></td>
-      <td><%= link_to 'Destroy', career_syllabus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to t('show'), career_syllabus %></td>
+      <td><%= link_to t('edit'), edit_career_syllabus_path(career_syllabus) %></td>
+      <td><%= link_to t('destroy'), career_syllabus, method: :delete, data: { confirm: t('you_sure') } %></td>
     </tr>
   <% end %>
   </tbody>

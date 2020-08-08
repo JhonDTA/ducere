@@ -16,9 +16,9 @@
       <td><%= grade.name %></td>
       <td><%= grade.description %></td>
       <td><%= grade.status.name %></td>
-      <td><%= link_to 'Show', grade %></td>
-      <td><%= link_to 'Edit', edit_grade_path(grade) %></td>
-      <td><%= link_to 'Destroy', grade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to t('show'), grade %></td>
+      <td><%= link_to t('edit'), edit_grade_path(grade) %></td>
+      <td><%= link_to t('destroy'), grade, method: :delete, data: { confirm: t('you_sure') } %></td>
     </tr>
   <% end %>
   </tbody>

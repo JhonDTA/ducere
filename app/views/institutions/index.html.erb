@@ -30,10 +30,10 @@
           <td><%= institution.status.name %></td>
           <td>
             <div class="btn-group">
-              <%= link_to 'Show', institution, class: 'btn btn-info' %>
-              <%= link_to 'Edit', edit_institution_path(institution), class: 'btn btn-success' %>
-              <%= link_to 'Destroy', institution, method: :delete, data: { confirm: 'Are you sure?' },
-                          class: 'btn btn-danger' %>
+              <%= link_to t('show'), institution, class: 'btn btn-sm btn-info' %>
+              <%= link_to t('edit'), edit_institution_path(institution), class: 'btn btn-sm btn-success' %>
+              <%= link_to t('destroy'), institution, method: :delete, data: { confirm: t('you_sure') },
+                          class: 'btn btn-sm btn-danger' %>
             </div>
           </td>
         </tr>

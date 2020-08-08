@@ -1,16 +1,5 @@
 <%= form_with(model: academic_cycle, local: true) do |form| %>
-  <% if academic_cycle.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(academic_cycle.errors.count, "error") %> prohibited this
-        academic_cycle from being saved:</h2>
-
-      <ul>
-        <% academic_cycle.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'shared/error_messages', object: form.object %>
 
   <div class="field">
     <%= form.label :code %>
@@ -29,24 +18,24 @@
 
   <div class="field">
     <%= form.label :cycle_type_id %>
-    <%= form.collection_select :cycle_type_id, CycleType.all, :id, :name,
+    <%= form.collection_select :cycle_type_id, CycleType.all, :id, :name, {},
                                class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :status_id %>
-    <%= form.collection_select :status_id, Status.all, :id, :name,
+    <%= form.collection_select :status_id, Status.all, :id, :name, {},
                                class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :start %>
-    <%= form.date_select :start, class: 'form-control' %>
+    <%= form.date_select :start, {}, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :finish %>
-    <%= form.date_select :finish, class: 'form-control' %>
+    <%= form.date_select :finish, {}, class: 'form-control' %>
   </div>
 
   <div class="actions">

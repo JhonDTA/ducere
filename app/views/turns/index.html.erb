@@ -20,9 +20,9 @@
       <td><%= turn.start %></td>
       <td><%= turn.finish %></td>
       <td><%= turn.status.name %></td>
-      <td><%= link_to 'Show', turn %></td>
-      <td><%= link_to 'Edit', edit_turn_path(turn) %></td>
-      <td><%= link_to 'Destroy', turn, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to t('show'), turn %></td>
+      <td><%= link_to t('edit'), edit_turn_path(turn) %></td>
+      <td><%= link_to t('destroy'), turn, method: :delete, data: { confirm: t('you_sure') } %></td>
     </tr>
   <% end %>
   </tbody>

@@ -12,9 +12,9 @@
     <tr>
       <td><%= cycle_turn.cycle_modality.name %></td>
       <td><%= cycle_turn.turn.name %></td>
-      <td><%= link_to 'Show', cycle_turn %></td>
-      <td><%= link_to 'Edit', edit_cycle_turn_path(cycle_turn) %></td>
-      <td><%= link_to 'Destroy', cycle_turn, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to t('show'), cycle_turn %></td>
+      <td><%= link_to t('edit'), edit_cycle_turn_path(cycle_turn) %></td>
+      <td><%= link_to t('destroy'), cycle_turn, method: :delete, data: { confirm: t('you_sure') } %></td>
     </tr>
   <% end %>
   </tbody>

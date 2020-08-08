@@ -10,9 +10,9 @@
   <% @parents.each do |parent| %>
     <tr>
       <td><%= parent.user.name %></td>
-      <td><%= link_to 'Show', parent %></td>
-      <td><%= link_to 'Edit', edit_parent_path(parent) %></td>
-      <td><%= link_to 'Destroy', parent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to t('show'), parent %></td>
+      <td><%= link_to t('edit'), edit_parent_path(parent) %></td>
+      <td><%= link_to t('destroy'), parent, method: :delete, data: { confirm: t('you_sure') } %></td>
     </tr>
   <% end %>
   </tbody>

@@ -42,6 +42,185 @@ en:
       turn_evaluation: "Turn evaluation"
       tutor: "Tutor"
       user: "User"
+    attributes:
+      academic_cycle:
+        code: "Code"
+        name: "Name"
+        description: "Description"
+        cycle_type_id: "Cycle type"
+        status_id: "Status"
+        start: "Start"
+        finish: "Finish"
+      attendance_type:
+        code: "Code"
+        name: "Name"
+        description: "Description"
+        status_id: "Status"
+      building:
+        code: "Code"
+        description: "Description"
+        campus_id: "Campus"
+        status_id: "Status"
+      campus:
+        code: "Code"
+        name: "Name"
+        description: "Description"
+        institution_id: "Institution"
+        status_id: "Status"
+      campus_evaluation:
+        campus_id: "Campus"
+        turn_evaluation_id: "Turn evaluation"
+      career:
+        code: "Code"
+        name: "Name"
+        description: "Description"
+        status_id: "Status"
+      career_syllabus:
+        level_career_id: "Level career"
+        syllabus_id: "Syllabus"
+      classroom:
+        code: "Code"
+        description: "Description"
+        building_id: "Building"
+        status_id: "Status"
+      country:
+        name: "Name"
+        iso_code: "ISO code"
+        calling_code: "Calling code"
+      course:
+        code: "Code"
+        name: "Name"
+        description: "Description"
+        credits: "Credits"
+        status_id: "Status"
+      course_evaluation:
+        grade_course_id: "Grade course"
+        campus_evaluation_id: "Campus evaluation"
+        professor_id: "Professor"
+        group_id: "Group"
+      course_homework:
+        course_evaluation_id: "Course evaluation"
+        name: "Name"
+        description: "Description"
+      course_mark:
+        student_course_id: "Student course"
+        mark: "Mark"
+        attendance: "Attendance"
+        observations: "Observations"
+      cycle_modality:
+        academic_cycle_id: "Academic cycle"
+        modality_id: "Modality"
+      cycle_turn:
+        cycle_modality_id: "Cycle modality"
+        turn_id: "Turn"
+      cycle_type:
+        code: "Code"
+        name: "Name"
+        description: "Description"
+        duration: "Duration"
+        status_id: "Status"
+      educative_level:
+        code: "Code"
+        name: "Name"
+        description: "Description"
+        status_id: "Status"
+      evaluation_attendance:
+        student_course_id: "Student course"
+        attendance_type_id: "Attendance type"
+        date: "Date"
+      evaluation_period:
+        code: "Code"
+        name: "Name"
+        description: "Description"
+        status_id: "Status"
+      grade:
+        code: "Code"
+        name: "Name"
+        description: "Description"
+        status_id: "Status"
+      grade_course:
+        syllabus_grade_id: "Syllabus grade"
+        course_id: "Course"
+      group:
+        code: "Code"
+        name: "Name"
+        description: "Description"
+        status_id: "Status"
+      homework_mark:
+        student_homework_id: "Student homework"
+        mark: "Mark"
+        observations: "Observations"
+      institution:
+        name: "Name"
+        code: "Code"
+        description: "Description"
+        country_id: "Country"
+        status_id: "Status"
+      level_career:
+        educative_level_id: "Educative level"
+        career_id: "Career"
+      modality:
+        code: "Code"
+        name: "Name"
+        description: "Description"
+        status_id: "Status"
+      parent:
+        user_id: "User"
+      professor:
+        user_id: "User"
+        enrollment: "Enrollment"
+      professor_course:
+        professor_id: "Professor"
+        course_id: "Course"
+      relationship:
+        name: "Name"
+        status_id: "Status"
+      status:
+        code: "Code"
+        name: "Name"
+        description: "Description"
+      student:
+        user_id: "User"
+        enrollment: "Matrícula"
+      student_course:
+        student_id: "Student"
+        course_evaluation_id: "Course evaluation"
+      student_homework:
+        course_homework_id: "Course homework"
+        student_id: "Student"
+        observations: "Observations"
+      syllabus:
+        code: "Code"
+        name: "Name"
+        description: "Description"
+        approval_credits: "Approval credits"
+        status_id: "Status"
+      syllabus_grade:
+        career_syllabus_id: "Career syllabus"
+        grade_id: "Grade"
+      turn:
+        code: "Code"
+        name: "Name"
+        description: "Description"
+        start: "Start"
+        finish: "Finish"
+        status_id: "Status"
+      turn_evaluation:
+        cycle_turn_id: "Cycle turn"
+        evaluation_period_id: "Evaluation period"
+      tutor:
+        student_id: "Student"
+        parent_id: "Parent"
+        relationship_id: "Relationship"
+      user:
+        first_name: "First name"
+        last_name: "Last name"
+        second_last_name: "Second last name"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        current_password: "Current password"
+        remember_me: "Remember me"
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."
@@ -188,3 +367,5 @@ en:
   users: "Users"
   member_since: "Member since %{date}"
   menu: "Menu"
+  error_message: "%{errors} prohibited this %{resource} from being saved"
+  error: "error"
