@@ -1,7 +1,7 @@
 <% provide(:title, t('edit_resource', resource: t('activerecord.models.cycle_turn'))) %>
 <% provide :card_title, t('activerecord.models.cycle_turn') %>
 
-<%= render 'shared/forms/form_card' do %>
+<%= render 'shared/cards/form_card' do %>
   <%= render 'form', cycle_turn: @cycle_turn %>
   <% content_for :back_button do %>
     <%= link_to t('show'), @cycle_turn, class: 'btn btn-sm btn-info' %>

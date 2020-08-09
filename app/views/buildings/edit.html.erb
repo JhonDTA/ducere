@@ -1,7 +1,7 @@
 <% provide(:title, t('edit_resource', resource: t('activerecord.models.building'))) %>
 <% provide(:card_title, t('activerecord.models.building')) %>
 
-<%= render 'shared/forms/form_card' do %>
+<%= render 'shared/cards/form_card' do %>
   <%= render 'form', building: @building %>
   <% content_for :back_button do %>
     <%= link_to t('show'), @building, class: 'btn btn-sm btn-info' %>

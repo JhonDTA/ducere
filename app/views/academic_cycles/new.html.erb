@@ -1,7 +1,7 @@
 <% provide(:title, t('new_resource', resource: t('activerecord.models.academic_cycle'))) %>
 <% provide(:card_title, t('activerecord.models.academic_cycle')) %>
 
-<%= render 'shared/forms/form_card' do %>
+<%= render 'shared/cards/form_card' do %>
   <%= render 'form', academic_cycle: @academic_cycle %>
   <% content_for :back_button do %>
     <%= link_to t('back'), academic_cycles_path, class: 'btn btn-sm btn-danger' %>

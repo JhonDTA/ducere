@@ -1,7 +1,7 @@
 <% provide(:title, t('edit_resource', resource: t('activerecord.models.attendance_type'))) %>
 <% provide :card_title, t('activerecord.models.attendance_type') %>
 
-<%= render 'shared/forms/form_card' do %>
+<%= render 'shared/cards/form_card' do %>
   <%= render 'form', attendance_type: @attendance_type %>
   <% content_for :back_button do %>
     <%= link_to t('show'), @attendance_type, class: 'btn btn-sm btn-info' %>

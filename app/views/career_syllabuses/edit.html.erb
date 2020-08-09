@@ -1,7 +1,7 @@
 <% provide(:title, t('edit_resource', resource: t('activerecord.models.career_syllabus'))) %>
 <% provide :card_title, t('activerecord.models.career_syllabus') %>
 
-<%= render 'shared/forms/form_card' do %>
+<%= render 'shared/cards/form_card' do %>
   <%= render 'form', career_syllabus: @career_syllabus %>
   <% content_for :back_button do %>
     <%= link_to t('show'), @career_syllabus, class: 'btn btn-sm btn-info' %>

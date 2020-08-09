@@ -1,7 +1,7 @@
 <% provide(:title, t('new_resource', resource: t('activerecord.models.course_evaluation'))) %>
 <% provide :card_title, t('activerecord.models.course_evaluation') %>
 
-<%= render 'shared/forms/form_card' do %>
+<%= render 'shared/cards/form_card' do %>
   <%= render 'form', course_evaluation: @course_evaluation %>
   <% content_for :back_button do %>
     <%= link_to t('back'), course_evaluations_path, class: 'btn btn-sm btn-danger' %>

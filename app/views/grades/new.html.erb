@@ -1,7 +1,7 @@
 <% provide(:title, t('new_resource', resource: t('activerecord.models.grade'))) %>
 <% provide :card_title, t('activerecord.models.grade') %>
 
-<%= render 'shared/forms/form_card' do %>
+<%= render 'shared/cards/form_card' do %>
   <%= render 'form', grade: @grade %>
   <% content_for :back_button do %>
     <%= link_to t('back'), grades_path, class: 'btn btn-sm btn-danger' %>

@@ -1,7 +1,7 @@
 <% provide(:title, t('new_resource', resource: t('activerecord.models.parent'))) %>
 <% provide :card_title, t('activerecord.models.parent') %>
 
-<%= render 'shared/forms/form_card' do %>
+<%= render 'shared/cards/form_card' do %>
   <%= render 'form', parent: @parent %>
   <% content_for :back_button do %>
     <%= link_to t('back'), parents_path, class: 'btn btn-sm btn-danger' %>

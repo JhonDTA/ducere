@@ -1,7 +1,7 @@
 <% provide(:title, t('edit_resource', resource: t('activerecord.models.student_homework'))) %>
 <% provide :card_title, t('activerecord.models.student_homework') %>
 
-<%= render 'shared/forms/form_card' do %>
+<%= render 'shared/cards/form_card' do %>
   <%= render 'form', student_homework: @student_homework %>
   <% content_for :back_button do %>
     <%= link_to t('show'), @student_homework, class: 'btn btn-sm btn-info' %>

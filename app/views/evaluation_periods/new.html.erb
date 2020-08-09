@@ -1,7 +1,7 @@
 <% provide(:title, t('new_resource', resource: t('activerecord.models.evaluation_period'))) %>
 <% provide :card_title, t('activerecord.models.evaluation_period') %>
 
-<%= render 'shared/forms/form_card' do %>
+<%= render 'shared/cards/form_card' do %>
   <%= render 'form', evaluation_period: @evaluation_period %>
   <% content_for :back_button do %>
     <%= link_to t('back'), evaluation_periods_path, class: 'btn btn-sm btn-danger' %>

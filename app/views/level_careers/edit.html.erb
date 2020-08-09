@@ -1,7 +1,7 @@
 <% provide(:title, t('edit_resource', resource: t('activerecord.models.level_career'))) %>
 <% provide :card_title, t('activerecord.models.level_career') %>
 
-<%= render 'shared/forms/form_card' do %>
+<%= render 'shared/cards/form_card' do %>
   <%= render 'form', level_career: @level_career %>
   <% content_for :back_button do %>
     <%= link_to t('show'), @level_career, class: 'btn btn-sm btn-info' %>

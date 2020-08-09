@@ -1,7 +1,7 @@
 <% provide(:title, t('edit_resource', resource: t('activerecord.models.status'))) %>
 <% provide :card_title, t('activerecord.models.status') %>
 
-<%= render 'shared/forms/form_card' do %>
+<%= render 'shared/cards/form_card' do %>
   <%= render 'form', status: @status %>
   <% content_for :back_button do %>
     <%= link_to t('show'), @status, class: 'btn btn-sm btn-info' %>

@@ -1,7 +1,7 @@
 <% provide(:title, t('edit_resource', resource: t('activerecord.models.turn_evaluation'))) %>
 <% provide :card_title, t('activerecord.models.turn_evaluation') %>
 
-<%= render 'shared/forms/form_card' do %>
+<%= render 'shared/cards/form_card' do %>
   <%= render 'form', turn_evaluation: @turn_evaluation %>
   <% content_for :back_button do %>
     <%= link_to t('show'), @turn_evaluation, class: 'btn btn-sm btn-info' %>
