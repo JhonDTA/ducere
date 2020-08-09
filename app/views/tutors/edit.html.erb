@@ -1,8 +1,10 @@
 <% provide(:title, t('edit_resource', resource: t('activerecord.models.tutor'))) %>
+<% provide :card_title, t('activerecord.models.tutor') %>
 
-<div class="col-md-6 offset-md-3">
+<%= render 'shared/forms/form_card' do %>
   <%= render 'form', tutor: @tutor %>
-
-  <%= link_to t('show'), @tutor %> |
-  <%= link_to t('back'), tutors_path %>
-</div>
+  <% content_for :back_button do %>
+    <%= link_to t('show'), @tutor %>
+    <%= link_to t('back'), tutors_path %>
+  <% end %>
+<% end %>

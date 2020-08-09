@@ -1,7 +1,9 @@
 <% provide(:title, t('new_resource', resource: t('activerecord.models.relationship'))) %>
+<% provide :card_title, t('activerecord.models.relationship') %>
 
-<div class="col-md-6 offset-md-3">
+<%= render 'shared/forms/form_card' do %>
   <%= render 'form', relationship: @relationship %>
-
-  <%= link_to t('back'), relationships_path %>
-</div>
+  <% content_for :back_button do %>
+    <%= link_to t('back'), relationships_path %>
+  <% end %>
+<% end %>

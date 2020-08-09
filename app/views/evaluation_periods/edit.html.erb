@@ -1,8 +1,10 @@
 <% provide(:title, t('edit_resource', resource: t('activerecord.models.evaluation_period'))) %>
+<% provide :card_title, t('activerecord.models.evaluation_period') %>
 
-<div class="col-md-6 offset-md-3">
+<%= render 'shared/forms/form_card' do %>
   <%= render 'form', evaluation_period: @evaluation_period %>
-
-  <%= link_to t('show'), @evaluation_period %> |
-  <%= link_to t('back'), evaluation_periods_path %>
-</div>
+  <% content_for :back_button do %>
+    <%= link_to t('show'), @evaluation_period %>
+    <%= link_to t('back'), evaluation_periods_path %>
+  <% end %>
+<% end %>

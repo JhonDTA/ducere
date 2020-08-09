@@ -1,8 +1,11 @@
 <% provide(:title, t('edit_resource', resource: t('activerecord.models.building'))) %>
+<% provide(:card_title, t('activerecord.models.building')) %>
 
-<div class="col-md-6 offset-md-3">
+<%= render 'shared/forms/form_card' do %>
   <%= render 'form', building: @building %>
+  <% content_for :back_button do %>
+    <%= link_to t('show'), @building %>
+    <%= link_to t('back'), buildings_path %>
+  <% end %>
+<% end %>
 
-  <%= link_to t('show'), @building %> |
-  <%= link_to t('back'), buildings_path %>
-</div>

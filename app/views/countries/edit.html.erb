@@ -1,8 +1,10 @@
 <% provide(:title, t('edit_resource', resource: t('activerecord.models.country'))) %>
+<% provide :card_title, t('activerecord.models.country') %>
 
-<div class="col-md-6 offset-md-3">
+<%= render 'shared/forms/form_card' do %>
   <%= render 'form', country: @country %>
-
-  <%= link_to t('show'), @country %> |
-  <%= link_to t('back'), countries_path %>
-</div>
+  <% content_for :back_button do %>
+    <%= link_to t('show'), @country %>
+    <%= link_to t('back'), countries_path %>
+  <% end %>
+<% end %>

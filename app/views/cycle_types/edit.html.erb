@@ -1,8 +1,10 @@
 <% provide(:title, t('edit_resource', resource: t('activerecord.models.cycle_type'))) %>
+<% provide :card_title, t('activerecord.models.cycle_type') %>
 
-<div class="col-md-6 offset-md-3">
+<%= render 'shared/forms/form_card' do %>
   <%= render 'form', cycle_type: @cycle_type %>
-
-  <%= link_to t('show'), @cycle_type %> |
-  <%= link_to t('back'), cycle_types_path %>
-</div>
+  <% content_for :back_button do %>
+    <%= link_to t('show'), @cycle_type %>
+    <%= link_to t('back'), cycle_types_path %>
+  <% end %>
+<% end %>

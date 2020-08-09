@@ -1,8 +1,10 @@
 <% provide(:title, t('edit_resource', resource: t('activerecord.models.student_homework'))) %>
+<% provide :card_title, t('activerecord.models.student_homework') %>
 
-<div class="col-md-6 offset-md-3">
+<%= render 'shared/forms/form_card' do %>
   <%= render 'form', student_homework: @student_homework %>
-
-  <%= link_to t('show'), @student_homework %> |
-  <%= link_to t('back'), student_homeworks_path %>
-</div>
+  <% content_for :back_button do %>
+    <%= link_to t('show'), @student_homework %>
+    <%= link_to t('back'), student_homeworks_path %>
+  <% end %>
+<% end %>

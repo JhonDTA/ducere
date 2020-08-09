@@ -1,7 +1,9 @@
 <% provide(:title, t('new_resource', resource: t('activerecord.models.building'))) %>
+<% provide(:card_title, t('activerecord.models.building')) %>
 
-<div class="col-md-6 offset-md-3">
+<%= render 'shared/forms/form_card' do %>
   <%= render 'form', building: @building %>
-
-  <%= link_to 'Back', buildings_path %>
-</div>
+  <% content_for :back_button do %>
+    <%= link_to t('back'), buildings_path %>
+  <% end %>
+<% end %>
