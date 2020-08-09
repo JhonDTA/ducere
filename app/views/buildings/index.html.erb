@@ -20,7 +20,7 @@
       <th>Description</th>
       <th>Campus</th>
       <th>Status</th>
-      <th colspan="3"></th>
+      <th colspan="1"></th>
     </tr>
     </thead>
 
@@ -31,9 +31,11 @@
         <td><%= building.description %></td>
         <td><%= building.campus.name %></td>
         <td><%= building.status.name %></td>
-        <td><%= link_to t('show'), building, class: 'btn btn-sm btn-info' %></td>
-        <td><%= link_to t('edit'), edit_building_path(building), class: 'btn btn-sm btn-success' %></td>
-        <td><%= link_to t('destroy'), building, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' %></td>
+        <td>
+          <%= link_to t('show'), building, class: 'btn btn-sm btn-info' %>
+          <%= link_to t('edit'), edit_building_path(building), class: 'btn btn-sm btn-success' %>
+          <%= link_to t('destroy'), building, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' %>
+        </td>
       </tr>
     <% end %>
     </tbody>

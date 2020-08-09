@@ -18,7 +18,7 @@
     <tr>
       <th>Cycle turn</th>
       <th>Evaluation period</th>
-      <th colspan="3"></th>
+      <th colspan="1"></th>
     </tr>
     </thead>
 
@@ -27,9 +27,11 @@
       <tr>
         <td><%= turn_evaluation.cycle_turn.name %></td>
         <td><%= turn_evaluation.evaluation_period.name %></td>
-        <td><%= link_to t('show'), turn_evaluation, class: 'btn btn-sm btn-info' %></td>
-        <td><%= link_to t('edit'), edit_turn_evaluation_path(turn_evaluation), class: 'btn btn-sm btn-success' %></td>
-        <td><%= link_to t('destroy'), turn_evaluation, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' %></td>
+        <td>
+          <%= link_to t('show'), turn_evaluation, class: 'btn btn-sm btn-info' %>
+          <%= link_to t('edit'), edit_turn_evaluation_path(turn_evaluation), class: 'btn btn-sm btn-success' %>
+          <%= link_to t('destroy'), turn_evaluation, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' %>
+        </td>
       </tr>
     <% end %>
     </tbody>
