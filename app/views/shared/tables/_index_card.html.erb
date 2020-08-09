@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="card-header">
+    <div class="card-tools">
+      <%= yield :card_header %>
+    </div>
+  </div>
+  <div class="card-body table-responsive p-0" style="height: 60vh">
+    <%= yield %>
+  </div>
+  <div class="card-footer clearfix">
+    <%= yield :card_footer %>
+  </div>
+</div>

@@ -4,7 +4,7 @@
   <div class="field">
     <%= form.label :level_career_id %>
     <%= form.collection_select :level_career_id, LevelCareer.all, :id, :name,
-                               class: 'form-control' %>
+                               {}, class: 'form-control' %>
   </div>
 
   <div class="field">
