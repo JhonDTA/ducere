@@ -1,24 +1,35 @@
-<table>
-  <thead>
-  <tr>
-    <th>User</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
+<% provide(:title, t('parents')) %>
 
-  <tbody>
-  <% @parents.each do |parent| %>
+<% content_for :card_header do %>
+  <%= will_paginate @parents, class: 'pagination-sm float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<% content_for :card_footer do %>
+  <%= link_to t('new_resource', resource: t('activerecord.models.parent')),
+              new_parent_path, class: 'btn btn-sm btn-primary' %>
+  <%= will_paginate @parents, class: 'pagination-sm m-0 float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<%= render 'shared/tables/index_card' do %>
+  <table class="table table-hover table-head-fixed text-nowrap">
+    <thead>
     <tr>
-      <td><%= parent.user.name %></td>
-      <td><%= link_to t('show'), parent %></td>
-      <td><%= link_to t('edit'), edit_parent_path(parent) %></td>
-      <td><%= link_to t('destroy'), parent, method: :delete, data: { confirm: t('you_sure') } %></td>
+      <th>User</th>
+      <th colspan="3"></th>
     </tr>
-  <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
-<%= link_to 'New Parent', new_parent_path %>
-<%= will_paginate @parents %>
+    <tbody>
+    <% @parents.each do |parent| %>
+      <tr>
+        <td><%= parent.user.name %></td>
+        <td><%= link_to t('show'), parent %></td>
+        <td><%= link_to t('edit'), edit_parent_path(parent) %></td>
+        <td><%= link_to t('destroy'), parent, method: :delete, data: { confirm: t('you_sure') } %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>

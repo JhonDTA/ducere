@@ -1,26 +1,37 @@
-<table>
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th>Status</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
+<% provide(:title, t('relationships')) %>
 
-  <tbody>
-  <% @relationships.each do |relationship| %>
+<% content_for :card_header do %>
+  <%= will_paginate @relationships, class: 'pagination-sm float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<% content_for :card_footer do %>
+  <%= link_to t('new_resource', resource: t('activerecord.models.relationship')),
+              new_relationship_path, class: 'btn btn-sm btn-primary' %>
+  <%= will_paginate @relationships, class: 'pagination-sm m-0 float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<%= render 'shared/tables/index_card' do %>
+  <table class="table table-hover table-head-fixed text-nowrap">
+    <thead>
     <tr>
-      <td><%= relationship.name %></td>
-      <td><%= relationship.status.name %></td>
-      <td><%= link_to t('show'), relationship %></td>
-      <td><%= link_to t('edit'), edit_relationship_path(relationship) %></td>
-      <td><%= link_to t('destroy'), relationship, method: :delete, data: { confirm: t('you_sure') } %></td>
+      <th>Name</th>
+      <th>Status</th>
+      <th colspan="3"></th>
     </tr>
-  <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
-<%= link_to 'New Relationship', new_relationship_path %>
-<%= will_paginate @relationships %>
+    <tbody>
+    <% @relationships.each do |relationship| %>
+      <tr>
+        <td><%= relationship.name %></td>
+        <td><%= relationship.status.name %></td>
+        <td><%= link_to t('show'), relationship %></td>
+        <td><%= link_to t('edit'), edit_relationship_path(relationship) %></td>
+        <td><%= link_to t('destroy'), relationship, method: :delete, data: { confirm: t('you_sure') } %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>

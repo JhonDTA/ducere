@@ -1,30 +1,41 @@
-<table>
-  <thead>
-  <tr>
-    <th>Code</th>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Status</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
+<% provide(:title, t('modalities')) %>
 
-  <tbody>
-  <% @modalities.each do |modality| %>
+<% content_for :card_header do %>
+  <%= will_paginate @modalities, class: 'pagination-sm float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<% content_for :card_footer do %>
+  <%= link_to t('new_resource', resource: t('activerecord.models.modality')),
+              new_modality_path, class: 'btn btn-sm btn-primary' %>
+  <%= will_paginate @modalities, class: 'pagination-sm m-0 float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<%= render 'shared/tables/index_card' do %>
+  <table class="table table-hover table-head-fixed text-nowrap">
+    <thead>
     <tr>
-      <td><%= modality.code %></td>
-      <td><%= modality.name %></td>
-      <td><%= modality.description %></td>
-      <td><%= modality.status.name %></td>
-      <td><%= link_to t('show'), modality %></td>
-      <td><%= link_to t('edit'), edit_modality_path(modality) %></td>
-      <td><%= link_to t('destroy'), modality, method: :delete, data: { confirm: t('you_sure') } %></td>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th colspan="3"></th>
     </tr>
-  <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
-<%= link_to 'New Modality', new_modality_path %>
-<%= will_paginate @modalities %>
+    <tbody>
+    <% @modalities.each do |modality| %>
+      <tr>
+        <td><%= modality.code %></td>
+        <td><%= modality.name %></td>
+        <td><%= modality.description %></td>
+        <td><%= modality.status.name %></td>
+        <td><%= link_to t('show'), modality %></td>
+        <td><%= link_to t('edit'), edit_modality_path(modality) %></td>
+        <td><%= link_to t('destroy'), modality, method: :delete, data: { confirm: t('you_sure') } %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>

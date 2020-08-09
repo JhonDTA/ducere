@@ -1,26 +1,37 @@
-<table>
-  <thead>
-  <tr>
-    <th>Student</th>
-    <th>Course evaluation</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
+<% provide(:title, t('student_courses')) %>
 
-  <tbody>
-  <% @student_courses.each do |student_course| %>
+<% content_for :card_header do %>
+  <%= will_paginate @student_courses, class: 'pagination-sm float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<% content_for :card_footer do %>
+  <%= link_to t('new_resource', resource: t('activerecord.models.student_course')),
+              new_student_course_path, class: 'btn btn-sm btn-primary' %>
+  <%= will_paginate @student_courses, class: 'pagination-sm m-0 float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<%= render 'shared/tables/index_card' do %>
+  <table class="table table-hover table-head-fixed text-nowrap">
+    <thead>
     <tr>
-      <td><%= student_course.student.name %></td>
-      <td><%= student_course.course_evaluation.name %></td>
-      <td><%= link_to t('show'), student_course %></td>
-      <td><%= link_to t('edit'), edit_student_course_path(student_course) %></td>
-      <td><%= link_to t('destroy'), student_course, method: :delete, data: { confirm: t('you_sure') } %></td>
+      <th>Student</th>
+      <th>Course evaluation</th>
+      <th colspan="3"></th>
     </tr>
-  <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
-<%= link_to 'New Student Course', new_student_course_path %>
-<%= will_paginate @student_courses %>
+    <tbody>
+    <% @student_courses.each do |student_course| %>
+      <tr>
+        <td><%= student_course.student.name %></td>
+        <td><%= student_course.course_evaluation.name %></td>
+        <td><%= link_to t('show'), student_course %></td>
+        <td><%= link_to t('edit'), edit_student_course_path(student_course) %></td>
+        <td><%= link_to t('destroy'), student_course, method: :delete, data: { confirm: t('you_sure') } %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>

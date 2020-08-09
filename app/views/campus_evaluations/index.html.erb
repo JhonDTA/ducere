@@ -1,26 +1,37 @@
-<table>
-  <thead>
-  <tr>
-    <th>Campus</th>
-    <th>Turn evaluation</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
+<% provide(:title, t('campus_evaluations')) %>
 
-  <tbody>
-  <% @campus_evaluations.each do |campus_evaluation| %>
+<% content_for :card_header do %>
+  <%= will_paginate @campus_evaluations, class: 'pagination-sm float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<% content_for :card_footer do %>
+  <%= link_to t('new_resource', resource: t('activerecord.models.campus_evaluation')),
+              new_campus_evaluation_path, class: 'btn btn-sm btn-primary' %>
+  <%= will_paginate @campus_evaluations, class: 'pagination-sm m-0 float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<%= render 'shared/tables/index_card' do %>
+  <table class="table table-hover table-head-fixed text-nowrap">
+    <thead>
     <tr>
-      <td><%= campus_evaluation.campus.name %></td>
-      <td><%= campus_evaluation.turn_evaluation.name %></td>
-      <td><%= link_to t('show'), campus_evaluation %></td>
-      <td><%= link_to t('edit'), edit_campus_evaluation_path(campus_evaluation) %></td>
-      <td><%= link_to t('destroy'), campus_evaluation, method: :delete, data: { confirm: t('you_sure') } %></td>
+      <th>Campus</th>
+      <th>Turn evaluation</th>
+      <th colspan="3"></th>
     </tr>
-  <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
-<%= link_to 'New Campus Evaluation', new_campus_evaluation_path %>
-<%= will_paginate @campus_evaluations %>
+    <tbody>
+    <% @campus_evaluations.each do |campus_evaluation| %>
+      <tr>
+        <td><%= campus_evaluation.campus.name %></td>
+        <td><%= campus_evaluation.turn_evaluation.name %></td>
+        <td><%= link_to t('show'), campus_evaluation %></td>
+        <td><%= link_to t('edit'), edit_campus_evaluation_path(campus_evaluation) %></td>
+        <td><%= link_to t('destroy'), campus_evaluation, method: :delete, data: { confirm: t('you_sure') } %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>

@@ -1,30 +1,41 @@
-<table>
-  <thead>
-  <tr>
-    <th>Code</th>
-    <th>Description</th>
-    <th>Building</th>
-    <th>Status</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
+<% provide(:title, t('classrooms')) %>
 
-  <tbody>
-  <% @classrooms.each do |classroom| %>
+<% content_for :card_header do %>
+  <%= will_paginate @classrooms, class: 'pagination-sm float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<% content_for :card_footer do %>
+  <%= link_to t('new_resource', resource: t('activerecord.models.classroom')),
+              new_classroom_path, class: 'btn btn-sm btn-primary' %>
+  <%= will_paginate @classrooms, class: 'pagination-sm m-0 float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<%= render 'shared/tables/index_card' do %>
+  <table class="table table-hover table-head-fixed text-nowrap">
+    <thead>
     <tr>
-      <td><%= classroom.code %></td>
-      <td><%= classroom.description %></td>
-      <td><%= classroom.building.code %></td>
-      <td><%= classroom.status.name %></td>
-      <td><%= link_to t('show'), classroom %></td>
-      <td><%= link_to t('edit'), edit_classroom_path(classroom) %></td>
-      <td><%= link_to t('destroy'), classroom, method: :delete, data: { confirm: t('you_sure') } %></td>
+      <th>Code</th>
+      <th>Description</th>
+      <th>Building</th>
+      <th>Status</th>
+      <th colspan="3"></th>
     </tr>
-  <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
-<%= link_to 'New Classroom', new_classroom_path %>
-<%= will_paginate @classrooms %>
+    <tbody>
+    <% @classrooms.each do |classroom| %>
+      <tr>
+        <td><%= classroom.code %></td>
+        <td><%= classroom.description %></td>
+        <td><%= classroom.building.code %></td>
+        <td><%= classroom.status.name %></td>
+        <td><%= link_to t('show'), classroom %></td>
+        <td><%= link_to t('edit'), edit_classroom_path(classroom) %></td>
+        <td><%= link_to t('destroy'), classroom, method: :delete, data: { confirm: t('you_sure') } %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>

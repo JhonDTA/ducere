@@ -1,26 +1,37 @@
-<table>
-  <thead>
-  <tr>
-    <th>Cycle turn</th>
-    <th>Evaluation period</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
+<% provide(:title, t('turn_evaluations')) %>
 
-  <tbody>
-  <% @turn_evaluations.each do |turn_evaluation| %>
+<% content_for :card_header do %>
+  <%= will_paginate @turn_evaluations, class: 'pagination-sm float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<% content_for :card_footer do %>
+  <%= link_to t('new_resource', resource: t('activerecord.models.turn_evaluation')),
+              new_turn_evaluation_path, class: 'btn btn-sm btn-primary' %>
+  <%= will_paginate @turn_evaluations, class: 'pagination-sm m-0 float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<%= render 'shared/tables/index_card' do %>
+  <table class="table table-hover table-head-fixed text-nowrap">
+    <thead>
     <tr>
-      <td><%= turn_evaluation.cycle_turn.name %></td>
-      <td><%= turn_evaluation.evaluation_period.name %></td>
-      <td><%= link_to t('show'), turn_evaluation %></td>
-      <td><%= link_to t('edit'), edit_turn_evaluation_path(turn_evaluation) %></td>
-      <td><%= link_to t('destroy'), turn_evaluation, method: :delete, data: { confirm: t('you_sure') } %></td>
+      <th>Cycle turn</th>
+      <th>Evaluation period</th>
+      <th colspan="3"></th>
     </tr>
-  <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
-<%= link_to 'New Turn Evaluation', new_turn_evaluation_path %>
-<%= will_paginate @turn_evaluations %>
+    <tbody>
+    <% @turn_evaluations.each do |turn_evaluation| %>
+      <tr>
+        <td><%= turn_evaluation.cycle_turn.name %></td>
+        <td><%= turn_evaluation.evaluation_period.name %></td>
+        <td><%= link_to t('show'), turn_evaluation %></td>
+        <td><%= link_to t('edit'), edit_turn_evaluation_path(turn_evaluation) %></td>
+        <td><%= link_to t('destroy'), turn_evaluation, method: :delete, data: { confirm: t('you_sure') } %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>

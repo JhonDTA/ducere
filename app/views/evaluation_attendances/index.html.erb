@@ -1,28 +1,44 @@
-<table>
-  <thead>
-  <tr>
-    <th>Student course</th>
-    <th>Attendance type</th>
-    <th>Date</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
+<% provide(:title, t('attendance_types')) %>
 
-  <tbody>
-  <% @evaluation_attendances.each do |evaluation_attendance| %>
+<% content_for :card_header do %>
+  <%= will_paginate @attendance_types, class: 'pagination-sm float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<% content_for :card_footer do %>
+  <%= link_to t('new_resource', resource: t('activerecord.models.attendance_type')),
+              new_attendance_type_path, class: 'btn btn-sm btn-primary' %>
+  <%= will_paginate @attendance_types, class: 'pagination-sm m-0 float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<%= render 'shared/tables/index_card' do %>
+  <table class="table table-hover table-head-fixed text-nowrap">
+    <thead>
     <tr>
-      <td><%= evaluation_attendance.student_course.name %></td>
-      <td><%= evaluation_attendance.attendance_type.name %></td>
-      <td><%= evaluation_attendance.date %></td>
-      <td><%= link_to t('show'), evaluation_attendance %></td>
-      <td><%= link_to t('edit'), edit_evaluation_attendance_path(evaluation_attendance) %></td>
-      <td><%= link_to t('destroy'), evaluation_attendance, method: :delete, data: { confirm: t('you_sure') } %></td>
+      <th>Student course</th>
+      <th>Attendance type</th>
+      <th>Date</th>
+      <th colspan="3"></th>
     </tr>
-  <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+    <% @evaluation_attendances.each do |evaluation_attendance| %>
+      <tr>
+        <td><%= evaluation_attendance.student_course.name %></td>
+        <td><%= evaluation_attendance.attendance_type.name %></td>
+        <td><%= evaluation_attendance.date %></td>
+        <td><%= link_to t('show'), evaluation_attendance %></td>
+        <td><%= link_to t('edit'), edit_evaluation_attendance_path(evaluation_attendance) %></td>
+        <td><%= link_to t('destroy'), evaluation_attendance, method: :delete, data: { confirm: t('you_sure') } %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Evaluation Attendance', new_evaluation_attendance_path %>
-<%= will_paginate @evaluation_attendances %>
+  <br>
+
+  <%= link_to 'New Evaluation Attendance', new_evaluation_attendance_path %>
+  <%= will_paginate @evaluation_attendances %>
+<% end %>

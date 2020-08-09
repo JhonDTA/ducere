@@ -1,26 +1,37 @@
-<table>
-  <thead>
-  <tr>
-    <th>User</th>
-    <th>Enrollment</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
+<% provide(:title, t('professors')) %>
 
-  <tbody>
-  <% @professors.each do |professor| %>
+<% content_for :card_header do %>
+  <%= will_paginate @professors, class: 'pagination-sm float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<% content_for :card_footer do %>
+  <%= link_to t('new_resource', resource: t('activerecord.models.professor')),
+              new_professor_path, class: 'btn btn-sm btn-primary' %>
+  <%= will_paginate @professors, class: 'pagination-sm m-0 float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<%= render 'shared/tables/index_card' do %>
+  <table class="table table-hover table-head-fixed text-nowrap">
+    <thead>
     <tr>
-      <td><%= professor.user.name %></td>
-      <td><%= professor.enrollment %></td>
-      <td><%= link_to t('show'), professor %></td>
-      <td><%= link_to t('edit'), edit_professor_path(professor) %></td>
-      <td><%= link_to t('destroy'), professor, method: :delete, data: { confirm: t('you_sure') } %></td>
+      <th>User</th>
+      <th>Enrollment</th>
+      <th colspan="3"></th>
     </tr>
-  <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
-<%= link_to 'New Professor', new_professor_path %>
-<%= will_paginate @professors %>
+    <tbody>
+    <% @professors.each do |professor| %>
+      <tr>
+        <td><%= professor.user.name %></td>
+        <td><%= professor.enrollment %></td>
+        <td><%= link_to t('show'), professor %></td>
+        <td><%= link_to t('edit'), edit_professor_path(professor) %></td>
+        <td><%= link_to t('destroy'), professor, method: :delete, data: { confirm: t('you_sure') } %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>

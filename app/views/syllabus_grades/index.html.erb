@@ -1,26 +1,37 @@
-<table>
-  <thead>
-  <tr>
-    <th>Career syllabus</th>
-    <th>Grade</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
+<% provide(:title, t('syllabus_grades')) %>
 
-  <tbody>
-  <% @syllabus_grades.each do |syllabus_grade| %>
+<% content_for :card_header do %>
+  <%= will_paginate @syllabus_grades, class: 'pagination-sm float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<% content_for :card_footer do %>
+  <%= link_to t('new_resource', resource: t('activerecord.models.syllabus_grade')),
+              new_syllabus_grade_path, class: 'btn btn-sm btn-primary' %>
+  <%= will_paginate @syllabus_grades, class: 'pagination-sm m-0 float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<%= render 'shared/tables/index_card' do %>
+  <table class="table table-hover table-head-fixed text-nowrap">
+    <thead>
     <tr>
-      <td><%= syllabus_grade.career_syllabus.name %></td>
-      <td><%= syllabus_grade.grade.name %></td>
-      <td><%= link_to t('show'), syllabus_grade %></td>
-      <td><%= link_to t('edit'), edit_syllabus_grade_path(syllabus_grade) %></td>
-      <td><%= link_to t('destroy'), syllabus_grade, method: :delete, data: { confirm: t('you_sure') } %></td>
+      <th>Career syllabus</th>
+      <th>Grade</th>
+      <th colspan="3"></th>
     </tr>
-  <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
-<%= link_to 'New Syllabus Grade', new_syllabus_grade_path %>
-<%= will_paginate @syllabus_grades %>
+    <tbody>
+    <% @syllabus_grades.each do |syllabus_grade| %>
+      <tr>
+        <td><%= syllabus_grade.career_syllabus.name %></td>
+        <td><%= syllabus_grade.grade.name %></td>
+        <td><%= link_to t('show'), syllabus_grade %></td>
+        <td><%= link_to t('edit'), edit_syllabus_grade_path(syllabus_grade) %></td>
+        <td><%= link_to t('destroy'), syllabus_grade, method: :delete, data: { confirm: t('you_sure') } %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>

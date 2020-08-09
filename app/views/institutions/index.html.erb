@@ -1,49 +1,43 @@
 <% provide(:title, t('institutions')) %>
 
-<div class="card">
-  <div class="card-header">
-    <h3 class="card-title">Fixed Header Table</h3>
-    <div class="card-tools">
-      <%= will_paginate @institutions, class: 'pagination-sm float-right',
-                        :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
-    </div>
-  </div>
-  <div class="card-body table-responsive p-0" style="height: 60vh">
-    <table class="table table-hover table-head-fixed text-nowrap">
-      <thead>
+<% content_for :card_header do %>
+  <%= will_paginate @institutions, class: 'pagination-sm float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<% content_for :card_footer do %>
+  <%= link_to t('new_resource', resource: t('activerecord.models.institution')),
+              new_institution_path, class: 'btn btn-sm btn-primary' %>
+  <%= will_paginate @institutions, class: 'pagination-sm m-0 float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<%= render 'shared/tables/index_card' do %>
+  <table class="table table-hover table-head-fixed text-nowrap">
+    <thead>
+    <tr>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Country</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @institutions.each do |institution| %>
       <tr>
-        <th>Code</th>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Country</th>
-        <th>Status</th>
-        <th colspan="3"></th>
+        <td><%= institution.code %></td>
+        <td><%= institution.name %></td>
+        <td><%= institution.description %></td>
+        <td><%= institution.country.name %></td>
+        <td><%= institution.status.name %></td>
+        <td><%= link_to t('show'), institution, class: 'btn btn-sm btn-info' %></td>
+        <td><%= link_to t('edit'), edit_institution_path(institution), class: 'btn btn-sm btn-success' %></td>
+        <td><%= link_to t('destroy'), institution, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' %></td>
+        </td>
       </tr>
-      </thead>
-      <tbody>
-      <% @institutions.each do |institution| %>
-        <tr>
-          <td><%= institution.code %></td>
-          <td><%= institution.name %></td>
-          <td><%= institution.description %></td>
-          <td><%= institution.country.name %></td>
-          <td><%= institution.status.name %></td>
-          <td>
-            <div class="btn-group">
-              <%= link_to t('show'), institution, class: 'btn btn-sm btn-info' %>
-              <%= link_to t('edit'), edit_institution_path(institution), class: 'btn btn-sm btn-success' %>
-              <%= link_to t('destroy'), institution, method: :delete, data: { confirm: t('you_sure') },
-                          class: 'btn btn-sm btn-danger' %>
-            </div>
-          </td>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
-  </div>
-  <div class="card-footer clearfix">
-    <%= link_to 'New Institution', new_institution_path, class: 'btn btn-primary' %>
-    <%= will_paginate @institutions, class: 'pagination-sm m-0 float-right',
-                      :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
-  </div>
-</div>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>

@@ -1,32 +1,43 @@
-<table>
-  <thead>
-  <tr>
-    <th>Code</th>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Institution</th>
-    <th>Status</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
+<% provide(:title, t('campuses')) %>
 
-  <tbody>
-  <% @campuses.each do |campus| %>
+<% content_for :card_header do %>
+  <%= will_paginate @campuses, class: 'pagination-sm float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<% content_for :card_footer do %>
+  <%= link_to t('new_resource', resource: t('activerecord.models.campus')),
+              new_attendance_type_path, class: 'btn btn-sm btn-primary' %>
+  <%= will_paginate @campuses, class: 'pagination-sm m-0 float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<%= render 'shared/tables/index_card' do %>
+  <table class="table table-hover table-head-fixed text-nowrap">
+    <thead>
     <tr>
-      <td><%= campus.code %></td>
-      <td><%= campus.name %></td>
-      <td><%= campus.description %></td>
-      <td><%= campus.institution.name %></td>
-      <td><%= campus.status.name %></td>
-      <td><%= link_to t('show'), campus %></td>
-      <td><%= link_to t('edit'), edit_campus_path(campus) %></td>
-      <td><%= link_to t('destroy'), campus, method: :delete, data: { confirm: t('you_sure') } %></td>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Institution</th>
+      <th>Status</th>
+      <th colspan="3"></th>
     </tr>
-  <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
-<%= link_to 'New Campus', new_campus_path %>
-<%= will_paginate @campuses %>
+    <tbody>
+    <% @campuses.each do |campus| %>
+      <tr>
+        <td><%= campus.code %></td>
+        <td><%= campus.name %></td>
+        <td><%= campus.description %></td>
+        <td><%= campus.institution.name %></td>
+        <td><%= campus.status.name %></td>
+        <td><%= link_to t('show'), campus %></td>
+        <td><%= link_to t('edit'), edit_campus_path(campus) %></td>
+        <td><%= link_to t('destroy'), campus, method: :delete, data: { confirm: t('you_sure') } %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>

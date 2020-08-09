@@ -1,32 +1,43 @@
-<table>
-  <thead>
-  <tr>
-    <th>Code</th>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Approval credits</th>
-    <th>Status</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
+<% provide(:title, t('syllabuses')) %>
 
-  <tbody>
-  <% @syllabuses.each do |syllabus| %>
+<% content_for :card_header do %>
+  <%= will_paginate @syllabuses, class: 'pagination-sm float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<% content_for :card_footer do %>
+  <%= link_to t('new_resource', resource: t('activerecord.models.syllabus')),
+              new_syllabus_path, class: 'btn btn-sm btn-primary' %>
+  <%= will_paginate @syllabuses, class: 'pagination-sm m-0 float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<%= render 'shared/tables/index_card' do %>
+  <table class="table table-hover table-head-fixed text-nowrap">
+    <thead>
     <tr>
-      <td><%= syllabus.code %></td>
-      <td><%= syllabus.name %></td>
-      <td><%= syllabus.description %></td>
-      <td><%= syllabus.approval_credits %></td>
-      <td><%= syllabus.status.name %></td>
-      <td><%= link_to t('show'), syllabus %></td>
-      <td><%= link_to t('edit'), edit_syllabus_path(syllabus) %></td>
-      <td><%= link_to t('destroy'), syllabus, method: :delete, data: { confirm: t('you_sure') } %></td>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Approval credits</th>
+      <th>Status</th>
+      <th colspan="3"></th>
     </tr>
-  <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
-<%= link_to 'New Syllabus', new_syllabus_path %>
-<%= will_paginate @syllabuses %>
+    <tbody>
+    <% @syllabuses.each do |syllabus| %>
+      <tr>
+        <td><%= syllabus.code %></td>
+        <td><%= syllabus.name %></td>
+        <td><%= syllabus.description %></td>
+        <td><%= syllabus.approval_credits %></td>
+        <td><%= syllabus.status.name %></td>
+        <td><%= link_to t('show'), syllabus %></td>
+        <td><%= link_to t('edit'), edit_syllabus_path(syllabus) %></td>
+        <td><%= link_to t('destroy'), syllabus, method: :delete, data: { confirm: t('you_sure') } %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>

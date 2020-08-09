@@ -1,30 +1,41 @@
-<table>
-  <thead>
-  <tr>
-    <th>Code</th>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Status</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
+<% provide(:title, t('evaluation_periods')) %>
 
-  <tbody>
-  <% @evaluation_periods.each do |evaluation_period| %>
+<% content_for :card_header do %>
+  <%= will_paginate @evaluation_periods, class: 'pagination-sm float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<% content_for :card_footer do %>
+  <%= link_to t('new_resource', resource: t('activerecord.models.evaluation_period')),
+              new_evaluation_period_path, class: 'btn btn-sm btn-primary' %>
+  <%= will_paginate @attendance_types, class: 'pagination-sm m-0 float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<%= render 'shared/tables/index_card' do %>
+  <table class="table table-hover table-head-fixed text-nowrap">
+    <thead>
     <tr>
-      <td><%= evaluation_period.code %></td>
-      <td><%= evaluation_period.name %></td>
-      <td><%= evaluation_period.description %></td>
-      <td><%= evaluation_period.status.name %></td>
-      <td><%= link_to t('show'), evaluation_period %></td>
-      <td><%= link_to t('edit'), edit_evaluation_period_path(evaluation_period) %></td>
-      <td><%= link_to t('destroy'), evaluation_period, method: :delete, data: { confirm: t('you_sure') } %></td>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th colspan="3"></th>
     </tr>
-  <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
-<%= link_to 'New Evaluation Period', new_evaluation_period_path %>
-<%= will_paginate @evaluation_periods %>
+    <tbody>
+    <% @evaluation_periods.each do |evaluation_period| %>
+      <tr>
+        <td><%= evaluation_period.code %></td>
+        <td><%= evaluation_period.name %></td>
+        <td><%= evaluation_period.description %></td>
+        <td><%= evaluation_period.status.name %></td>
+        <td><%= link_to t('show'), evaluation_period %></td>
+        <td><%= link_to t('edit'), edit_evaluation_period_path(evaluation_period) %></td>
+        <td><%= link_to t('destroy'), evaluation_period, method: :delete, data: { confirm: t('you_sure') } %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>

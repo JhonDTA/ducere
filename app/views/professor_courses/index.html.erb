@@ -1,26 +1,37 @@
-<table>
-  <thead>
-  <tr>
-    <th>Professor</th>
-    <th>Course</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
+<% provide(:title, t('professor_courses')) %>
 
-  <tbody>
-  <% @professor_courses.each do |professor_course| %>
+<% content_for :card_header do %>
+  <%= will_paginate @professor_courses, class: 'pagination-sm float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<% content_for :card_footer do %>
+  <%= link_to t('new_resource', resource: t('activerecord.models.professor_course')),
+              new_professor_course_path, class: 'btn btn-sm btn-primary' %>
+  <%= will_paginate @professor_courses, class: 'pagination-sm m-0 float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<%= render 'shared/tables/index_card' do %>
+  <table class="table table-hover table-head-fixed text-nowrap">
+    <thead>
     <tr>
-      <td><%= professor_course.professor.name %></td>
-      <td><%= professor_course.course.name %></td>
-      <td><%= link_to t('show'), professor_course %></td>
-      <td><%= link_to t('edit'), edit_professor_course_path(professor_course) %></td>
-      <td><%= link_to t('destroy'), professor_course, method: :delete, data: { confirm: t('you_sure') } %></td>
+      <th>Professor</th>
+      <th>Course</th>
+      <th colspan="3"></th>
     </tr>
-  <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
-<%= link_to 'New Professor Course', new_professor_course_path %>
-<%= will_paginate @professor_courses %>
+    <tbody>
+    <% @professor_courses.each do |professor_course| %>
+      <tr>
+        <td><%= professor_course.professor.name %></td>
+        <td><%= professor_course.course.name %></td>
+        <td><%= link_to t('show'), professor_course %></td>
+        <td><%= link_to t('edit'), edit_professor_course_path(professor_course) %></td>
+        <td><%= link_to t('destroy'), professor_course, method: :delete, data: { confirm: t('you_sure') } %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>

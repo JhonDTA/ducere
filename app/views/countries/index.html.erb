@@ -1,30 +1,39 @@
 <% provide(:title, t('countries')) %>
 
-<table>
-  <thead>
-  <tr>
-    <th><%= t('activerecord.attributes.country.name') %></th>
-    <th><%= t('activerecord.attributes.country.iso_code') %></th>
-    <th><%= t('activerecord.attributes.country.calling_code') %></th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
+<% content_for :card_header do %>
+  <%= will_paginate @attendance_types, class: 'pagination-sm float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
 
-  <tbody>
-  <% @countries.each do |country| %>
+<% content_for :card_footer do %>
+  <%= link_to t('new_resource', resource: t('activerecord.models.country')),
+              new_country_path, class: 'btn btn-sm btn-primary' %>
+  <%= will_paginate @attendance_types, class: 'pagination-sm m-0 float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<%= render 'shared/tables/index_card' do %>
+  <table class="table table-hover table-head-fixed text-nowrap">
+    <thead>
     <tr>
-      <td><%= country.name %></td>
-      <td><%= country.iso_code %></td>
-      <td><%= country.calling_code %></td>
-      <td><%= link_to t('show'), country %></td>
-      <td><%= link_to t('edit'), edit_country_path(country) %></td>
-      <td><%= link_to t('destroy'), country, method: :delete, data: { confirm: t('you_sure') } %></td>
+      <th><%= t('activerecord.attributes.country.name') %></th>
+      <th><%= t('activerecord.attributes.country.iso_code') %></th>
+      <th><%= t('activerecord.attributes.country.calling_code') %></th>
+      <th colspan="3"></th>
     </tr>
-  <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
-<%= link_to t('new_resource', resource: t('activerecord.models.country')), new_country_path %>
-<%= will_paginate @countries %>
+    <tbody>
+    <% @countries.each do |country| %>
+      <tr>
+        <td><%= country.name %></td>
+        <td><%= country.iso_code %></td>
+        <td><%= country.calling_code %></td>
+        <td><%= link_to t('show'), country %></td>
+        <td><%= link_to t('edit'), edit_country_path(country) %></td>
+        <td><%= link_to t('destroy'), country, method: :delete, data: { confirm: t('you_sure') } %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>

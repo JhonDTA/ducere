@@ -1,26 +1,37 @@
-<table>
-  <thead>
-  <tr>
-    <th>Syllabus grade</th>
-    <th>Course</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
+<% provide(:title, t('grade_courses')) %>
 
-  <tbody>
-  <% @grade_courses.each do |grade_course| %>
+<% content_for :card_header do %>
+  <%= will_paginate @grade_courses, class: 'pagination-sm float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<% content_for :card_footer do %>
+  <%= link_to t('new_resource', resource: t('activerecord.models.grade_course')),
+              new_grade_course_path, class: 'btn btn-sm btn-primary' %>
+  <%= will_paginate @grade_courses, class: 'pagination-sm m-0 float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<%= render 'shared/tables/index_card' do %>
+  <table class="table table-hover table-head-fixed text-nowrap">
+    <thead>
     <tr>
-      <td><%= grade_course.syllabus_grade.name %></td>
-      <td><%= grade_course.course.name %></td>
-      <td><%= link_to t('show'), grade_course %></td>
-      <td><%= link_to t('edit'), edit_grade_course_path(grade_course) %></td>
-      <td><%= link_to t('destroy'), grade_course, method: :delete, data: { confirm: t('you_sure') } %></td>
+      <th>Syllabus grade</th>
+      <th>Course</th>
+      <th colspan="3"></th>
     </tr>
-  <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
-<%= link_to 'New Grade Course', new_grade_course_path %>
-<%= will_paginate @grade_courses %>
+    <tbody>
+    <% @grade_courses.each do |grade_course| %>
+      <tr>
+        <td><%= grade_course.syllabus_grade.name %></td>
+        <td><%= grade_course.course.name %></td>
+        <td><%= link_to t('show'), grade_course %></td>
+        <td><%= link_to t('edit'), edit_grade_course_path(grade_course) %></td>
+        <td><%= link_to t('destroy'), grade_course, method: :delete, data: { confirm: t('you_sure') } %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>
