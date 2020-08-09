@@ -27,9 +27,9 @@
       <tr>
         <td><%= campus_evaluation.campus.name %></td>
         <td><%= campus_evaluation.turn_evaluation.name %></td>
-        <td><%= link_to t('show'), campus_evaluation %></td>
-        <td><%= link_to t('edit'), edit_campus_evaluation_path(campus_evaluation) %></td>
-        <td><%= link_to t('destroy'), campus_evaluation, method: :delete, data: { confirm: t('you_sure') } %></td>
+        <td><%= link_to t('show'), campus_evaluation, class: 'btn btn-sm btn-info' %></td>
+        <td><%= link_to t('edit'), edit_campus_evaluation_path(campus_evaluation), class: 'btn btn-sm btn-success' %></td>
+        <td><%= link_to t('destroy'), campus_evaluation, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' %></td>
       </tr>
     <% end %>
     </tbody>

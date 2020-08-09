@@ -27,9 +27,9 @@
       <tr>
         <td><%= professor.user.name %></td>
         <td><%= professor.enrollment %></td>
-        <td><%= link_to t('show'), professor %></td>
-        <td><%= link_to t('edit'), edit_professor_path(professor) %></td>
-        <td><%= link_to t('destroy'), professor, method: :delete, data: { confirm: t('you_sure') } %></td>
+        <td><%= link_to t('show'), professor, class: 'btn btn-sm btn-info' %></td>
+        <td><%= link_to t('edit'), edit_professor_path(professor), class: 'btn btn-sm btn-success' %></td>
+        <td><%= link_to t('destroy'), professor, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' %></td>
       </tr>
     <% end %>
     </tbody>

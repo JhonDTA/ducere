@@ -33,9 +33,9 @@
         <td><%= syllabus.description %></td>
         <td><%= syllabus.approval_credits %></td>
         <td><%= syllabus.status.name %></td>
-        <td><%= link_to t('show'), syllabus %></td>
-        <td><%= link_to t('edit'), edit_syllabus_path(syllabus) %></td>
-        <td><%= link_to t('destroy'), syllabus, method: :delete, data: { confirm: t('you_sure') } %></td>
+        <td><%= link_to t('show'), syllabus, class: 'btn btn-sm btn-info' %></td>
+        <td><%= link_to t('edit'), edit_syllabus_path(syllabus), class: 'btn btn-sm btn-success' %></td>
+        <td><%= link_to t('destroy'), syllabus, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' %></td>
       </tr>
     <% end %>
     </tbody>

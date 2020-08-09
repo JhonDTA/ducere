@@ -4,7 +4,7 @@
 <%= render 'shared/forms/form_card' do %>
   <%= render 'form', evaluation_attendance: @evaluation_attendance %>
   <% content_for :back_button do %>
-    <%= link_to t('show'), @evaluation_attendance %>
-    <%= link_to t('back'), evaluation_attendances_path %>
+    <%= link_to t('show'), @evaluation_attendance, class: 'btn btn-sm btn-info' %>
+    <%= link_to t('back'), evaluation_attendances_path, class: 'btn btn-sm btn-danger' %>
   <% end %>
 <% end %>

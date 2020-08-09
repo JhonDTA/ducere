@@ -31,9 +31,9 @@
         <td><%= building.description %></td>
         <td><%= building.campus.name %></td>
         <td><%= building.status.name %></td>
-        <td><%= link_to t('show'), building %></td>
-        <td><%= link_to t('edit'), edit_building_path(building) %></td>
-        <td><%= link_to t('destroy'), building, method: :delete, data: { confirm: t('you_sure') } %></td>
+        <td><%= link_to t('show'), building, class: 'btn btn-sm btn-info' %></td>
+        <td><%= link_to t('edit'), edit_building_path(building), class: 'btn btn-sm btn-success' %></td>
+        <td><%= link_to t('destroy'), building, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' %></td>
       </tr>
     <% end %>
     </tbody>

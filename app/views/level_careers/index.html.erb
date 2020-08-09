@@ -27,9 +27,9 @@
       <tr>
         <td><%= level_career.educative_level.name %></td>
         <td><%= level_career.career.name %></td>
-        <td><%= link_to t('show'), level_career %></td>
-        <td><%= link_to t('edit'), edit_level_career_path(level_career) %></td>
-        <td><%= link_to t('destroy'), level_career, method: :delete, data: { confirm: t('you_sure') } %></td>
+        <td><%= link_to t('show'), level_career, class: 'btn btn-sm btn-info' %></td>
+        <td><%= link_to t('edit'), edit_level_career_path(level_career), class: 'btn btn-sm btn-success' %></td>
+        <td><%= link_to t('destroy'), level_career, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' %></td>
       </tr>
     <% end %>
     </tbody>

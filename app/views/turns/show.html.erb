@@ -28,5 +28,5 @@
   <%= @turn.status.name %>
 </p>
 
-<%= link_to t('edit'), edit_turn_path(@turn) %> |
-<%= link_to t('back'), turns_path %>
+<%= link_to t('edit'), edit_turn_path(@turn), class: 'btn btn-sm btn-success' %>
+<%= link_to t('back'), turns_path, class: 'btn btn-sm btn-danger' %>

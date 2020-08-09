@@ -8,5 +8,5 @@
   <%= @professor_course.course.name %>
 </p>
 
-<%= link_to t('edit'), edit_professor_course_path(@professor_course) %> |
-<%= link_to t('back'), professor_courses_path %>
+<%= link_to t('edit'), edit_professor_course_path(@professor_course), class: 'btn btn-sm btn-success' %>
+<%= link_to t('back'), professor_courses_path, class: 'btn btn-sm btn-danger' %>

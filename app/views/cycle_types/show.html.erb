@@ -23,5 +23,5 @@
   <%= @cycle_type.status.name %>
 </p>
 
-<%= link_to t('edit'), edit_cycle_type_path(@cycle_type) %> |
-<%= link_to t('back'), cycle_types_path %>
+<%= link_to t('edit'), edit_cycle_type_path(@cycle_type), class: 'btn btn-sm btn-success' %>
+<%= link_to t('back'), cycle_types_path, class: 'btn btn-sm btn-danger' %>

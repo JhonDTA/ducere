@@ -8,5 +8,5 @@
   <%= @syllabus_grade.grade.name %>
 </p>
 
-<%= link_to t('edit'), edit_syllabus_grade_path(@syllabus_grade) %> |
+<%= link_to t('edit'), edit_syllabus_grade_path(@syllabus_grade), class: 'btn btn-sm btn-success' %>
 <%= link_to 'Back', syllabus_grades_path %>

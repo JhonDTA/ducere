@@ -8,5 +8,5 @@
   <%= @relationship.status.name %>
 </p>
 
-<%= link_to t('edit'), edit_relationship_path(@relationship) %> |
-<%= link_to t('back'), relationships_path %>
+<%= link_to t('edit'), edit_relationship_path(@relationship), class: 'btn btn-sm btn-success' %>
+<%= link_to t('back'), relationships_path, class: 'btn btn-sm btn-danger' %>

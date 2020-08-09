@@ -29,9 +29,9 @@
         <td><%= evaluation_attendance.student_course.name %></td>
         <td><%= evaluation_attendance.attendance_type.name %></td>
         <td><%= evaluation_attendance.date %></td>
-        <td><%= link_to t('show'), evaluation_attendance %></td>
-        <td><%= link_to t('edit'), edit_evaluation_attendance_path(evaluation_attendance) %></td>
-        <td><%= link_to t('destroy'), evaluation_attendance, method: :delete, data: { confirm: t('you_sure') } %></td>
+        <td><%= link_to t('show'), evaluation_attendance, class: 'btn btn-sm btn-info' %></td>
+        <td><%= link_to t('edit'), edit_evaluation_attendance_path(evaluation_attendance), class: 'btn btn-sm btn-success' %></td>
+        <td><%= link_to t('destroy'), evaluation_attendance, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' %></td>
       </tr>
     <% end %>
     </tbody>

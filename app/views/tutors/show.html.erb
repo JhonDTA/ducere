@@ -13,5 +13,5 @@
   <%= @tutor.relationship.name %>
 </p>
 
-<%= link_to t('edit'), edit_tutor_path(@tutor) %> |
+<%= link_to t('edit'), edit_tutor_path(@tutor), class: 'btn btn-sm btn-success' %>
 <%= link_to t('back'), tutors_path %>

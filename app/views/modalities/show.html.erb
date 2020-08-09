@@ -18,5 +18,5 @@
   <%= @modality.status.name %>
 </p>
 
-<%= link_to t('edit'), edit_modality_path(@modality) %> |
-<%= link_to t('back'), modalities_path %>
+<%= link_to t('edit'), edit_modality_path(@modality), class: 'btn btn-sm btn-success' %>
+<%= link_to t('back'), modalities_path, class: 'btn btn-sm btn-danger' %>

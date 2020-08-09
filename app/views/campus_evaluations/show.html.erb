@@ -8,5 +8,5 @@
   <%= @campus_evaluation.turn_evaluation.name %>
 </p>
 
-<%= link_to t('edit'), edit_campus_evaluation_path(@campus_evaluation) %> |
-<%= link_to t('back'), campus_evaluations_path %>
+<%= link_to t('edit'), edit_campus_evaluation_path(@campus_evaluation), class: 'btn btn-sm btn-success' %>
+<%= link_to t('back'), campus_evaluations_path, class: 'btn btn-sm btn-danger' %>

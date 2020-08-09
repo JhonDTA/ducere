@@ -8,5 +8,5 @@
   <%= @student.enrollment %>
 </p>
 
-<%= link_to t('edit'), edit_student_path(@student) %> |
-<%= link_to t('back'), students_path %>
+<%= link_to t('edit'), edit_student_path(@student), class: 'btn btn-sm btn-success' %>
+<%= link_to t('back'), students_path, class: 'btn btn-sm btn-danger' %>

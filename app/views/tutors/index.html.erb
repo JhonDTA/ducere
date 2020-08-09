@@ -29,9 +29,9 @@
         <td><%= tutor.student.name %></td>
         <td><%= tutor.parent.name %></td>
         <td><%= tutor.relationship.name %></td>
-        <td><%= link_to t('show'), tutor %></td>
-        <td><%= link_to t('edit'), edit_tutor_path(tutor) %></td>
-        <td><%= link_to t('destroy'), tutor, method: :delete, data: { confirm: t('you_sure') } %></td>
+        <td><%= link_to t('show'), tutor, class: 'btn btn-sm btn-info' %></td>
+        <td><%= link_to t('edit'), edit_tutor_path(tutor), class: 'btn btn-sm btn-success' %></td>
+        <td><%= link_to t('destroy'), tutor, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' %></td>
       </tr>
     <% end %>
     </tbody>

@@ -15,5 +15,5 @@
   <%= @status.description %>
 </p>
 
-<%= link_to t('edit'), edit_status_path(@status) %> |
-<%= link_to t('back'), statuses_path %>
+<%= link_to t('edit'), edit_status_path(@status), class: 'btn btn-sm btn-success' %>
+<%= link_to t('back'), statuses_path, class: 'btn btn-sm btn-danger' %>

@@ -3,5 +3,5 @@
   <%= @parent.user.name %>
 </p>
 
-<%= link_to t('edit'), edit_parent_path(@parent) %> |
-<%= link_to t('back'), parents_path %>
+<%= link_to t('edit'), edit_parent_path(@parent), class: 'btn btn-sm btn-success' %>
+<%= link_to t('back'), parents_path, class: 'btn btn-sm btn-danger' %>

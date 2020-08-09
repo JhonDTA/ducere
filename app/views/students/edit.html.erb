@@ -4,7 +4,7 @@
 <%= render 'shared/forms/form_card' do %>
   <%= render 'form', student: @student %>
   <% content_for :back_button do %>
-    <%= link_to t('show'), @student %>
-    <%= link_to t('back'), students_path %>
+    <%= link_to t('show'), @student, class: 'btn btn-sm btn-info' %>
+    <%= link_to t('back'), students_path, class: 'btn btn-sm btn-danger' %>
   <% end %>
 <% end %>

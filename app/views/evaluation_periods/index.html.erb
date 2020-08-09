@@ -31,9 +31,9 @@
         <td><%= evaluation_period.name %></td>
         <td><%= evaluation_period.description %></td>
         <td><%= evaluation_period.status.name %></td>
-        <td><%= link_to t('show'), evaluation_period %></td>
-        <td><%= link_to t('edit'), edit_evaluation_period_path(evaluation_period) %></td>
-        <td><%= link_to t('destroy'), evaluation_period, method: :delete, data: { confirm: t('you_sure') } %></td>
+        <td><%= link_to t('show'), evaluation_period, class: 'btn btn-sm btn-info' %></td>
+        <td><%= link_to t('edit'), edit_evaluation_period_path(evaluation_period), class: 'btn btn-sm btn-success' %></td>
+        <td><%= link_to t('destroy'), evaluation_period, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' %></td>
       </tr>
     <% end %>
     </tbody>

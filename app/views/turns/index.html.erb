@@ -35,9 +35,9 @@
         <td><%= turn.start %></td>
         <td><%= turn.finish %></td>
         <td><%= turn.status.name %></td>
-        <td><%= link_to t('show'), turn %></td>
-        <td><%= link_to t('edit'), edit_turn_path(turn) %></td>
-        <td><%= link_to t('destroy'), turn, method: :delete, data: { confirm: t('you_sure') } %></td>
+        <td><%= link_to t('show'), turn, class: 'btn btn-sm btn-info' %></td>
+        <td><%= link_to t('edit'), edit_turn_path(turn), class: 'btn btn-sm btn-success' %></td>
+        <td><%= link_to t('destroy'), turn, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' %></td>
       </tr>
     <% end %>
     </tbody>

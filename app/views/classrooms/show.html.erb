@@ -18,5 +18,5 @@
   <%= @classroom.status.name %>
 </p>
 
-<%= link_to t('edit'), edit_classroom_path(@classroom) %> |
-<%= link_to t('back'), classrooms_path %>
+<%= link_to t('edit'), edit_classroom_path(@classroom), class: 'btn btn-sm btn-success' %>
+<%= link_to t('back'), classrooms_path, class: 'btn btn-sm btn-danger' %>

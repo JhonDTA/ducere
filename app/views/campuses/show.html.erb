@@ -23,5 +23,5 @@
   <%= @campus.status.name %>
 </p>
 
-<%= link_to t('edit'), edit_campus_path(@campus) %> |
-<%= link_to t('back'), campuses_path %>
+<%= link_to t('edit'), edit_campus_path(@campus), class: 'btn btn-sm btn-success' %>
+<%= link_to t('back'), campuses_path, class: 'btn btn-sm btn-danger' %>

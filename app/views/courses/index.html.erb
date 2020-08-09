@@ -33,9 +33,9 @@
         <td><%= course.description %></td>
         <td><%= course.credits %></td>
         <td><%= course.status.name %></td>
-        <td><%= link_to t('show'), course %></td>
-        <td><%= link_to t('edit'), edit_course_path(course) %></td>
-        <td><%= link_to t('destroy'), course, method: :delete, data: { confirm: t('you_sure') } %></td>
+        <td><%= link_to t('show'), course, class: 'btn btn-sm btn-info' %></td>
+        <td><%= link_to t('edit'), edit_course_path(course), class: 'btn btn-sm btn-success' %></td>
+        <td><%= link_to t('destroy'), course, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' %></td>
       </tr>
     <% end %>
     </tbody>

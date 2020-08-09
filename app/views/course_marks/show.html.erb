@@ -18,5 +18,5 @@
   <%= @course_mark.observations %>
 </p>
 
-<%= link_to t('edit'), edit_course_mark_path(@course_mark) %> |
-<%= link_to t('back'), course_marks_path %>
+<%= link_to t('edit'), edit_course_mark_path(@course_mark), class: 'btn btn-sm btn-success' %>
+<%= link_to t('back'), course_marks_path, class: 'btn btn-sm btn-danger' %>

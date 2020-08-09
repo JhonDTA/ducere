@@ -31,9 +31,9 @@
         <td><%= educative_level.name %></td>
         <td><%= educative_level.description %></td>
         <td><%= educative_level.status.name %></td>
-        <td><%= link_to t('show'), educative_level %></td>
-        <td><%= link_to t('edit'), edit_educative_level_path(educative_level) %></td>
-        <td><%= link_to t('destroy'), educative_level, method: :delete, data: { confirm: t('you_sure') } %></td>
+        <td><%= link_to t('show'), educative_level, class: 'btn btn-sm btn-info' %></td>
+        <td><%= link_to t('edit'), edit_educative_level_path(educative_level), class: 'btn btn-sm btn-success' %></td>
+        <td><%= link_to t('destroy'), educative_level, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' %></td>
       </tr>
     <% end %>
     </tbody>

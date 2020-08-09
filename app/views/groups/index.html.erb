@@ -31,9 +31,9 @@
         <td><%= group.name %></td>
         <td><%= group.description %></td>
         <td><%= group.status.name %></td>
-        <td><%= link_to t('show'), group %></td>
-        <td><%= link_to t('edit'), edit_group_path(group) %></td>
-        <td><%= link_to t('destroy'), group, method: :delete, data: { confirm: t('you_sure') } %></td>
+        <td><%= link_to t('show'), group, class: 'btn btn-sm btn-info' %></td>
+        <td><%= link_to t('edit'), edit_group_path(group), class: 'btn btn-sm btn-success' %></td>
+        <td><%= link_to t('destroy'), group, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' %></td>
       </tr>
     <% end %>
     </tbody>

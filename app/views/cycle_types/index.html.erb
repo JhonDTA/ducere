@@ -33,9 +33,9 @@
         <td><%= cycle_type.description %></td>
         <td><%= cycle_type.duration %></td>
         <td><%= cycle_type.status.name %></td>
-        <td><%= link_to t('show'), cycle_type %></td>
-        <td><%= link_to t('edit'), edit_cycle_type_path(cycle_type) %></td>
-        <td><%= link_to t('destroy'), cycle_type, method: :delete, data: { confirm: t('you_sure') } %></td>
+        <td><%= link_to t('show'), cycle_type, class: 'btn btn-sm btn-info' %></td>
+        <td><%= link_to t('edit'), edit_cycle_type_path(cycle_type), class: 'btn btn-sm btn-success' %></td>
+        <td><%= link_to t('destroy'), cycle_type, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' %></td>
       </tr>
     <% end %>
     </tbody>

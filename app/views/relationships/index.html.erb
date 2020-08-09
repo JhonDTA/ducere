@@ -27,9 +27,9 @@
       <tr>
         <td><%= relationship.name %></td>
         <td><%= relationship.status.name %></td>
-        <td><%= link_to t('show'), relationship %></td>
-        <td><%= link_to t('edit'), edit_relationship_path(relationship) %></td>
-        <td><%= link_to t('destroy'), relationship, method: :delete, data: { confirm: t('you_sure') } %></td>
+        <td><%= link_to t('show'), relationship, class: 'btn btn-sm btn-info' %></td>
+        <td><%= link_to t('edit'), edit_relationship_path(relationship), class: 'btn btn-sm btn-success' %></td>
+        <td><%= link_to t('destroy'), relationship, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' %></td>
       </tr>
     <% end %>
     </tbody>

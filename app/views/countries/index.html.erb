@@ -29,9 +29,9 @@
         <td><%= country.name %></td>
         <td><%= country.iso_code %></td>
         <td><%= country.calling_code %></td>
-        <td><%= link_to t('show'), country %></td>
-        <td><%= link_to t('edit'), edit_country_path(country) %></td>
-        <td><%= link_to t('destroy'), country, method: :delete, data: { confirm: t('you_sure') } %></td>
+        <td><%= link_to t('show'), country, class: 'btn btn-sm btn-info' %></td>
+        <td><%= link_to t('edit'), edit_country_path(country), class: 'btn btn-sm btn-success' %></td>
+        <td><%= link_to t('destroy'), country, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' %></td>
       </tr>
     <% end %>
     </tbody>

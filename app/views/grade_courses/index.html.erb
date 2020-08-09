@@ -27,9 +27,9 @@
       <tr>
         <td><%= grade_course.syllabus_grade.name %></td>
         <td><%= grade_course.course.name %></td>
-        <td><%= link_to t('show'), grade_course %></td>
-        <td><%= link_to t('edit'), edit_grade_course_path(grade_course) %></td>
-        <td><%= link_to t('destroy'), grade_course, method: :delete, data: { confirm: t('you_sure') } %></td>
+        <td><%= link_to t('show'), grade_course, class: 'btn btn-sm btn-info' %></td>
+        <td><%= link_to t('edit'), edit_grade_course_path(grade_course), class: 'btn btn-sm btn-success' %></td>
+        <td><%= link_to t('destroy'), grade_course, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' %></td>
       </tr>
     <% end %>
     </tbody>

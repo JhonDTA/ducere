@@ -18,5 +18,5 @@
   <%= @career.status.name %>
 </p>
 
-<%= link_to t('edit'), edit_career_path(@career) %> |
-<%= link_to t('back'), careers_path %>
+<%= link_to t('edit'), edit_career_path(@career), class: 'btn btn-sm btn-success' %>
+<%= link_to t('back'), careers_path, class: 'btn btn-sm btn-danger' %>

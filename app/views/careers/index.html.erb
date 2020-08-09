@@ -31,9 +31,9 @@
         <td><%= career.name %></td>
         <td><%= career.description %></td>
         <td><%= career.status.name %></td>
-        <td><%= link_to t('show'), career %></td>
-        <td><%= link_to t('edit'), edit_career_path(career) %></td>
-        <td><%= link_to t('destroy'), career, method: :delete, data: { confirm: t('you_sure') } %></td>
+        <td><%= link_to t('show'), career, class: 'btn btn-sm btn-info' %></td>
+        <td><%= link_to t('edit'), edit_career_path(career), class: 'btn btn-sm btn-success' %></td>
+        <td><%= link_to t('destroy'), career, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' %></td>
       </tr>
     <% end %>
     </tbody>

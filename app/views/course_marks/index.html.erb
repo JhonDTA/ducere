@@ -31,9 +31,9 @@
         <td><%= course_mark.mark %></td>
         <td><%= course_mark.attendance %></td>
         <td><%= course_mark.observations %></td>
-        <td><%= link_to t('show'), course_mark %></td>
-        <td><%= link_to t('edit'), edit_course_mark_path(course_mark) %></td>
-        <td><%= link_to t('destroy'), course_mark, method: :delete, data: { confirm: t('you_sure') } %></td>
+        <td><%= link_to t('show'), course_mark, class: 'btn btn-sm btn-info' %></td>
+        <td><%= link_to t('edit'), edit_course_mark_path(course_mark), class: 'btn btn-sm btn-success' %></td>
+        <td><%= link_to t('destroy'), course_mark, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' %></td>
       </tr>
     <% end %>
     </tbody>

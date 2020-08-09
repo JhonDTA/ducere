@@ -4,7 +4,7 @@
 <%= render 'shared/forms/form_card' do %>
   <%= render 'form', level_career: @level_career %>
   <% content_for :back_button do %>
-    <%= link_to t('show'), @level_career %>
-    <%= link_to t('back'), level_careers_path %>
+    <%= link_to t('show'), @level_career, class: 'btn btn-sm btn-info' %>
+    <%= link_to t('back'), level_careers_path, class: 'btn btn-sm btn-danger' %>
   <% end %>
 <% end %>

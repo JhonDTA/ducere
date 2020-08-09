@@ -29,9 +29,9 @@
         <td><%= student_homework.student.name %></td>
         <td><%= student_homework.course_homework.name %></td>
         <td><%= student_homework.observations %></td>
-        <td><%= link_to t('show'), student_homework %></td>
-        <td><%= link_to t('edit'), edit_student_homework_path(student_homework) %></td>
-        <td><%= link_to t('destroy'), student_homework, method: :delete, data: { confirm: t('you_sure') } %></td>
+        <td><%= link_to t('show'), student_homework, class: 'btn btn-sm btn-info' %></td>
+        <td><%= link_to t('edit'), edit_student_homework_path(student_homework), class: 'btn btn-sm btn-success' %></td>
+        <td><%= link_to t('destroy'), student_homework, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' %></td>
       </tr>
     <% end %>
     </tbody>

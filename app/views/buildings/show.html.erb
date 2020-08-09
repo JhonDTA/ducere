@@ -18,5 +18,5 @@
   <%= @building.status.name %>
 </p>
 
-<%= link_to t('edit'), edit_building_path(@building) %> |
-<%= link_to t('back'), buildings_path %>
+<%= link_to t('edit'), edit_building_path(@building), class: 'btn btn-sm btn-success' %>
+<%= link_to t('back'), buildings_path, class: 'btn btn-sm btn-danger' %>

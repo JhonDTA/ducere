@@ -31,9 +31,9 @@
         <td><%= classroom.description %></td>
         <td><%= classroom.building.code %></td>
         <td><%= classroom.status.name %></td>
-        <td><%= link_to t('show'), classroom %></td>
-        <td><%= link_to t('edit'), edit_classroom_path(classroom) %></td>
-        <td><%= link_to t('destroy'), classroom, method: :delete, data: { confirm: t('you_sure') } %></td>
+        <td><%= link_to t('show'), classroom, class: 'btn btn-sm btn-info' %></td>
+        <td><%= link_to t('edit'), edit_classroom_path(classroom), class: 'btn btn-sm btn-success' %></td>
+        <td><%= link_to t('destroy'), classroom, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' %></td>
       </tr>
     <% end %>
     </tbody>

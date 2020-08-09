@@ -23,5 +23,5 @@
   <%= @course.status.name %>
 </p>
 
-<%= link_to t('edit'), edit_course_path(@course) %> |
-<%= link_to t('back'), courses_path %>
+<%= link_to t('edit'), edit_course_path(@course), class: 'btn btn-sm btn-success' %>
+<%= link_to t('back'), courses_path, class: 'btn btn-sm btn-danger' %>

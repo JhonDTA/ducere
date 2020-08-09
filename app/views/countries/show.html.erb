@@ -15,5 +15,5 @@
   <%= @country.calling_code %>
 </p>
 
-<%= link_to t('edit'), edit_country_path(@country) %> |
+<%= link_to t('edit'), edit_country_path(@country), class: 'btn btn-sm btn-success' %> |
 <%= link_to t('back'), countries_path %>

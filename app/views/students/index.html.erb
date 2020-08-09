@@ -27,9 +27,9 @@
       <tr>
         <td><%= student.user.name %></td>
         <td><%= student.enrollment %></td>
-        <td><%= link_to t('show'), student %></td>
-        <td><%= link_to t('edit'), edit_student_path(student) %></td>
-        <td><%= link_to t('destroy'), student, method: :delete, data: { confirm: t('you_sure') } %></td>
+        <td><%= link_to t('show'), student, class: 'btn btn-sm btn-info' %></td>
+        <td><%= link_to t('edit'), edit_student_path(student), class: 'btn btn-sm btn-success' %></td>
+        <td><%= link_to t('destroy'), student, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' %></td>
       </tr>
     <% end %>
     </tbody>

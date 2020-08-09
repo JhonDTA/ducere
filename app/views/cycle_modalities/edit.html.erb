@@ -4,7 +4,7 @@
 <%= render 'shared/forms/form_card' do %>
   <%= render 'form', cycle_modality: @cycle_modality %>
   <% content_for :back_button do %>
-    <%= link_to t('show'), @cycle_modality %>
-    <%= link_to t('back'), cycle_modalities_path %>
+    <%= link_to t('show'), @cycle_modality, class: 'btn btn-sm btn-info' %>
+    <%= link_to t('back'), cycle_modalities_path, class: 'btn btn-sm btn-danger' %>
   <% end %>
 <% end %>

@@ -27,9 +27,9 @@
       <tr>
         <td><%= career_syllabus.level_career.name %></td>
         <td><%= career_syllabus.syllabus.name %></td>
-        <td><%= link_to t('show'), career_syllabus %></td>
-        <td><%= link_to t('edit'), edit_career_syllabus_path(career_syllabus) %></td>
-        <td><%= link_to t('destroy'), career_syllabus, method: :delete, data: { confirm: t('you_sure') } %></td>
+        <td><%= link_to t('show'), career_syllabus, class: 'btn btn-sm btn-info' %></td>
+        <td><%= link_to t('edit'), edit_career_syllabus_path(career_syllabus), class: 'btn btn-sm btn-success' %></td>
+        <td><%= link_to t('destroy'), career_syllabus, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' %></td>
       </tr>
     <% end %>
     </tbody>

@@ -31,9 +31,9 @@
         <td><%= course_evaluation.campus_evaluation.name %></td>
         <td><%= course_evaluation.professor.name %></td>
         <td><%= course_evaluation.group.name %></td>
-        <td><%= link_to t('show'), course_evaluation %></td>
-        <td><%= link_to t('edit'), edit_course_evaluation_path(course_evaluation) %></td>
-        <td><%= link_to t('destroy'), course_evaluation, method: :delete, data: { confirm: t('you_sure') } %></td>
+        <td><%= link_to t('show'), course_evaluation, class: 'btn btn-sm btn-info' %></td>
+        <td><%= link_to t('edit'), edit_course_evaluation_path(course_evaluation), class: 'btn btn-sm btn-success' %></td>
+        <td><%= link_to t('destroy'), course_evaluation, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' %></td>
       </tr>
     <% end %>
     </tbody>

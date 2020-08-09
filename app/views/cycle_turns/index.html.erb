@@ -27,9 +27,9 @@
       <tr>
         <td><%= cycle_turn.cycle_modality.name %></td>
         <td><%= cycle_turn.turn.name %></td>
-        <td><%= link_to t('show'), cycle_turn %></td>
-        <td><%= link_to t('edit'), edit_cycle_turn_path(cycle_turn) %></td>
-        <td><%= link_to t('destroy'), cycle_turn, method: :delete, data: { confirm: t('you_sure') } %></td>
+        <td><%= link_to t('show'), cycle_turn, class: 'btn btn-sm btn-info' %></td>
+        <td><%= link_to t('edit'), edit_cycle_turn_path(cycle_turn), class: 'btn btn-sm btn-success' %></td>
+        <td><%= link_to t('destroy'), cycle_turn, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' %></td>
       </tr>
     <% end %>
     </tbody>
