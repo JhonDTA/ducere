@@ -1,19 +1,23 @@
-<% provide(:title, @country.name) %>
+<% provide :title, @country.name %>
+<% provide :card_title, t('activerecord.models.country') %>
+<% content_for :card_footer do %>
+  <%= link_to t('edit'), edit_country_path(@country), class: 'btn btn-sm btn-success' %>
+  <%= link_to t('back'), countries_path, class: 'btn btn-sm btn-danger' %>
+<% end %>
 
-<p>
-  <strong><%= t('activerecord.attributes.country.name') %>:</strong>
-  <%= @country.name %>
-</p>
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong><%= t('activerecord.attributes.country.name') %>:</strong>
+    <%= @country.name %>
+  </p>
 
-<p>
-  <strong><%= t('activerecord.attributes.country.iso_code') %>:</strong>
-  <%= @country.iso_code %>
-</p>
+  <p>
+    <strong><%= t('activerecord.attributes.country.iso_code') %>:</strong>
+    <%= @country.iso_code %>
+  </p>
 
-<p>
-  <strong><%= t('activerecord.attributes.country.calling_code') %>:</strong>
-  <%= @country.calling_code %>
-</p>
-
-<%= link_to t('edit'), edit_country_path(@country), class: 'btn btn-sm btn-success' %>
-<%= link_to t('back'), countries_path %>
+  <p>
+    <strong><%= t('activerecord.attributes.country.calling_code') %>:</strong>
+    <%= @country.calling_code %>
+  </p>
+<% end %>

@@ -5,6 +5,6 @@
   <%= render 'form', career: @career %>
   <% content_for :back_button do %>
     <%= link_to t('show'), @career, class: 'btn btn-sm btn-info' %>
-    <%= link_to 'Back', careers_path %>
+    <%= link_to t('back'), careers_path, class: 'btn btn-sm btn-danger' %>
   <% end %>
 <% end %>

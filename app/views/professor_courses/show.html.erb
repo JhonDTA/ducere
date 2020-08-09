@@ -1,12 +1,18 @@
-<p>
-  <strong>Professor:</strong>
-  <%= @professor_course.professor.name %>
-</p>
+<% provide :title, @professor_course.name %>
+<% provide :card_title, t('activerecord.models.professor_course') %>
+<% content_for :card_footer do %>
+  <%= link_to t('edit'), edit_professor_course_path(@professor_course), class: 'btn btn-sm btn-success' %>
+  <%= link_to t('back'), professor_courses_path, class: 'btn btn-sm btn-danger' %>
+<% end %>
 
-<p>
-  <strong>Course:</strong>
-  <%= @professor_course.course.name %>
-</p>
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong>Professor:</strong>
+    <%= @professor_course.professor.name %>
+  </p>
 
-<%= link_to t('edit'), edit_professor_course_path(@professor_course), class: 'btn btn-sm btn-success' %>
-<%= link_to t('back'), professor_courses_path, class: 'btn btn-sm btn-danger' %>
+  <p>
+    <strong>Course:</strong>
+    <%= @professor_course.course.name %>
+  </p>
+<% end %>

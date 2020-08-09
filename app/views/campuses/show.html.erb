@@ -1,27 +1,33 @@
-<p>
-  <strong>Code:</strong>
-  <%= @campus.code %>
-</p>
+<% provide :title, @campus.name %>
+<% provide :card_title, t('activerecord.models.campus') %>
+<% content_for :card_footer do %>
+  <%= link_to t('edit'), edit_campus_path(@campus), class: 'btn btn-sm btn-success' %>
+  <%= link_to t('back'), campuses_path, class: 'btn btn-sm btn-danger' %>
+<% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @campus.name %>
-</p>
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong>Code:</strong>
+    <%= @campus.code %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @campus.description %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @campus.name %>
+  </p>
 
-<p>
-  <strong>Institution:</strong>
-  <%= @campus.institution.name %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @campus.description %>
+  </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @campus.status.name %>
-</p>
+  <p>
+    <strong>Institution:</strong>
+    <%= @campus.institution.name %>
+  </p>
 
-<%= link_to t('edit'), edit_campus_path(@campus), class: 'btn btn-sm btn-success' %>
-<%= link_to t('back'), campuses_path, class: 'btn btn-sm btn-danger' %>
+  <p>
+    <strong>Status:</strong>
+    <%= @campus.status.name %>
+  </p>
+<% end %>

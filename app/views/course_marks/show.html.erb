@@ -1,22 +1,28 @@
-<p>
-  <strong>Student course:</strong>
-  <%= @course_mark.student_course.name %>
-</p>
+<% provide :title, @course_mark.name %>
+<% provide :card_title, t('activerecord.models.course_mark') %>
+<% content_for :card_footer do %>
+  <%= link_to t('edit'), edit_course_mark_path(@course_mark), class: 'btn btn-sm btn-success' %>
+  <%= link_to t('back'), course_marks_path, class: 'btn btn-sm btn-danger' %>
+<% end %>
 
-<p>
-  <strong>Mark:</strong>
-  <%= @course_mark.mark %>
-</p>
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong>Student course:</strong>
+    <%= @course_mark.student_course.name %>
+  </p>
 
-<p>
-  <strong>Attendance:</strong>
-  <%= @course_mark.attendance %>
-</p>
+  <p>
+    <strong>Mark:</strong>
+    <%= @course_mark.mark %>
+  </p>
 
-<p>
-  <strong>Observations:</strong>
-  <%= @course_mark.observations %>
-</p>
+  <p>
+    <strong>Attendance:</strong>
+    <%= @course_mark.attendance %>
+  </p>
 
-<%= link_to t('edit'), edit_course_mark_path(@course_mark), class: 'btn btn-sm btn-success' %>
-<%= link_to t('back'), course_marks_path, class: 'btn btn-sm btn-danger' %>
+  <p>
+    <strong>Observations:</strong>
+    <%= @course_mark.observations %>
+  </p>
+<% end %>

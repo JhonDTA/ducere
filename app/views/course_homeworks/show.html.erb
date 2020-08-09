@@ -1,17 +1,23 @@
-<p>
-  <strong>Course evaluation:</strong>
-  <%= @course_homework.course_evaluation.name %>
-</p>
+<% provide :title, @course_homework.name %>
+<% provide :card_title, t('activerecord.models.course_homework') %>
+<% content_for :card_footer do %>
+  <%= link_to t('edit'), edit_course_homework_path(@course_homework), class: 'btn btn-sm btn-success' %>
+  <%= link_to t('back'), course_homeworks_path, class: 'btn btn-sm btn-danger' %>
+<% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @course_homework.name %>
-</p>
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong>Course evaluation:</strong>
+    <%= @course_homework.course_evaluation.name %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @course_homework.description %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @course_homework.name %>
+  </p>
 
-<%= link_to t('edit'), edit_course_homework_path(@course_homework), class: 'btn btn-sm btn-success' %>
-<%= link_to t('back'), course_homeworks_path, class: 'btn btn-sm btn-danger' %>
+  <p>
+    <strong>Description:</strong>
+    <%= @course_homework.description %>
+  </p>
+<% end %>

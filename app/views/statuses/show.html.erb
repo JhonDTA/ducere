@@ -1,19 +1,23 @@
-<% provide(:title, @status.name) %>
+<% provide :title, @status.name %>
+<% provide :card_title, t('activerecord.models.status') %>
+<% content_for :card_footer do %>
+  <%= link_to t('edit'), edit_status_path(@status), class: 'btn btn-sm btn-success' %>
+  <%= link_to t('back'), statuses_path, class: 'btn btn-sm btn-danger' %>
+<% end %>
 
-<p>
-  <strong>Code:</strong>
-  <%= @status.code %>
-</p>
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong>Code:</strong>
+    <%= @status.code %>
+  </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @status.name %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @status.name %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @status.description %>
-</p>
-
-<%= link_to t('edit'), edit_status_path(@status), class: 'btn btn-sm btn-success' %>
-<%= link_to t('back'), statuses_path, class: 'btn btn-sm btn-danger' %>
+  <p>
+    <strong>Description:</strong>
+    <%= @status.description %>
+  </p>
+<% end %>

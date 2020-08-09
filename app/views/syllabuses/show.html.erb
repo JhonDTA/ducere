@@ -1,27 +1,33 @@
-<p>
-  <strong>Code:</strong>
-  <%= @syllabus.code %>
-</p>
+<% provide :title, @syllabus.name %>
+<% provide :card_title, t('activerecord.models.syllabus') %>
+<% content_for :card_footer do %>
+  <%= link_to t('edit'), edit_syllabus_path(@syllabus), class: 'btn btn-sm btn-success' %>
+  <%= link_to t('back'), syllabuses_path, class: 'btn btn-sm btn-danger' %>
+<% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @syllabus.name %>
-</p>
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong>Code:</strong>
+    <%= @syllabus.code %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @syllabus.description %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @syllabus.name %>
+  </p>
 
-<p>
-  <strong>Approval credits:</strong>
-  <%= @syllabus.approval_credits %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @syllabus.description %>
+  </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @syllabus.status.name %>
-</p>
+  <p>
+    <strong>Approval credits:</strong>
+    <%= @syllabus.approval_credits %>
+  </p>
 
-<%= link_to t('edit'), edit_syllabus_path(@syllabus), class: 'btn btn-sm btn-success' %>
-<%= link_to 'Back', syllabuses_path %>
+  <p>
+    <strong>Status:</strong>
+    <%= @syllabus.status.name %>
+  </p>
+<% end %>

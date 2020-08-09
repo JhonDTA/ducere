@@ -1,12 +1,18 @@
-<p>
-  <strong>Level career:</strong>
-  <%= @career_syllabus.level_career.name %>
-</p>
+<% provide :title, @career_syllabus.name %>
+<% provide :card_title, t('activerecord.models.career_syllabus') %>
+<% content_for :card_footer do %>
+  <%= link_to t('edit'), edit_career_syllabus_path(@career_syllabus), class: 'btn btn-sm btn-success' %>
+  <%= link_to t('back'), career_syllabuses_path, class: 'btn btn-sm btn-danger' %>
+<% end %>
 
-<p>
-  <strong>Syllabus:</strong>
-  <%= @career_syllabus.syllabus.name %>
-</p>
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong>Level career:</strong>
+    <%= @career_syllabus.level_career.name %>
+  </p>
 
-<%= link_to t('edit'), edit_career_syllabus_path(@career_syllabus), class: 'btn btn-sm btn-success' %>
-<%= link_to 'Back', career_syllabuses_path %>
+  <p>
+    <strong>Syllabus:</strong>
+    <%= @career_syllabus.syllabus.name %>
+  </p>
+<% end %>

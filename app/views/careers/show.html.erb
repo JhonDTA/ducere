@@ -1,22 +1,28 @@
-<p>
-  <strong>Code:</strong>
-  <%= @career.code %>
-</p>
+<% provide :title, @career.name %>
+<% provide :card_title, t('activerecord.models.career') %>
+<% content_for :card_footer do %>
+  <%= link_to t('edit'), edit_career_path(@career), class: 'btn btn-sm btn-success' %>
+  <%= link_to t('back'), careers_path, class: 'btn btn-sm btn-danger' %>
+<% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @career.name %>
-</p>
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong>Code:</strong>
+    <%= @career.code %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @career.description %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @career.name %>
+  </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @career.status.name %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @career.description %>
+  </p>
 
-<%= link_to t('edit'), edit_career_path(@career), class: 'btn btn-sm btn-success' %>
-<%= link_to t('back'), careers_path, class: 'btn btn-sm btn-danger' %>
+  <p>
+    <strong>Status:</strong>
+    <%= @career.status.name %>
+  </p>
+<% end %>

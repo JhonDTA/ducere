@@ -1,22 +1,28 @@
-<p>
-  <strong>Code:</strong>
-  <%= @evaluation_period.code %>
-</p>
+<% provide :title, @evaluation_period.name %>
+<% provide :card_title, t('activerecord.models.evaluation_period') %>
+<% content_for :card_footer do %>
+  <%= link_to t('edit'), edit_evaluation_period_path(@evaluation_period), class: 'btn btn-sm btn-success' %>
+  <%= link_to t('back'), evaluation_periods_path, class: 'btn btn-sm btn-danger' %>
+<% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @evaluation_period.name %>
-</p>
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong>Code:</strong>
+    <%= @evaluation_period.code %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @evaluation_period.description %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @evaluation_period.name %>
+  </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @evaluation_period.status.name %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @evaluation_period.description %>
+  </p>
 
-<%= link_to t('edit'), edit_evaluation_period_path(@evaluation_period), class: 'btn btn-sm btn-success' %>
-<%= link_to t('back'), evaluation_periods_path, class: 'btn btn-sm btn-danger' %>
+  <p>
+    <strong>Status:</strong>
+    <%= @evaluation_period.status.name %>
+  </p>
+<% end %>

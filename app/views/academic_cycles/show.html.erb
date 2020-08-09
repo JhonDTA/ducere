@@ -1,51 +1,47 @@
-<div class="card card-primary">
-  <div class="card-header">
-    <h3 class="card-title"><%= t('activerecord.models.academic_cycle') %></h3>
-  </div>
-  <div class="card-body">
-    <p>
-      <strong><%= t('activerecord.attributes.academic_cycle.code') %>:</strong>
-      <%= @academic_cycle.code %>
-    </p>
+<% provide :title, @academic_cycle.name %>
+<% provide :card_title, t('activerecord.models.academic_cycle') %>
+<% content_for :card_footer do %>
+  <%= link_to t('edit'), edit_academic_cycle_path(@academic_cycle), class: 'btn btn-sm btn-success' %>
+  <%= link_to t('back'), academic_cycles_path, class: 'btn btn-sm btn-danger' %>
+<% end %>
 
-    <p>
-      <strong><%= t('activerecord.attributes.academic_cycle.name') %>:</strong>
-      <%= @academic_cycle.name %>
-    </p>
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong><%= t('activerecord.attributes.academic_cycle.code') %>:</strong>
+    <%= @academic_cycle.code %>
+  </p>
 
-    <p>
-      <strong><%= t('activerecord.attributes.academic_cycle.description') %>
-        :</strong>
-      <%= @academic_cycle.description %>
-    </p>
+  <p>
+    <strong><%= t('activerecord.attributes.academic_cycle.name') %>:</strong>
+    <%= @academic_cycle.name %>
+  </p>
 
-    <p>
-      <strong><%= t('activerecord.attributes.academic_cycle.cycle_type_id') %>
-        :</strong>
-      <%= @academic_cycle.cycle_type.name %>
-    </p>
+  <p>
+    <strong><%= t('activerecord.attributes.academic_cycle.description') %>
+      :</strong>
+    <%= @academic_cycle.description %>
+  </p>
 
-    <p>
-      <strong><%= t('activerecord.attributes.academic_cycle.status_id') %>
-        :</strong>
-      <%= @academic_cycle.status.name %>
-    </p>
+  <p>
+    <strong><%= t('activerecord.attributes.academic_cycle.cycle_type_id') %>
+      :</strong>
+    <%= @academic_cycle.cycle_type.name %>
+  </p>
 
-    <p>
-      <strong><%= t('activerecord.attributes.academic_cycle.start') %>:</strong>
-      <%= @academic_cycle.start %>
-    </p>
+  <p>
+    <strong><%= t('activerecord.attributes.academic_cycle.status_id') %>
+      :</strong>
+    <%= @academic_cycle.status.name %>
+  </p>
 
-    <p>
-      <strong><%= t('activerecord.attributes.academic_cycle.finish') %>
-        :</strong>
-      <%= @academic_cycle.finish %>
-    </p>
-  </div>
-  <div class="card-footer">
-    <div>
-      <%= link_to t('edit'), edit_academic_cycle_path(@academic_cycle), class: 'btn btn-sm btn-success' %>
-      <%= link_to t('back'), academic_cycles_path, class: 'btn btn-sm btn-danger' %>
-    </div>
-  </div>
-</div>
+  <p>
+    <strong><%= t('activerecord.attributes.academic_cycle.start') %>:</strong>
+    <%= @academic_cycle.start %>
+  </p>
+
+  <p>
+    <strong><%= t('activerecord.attributes.academic_cycle.finish') %>
+      :</strong>
+    <%= @academic_cycle.finish %>
+  </p>
+<% end %>

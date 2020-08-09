@@ -1,22 +1,28 @@
-<p>
-  <strong>Grade course:</strong>
-  <%= @course_evaluation.grade_course.name %>
-</p>
+<% provide :title, @course_evaluation.name %>
+<% provide :card_title, t('activerecord.models.course_evaluation') %>
+<% content_for :card_footer do %>
+  <%= link_to t('edit'), edit_course_evaluation_path(@course_evaluation), class: 'btn btn-sm btn-success' %>
+  <%= link_to t('back'), course_evaluations_path, class: 'btn btn-sm btn-danger' %>
+<% end %>
 
-<p>
-  <strong>Campus evaluation:</strong>
-  <%= @course_evaluation.campus_evaluation.name %>
-</p>
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong>Grade course:</strong>
+    <%= @course_evaluation.grade_course.name %>
+  </p>
 
-<p>
-  <strong>Professor:</strong>
-  <%= @course_evaluation.professor.name %>
-</p>
+  <p>
+    <strong>Campus evaluation:</strong>
+    <%= @course_evaluation.campus_evaluation.name %>
+  </p>
 
-<p>
-  <strong>Group:</strong>
-  <%= @course_evaluation.group.name %>
-</p>
+  <p>
+    <strong>Professor:</strong>
+    <%= @course_evaluation.professor.name %>
+  </p>
 
-<%= link_to t('edit'), edit_course_evaluation_path(@course_evaluation), class: 'btn btn-sm btn-success' %>
-<%= link_to t('back'), course_evaluations_path, class: 'btn btn-sm btn-danger' %>
+  <p>
+    <strong>Group:</strong>
+    <%= @course_evaluation.group.name %>
+  </p>
+<% end %>

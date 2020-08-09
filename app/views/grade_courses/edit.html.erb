@@ -5,6 +5,6 @@
   <%= render 'form', grade_course: @grade_course %>
   <% content_for :back_button do %>
     <%= link_to t('show'), @grade_course, class: 'btn btn-sm btn-info' %>
-    <%= link_to 'Back', grade_courses_path %>
+    <%= link_to t('back'), grade_courses_path, class: 'btn btn-sm btn-danger' %>
   <% end %>
 <% end %>

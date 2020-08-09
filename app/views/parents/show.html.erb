@@ -1,7 +1,13 @@
-<p>
-  <strong>User:</strong>
-  <%= @parent.user.name %>
-</p>
+<% provide :title, @parent.name %>
+<% provide :card_title, t('activerecord.models.parent') %>
+<% content_for :card_footer do %>
+  <%= link_to t('edit'), edit_parent_path(@parent), class: 'btn btn-sm btn-success' %>
+  <%= link_to t('back'), parents_path, class: 'btn btn-sm btn-danger' %>
+<% end %>
 
-<%= link_to t('edit'), edit_parent_path(@parent), class: 'btn btn-sm btn-success' %>
-<%= link_to t('back'), parents_path, class: 'btn btn-sm btn-danger' %>
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong>User:</strong>
+    <%= @parent.user.name %>
+  </p>
+<% end %>

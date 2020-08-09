@@ -1,12 +1,18 @@
-<p>
-  <strong>Name:</strong>
-  <%= @relationship.name %>
-</p>
+<% provide :title, @relationship.name %>
+<% provide :card_title, t('activerecord.models.relationship') %>
+<% content_for :card_footer do %>
+  <%= link_to t('edit'), edit_relationship_path(@relationship), class: 'btn btn-sm btn-success' %>
+  <%= link_to t('back'), relationships_path, class: 'btn btn-sm btn-danger' %>
+<% end %>
 
-<p>
-  <strong>Status:</strong>
-  <%= @relationship.status.name %>
-</p>
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong>Name:</strong>
+    <%= @relationship.name %>
+  </p>
 
-<%= link_to t('edit'), edit_relationship_path(@relationship), class: 'btn btn-sm btn-success' %>
-<%= link_to t('back'), relationships_path, class: 'btn btn-sm btn-danger' %>
+  <p>
+    <strong>Status:</strong>
+    <%= @relationship.status.name %>
+  </p>
+<% end %>

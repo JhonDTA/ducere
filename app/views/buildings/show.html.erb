@@ -1,22 +1,28 @@
-<p>
-  <strong>Code:</strong>
-  <%= @building.code %>
-</p>
+<% provide :title, @building.name %>
+<% provide :card_title, t('activerecord.models.building') %>
+<% content_for :card_footer do %>
+  <%= link_to t('edit'), edit_building_path(@building), class: 'btn btn-sm btn-success' %>
+  <%= link_to t('back'), buildings_path, class: 'btn btn-sm btn-danger' %>
+<% end %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @building.description %>
-</p>
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong>Code:</strong>
+    <%= @building.code %>
+  </p>
 
-<p>
-  <strong>Campus:</strong>
-  <%= @building.campus.name %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @building.description %>
+  </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @building.status.name %>
-</p>
+  <p>
+    <strong>Campus:</strong>
+    <%= @building.campus.name %>
+  </p>
 
-<%= link_to t('edit'), edit_building_path(@building), class: 'btn btn-sm btn-success' %>
-<%= link_to t('back'), buildings_path, class: 'btn btn-sm btn-danger' %>
+  <p>
+    <strong>Status:</strong>
+    <%= @building.status.name %>
+  </p>
+<% end %>

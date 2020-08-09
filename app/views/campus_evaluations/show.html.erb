@@ -1,12 +1,18 @@
-<p>
-  <strong>Campus:</strong>
-  <%= @campus_evaluation.campus.name %>
-</p>
+<% provide :title, @campus_evaluation.name %>
+<% provide :card_title, t('activerecord.models.campus_evaluation') %>
+<% content_for :card_footer do %>
+  <%= link_to t('edit'), edit_campus_evaluation_path(@campus_evaluation), class: 'btn btn-sm btn-success' %>
+  <%= link_to t('back'), campus_evaluations_path, class: 'btn btn-sm btn-danger' %>
+<% end %>
 
-<p>
-  <strong>Turn evaluation:</strong>
-  <%= @campus_evaluation.turn_evaluation.name %>
-</p>
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong>Campus:</strong>
+    <%= @campus_evaluation.campus.name %>
+  </p>
 
-<%= link_to t('edit'), edit_campus_evaluation_path(@campus_evaluation), class: 'btn btn-sm btn-success' %>
-<%= link_to t('back'), campus_evaluations_path, class: 'btn btn-sm btn-danger' %>
+  <p>
+    <strong>Turn evaluation:</strong>
+    <%= @campus_evaluation.turn_evaluation.name %>
+  </p>
+<% end %>

@@ -4,6 +4,6 @@
 <%= render 'shared/cards/form_card' do %>
   <%= render 'form', career_syllabus: @career_syllabus %>
   <% content_for :back_button do %>
-    <%= link_to 'Back', career_syllabuses_path %>
+    <%= link_to t('back'), career_syllabuses_path, class: 'btn btn-sm btn-danger' %>
   <% end %>
 <% end %>

@@ -1,17 +1,23 @@
-<p>
-  <strong>Student:</strong>
-  <%= @evaluation_attendance.student_course.name %>
-</p>
+<% provide :title, @evaluation_attendance.name %>
+<% provide :card_title, t('activerecord.models.evaluation_attendance') %>
+<% content_for :card_footer do %>
+  <%= link_to t('edit'), edit_evaluation_attendance_path(@evaluation_attendance), class: 'btn btn-sm btn-success' %>
+  <%= link_to t('back'), evaluation_attendances_path, class: 'btn btn-sm btn-danger' %>
+<% end %>
 
-<p>
-  <strong>Attendance type:</strong>
-  <%= @evaluation_attendance.attendance_type.name %>
-</p>
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong>Student:</strong>
+    <%= @evaluation_attendance.student_course.name %>
+  </p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @evaluation_attendance.date %>
-</p>
+  <p>
+    <strong>Attendance type:</strong>
+    <%= @evaluation_attendance.attendance_type.name %>
+  </p>
 
-<%= link_to t('edit'), edit_evaluation_attendance_path(@evaluation_attendance), class: 'btn btn-sm btn-success' %>
-<%= link_to t('back'), evaluation_attendances_path, class: 'btn btn-sm btn-danger' %>
+  <p>
+    <strong>Date:</strong>
+    <%= @evaluation_attendance.date %>
+  </p>
+<% end %>

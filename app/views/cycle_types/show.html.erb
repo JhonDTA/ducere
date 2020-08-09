@@ -1,27 +1,33 @@
-<p>
-  <strong>Code:</strong>
-  <%= @cycle_type.code %>
-</p>
+<% provide :title, @cycle_type.name %>
+<% provide :card_title, t('activerecord.models.cycle_type') %>
+<% content_for :card_footer do %>
+  <%= link_to t('edit'), edit_cycle_type_path(@cycle_type), class: 'btn btn-sm btn-success' %>
+  <%= link_to t('back'), cycle_types_path, class: 'btn btn-sm btn-danger' %>
+<% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @cycle_type.name %>
-</p>
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong>Code:</strong>
+    <%= @cycle_type.code %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @cycle_type.description %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @cycle_type.name %>
+  </p>
 
-<p>
-  <strong>Duration:</strong>
-  <%= @cycle_type.duration %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @cycle_type.description %>
+  </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @cycle_type.status.name %>
-</p>
+  <p>
+    <strong>Duration:</strong>
+    <%= @cycle_type.duration %>
+  </p>
 
-<%= link_to t('edit'), edit_cycle_type_path(@cycle_type), class: 'btn btn-sm btn-success' %>
-<%= link_to t('back'), cycle_types_path, class: 'btn btn-sm btn-danger' %>
+  <p>
+    <strong>Status:</strong>
+    <%= @cycle_type.status.name %>
+  </p>
+<% end %>

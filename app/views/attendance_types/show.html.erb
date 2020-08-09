@@ -1,22 +1,28 @@
-<p>
-  <strong>Code:</strong>
-  <%= @attendance_type.code %>
-</p>
+<% provide :title, @attendance_type.name %>
+<% provide :card_title, t('activerecord.models.attendance_type') %>
+<% content_for :card_footer do %>
+  <%= link_to t('edit'), edit_attendance_type_path(@attendance_type), class: 'btn btn-sm btn-success' %>
+  <%= link_to t('back'), attendance_types_path, class: 'btn btn-sm btn-danger' %>
+<% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @attendance_type.name %>
-</p>
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong>Code:</strong>
+    <%= @attendance_type.code %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @attendance_type.description %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @attendance_type.name %>
+  </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @attendance_type.status.name %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @attendance_type.description %>
+  </p>
 
-<%= link_to t('edit'), edit_attendance_type_path(@attendance_type), class: 'btn btn-sm btn-success' %>
-<%= link_to t('back'), attendance_types_path, class: 'btn btn-sm btn-danger' %>
+  <p>
+    <strong>Status:</strong>
+    <%= @attendance_type.status.name %>
+  </p>
+<% end %>

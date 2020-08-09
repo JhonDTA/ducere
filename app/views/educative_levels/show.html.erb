@@ -1,22 +1,28 @@
-<p>
-  <strong>Code:</strong>
-  <%= @educative_level.code %>
-</p>
+<% provide :title, @educative_level.name %>
+<% provide :card_title, t('activerecord.models.educative_level') %>
+<% content_for :card_footer do %>
+  <%= link_to t('edit'), edit_educative_level_path(@educative_level), class: 'btn btn-sm btn-success' %>
+  <%= link_to t('back'), educative_levels_path, class: 'btn btn-sm btn-danger' %>
+<% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @educative_level.name %>
-</p>
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong>Code:</strong>
+    <%= @educative_level.code %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @educative_level.description %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @educative_level.name %>
+  </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @educative_level.status.name %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @educative_level.description %>
+  </p>
 
-<%= link_to t('edit'), edit_educative_level_path(@educative_level), class: 'btn btn-sm btn-success' %>
-<%= link_to t('back'), educative_levels_path, class: 'btn btn-sm btn-danger' %>
+  <p>
+    <strong>Status:</strong>
+    <%= @educative_level.status.name %>
+  </p>
+<% end %>

@@ -1,22 +1,28 @@
-<p>
-  <strong>Code:</strong>
-  <%= @modality.code %>
-</p>
+<% provide :title, @modality.name %>
+<% provide :card_title, t('activerecord.models.modality') %>
+<% content_for :card_footer do %>
+  <%= link_to t('edit'), edit_modality_path(@modality), class: 'btn btn-sm btn-success' %>
+  <%= link_to t('back'), modalities_path, class: 'btn btn-sm btn-danger' %>
+<% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @modality.name %>
-</p>
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong>Code:</strong>
+    <%= @modality.code %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @modality.description %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @modality.name %>
+  </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @modality.status.name %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @modality.description %>
+  </p>
 
-<%= link_to t('edit'), edit_modality_path(@modality), class: 'btn btn-sm btn-success' %>
-<%= link_to t('back'), modalities_path, class: 'btn btn-sm btn-danger' %>
+  <p>
+    <strong>Status:</strong>
+    <%= @modality.status.name %>
+  </p>
+<% end %>

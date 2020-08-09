@@ -1,32 +1,38 @@
-<p>
-  <strong>Code:</strong>
-  <%= @turn.code %>
-</p>
+<% provide :title, @turn.name %>
+<% provide :card_title, t('activerecord.models.turn') %>
+<% content_for :card_footer do %>
+  <%= link_to t('edit'), edit_turn_path(@turn), class: 'btn btn-sm btn-success' %>
+  <%= link_to t('back'), turns_path, class: 'btn btn-sm btn-danger' %>
+<% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @turn.name %>
-</p>
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong>Code:</strong>
+    <%= @turn.code %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @turn.description %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @turn.name %>
+  </p>
 
-<p>
-  <strong>Start:</strong>
-  <%= @turn.start %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @turn.description %>
+  </p>
 
-<p>
-  <strong>Finish:</strong>
-  <%= @turn.finish %>
-</p>
+  <p>
+    <strong>Start:</strong>
+    <%= @turn.start %>
+  </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @turn.status.name %>
-</p>
+  <p>
+    <strong>Finish:</strong>
+    <%= @turn.finish %>
+  </p>
 
-<%= link_to t('edit'), edit_turn_path(@turn), class: 'btn btn-sm btn-success' %>
-<%= link_to t('back'), turns_path, class: 'btn btn-sm btn-danger' %>
+  <p>
+    <strong>Status:</strong>
+    <%= @turn.status.name %>
+  </p>
+<% end %>

@@ -1,12 +1,18 @@
-<p>
-  <strong>User:</strong>
-  <%= @professor.user.name %>
-</p>
+<% provide :title, @professor.name %>
+<% provide :card_title, t('activerecord.models.professor') %>
+<% content_for :card_footer do %>
+  <%= link_to t('edit'), edit_professor_path(@professor), class: 'btn btn-sm btn-success' %>
+  <%= link_to t('back'), professors_path, class: 'btn btn-sm btn-danger' %>
+<% end %>
 
-<p>
-  <strong>Enrollment:</strong>
-  <%= @professor.enrollment %>
-</p>
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong>User:</strong>
+    <%= @professor.user.name %>
+  </p>
 
-<%= link_to t('edit'), edit_professor_path(@professor), class: 'btn btn-sm btn-success' %>
-<%= link_to t('back'), professors_path, class: 'btn btn-sm btn-danger' %>
+  <p>
+    <strong>Enrollment:</strong>
+    <%= @professor.enrollment %>
+  </p>
+<% end %>

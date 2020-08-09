@@ -1,29 +1,33 @@
-<% provide(:title, @institution.name) %>
+<% provide :title, @institution.name %>
+<% provide :card_title, t('activerecord.models.institution') %>
+<% content_for :card_footer do %>
+  <%= link_to t('edit'), edit_institution_path(@institution), class: 'btn btn-sm btn-success' %>
+  <%= link_to t('back'), institutions_path, class: 'btn btn-sm btn-danger' %>
+<% end %>
 
-<p>
-  <strong>Code:</strong>
-  <%= @institution.code %>
-</p>
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong>Code:</strong>
+    <%= @institution.code %>
+  </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @institution.name %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @institution.name %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @institution.description %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @institution.description %>
+  </p>
 
-<p>
-  <strong>Country:</strong>
-  <%= @institution.country.name %>
-</p>
+  <p>
+    <strong>Country:</strong>
+    <%= @institution.country.name %>
+  </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @institution.status.name %>
-</p>
-
-<%= link_to t('edit'), edit_institution_path(@institution), class: 'btn btn-sm btn-success' %>
-<%= link_to t('back'), institutions_path, class: 'btn btn-sm btn-danger' %>
+  <p>
+    <strong>Status:</strong>
+    <%= @institution.status.name %>
+  </p>
+<% end %>

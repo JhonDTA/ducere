@@ -1,22 +1,28 @@
-<p>
-  <strong>Code:</strong>
-  <%= @group.code %>
-</p>
+<% provide :title, @group.name %>
+<% provide :card_title, t('activerecord.models.group') %>
+<% content_for :card_footer do %>
+  <%= link_to t('edit'), edit_group_path(@group), class: 'btn btn-sm btn-success' %>
+  <%= link_to t('back'), groups_path, class: 'btn btn-sm btn-danger' %>
+<% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @group.name %>
-</p>
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong>Code:</strong>
+    <%= @group.code %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @group.description %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @group.name %>
+  </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @group.status.name %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @group.description %>
+  </p>
 
-<%= link_to t('edit'), edit_group_path(@group), class: 'btn btn-sm btn-success' %>
-<%= link_to t('back'), groups_path, class: 'btn btn-sm btn-danger' %>
+  <p>
+    <strong>Status:</strong>
+    <%= @group.status.name %>
+  </p>
+<% end %>

@@ -1,12 +1,18 @@
-<p>
-  <strong>Academic cycle:</strong>
-  <%= @cycle_modality.academic_cycle.name %>
-</p>
+<% provide :title, @cycle_modality.name %>
+<% provide :card_title, t('activerecord.models.cycle_modality') %>
+<% content_for :card_footer do %>
+  <%= link_to t('edit'), edit_cycle_modality_path(@cycle_modality), class: 'btn btn-sm btn-success' %>
+  <%= link_to t('back'), cycle_modalities_path, class: 'btn btn-sm btn-danger' %>
+<% end %>
 
-<p>
-  <strong>Modality:</strong>
-  <%= @cycle_modality.modality.name %>
-</p>
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong>Academic cycle:</strong>
+    <%= @cycle_modality.academic_cycle.name %>
+  </p>
 
-<%= link_to t('edit'), edit_cycle_modality_path(@cycle_modality), class: 'btn btn-sm btn-success' %>
-<%= link_to t('back'), cycle_modalities_path, class: 'btn btn-sm btn-danger' %>
+  <p>
+    <strong>Modality:</strong>
+    <%= @cycle_modality.modality.name %>
+  </p>
+<% end %>

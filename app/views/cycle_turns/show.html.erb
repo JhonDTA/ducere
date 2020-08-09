@@ -1,12 +1,18 @@
-<p>
-  <strong>Cycle modality:</strong>
-  <%= @cycle_turn.cycle_modality.name %>
-</p>
+<% provide :title, @cycle_turn.name %>
+<% provide :card_title, t('activerecord.models.cycle_turn') %>
+<% content_for :card_footer do %>
+  <%= link_to t('edit'), edit_cycle_turn_path(@cycle_turn), class: 'btn btn-sm btn-success' %>
+  <%= link_to t('back'), cycle_turns_path, class: 'btn btn-sm btn-danger' %>
+<% end %>
 
-<p>
-  <strong>Turn:</strong>
-  <%= @cycle_turn.turn.name %>
-</p>
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong>Cycle modality:</strong>
+    <%= @cycle_turn.cycle_modality.name %>
+  </p>
 
-<%= link_to t('edit'), edit_cycle_turn_path(@cycle_turn), class: 'btn btn-sm btn-success' %>
-<%= link_to t('back'), cycle_turns_path, class: 'btn btn-sm btn-danger' %>
+  <p>
+    <strong>Turn:</strong>
+    <%= @cycle_turn.turn.name %>
+  </p>
+<% end %>

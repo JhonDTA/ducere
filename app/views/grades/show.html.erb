@@ -1,22 +1,28 @@
-<p>
-  <strong>Code:</strong>
-  <%= @grade.code %>
-</p>
+<% provide :title, @grade.name %>
+<% provide :card_title, t('activerecord.models.grade') %>
+<% content_for :card_footer do %>
+  <%= link_to t('edit'), edit_grade_path(@grade), class: 'btn btn-sm btn-success' %>
+  <%= link_to t('back'), grades_path, class: 'btn btn-sm btn-danger' %>
+<% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @grade.name %>
-</p>
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong>Code:</strong>
+    <%= @grade.code %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @grade.description %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @grade.name %>
+  </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @grade.status.name %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @grade.description %>
+  </p>
 
-<%= link_to t('edit'), edit_grade_path(@grade), class: 'btn btn-sm btn-success' %>
-<%= link_to 'Back', grades_path %>
+  <p>
+    <strong>Status:</strong>
+    <%= @grade.status.name %>
+  </p>
+<% end %>

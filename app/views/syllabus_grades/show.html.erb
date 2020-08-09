@@ -1,12 +1,18 @@
-<p>
-  <strong>Career syllabus:</strong>
-  <%= @syllabus_grade.career_syllabus.name %>
-</p>
+<% provide :title, @syllabus_grade.name %>
+<% provide :card_title, t('activerecord.models.syllabus_grade') %>
+<% content_for :card_footer do %>
+  <%= link_to t('edit'), edit_syllabus_grade_path(@syllabus_grade), class: 'btn btn-sm btn-success' %>
+  <%= link_to 'Back', syllabus_grades_path %>
+<% end %>
 
-<p>
-  <strong>Grade:</strong>
-  <%= @syllabus_grade.grade.name %>
-</p>
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong>Career syllabus:</strong>
+    <%= @syllabus_grade.career_syllabus.name %>
+  </p>
 
-<%= link_to t('edit'), edit_syllabus_grade_path(@syllabus_grade), class: 'btn btn-sm btn-success' %>
-<%= link_to 'Back', syllabus_grades_path %>
+  <p>
+    <strong>Grade:</strong>
+    <%= @syllabus_grade.grade.name %>
+  </p>
+<% end %>

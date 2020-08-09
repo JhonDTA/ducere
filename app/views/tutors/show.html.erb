@@ -1,17 +1,23 @@
-<p>
-  <strong>Student:</strong>
-  <%= @tutor.student.name %>
-</p>
+<% provide :title, @tutor.name %>
+<% provide :card_title, t('activerecord.models.tutor') %>
+<% content_for :card_footer do %>
+  <%= link_to t('edit'), edit_tutor_path(@tutor), class: 'btn btn-sm btn-success' %>
+  <%= link_to t('back'), tutors_path, class: 'btn btn-sm btn-danger' %>
+<% end %>
 
-<p>
-  <strong>Parent:</strong>
-  <%= @tutor.parent.name %>
-</p>
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong>Student:</strong>
+    <%= @tutor.student.name %>
+  </p>
 
-<p>
-  <strong>Relationship:</strong>
-  <%= @tutor.relationship.name %>
-</p>
+  <p>
+    <strong>Parent:</strong>
+    <%= @tutor.parent.name %>
+  </p>
 
-<%= link_to t('edit'), edit_tutor_path(@tutor), class: 'btn btn-sm btn-success' %>
-<%= link_to t('back'), tutors_path %>
+  <p>
+    <strong>Relationship:</strong>
+    <%= @tutor.relationship.name %>
+  </p>
+<% end %>

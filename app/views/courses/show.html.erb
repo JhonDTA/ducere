@@ -1,27 +1,33 @@
-<p>
-  <strong>Code:</strong>
-  <%= @course.code %>
-</p>
+<% provide :title, @course.name %>
+<% provide :card_title, t('activerecord.models.course') %>
+<% content_for :card_footer do %>
+  <%= link_to t('edit'), edit_course_path(@course), class: 'btn btn-sm btn-success' %>
+  <%= link_to t('back'), courses_path, class: 'btn btn-sm btn-danger' %>
+<% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @course.name %>
-</p>
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong>Code:</strong>
+    <%= @course.code %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @course.description %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @course.name %>
+  </p>
 
-<p>
-  <strong>Credits:</strong>
-  <%= @course.credits %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @course.description %>
+  </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @course.status.name %>
-</p>
+  <p>
+    <strong>Credits:</strong>
+    <%= @course.credits %>
+  </p>
 
-<%= link_to t('edit'), edit_course_path(@course), class: 'btn btn-sm btn-success' %>
-<%= link_to t('back'), courses_path, class: 'btn btn-sm btn-danger' %>
+  <p>
+    <strong>Status:</strong>
+    <%= @course.status.name %>
+  </p>
+<% end %>
