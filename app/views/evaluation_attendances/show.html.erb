@@ -7,17 +7,22 @@
 
 <%= render 'shared/cards/show' do %>
   <p>
-    <strong>Student:</strong>
+    <strong>
+      <% t('activerecord.attributes.evaluation_attendance.student_course_id') %>
+      :</strong>
     <%= @evaluation_attendance.student_course.name %>
   </p>
 
   <p>
-    <strong>Attendance type:</strong>
+    <strong>
+      <% t('activerecord.attributes.evaluation_attendance.attendance_type_id') %>
+      :</strong>
     <%= @evaluation_attendance.attendance_type.name %>
   </p>
 
   <p>
-    <strong>Date:</strong>
+    <strong>
+      <% t('activerecord.attributes.evaluation_attendance.date') %>:</strong>
     <%= @evaluation_attendance.date %>
   </p>
 <% end %>

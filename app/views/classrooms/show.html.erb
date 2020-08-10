@@ -7,22 +7,22 @@
 
 <%= render 'shared/cards/show' do %>
   <p>
-    <strong>Code:</strong>
+    <strong><%= t('activerecord.attributes.classroom.code') %>:</strong>
     <%= @classroom.code %>
   </p>
 
   <p>
-    <strong>Description:</strong>
+    <strong><%= t('activerecord.attributes.classroom.description') %>:</strong>
     <%= @classroom.description %>
   </p>
 
   <p>
-    <strong>Building:</strong>
+    <strong><%= t('activerecord.attributes.classroom.building_id') %>:</strong>
     <%= @classroom.building.name %>
   </p>
 
   <p>
-    <strong>Status:</strong>
+    <strong><%= t('activerecord.attributes.classroom.status_id') %>:</strong>
     <%= @classroom.status.name %>
   </p>
 <% end %>

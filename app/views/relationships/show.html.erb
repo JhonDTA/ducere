@@ -7,12 +7,14 @@
 
 <%= render 'shared/cards/show' do %>
   <p>
-    <strong>Name:</strong>
+    <strong>
+      <% t('activerecord.attributes.relationship.name') %>:</strong>
     <%= @relationship.name %>
   </p>
 
   <p>
-    <strong>Status:</strong>
+    <strong>
+      <% t('activerecord.attributes.relationship.status_id') %>:</strong>
     <%= @relationship.status.name %>
   </p>
 <% end %>

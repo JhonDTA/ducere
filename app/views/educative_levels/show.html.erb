@@ -7,22 +7,24 @@
 
 <%= render 'shared/cards/show' do %>
   <p>
-    <strong>Code:</strong>
+    <strong><%= t('activerecord.attributes.educative_level.code') %>:</strong>
     <%= @educative_level.code %>
   </p>
 
   <p>
-    <strong>Name:</strong>
+    <strong><%= t('activerecord.attributes.educative_level.name') %>:</strong>
     <%= @educative_level.name %>
   </p>
 
   <p>
-    <strong>Description:</strong>
+    <strong><%= t('activerecord.attributes.educative_level.description') %>
+      :</strong>
     <%= @educative_level.description %>
   </p>
 
   <p>
-    <strong>Status:</strong>
+    <strong><%= t('activerecord.attributes.educative_level.status_id') %>
+      :</strong>
     <%= @educative_level.status.name %>
   </p>
 <% end %>

@@ -7,12 +7,13 @@
 
 <%= render 'shared/cards/show' do %>
   <p>
-    <strong>Cycle modality:</strong>
+    <strong><%= t('activerecord.attributes.cycle_turn.cycle_modality_id') %>
+      :</strong>
     <%= @cycle_turn.cycle_modality.name %>
   </p>
 
   <p>
-    <strong>Turn:</strong>
+    <strong><%= t('activerecord.attributes.cycle_turn.turn_id') %>:</strong>
     <%= @cycle_turn.turn.name %>
   </p>
 <% end %>

@@ -7,12 +7,15 @@
 
 <%= render 'shared/cards/show' do %>
   <p>
-    <strong>Syllabus grade:</strong>
+    <strong>
+      <% t('activerecord.attributes.grade_course.syllabus_grade_id') %>
+      :</strong>
     <%= @grade_course.syllabus_grade.name %>
   </p>
 
   <p>
-    <strong>Course:</strong>
+    <strong>
+      <% t('activerecord.attributes.grade_course.course_id') %>:</strong>
     <%= @grade_course.course.name %>
   </p>
 <% end %>

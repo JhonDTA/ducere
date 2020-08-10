@@ -7,27 +7,27 @@
 
 <%= render 'shared/cards/show' do %>
   <p>
-    <strong>Code:</strong>
+    <strong><%= t('activerecord.attributes.cycle_type.code') %>:</strong>
     <%= @cycle_type.code %>
   </p>
 
   <p>
-    <strong>Name:</strong>
+    <strong><%= t('activerecord.attributes.cycle_type.name') %>:</strong>
     <%= @cycle_type.name %>
   </p>
 
   <p>
-    <strong>Description:</strong>
+    <strong><%= t('activerecord.attributes.cycle_type.description') %>:</strong>
     <%= @cycle_type.description %>
   </p>
 
   <p>
-    <strong>Duration:</strong>
+    <strong><%= t('activerecord.attributes.cycle_type.duration') %>:</strong>
     <%= @cycle_type.duration %>
   </p>
 
   <p>
-    <strong>Status:</strong>
+    <strong><%= t('activerecord.attributes.cycle_type.status_id') %>:</strong>
     <%= @cycle_type.status.name %>
   </p>
 <% end %>

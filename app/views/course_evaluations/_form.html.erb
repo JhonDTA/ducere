@@ -4,7 +4,7 @@
   <div class="field">
     <%= form.label :grade_course_id %>
     <%= form.collection_select :grade_course_id, GradeCourse.collection,
-                               :id, :name, class: 'form-control' %>
+                               :id, :name, {}, class: 'form-control' %>
   </div>
 
   <div class="field">
@@ -16,8 +16,8 @@
 
   <div class="field">
     <%= form.label :professor_id %>
-    <%= form.collection_select :professor_id, Professor.collection, :id, :name,
-                               {}, class: 'form-control' %>
+    <%= form.collection_select :professor_id, Professor.collection,
+                               :id, :name, {}, class: 'form-control' %>
   </div>
 
   <div class="field">

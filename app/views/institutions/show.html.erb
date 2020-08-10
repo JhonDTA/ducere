@@ -7,27 +7,32 @@
 
 <%= render 'shared/cards/show' do %>
   <p>
-    <strong>Code:</strong>
+    <strong>
+      <% t('activerecord.attributes.institution.code') %>:</strong>
     <%= @institution.code %>
   </p>
 
   <p>
-    <strong>Name:</strong>
+    <strong>
+      <% t('activerecord.attributes.institution.name') %>:</strong>
     <%= @institution.name %>
   </p>
 
   <p>
-    <strong>Description:</strong>
+    <strong>
+      <% t('activerecord.attributes.institution.description') %>:</strong>
     <%= @institution.description %>
   </p>
 
   <p>
-    <strong>Country:</strong>
+    <strong>
+      <% t('activerecord.attributes.institution.country_id') %>:</strong>
     <%= @institution.country.name %>
   </p>
 
   <p>
-    <strong>Status:</strong>
+    <strong>
+      <% t('activerecord.attributes.institution.status_id') %>:</strong>
     <%= @institution.status.name %>
   </p>
 <% end %>

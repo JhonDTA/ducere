@@ -7,32 +7,38 @@
 
 <%= render 'shared/cards/show' do %>
   <p>
-    <strong>Code:</strong>
+    <strong>
+      <% t('activerecord.attributes.turn.code') %>:</strong>
     <%= @turn.code %>
   </p>
 
   <p>
-    <strong>Name:</strong>
+    <strong>
+      <% t('activerecord.attributes.turn.name') %>:</strong>
     <%= @turn.name %>
   </p>
 
   <p>
-    <strong>Description:</strong>
+    <strong>
+      <% t('activerecord.attributes.turn.description') %>:</strong>
     <%= @turn.description %>
   </p>
 
   <p>
-    <strong>Start:</strong>
+    <strong>
+      <% t('activerecord.attributes.turn.start') %>:</strong>
     <%= @turn.start %>
   </p>
 
   <p>
-    <strong>Finish:</strong>
+    <strong>
+      <% t('activerecord.attributes.turn.finish') %>:</strong>
     <%= @turn.finish %>
   </p>
 
   <p>
-    <strong>Status:</strong>
+    <strong>
+      <% t('activerecord.attributes.turn.status_id') %>:</strong>
     <%= @turn.status.name %>
   </p>
 <% end %>

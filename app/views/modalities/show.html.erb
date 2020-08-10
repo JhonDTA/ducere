@@ -7,22 +7,26 @@
 
 <%= render 'shared/cards/show' do %>
   <p>
-    <strong>Code:</strong>
+    <strong>
+      <% t('activerecord.attributes.modality.code') %>:</strong>
     <%= @modality.code %>
   </p>
 
   <p>
-    <strong>Name:</strong>
+    <strong>
+      <% t('activerecord.attributes.modality.name') %>:</strong>
     <%= @modality.name %>
   </p>
 
   <p>
-    <strong>Description:</strong>
+    <strong>
+      <% t('activerecord.attributes.modality.description') %>:</strong>
     <%= @modality.description %>
   </p>
 
   <p>
-    <strong>Status:</strong>
+    <strong>
+      <% t('activerecord.attributes.modality.status_id') %>:</strong>
     <%= @modality.status.name %>
   </p>
 <% end %>

@@ -7,17 +7,21 @@
 
 <%= render 'shared/cards/show' do %>
   <p>
-    <strong>Student homework:</strong>
+    <strong>
+      <% t('activerecord.attributes.homework_mark.student_homework_id') %>
+      :</strong>
     <%= @homework_mark.student_homework_id %>
   </p>
 
   <p>
-    <strong>Mark:</strong>
+    <strong>
+      <% t('activerecord.attributes.homework_mark.mark') %>:</strong>
     <%= @homework_mark.mark %>
   </p>
 
   <p>
-    <strong>Observations:</strong>
+    <strong>
+      <% t('activerecord.attributes.homework_mark.observations') %>:</strong>
     <%= @homework_mark.observations %>
   </p>
 <% end %>

@@ -7,22 +7,22 @@
 
 <%= render 'shared/cards/show' do %>
   <p>
-    <strong>Student course:</strong>
+    <strong><%= t('activerecord.attributes.course_mark.student_course_id') %>:</strong>
     <%= @course_mark.student_course.name %>
   </p>
 
   <p>
-    <strong>Mark:</strong>
+    <strong><%= t('activerecord.attributes.course_mark.mark') %>:</strong>
     <%= @course_mark.mark %>
   </p>
 
   <p>
-    <strong>Attendance:</strong>
+    <strong><%= t('activerecord.attributes.course_mark.attendance') %>:</strong>
     <%= @course_mark.attendance %>
   </p>
 
   <p>
-    <strong>Observations:</strong>
+    <strong><%= t('activerecord.attributes.course_mark.observations') %>:</strong>
     <%= @course_mark.observations %>
   </p>
 <% end %>

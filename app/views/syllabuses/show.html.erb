@@ -7,27 +7,32 @@
 
 <%= render 'shared/cards/show' do %>
   <p>
-    <strong>Code:</strong>
+    <strong>
+      <% t('activerecord.attributes.syllabus.code') %>:</strong>
     <%= @syllabus.code %>
   </p>
 
   <p>
-    <strong>Name:</strong>
+    <strong>
+      <% t('activerecord.attributes.syllabus.name') %>:</strong>
     <%= @syllabus.name %>
   </p>
 
   <p>
-    <strong>Description:</strong>
+    <strong>
+      <% t('activerecord.attributes.syllabus.description') %>:</strong>
     <%= @syllabus.description %>
   </p>
 
   <p>
-    <strong>Approval credits:</strong>
+    <strong>
+      <% t('activerecord.attributes.syllabus.approval_credits') %>:</strong>
     <%= @syllabus.approval_credits %>
   </p>
 
   <p>
-    <strong>Status:</strong>
+    <strong>
+      <% t('activerecord.attributes.syllabus.status_id') %>:</strong>
     <%= @syllabus.status.name %>
   </p>
 <% end %>

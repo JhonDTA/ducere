@@ -7,12 +7,12 @@
 
 <%= render 'shared/cards/show' do %>
   <p>
-    <strong>Campus:</strong>
+    <strong><%= t('activerecord.attributes.campus_evaluation.campus_id') %>:</strong>
     <%= @campus_evaluation.campus.name %>
   </p>
 
   <p>
-    <strong>Turn evaluation:</strong>
+    <strong><%= t('activerecord.attributes.campus_evaluation.turn_evaluation_id') %>:</strong>
     <%= @campus_evaluation.turn_evaluation.name %>
   </p>
 <% end %>

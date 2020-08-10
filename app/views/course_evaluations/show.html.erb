@@ -7,22 +7,26 @@
 
 <%= render 'shared/cards/show' do %>
   <p>
-    <strong>Grade course:</strong>
+    <strong><%= t('activerecord.attributes.course_evaluation.grade_course_id') %>
+      :</strong>
     <%= @course_evaluation.grade_course.name %>
   </p>
 
   <p>
-    <strong>Campus evaluation:</strong>
+    <strong><%= t('activerecord.attributes.course_evaluation.campus_evaluation_id') %>
+      :</strong>
     <%= @course_evaluation.campus_evaluation.name %>
   </p>
 
   <p>
-    <strong>Professor:</strong>
+    <strong><%= t('activerecord.attributes.course_evaluation.professor_id') %>
+      :</strong>
     <%= @course_evaluation.professor.name %>
   </p>
 
   <p>
-    <strong>Group:</strong>
+    <strong><%= t('activerecord.attributes.course_evaluation.group_id') %>
+      :</strong>
     <%= @course_evaluation.group.name %>
   </p>
 <% end %>
