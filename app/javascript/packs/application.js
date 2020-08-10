@@ -8,12 +8,10 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("custom")
-require('admin-lte')
+require('bootstrap/dist/js/bootstrap.min')
+require("admin-lte/dist/js/adminlte.min")
+require('@fortawesome/fontawesome-free/css/all.min.css')
 
-
-import 'bootstrap'
-import 'admin-lte/dist/js/adminlte.min'
-import '@fortawesome/fontawesome-free/js/all'
 import '../stylesheets/application'
 
 document.addEventListener("turbolinks:load", () => {
