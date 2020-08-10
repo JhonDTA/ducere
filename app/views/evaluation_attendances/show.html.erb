@@ -8,21 +8,21 @@
 <%= render 'shared/cards/show' do %>
   <p>
     <strong>
-      <% t('activerecord.attributes.evaluation_attendance.student_course_id') %>
+      <%= t('activerecord.attributes.evaluation_attendance.student_course_id') %>
       :</strong>
     <%= @evaluation_attendance.student_course.name %>
   </p>
 
   <p>
     <strong>
-      <% t('activerecord.attributes.evaluation_attendance.attendance_type_id') %>
+      <%= t('activerecord.attributes.evaluation_attendance.attendance_type_id') %>
       :</strong>
     <%= @evaluation_attendance.attendance_type.name %>
   </p>
 
   <p>
     <strong>
-      <% t('activerecord.attributes.evaluation_attendance.date') %>:</strong>
+      <%= t('activerecord.attributes.evaluation_attendance.date') %>:</strong>
     <%= @evaluation_attendance.date %>
   </p>
 <% end %>

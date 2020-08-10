@@ -8,31 +8,31 @@
 <%= render 'shared/cards/show' do %>
   <p>
     <strong>
-      <% t('activerecord.attributes.syllabus.code') %>:</strong>
+      <%= t('activerecord.attributes.syllabus.code') %>:</strong>
     <%= @syllabus.code %>
   </p>
 
   <p>
     <strong>
-      <% t('activerecord.attributes.syllabus.name') %>:</strong>
+      <%= t('activerecord.attributes.syllabus.name') %>:</strong>
     <%= @syllabus.name %>
   </p>
 
   <p>
     <strong>
-      <% t('activerecord.attributes.syllabus.description') %>:</strong>
+      <%= t('activerecord.attributes.syllabus.description') %>:</strong>
     <%= @syllabus.description %>
   </p>
 
   <p>
     <strong>
-      <% t('activerecord.attributes.syllabus.approval_credits') %>:</strong>
+      <%= t('activerecord.attributes.syllabus.approval_credits') %>:</strong>
     <%= @syllabus.approval_credits %>
   </p>
 
   <p>
     <strong>
-      <% t('activerecord.attributes.syllabus.status_id') %>:</strong>
+      <%= t('activerecord.attributes.syllabus.status_id') %>:</strong>
     <%= @syllabus.status.name %>
   </p>
 <% end %>

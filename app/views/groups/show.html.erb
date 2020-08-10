@@ -8,25 +8,25 @@
 <%= render 'shared/cards/show' do %>
   <p>
     <strong>
-      <% t('activerecord.attributes.group.code') %>:</strong>
+      <%= t('activerecord.attributes.group.code') %>:</strong>
     <%= @group.code %>
   </p>
 
   <p>
     <strong>
-      <% t('activerecord.attributes.group.name') %>:</strong>
+      <%= t('activerecord.attributes.group.name') %>:</strong>
     <%= @group.name %>
   </p>
 
   <p>
     <strong>
-      <% t('activerecord.attributes.group.description') %>:</strong>
+      <%= t('activerecord.attributes.group.description') %>:</strong>
     <%= @group.description %>
   </p>
 
   <p>
     <strong>
-      <% t('activerecord.attributes.group.status_id') %>:</strong>
+      <%= t('activerecord.attributes.group.status_id') %>:</strong>
     <%= @group.status.name %>
   </p>
 <% end %>

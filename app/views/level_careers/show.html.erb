@@ -8,14 +8,14 @@
 <%= render 'shared/cards/show' do %>
   <p>
     <strong>
-      <% t('activerecord.attributes.level_career.educative_level_id') %>
+      <%= t('activerecord.attributes.level_career.educative_level_id') %>
       :</strong>
     <%= @level_career.educative_level.name %>
   </p>
 
   <p>
     <strong>
-      <% t('activerecord.attributes.level_career.career_id') %>:</strong>
+      <%= t('activerecord.attributes.level_career.career_id') %>:</strong>
     <%= @level_career.career.name %>
   </p>
 <% end %>

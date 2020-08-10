@@ -8,37 +8,37 @@
 <%= render 'shared/cards/show' do %>
   <p>
     <strong>
-      <% t('activerecord.attributes.turn.code') %>:</strong>
+      <%= t('activerecord.attributes.turn.code') %>:</strong>
     <%= @turn.code %>
   </p>
 
   <p>
     <strong>
-      <% t('activerecord.attributes.turn.name') %>:</strong>
+      <%= t('activerecord.attributes.turn.name') %>:</strong>
     <%= @turn.name %>
   </p>
 
   <p>
     <strong>
-      <% t('activerecord.attributes.turn.description') %>:</strong>
+      <%= t('activerecord.attributes.turn.description') %>:</strong>
     <%= @turn.description %>
   </p>
 
   <p>
     <strong>
-      <% t('activerecord.attributes.turn.start') %>:</strong>
+      <%= t('activerecord.attributes.turn.start') %>:</strong>
     <%= @turn.start %>
   </p>
 
   <p>
     <strong>
-      <% t('activerecord.attributes.turn.finish') %>:</strong>
+      <%= t('activerecord.attributes.turn.finish') %>:</strong>
     <%= @turn.finish %>
   </p>
 
   <p>
     <strong>
-      <% t('activerecord.attributes.turn.status_id') %>:</strong>
+      <%= t('activerecord.attributes.turn.status_id') %>:</strong>
     <%= @turn.status.name %>
   </p>
 <% end %>

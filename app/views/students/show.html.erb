@@ -8,13 +8,13 @@
 <%= render 'shared/cards/show' do %>
   <p>
     <strong>
-      <% t('activerecord.attributes.student.user_id') %>:</strong>
+      <%= t('activerecord.attributes.student.user_id') %>:</strong>
     <%= @student.user.name %>
   </p>
 
   <p>
     <strong>
-      <% t('activerecord.attributes.student.enrollment') %>:</strong>
+      <%= t('activerecord.attributes.student.enrollment') %>:</strong>
     <%= @student.enrollment %>
   </p>
 <% end %>

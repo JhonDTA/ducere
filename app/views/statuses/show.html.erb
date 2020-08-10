@@ -8,19 +8,19 @@
 <%= render 'shared/cards/show' do %>
   <p>
     <strong>
-      <% t('activerecord.attributes.status.code') %>:</strong>
+      <%= t('activerecord.attributes.status.code') %>:</strong>
     <%= @status.code %>
   </p>
 
   <p>
     <strong>
-      <% t('activerecord.attributes.status.name') %>:</strong>
+      <%= t('activerecord.attributes.status.name') %>:</strong>
     <%= @status.name %>
   </p>
 
   <p>
     <strong>
-      <% t('activerecord.attributes.status.description') %>:</strong>
+      <%= t('activerecord.attributes.status.description') %>:</strong>
     <%= @status.description %>
   </p>
 <% end %>

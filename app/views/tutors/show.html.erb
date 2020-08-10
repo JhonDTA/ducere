@@ -8,19 +8,19 @@
 <%= render 'shared/cards/show' do %>
   <p>
     <strong>
-      <% t('activerecord.attributes.tutor.student_id') %>:</strong>
+      <%= t('activerecord.attributes.tutor.student_id') %>:</strong>
     <%= @tutor.student.name %>
   </p>
 
   <p>
     <strong>
-      <% t('activerecord.attributes.tutor.parent_id') %>:</strong>
+      <%= t('activerecord.attributes.tutor.parent_id') %>:</strong>
     <%= @tutor.parent.name %>
   </p>
 
   <p>
     <strong>
-      <% t('activerecord.attributes.tutor.relationship_id') %>:</strong>
+      <%= t('activerecord.attributes.tutor.relationship_id') %>:</strong>
     <%= @tutor.relationship.name %>
   </p>
 <% end %>

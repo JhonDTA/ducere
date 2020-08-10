@@ -8,25 +8,26 @@
 <%= render 'shared/cards/show' do %>
   <p>
     <strong>
-      <% t('activerecord.attributes.evaluation_period.code') %>:</strong>
+      <%= t('activerecord.attributes.evaluation_period.code') %>:</strong>
     <%= @evaluation_period.code %>
   </p>
 
   <p>
     <strong>
-      <% t('activerecord.attributes.evaluation_period.name') %>:</strong>
+      <%= t('activerecord.attributes.evaluation_period.name') %>:</strong>
     <%= @evaluation_period.name %>
   </p>
 
   <p>
     <strong>
-      <% t('activerecord.attributes.evaluation_period.description') %>:</strong>
+      <%= t('activerecord.attributes.evaluation_period.description') %>
+      :</strong>
     <%= @evaluation_period.description %>
   </p>
 
   <p>
     <strong>
-      <% t('activerecord.attributes.evaluation_period.status_id') %>:</strong>
+      <%= t('activerecord.attributes.evaluation_period.status_id') %>:</strong>
     <%= @evaluation_period.status.name %>
   </p>
 <% end %>

@@ -7,7 +7,8 @@
 
 <%= render 'shared/cards/show' do %>
   <p>
-    <strong><%= t('activerecord.attributes.course_homework.course_evaluation_id') %>:</strong>
+    <strong><%= t('activerecord.attributes.course_homework.course_evaluation_id') %>
+      :</strong>
     <%= @course_homework.course_evaluation.name %>
   </p>
 
@@ -17,7 +18,8 @@
   </p>
 
   <p>
-    <strong><%= t('activerecord.attributes.course_homework.description') %>:</strong>
+    <strong><%= t('activerecord.attributes.course_homework.description') %>
+      :</strong>
     <%= @course_homework.description %>
   </p>
 <% end %>

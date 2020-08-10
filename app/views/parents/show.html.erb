@@ -8,7 +8,7 @@
 <%= render 'shared/cards/show' do %>
   <p>
     <strong>
-      <% t('activerecord.attributes.parent.user_id') %>:</strong>
+      <%= t('activerecord.attributes.parent.user_id') %>:</strong>
     <%= @parent.user.name %>
   </p>
 <% end %>

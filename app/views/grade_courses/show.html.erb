@@ -8,14 +8,14 @@
 <%= render 'shared/cards/show' do %>
   <p>
     <strong>
-      <% t('activerecord.attributes.grade_course.syllabus_grade_id') %>
+      <%= t('activerecord.attributes.grade_course.syllabus_grade_id') %>
       :</strong>
     <%= @grade_course.syllabus_grade.name %>
   </p>
 
   <p>
     <strong>
-      <% t('activerecord.attributes.grade_course.course_id') %>:</strong>
+      <%= t('activerecord.attributes.grade_course.course_id') %>:</strong>
     <%= @grade_course.course.name %>
   </p>
 <% end %>
