@@ -1,17 +1,19 @@
 <% if object.errors.any? %>
   <% resource_key = "activerecord.models.#{object.class.to_s.underscore}" %>
-  <div id="error_explanation">
-    <h2>
-      <%= t('error_message',
-            errors: pluralize(object.errors.count,
-                              t('error'), locale: I18n.locale),
-            resource: t(resource_key).downcase) %>:
-    </h2>
+  <div id="error_explanation" class="info-box bg-danger">
+    <div class="info-box-content">
+      <h4>
+        <%= t('error_message',
+              errors: pluralize(object.errors.count,
+                                t('error'), locale: I18n.locale),
+              resource: t(resource_key).downcase) %>:
+      </h4>
 
-    <ul>
-      <% object.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
+      <ul>
+        <% object.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 <% end %>
