@@ -1,14 +1,14 @@
-<% provide(:title, t('attendance_types')) %>
+<% provide(:title, t('evaluation_attendances')) %>
 
 <% content_for :card_header do %>
-  <%= will_paginate @attendance_types, class: 'pagination-sm float-right',
+  <%= will_paginate @evaluation_attendances, class: 'pagination-sm float-right',
                     :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
 <% end %>
 
 <% content_for :card_footer do %>
-  <%= link_to t('new_resource', resource: t('activerecord.models.attendance_type')),
-              new_attendance_type_path, class: 'btn btn-sm btn-primary' %>
-  <%= will_paginate @attendance_types, class: 'pagination-sm m-0 float-right',
+  <%= link_to t('new_resource', resource: t('activerecord.models.evaluation_attendance')),
+              new_evaluation_attendance_path, class: 'btn btn-sm btn-primary' %>
+  <%= will_paginate @evaluation_attendances, class: 'pagination-sm m-0 float-right',
                     :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
 <% end %>
 
@@ -41,9 +41,4 @@
     <% end %>
     </tbody>
   </table>
-
-  <br>
-
-  <%= link_to 'New Evaluation Attendance', new_evaluation_attendance_path %>
-  <%= will_paginate @evaluation_attendances %>
 <% end %>
