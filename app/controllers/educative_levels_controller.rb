@@ -31,7 +31,7 @@ class EducativeLevelsController < ApplicationController
 
     respond_to do |format|
       if @educative_level.save
-        format.html { redirect_to @educative_level, notice: 'Educative level was successfully created.' }
+        format.html { redirect_to @educative_level, notice: t('created_resource', resource: resource_name) }
         format.json { render :show, status: :created, location: @educative_level }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class EducativeLevelsController < ApplicationController
   def update
     respond_to do |format|
       if @educative_level.update(educative_level_params)
-        format.html { redirect_to @educative_level, notice: 'Educative level was successfully updated.' }
+        format.html { redirect_to @educative_level, notice: t('updated_resource', resource: resource_name) }
         format.json { render :show, status: :ok, location: @educative_level }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class EducativeLevelsController < ApplicationController
   def destroy
     @educative_level.destroy
     respond_to do |format|
-      format.html { redirect_to educative_levels_url, notice: 'Educative level was successfully destroyed.' }
+      format.html { redirect_to educative_levels_url, notice: t('destroyed_resource', resource: resource_name) }
       format.json { head :no_content }
     end
   end

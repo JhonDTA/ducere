@@ -31,7 +31,7 @@ class StudentHomeworksController < ApplicationController
 
     respond_to do |format|
       if @student_homework.save
-        format.html { redirect_to @student_homework, notice: 'Student homework was successfully created.' }
+        format.html { redirect_to @student_homework, notice: t('created_resource', resource: resource_name) }
         format.json { render :show, status: :created, location: @student_homework }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class StudentHomeworksController < ApplicationController
   def update
     respond_to do |format|
       if @student_homework.update(student_homework_params)
-        format.html { redirect_to @student_homework, notice: 'Student homework was successfully updated.' }
+        format.html { redirect_to @student_homework, notice: t('updated_resource', resource: resource_name) }
         format.json { render :show, status: :ok, location: @student_homework }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class StudentHomeworksController < ApplicationController
   def destroy
     @student_homework.destroy
     respond_to do |format|
-      format.html { redirect_to student_homeworks_url, notice: 'Student homework was successfully destroyed.' }
+      format.html { redirect_to student_homeworks_url, notice: t('destroyed_resource', resource: resource_name) }
       format.json { head :no_content }
     end
   end

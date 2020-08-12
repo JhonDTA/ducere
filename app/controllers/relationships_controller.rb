@@ -31,7 +31,7 @@ class RelationshipsController < ApplicationController
 
     respond_to do |format|
       if @relationship.save
-        format.html { redirect_to @relationship, notice: 'Relationship was successfully created.' }
+        format.html { redirect_to @relationship, notice: t('created_resource', resource: resource_name) }
         format.json { render :show, status: :created, location: @relationship }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class RelationshipsController < ApplicationController
   def update
     respond_to do |format|
       if @relationship.update(relationship_params)
-        format.html { redirect_to @relationship, notice: 'Relationship was successfully updated.' }
+        format.html { redirect_to @relationship, notice: t('updated_resource', resource: resource_name) }
         format.json { render :show, status: :ok, location: @relationship }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class RelationshipsController < ApplicationController
   def destroy
     @relationship.destroy
     respond_to do |format|
-      format.html { redirect_to relationships_url, notice: 'Relationship was successfully destroyed.' }
+      format.html { redirect_to relationships_url, notice: t('destroyed_resource', resource: resource_name) }
       format.json { head :no_content }
     end
   end

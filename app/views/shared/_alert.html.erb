@@ -4,7 +4,7 @@
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <h5>
         <%= icon('fas', "check") %>
-        <%= flash_type(type) %>
+        <%= t("flash.#{flash_type(type)}") %>
       </h5>
       <%= msg %>
     </div>

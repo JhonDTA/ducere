@@ -31,7 +31,7 @@ class ProfessorsController < ApplicationController
 
     respond_to do |format|
       if @professor.save
-        format.html { redirect_to @professor, notice: 'Professor was successfully created.' }
+        format.html { redirect_to @professor, notice: t('created_resource', resource: resource_name) }
         format.json { render :show, status: :created, location: @professor }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class ProfessorsController < ApplicationController
   def update
     respond_to do |format|
       if @professor.update(professor_params)
-        format.html { redirect_to @professor, notice: 'Professor was successfully updated.' }
+        format.html { redirect_to @professor, notice: t('updated_resource', resource: resource_name) }
         format.json { render :show, status: :ok, location: @professor }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class ProfessorsController < ApplicationController
   def destroy
     @professor.destroy
     respond_to do |format|
-      format.html { redirect_to professors_url, notice: 'Professor was successfully destroyed.' }
+      format.html { redirect_to professors_url, notice: t('destroyed_resource', resource: resource_name) }
       format.json { head :no_content }
     end
   end

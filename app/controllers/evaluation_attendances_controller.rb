@@ -31,7 +31,7 @@ class EvaluationAttendancesController < ApplicationController
 
     respond_to do |format|
       if @evaluation_attendance.save
-        format.html { redirect_to @evaluation_attendance, notice: 'Evaluation attendance was successfully created.' }
+        format.html { redirect_to @evaluation_attendance, notice: t('created_resource', resource: resource_name) }
         format.json { render :show, status: :created, location: @evaluation_attendance }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class EvaluationAttendancesController < ApplicationController
   def update
     respond_to do |format|
       if @evaluation_attendance.update(evaluation_attendance_params)
-        format.html { redirect_to @evaluation_attendance, notice: 'Evaluation attendance was successfully updated.' }
+        format.html { redirect_to @evaluation_attendance, notice: t('updated_resource', resource: resource_name) }
         format.json { render :show, status: :ok, location: @evaluation_attendance }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class EvaluationAttendancesController < ApplicationController
   def destroy
     @evaluation_attendance.destroy
     respond_to do |format|
-      format.html { redirect_to evaluation_attendances_url, notice: 'Evaluation attendance was successfully destroyed.' }
+      format.html { redirect_to evaluation_attendances_url, notice: t('destroyed_resource', resource: resource_name) }
       format.json { head :no_content }
     end
   end

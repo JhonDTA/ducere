@@ -31,7 +31,7 @@ class LevelCareersController < ApplicationController
 
     respond_to do |format|
       if @level_career.save
-        format.html { redirect_to @level_career, notice: 'Level career was successfully created.' }
+        format.html { redirect_to @level_career, notice: t('created_resource', resource: resource_name) }
         format.json { render :show, status: :created, location: @level_career }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class LevelCareersController < ApplicationController
   def update
     respond_to do |format|
       if @level_career.update(level_career_params)
-        format.html { redirect_to @level_career, notice: 'Level career was successfully updated.' }
+        format.html { redirect_to @level_career, notice: t('updated_resource', resource: resource_name) }
         format.json { render :show, status: :ok, location: @level_career }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class LevelCareersController < ApplicationController
   def destroy
     @level_career.destroy
     respond_to do |format|
-      format.html { redirect_to level_careers_url, notice: 'Level career was successfully destroyed.' }
+      format.html { redirect_to level_careers_url, notice: t('destroyed_resource', resource: resource_name) }
       format.json { head :no_content }
     end
   end

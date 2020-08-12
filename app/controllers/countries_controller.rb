@@ -30,7 +30,7 @@ class CountriesController < ApplicationController
 
     respond_to do |format|
       if @country.save
-        format.html { redirect_to @country, notice: t('created_resource', resource: t('activerecord.models.country')) }
+        format.html { redirect_to @country, notice: t('created_resource', resource: resource_name) }
         format.json { render :show, status: :created, location: @country }
       else
         format.html { render :new }

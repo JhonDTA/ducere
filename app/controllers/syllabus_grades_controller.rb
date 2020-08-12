@@ -31,7 +31,7 @@ class SyllabusGradesController < ApplicationController
 
     respond_to do |format|
       if @syllabus_grade.save
-        format.html { redirect_to @syllabus_grade, notice: 'Syllabus grade was successfully created.' }
+        format.html { redirect_to @syllabus_grade, notice: t('created_resource', resource: resource_name) }
         format.json { render :show, status: :created, location: @syllabus_grade }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class SyllabusGradesController < ApplicationController
   def update
     respond_to do |format|
       if @syllabus_grade.update(syllabus_grade_params)
-        format.html { redirect_to @syllabus_grade, notice: 'Syllabus grade was successfully updated.' }
+        format.html { redirect_to @syllabus_grade, notice: t('updated_resource', resource: resource_name) }
         format.json { render :show, status: :ok, location: @syllabus_grade }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class SyllabusGradesController < ApplicationController
   def destroy
     @syllabus_grade.destroy
     respond_to do |format|
-      format.html { redirect_to syllabus_grades_url, notice: 'Syllabus grade was successfully destroyed.' }
+      format.html { redirect_to syllabus_grades_url, notice: t('destroyed_resource', resource: resource_name) }
       format.json { head :no_content }
     end
   end

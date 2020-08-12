@@ -31,7 +31,7 @@ class EvaluationPeriodsController < ApplicationController
 
     respond_to do |format|
       if @evaluation_period.save
-        format.html { redirect_to @evaluation_period, notice: 'Evaluation period was successfully created.' }
+        format.html { redirect_to @evaluation_period, notice: t('created_resource', resource: resource_name) }
         format.json { render :show, status: :created, location: @evaluation_period }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class EvaluationPeriodsController < ApplicationController
   def update
     respond_to do |format|
       if @evaluation_period.update(evaluation_period_params)
-        format.html { redirect_to @evaluation_period, notice: 'Evaluation period was successfully updated.' }
+        format.html { redirect_to @evaluation_period, notice: t('updated_resource', resource: resource_name) }
         format.json { render :show, status: :ok, location: @evaluation_period }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class EvaluationPeriodsController < ApplicationController
   def destroy
     @evaluation_period.destroy
     respond_to do |format|
-      format.html { redirect_to evaluation_periods_url, notice: 'Evaluation period was successfully destroyed.' }
+      format.html { redirect_to evaluation_periods_url, notice: t('destroyed_resource', resource: resource_name) }
       format.json { head :no_content }
     end
   end

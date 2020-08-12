@@ -31,7 +31,7 @@ class AttendanceTypesController < ApplicationController
 
     respond_to do |format|
       if @attendance_type.save
-        format.html { redirect_to @attendance_type, notice: 'Attendance type was successfully created.' }
+        format.html { redirect_to @attendance_type, notice: t('created_resource', resource: resource_name) }
         format.json { render :show, status: :created, location: @attendance_type }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class AttendanceTypesController < ApplicationController
   def update
     respond_to do |format|
       if @attendance_type.update(attendance_type_params)
-        format.html { redirect_to @attendance_type, notice: 'Attendance type was successfully updated.' }
+        format.html { redirect_to @attendance_type, notice: t('updated_resource', resource: resource_name) }
         format.json { render :show, status: :ok, location: @attendance_type }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class AttendanceTypesController < ApplicationController
   def destroy
     @attendance_type.destroy
     respond_to do |format|
-      format.html { redirect_to attendance_types_url, notice: 'Attendance type was successfully destroyed.' }
+      format.html { redirect_to attendance_types_url, notice: t('destroyed_resource', resource: resource_name) }
       format.json { head :no_content }
     end
   end

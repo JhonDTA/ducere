@@ -31,7 +31,7 @@ class AcademicCyclesController < ApplicationController
 
     respond_to do |format|
       if @academic_cycle.save
-        format.html { redirect_to @academic_cycle, notice: 'Academic cycle was successfully created.' }
+        format.html { redirect_to @academic_cycle, notice: t('created_resource', resource: resource_name) }
         format.json { render :show, status: :created, location: @academic_cycle }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class AcademicCyclesController < ApplicationController
   def update
     respond_to do |format|
       if @academic_cycle.update(academic_cycle_params)
-        format.html { redirect_to @academic_cycle, notice: 'Academic cycle was successfully updated.' }
+        format.html { redirect_to @academic_cycle, notice: t('updated_resource', resource: resource_name) }
         format.json { render :show, status: :ok, location: @academic_cycle }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class AcademicCyclesController < ApplicationController
   def destroy
     @academic_cycle.destroy
     respond_to do |format|
-      format.html { redirect_to academic_cycles_url, notice: 'Academic cycle was successfully destroyed.' }
+      format.html { redirect_to academic_cycles_url, notice: t('destroyed_resource', resource: resource_name) }
       format.json { head :no_content }
     end
   end

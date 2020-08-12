@@ -31,7 +31,7 @@ class ModalitiesController < ApplicationController
 
     respond_to do |format|
       if @modality.save
-        format.html { redirect_to @modality, notice: 'Modality was successfully created.' }
+        format.html { redirect_to @modality, notice: t('created_resource', resource: resource_name) }
         format.json { render :show, status: :created, location: @modality }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class ModalitiesController < ApplicationController
   def update
     respond_to do |format|
       if @modality.update(modality_params)
-        format.html { redirect_to @modality, notice: 'Modality was successfully updated.' }
+        format.html { redirect_to @modality, notice: t('updated_resource', resource: resource_name) }
         format.json { render :show, status: :ok, location: @modality }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class ModalitiesController < ApplicationController
   def destroy
     @modality.destroy
     respond_to do |format|
-      format.html { redirect_to modalities_url, notice: 'Modality was successfully destroyed.' }
+      format.html { redirect_to modalities_url, notice: t('destroyed_resource', resource: resource_name) }
       format.json { head :no_content }
     end
   end

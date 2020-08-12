@@ -31,7 +31,7 @@ class CycleTurnsController < ApplicationController
 
     respond_to do |format|
       if @cycle_turn.save
-        format.html { redirect_to @cycle_turn, notice: 'Cycle turn was successfully created.' }
+        format.html { redirect_to @cycle_turn, notice: t('created_resource', resource: resource_name) }
         format.json { render :show, status: :created, location: @cycle_turn }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class CycleTurnsController < ApplicationController
   def update
     respond_to do |format|
       if @cycle_turn.update(cycle_turn_params)
-        format.html { redirect_to @cycle_turn, notice: 'Cycle turn was successfully updated.' }
+        format.html { redirect_to @cycle_turn, notice: t('updated_resource', resource: resource_name) }
         format.json { render :show, status: :ok, location: @cycle_turn }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class CycleTurnsController < ApplicationController
   def destroy
     @cycle_turn.destroy
     respond_to do |format|
-      format.html { redirect_to cycle_turns_url, notice: 'Cycle turn was successfully destroyed.' }
+      format.html { redirect_to cycle_turns_url, notice: t('destroyed_resource', resource: resource_name) }
       format.json { head :no_content }
     end
   end

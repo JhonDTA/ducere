@@ -31,7 +31,7 @@ class TurnEvaluationsController < ApplicationController
 
     respond_to do |format|
       if @turn_evaluation.save
-        format.html { redirect_to @turn_evaluation, notice: 'Turn evaluation was successfully created.' }
+        format.html { redirect_to @turn_evaluation, notice: t('created_resource', resource: resource_name) }
         format.json { render :show, status: :created, location: @turn_evaluation }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class TurnEvaluationsController < ApplicationController
   def update
     respond_to do |format|
       if @turn_evaluation.update(turn_evaluation_params)
-        format.html { redirect_to @turn_evaluation, notice: 'Turn evaluation was successfully updated.' }
+        format.html { redirect_to @turn_evaluation, notice: t('updated_resource', resource: resource_name) }
         format.json { render :show, status: :ok, location: @turn_evaluation }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class TurnEvaluationsController < ApplicationController
   def destroy
     @turn_evaluation.destroy
     respond_to do |format|
-      format.html { redirect_to turn_evaluations_url, notice: 'Turn evaluation was successfully destroyed.' }
+      format.html { redirect_to turn_evaluations_url, notice: t('destroyed_resource', resource: resource_name) }
       format.json { head :no_content }
     end
   end

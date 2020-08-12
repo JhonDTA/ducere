@@ -32,7 +32,7 @@ class CareerSyllabusesController < ApplicationController
 
     respond_to do |format|
       if @career_syllabus.save
-        format.html { redirect_to @career_syllabus, notice: 'Career syllabus was successfully created.' }
+        format.html { redirect_to @career_syllabus, notice: t('created_resource', resource: resource_name) }
         format.json { render :show, status: :created, location: @career_syllabus }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class CareerSyllabusesController < ApplicationController
   def update
     respond_to do |format|
       if @career_syllabus.update(career_syllabus_params)
-        format.html { redirect_to @career_syllabus, notice: 'Career syllabus was successfully updated.' }
+        format.html { redirect_to @career_syllabus, notice: t('updated_resource', resource: resource_name) }
         format.json { render :show, status: :ok, location: @career_syllabus }
       else
         format.html { render :edit }
@@ -60,7 +60,7 @@ class CareerSyllabusesController < ApplicationController
   def destroy
     @career_syllabus.destroy
     respond_to do |format|
-      format.html { redirect_to career_syllabuses_url, notice: 'Career syllabus was successfully destroyed.' }
+      format.html { redirect_to career_syllabuses_url, notice: t('destroyed_resource', resource: resource_name) }
       format.json { head :no_content }
     end
   end

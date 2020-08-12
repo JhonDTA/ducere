@@ -31,7 +31,7 @@ class CourseEvaluationsController < ApplicationController
 
     respond_to do |format|
       if @course_evaluation.save
-        format.html { redirect_to @course_evaluation, notice: 'Course evaluation was successfully created.' }
+        format.html { redirect_to @course_evaluation, notice: t('created_resource', resource: resource_name) }
         format.json { render :show, status: :created, location: @course_evaluation }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class CourseEvaluationsController < ApplicationController
   def update
     respond_to do |format|
       if @course_evaluation.update(course_evaluation_params)
-        format.html { redirect_to @course_evaluation, notice: 'Course evaluation was successfully updated.' }
+        format.html { redirect_to @course_evaluation, notice: t('updated_resource', resource: resource_name) }
         format.json { render :show, status: :ok, location: @course_evaluation }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class CourseEvaluationsController < ApplicationController
   def destroy
     @course_evaluation.destroy
     respond_to do |format|
-      format.html { redirect_to course_evaluations_url, notice: 'Course evaluation was successfully destroyed.' }
+      format.html { redirect_to course_evaluations_url, notice: t('destroyed_resource', resource: resource_name) }
       format.json { head :no_content }
     end
   end

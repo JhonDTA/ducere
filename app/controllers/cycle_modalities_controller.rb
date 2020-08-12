@@ -31,7 +31,7 @@ class CycleModalitiesController < ApplicationController
 
     respond_to do |format|
       if @cycle_modality.save
-        format.html { redirect_to @cycle_modality, notice: 'Cycle modality was successfully created.' }
+        format.html { redirect_to @cycle_modality, notice: t('created_resource', resource: resource_name) }
         format.json { render :show, status: :created, location: @cycle_modality }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class CycleModalitiesController < ApplicationController
   def update
     respond_to do |format|
       if @cycle_modality.update(cycle_modality_params)
-        format.html { redirect_to @cycle_modality, notice: 'Cycle modality was successfully updated.' }
+        format.html { redirect_to @cycle_modality, notice: t('updated_resource', resource: resource_name) }
         format.json { render :show, status: :ok, location: @cycle_modality }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class CycleModalitiesController < ApplicationController
   def destroy
     @cycle_modality.destroy
     respond_to do |format|
-      format.html { redirect_to cycle_modalities_url, notice: 'Cycle modality was successfully destroyed.' }
+      format.html { redirect_to cycle_modalities_url, notice: t('destroyed_resource', resource: resource_name) }
       format.json { head :no_content }
     end
   end

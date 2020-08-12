@@ -502,6 +502,10 @@ es-MX:
     previous_label: "&#8592;"
     next_label: "&#8594;"
     page_gap: "&hellip;"
+  flash:
+    success: 'Correcto'
+    warning: 'Advertencia'
+    danger: 'Peligro'
 
   app_name: "Ducere"
   home: "Inicio"
