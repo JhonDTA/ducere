@@ -1,1 +1,3 @@
-
+<%= render 'static_pages/student_dashboard' if current_user&.student? %>
+<%= render 'static_pages/professor_dashboard' if current_user&.professor? %>
+<%= render 'static_pages/parent_dashboard' if current_user&.parent? %>

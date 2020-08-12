@@ -369,3 +369,5 @@ en:
   menu: "Menu"
   error_message: "%{errors} prohibited this %{resource} from being saved"
   error: "error"
+  more_info: "More info"
+  my_courses: "My courses"

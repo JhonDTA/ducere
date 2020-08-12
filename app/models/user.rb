@@ -21,4 +21,19 @@ class User < ApplicationRecord
   def name
     "#{first_name} #{last_name} #{second_last_name}"
   end
+
+  # @return [TrueClass, FalseClass]
+  def student?
+    Student.find_by(user: self).present?
+  end
+
+  # @return [TrueClass, FalseClass]
+  def professor?
+    Professor.find_by(user: self).present?
+  end
+
+  # @return [TrueClass, FalseClass]
+  def parent?
+    Parent.find_by(user: self).present?
+  end
 end

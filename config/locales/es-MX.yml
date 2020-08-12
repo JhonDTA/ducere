@@ -588,3 +588,5 @@ es-MX:
   menu: "Menú"
   error_message: "%{errors} impidieron que se guardara este %{resource}"
   error: "error"
+  more_info: "Más información"
+  my_courses: "Mis materias"
