@@ -6,7 +6,7 @@
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field form-group">
-      <%= f.label :email %><br/>
+      <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control',
                         autofocus: true, autocomplete: "email",
                         value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
@@ -16,6 +16,7 @@
       <%= f.submit t('resend_confirmation'), class: 'btn btn-primary form-control' %>
     </div>
   <% end %>
+
   <% content_for :card_footer do %>
     <%= render "devise/shared/links" %>
   <% end %>

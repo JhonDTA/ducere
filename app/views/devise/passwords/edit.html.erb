@@ -7,15 +7,16 @@
     <%= f.hidden_field :reset_password_token %>
 
     <div class="field">
-      <%= f.label :password, t('new_password') %><br/>
+      <%= f.label :password, t('new_password') %>
       <% if @minimum_password_length %>
-        <em>(<%= t('password_minimum', char_count: @minimum_password_length) %>)</em><br/>
+        <small>(<%= t('password_minimum', char_count: @minimum_password_length) %>
+          )</small>
       <% end %>
       <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation, t('confirm_password') %><br/>
+      <%= f.label :password_confirmation, t('confirm_password') %>
       <%= f.password_field :password_confirmation, class: 'form-control',
                            autocomplete: "new-password" %>
     </div>
@@ -27,5 +28,4 @@
   <% content_for :card_footer do %>
     <%= render "devise/shared/links" %>
   <% end %>
-  </div>
 <% end %>

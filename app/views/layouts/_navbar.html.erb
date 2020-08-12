@@ -139,7 +139,7 @@
         <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0;">
           <!-- User image -->
           <li class="user-header bg-primary">
-            <%= image_tag current_user.avatar.variant(resize_to_limit: [100, 100]),
+            <%= image_tag current_user.avatar,
                           class: 'img-circle elevation-2', alt: 'User Image' if current_user.avatar.attached? %>
             <p>
               <%= current_user.name %>
