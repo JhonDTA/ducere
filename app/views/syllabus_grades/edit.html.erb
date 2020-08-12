@@ -5,6 +5,6 @@
   <%= render 'form', syllabus_grade: @syllabus_grade %>
   <% content_for :card_footer do %>
     <%= link_to t('show'), @syllabus_grade, class: 'btn btn-sm btn-info' %>
-    <%= link_to 'Back', syllabus_grades_path %>
+    <%= link_to t('back'), syllabus_grades_path, class: 'btn btn-sm btn-danger' %>
   <% end %>
 <% end %>

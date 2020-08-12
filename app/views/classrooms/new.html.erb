@@ -4,6 +4,6 @@
 <%= render 'shared/cards/form_card' do %>
   <%= render 'form', classroom: @classroom %>
   <% content_for :card_footer do %>
-    <%= link_to 'Back', classrooms_path %>
+    <%= link_to t('back'), classrooms_path, class: 'btn btn-sm btn-danger' %>
   <% end %>
 <% end %>

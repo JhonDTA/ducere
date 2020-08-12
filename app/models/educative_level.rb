@@ -6,7 +6,7 @@ class EducativeLevel < ApplicationRecord
   belongs_to :status
 
   # Has many associations -----------------------------------------------------
-  has_many :level_careers, dependent: :restrict_with_exception
+  has_many :level_careers, dependent: :restrict_with_error
 
   # Validations ---------------------------------------------------------------
   validates :code, :name, presence: true
