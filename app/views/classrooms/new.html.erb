@@ -3,7 +3,7 @@
 
 <%= render 'shared/cards/form_card' do %>
   <%= render 'form', classroom: @classroom %>
-  <% content_for :back_button do %>
+  <% content_for :card_footer do %>
     <%= link_to 'Back', classrooms_path %>
   <% end %>
 <% end %>

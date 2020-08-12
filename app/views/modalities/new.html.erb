@@ -3,7 +3,7 @@
 
 <%= render 'shared/cards/form_card' do %>
   <%= render 'form', modality: @modality %>
-  <% content_for :back_button do %>
+  <% content_for :card_footer do %>
     <%= link_to t('back'), modalities_path, class: 'btn btn-sm btn-danger' %>
   <% end %>
 <% end %>

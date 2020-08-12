@@ -3,7 +3,7 @@
 
 <%= render 'shared/cards/form_card' do %>
   <%= render 'form', grade: @grade %>
-  <% content_for :back_button do %>
+  <% content_for :card_footer do %>
     <%= link_to t('show'), @grade, class: 'btn btn-sm btn-info' %>
     <%= link_to t('back'), grades_path, class: 'btn btn-sm btn-danger' %>
   <% end %>
