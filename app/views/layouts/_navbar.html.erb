@@ -130,7 +130,7 @@
       <!-- User Dropdown Menu -->
       <li class="nav-item dropdown user-menu">
         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-          <%= image_tag current_user.avatar.variant(resize_to_limit: [100, 100]),
+          <%= image_tag current_user.avatar,
                         class: 'user-image img-circle elevation-2',
                         alt: 'User Image' if current_user.avatar.attached? %>
 
@@ -163,9 +163,9 @@
           </li>
           <!-- Menu Footer-->
           <li class="user-footer">
-            <%= link_to t('settings'), edit_user_registration_path, class: 'btn btn-outline-primary btn-flat' %>
+            <%= link_to t('settings'), edit_user_registration_path, class: 'btn btn-sm btn-outline-primary' %>
             <%= link_to t('sign_out'), destroy_user_session_path, method: 'delete',
-                        class: 'btn btn-outline-danger btn-flat float-right' %>
+                        class: 'btn btn-sm btn-outline-danger float-right' %>
           </li>
         </ul>
       </li>
