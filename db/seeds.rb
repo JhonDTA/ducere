@@ -126,6 +126,13 @@ def create_courses
   end
 end
 
+def create_currencies
+  CSV.foreach('db/external_data/currencies.csv', headers: true) do |row|
+    Currency.create(name: row['name'], iso_code: row['iso_code'],
+                    symbol: row['symbol'])
+  end
+end
+
 def create_cycle_types
   path = 'db/external_data/cycle_types.csv'
   CSV.foreach(path, headers: true) do |row|
@@ -469,6 +476,7 @@ create_careers
 create_syllabuses
 create_grades
 create_courses
+create_currencies
 create_cycle_types
 create_academic_cycles
 create_modalities

@@ -1,0 +1,41 @@
+<% provide(:title, t('currencies')) %>
+
+<% content_for :card_header do %>
+  <%= will_paginate @currencies, class: 'pagination-sm float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<% content_for :card_footer do %>
+  <%= link_to t('new_resource', resource: t('activerecord.models.currency')),
+              new_currency_path, class: 'btn btn-sm btn-primary' %>
+  <%= will_paginate @currencies, class: 'pagination-sm m-0 float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<%= render 'shared/cards/index_card' do %>
+  <table class="table table-hover table-head-fixed text-nowrap">
+    <thead>
+    <tr>
+      <th><%= t('activerecord.attributes.currency.iso_code') %></th>
+      <th><%= t('activerecord.attributes.currency.name') %></th>
+      <th><%= t('activerecord.attributes.currency.symbol') %></th>
+      <th colspan="1"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @currencies.each do |currency| %>
+      <tr>
+        <td><%= currency.iso_code %></td>
+        <td><%= currency.name %></td>
+        <td><%= currency.symbol %></td>
+        <td>
+          <%= link_to t('show'), currency, class: 'btn btn-sm btn-info' %>
+          <%= link_to t('edit'), edit_currency_path(currency), class: 'btn btn-sm btn-success' %>
+          <%= link_to t('destroy'), currency, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>

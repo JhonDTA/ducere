@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_01_062250) do
+ActiveRecord::Schema.define(version: 2020_08_13_044849) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -183,6 +183,15 @@ ActiveRecord::Schema.define(version: 2020_08_01_062250) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["code"], name: "uidx_courses_code", unique: true
     t.index ["status_id"], name: "index_courses_on_status_id"
+  end
+
+  create_table "currencies", force: :cascade do |t|
+    t.string "iso_code", limit: 3, null: false
+    t.string "name", limit: 255, null: false
+    t.string "symbol", limit: 8, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["iso_code"], name: "uidx_currencies_index", unique: true
   end
 
   create_table "cycle_modalities", force: :cascade do |t|

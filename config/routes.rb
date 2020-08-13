@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   resources :campuses
   resources :institutions
   resources :statuses
+  resources :currencies
 
   resources :homework_marks
   resources :student_homeworks

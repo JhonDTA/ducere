@@ -1,0 +1,10 @@
+<% provide :title, t('edit_resource', resource: t('activerecord.models.currency')) %>
+<% provide :card_title, t('activerecord.models.currency') %>
+
+<%= render 'shared/cards/form_card' do %>
+  <%= render 'form', currency: @currency %>
+  <% content_for :card_footer do %>
+    <%= link_to t('show'), @currency, class: 'btn btn-sm btn-info' %>
+    <%= link_to t('back'), currencies_path, class: 'btn btn-sm btn-danger' %>
+  <% end %>
+<% end %>

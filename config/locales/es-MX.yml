@@ -15,6 +15,7 @@ es-MX:
       course_evaluation: "Evaluación de la materia"
       course_homework: "Tarea de la materia"
       course_mark: "Calificación de la materia"
+      currency: "Divisa"
       cycle_modality: "Modalidad del ciclo"
       cycle_turn: "Turno del ciclo"
       cycle_type: "Tipo de ciclo"
@@ -107,6 +108,10 @@ es-MX:
         mark: "Calificación"
         attendance: "Asistencias"
         observations: "Observaciones"
+      currency:
+        iso_code: "Clave ISO"
+        name: "Nombre"
+        symbol: "Símbolo"
       cycle_modality:
         academic_cycle_id: "Ciclo académico"
         modality_id: "Modalidad"
@@ -561,6 +566,7 @@ es-MX:
   course_evaluations: "Evaluaciones de la materia"
   course_homeworks: "Tareas de la materia"
   course_marks: "Calificaciones de la materia"
+  currencies: "Divisas"
   cycle_modalities: "Modalidades del ciclo"
   cycle_turns: "Turnos del ciclo"
   cycle_types: "Tipos de ciclo"

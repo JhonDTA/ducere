@@ -1,0 +1,23 @@
+<% provide :title, @currency.name %>
+<% provide :card_title, t('activerecord.models.currency') %>
+<% content_for :card_footer do %>
+  <%= link_to t('edit'), edit_currency_path(@currency), class: 'btn btn-sm btn-success' %>
+  <%= link_to t('back'), currencies_path, class: 'btn btn-sm btn-danger' %>
+<% end %>
+
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong><%= t('activerecord.attributes.currency.iso_code') %>:</strong>
+    <%= @currency.iso_code %>
+  </p>
+
+  <p>
+    <strong><%= t('activerecord.attributes.currency.name') %>:</strong>
+    <%= @currency.name %>
+  </p>
+
+  <p>
+    <strong><%= t('activerecord.attributes.currency.symbol') %>:</strong>
+    <%= @currency.symbol %>
+  </p>
+<% end %>
