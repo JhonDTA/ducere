@@ -8,9 +8,9 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("custom")
-require('bootstrap/dist/js/bootstrap.min')
-require("admin-lte/dist/js/adminlte.min")
-require('@fortawesome/fontawesome-free/css/all.min.css')
+require('bootstrap/dist/js/bootstrap')
+require("admin-lte/dist/js/adminlte")
+require('@fortawesome/fontawesome-free/css/all.css')
 
 import '../stylesheets/application'
 
