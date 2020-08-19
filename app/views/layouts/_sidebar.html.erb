@@ -11,6 +11,11 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent"
             data-widget="treeview" role="menu" data-accordion="false">
+          <li class="nav-item">
+            <%= link_to root_path, class: 'nav-link' do %>
+              <%= icon('fas', 'tachometer-alt', class: 'nav-icon') %><%= t('dashboard') %>
+            <% end %>
+          </li>
           <li class="nav-header"><%= t('menu') %></li>
           <li class="nav-item has-treeview">
             <%= link_to '#', class: 'nav-link' do %>
