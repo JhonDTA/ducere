@@ -1,30 +1,16 @@
 <!-- Sidebar section -->
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-primary elevation-4 sidebar-no-expand">
   <!-- Brand Logo -->
-  <%= link_to root_path, class: 'brand-link' do %>
-    <%= image_tag 'AdminLTELogo.png', class: 'brand-image img-circle elevation-3' %>
-    <span class="brand-text font-weight-light"><%= t('app_name') %></span>
-  <% end %>
+  <%= render 'layouts/sidebar/brand_logo' %>
   <!-- Sidebar -->
   <% if user_signed_in? %>
     <div class="sidebar">
       <!-- Sidebar user (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <%= image_tag current_user.avatar,
-                        class: 'img-circle elevation-2',
-                        alt: 'User Image' if current_user.avatar.attached? %>
-        </div>
-        <div class="info">
-          <%= link_to current_user.name, '#', class: 'd-block' %>
-        </div>
-      </div>
+      <%= render 'layouts/sidebar/user_panel' if current_user %>
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent"
             data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
           <li class="nav-header"><%= t('menu') %></li>
           <li class="nav-item has-treeview">
             <%= link_to '#', class: 'nav-link' do %>
