@@ -2,7 +2,7 @@
   <div class="col-lg-3">
     <div class="small-box bg-gradient-info">
       <div class="inner">
-        <h3><%= ProfessorCourse.count %></h3>
+        <h3><%= current_user.professor.professor_courses.count %></h3>
         <p><%= t('professor_courses') %></p>
       </div>
       <div class="icon">
