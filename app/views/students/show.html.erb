@@ -1,20 +1,47 @@
 <% provide :title, @student.name %>
-<% provide :card_title, t('activerecord.models.student') %>
-<% content_for :card_footer do %>
-  <%= link_to t('edit'), edit_student_path(@student), class: 'btn btn-sm btn-success' %>
-  <%= link_to t('back'), students_path, class: 'btn btn-sm btn-danger' %>
-<% end %>
 
-<%= render 'shared/cards/show' do %>
-  <p>
-    <strong>
-      <%= t('activerecord.attributes.student.user_id') %>:</strong>
-    <%= @student.user.name %>
-  </p>
-
-  <p>
-    <strong>
-      <%= t('activerecord.attributes.student.enrollment') %>:</strong>
-    <%= @student.enrollment %>
-  </p>
-<% end %>
+<div class="col-md-8 offset-md-2">
+  <div class="card card-widget widget-user">
+    <!-- Add the bg color to the header using any of the bg-* classes -->
+    <div class="widget-user-header bg-gradient-info">
+      <h3 class="widget-user-username"><%= @student.name %></h3>
+      <h5 class="widget-user-desc"><%= t('activerecord.attributes.student.enrollment') %>
+        : <%= @student.enrollment %></h5>
+    </div>
+    <div class="widget-user-image">
+      <%= image_tag @student.avatar.variant(resize_to_limit: [100, 100]), class: 'img-size-100 img-circle mr-3 elevation-2',
+                    alt: 'User Avatar' if @student.avatar.attached? %>
+    </div>
+    <div class="card-footer">
+      <div class="row">
+        <div class="col-sm-4 border-right">
+          <div class="description-block">
+            <h5 class="description-header">Description Header</h5>
+            <span class="description-text">Description Text</span>
+          </div>
+          <!-- /.description-block -->
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-4 border-right">
+          <div class="description-block">
+            <h5 class="description-header">Description Header</h5>
+            <span class="description-text">Description Text</span>
+          </div>
+          <!-- /.description-block -->
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-4">
+          <div class="description-block">
+            <h5 class="description-header">Description Header</h5>
+            <span class="description-text">Description Text</span>
+          </div>
+          <!-- /.description-block -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+      <%= link_to t('edit'), edit_student_path(@student), class: 'btn btn-sm btn-success' %>
+      <%= link_to t('back'), students_path, class: 'btn btn-sm btn-danger' %>
+    </div>
+  </div>
+</div>

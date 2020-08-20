@@ -1,56 +1,56 @@
 <div class="row">
   <div class="col-lg-3">
-    <div class="small-box bg-info">
+    <div class="small-box bg-gradient-info">
       <div class="inner">
-        <h3><%= t('courses') %></h3>
-        <p><%= t('my_courses') %></p>
+        <h3><%= EducativeLevel.count %></h3>
+        <p><%= t('educative_levels') %></p>
       </div>
       <div class="icon">
-        <%= icon('fas', 'chalkboard-teacher') %>
+        <%= icon('fas', 'layer-group') %>
       </div>
-      <%= link_to '#', class: 'small-box-footer' do %>
+      <%= link_to educative_levels_path, class: 'small-box-footer' do %>
         <%= t('more_info') %> <%= icon('fas', 'arrow-circle-right') %>
       <% end %>
     </div>
   </div>
   <div class="col-lg-3">
-    <div class="small-box bg-info">
+    <div class="small-box bg-gradient-info">
       <div class="inner">
-        <h3><%= t('courses') %></h3>
-        <p><%= t('my_courses') %></p>
+        <h3><%= Career.count %></h3>
+        <p><%= t('careers') %></p>
       </div>
       <div class="icon">
-        <%= icon('fas', 'chalkboard-teacher') %>
+        <%= icon('fas', 'graduation-cap') %>
       </div>
-      <%= link_to '#', class: 'small-box-footer' do %>
+      <%= link_to careers_path, class: 'small-box-footer' do %>
         <%= t('more_info') %> <%= icon('fas', 'arrow-circle-right') %>
       <% end %>
     </div>
   </div>
   <div class="col-lg-3">
-    <div class="small-box bg-info">
+    <div class="small-box bg-gradient-info">
       <div class="inner">
-        <h3><%= t('courses') %></h3>
-        <p><%= t('my_courses') %></p>
+        <h3><%= Syllabus.count %></h3>
+        <p><%= t('syllabuses') %></p>
       </div>
       <div class="icon">
-        <%= icon('fas', 'chalkboard-teacher') %>
+        <%= icon('fas', 'list') %>
       </div>
-      <%= link_to '#', class: 'small-box-footer' do %>
+      <%= link_to syllabuses_path, class: 'small-box-footer' do %>
         <%= t('more_info') %> <%= icon('fas', 'arrow-circle-right') %>
       <% end %>
     </div>
   </div>
   <div class="col-lg-3">
-    <div class="small-box bg-info">
+    <div class="small-box bg-gradient-info">
       <div class="inner">
-        <h3><%= t('courses') %></h3>
-        <p><%= t('my_courses') %></p>
+        <h3><%= Course.count %></h3>
+        <p><%= t('courses') %></p>
       </div>
       <div class="icon">
-        <%= icon('fas', 'chalkboard-teacher') %>
+        <%= icon('fas', 'book-open') %>
       </div>
-      <%= link_to '#', class: 'small-box-footer' do %>
+      <%= link_to courses_path, class: 'small-box-footer' do %>
         <%= t('more_info') %> <%= icon('fas', 'arrow-circle-right') %>
       <% end %>
     </div>

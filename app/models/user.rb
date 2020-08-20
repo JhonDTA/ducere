@@ -7,9 +7,9 @@ class User < ApplicationRecord
          :confirmable, :lockable, :timeoutable, :trackable
 
   # Has many associations -----------------------------------------------------
-  has_many :parents, dependent: :restrict_with_error
-  has_many :professors, dependent: :restrict_with_error
-  has_many :students, dependent: :restrict_with_error
+  has_one :parent, dependent: :restrict_with_error
+  has_one :professor, dependent: :restrict_with_error
+  has_one :student, dependent: :restrict_with_error
   has_one_attached :avatar
 
   # Validations ---------------------------------------------------------------

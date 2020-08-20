@@ -13,5 +13,5 @@ class Student < ApplicationRecord
   validates :user_id, :enrollment, uniqueness: true
   validates :enrollment, length: { minimum: 1, maximum: 32 }
 
-  delegate :name, to: :user
+  delegate :name, :avatar, to: :user
 end

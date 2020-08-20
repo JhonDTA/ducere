@@ -1,56 +1,28 @@
 <div class="row">
   <div class="col-lg-3">
-    <div class="small-box bg-info">
+    <div class="small-box bg-gradient-info">
       <div class="inner">
-        <h3><%= t('courses') %></h3>
-        <p><%= t('my_courses') %></p>
+        <h3><%= current_user.student.student_courses.count %></h3>
+        <p><%= t('student_courses') %></p>
       </div>
       <div class="icon">
-        <%= icon('fas', 'chalkboard-teacher') %>
+        <%= icon('fas', 'school') %>
       </div>
-      <%= link_to '#', class: 'small-box-footer' do %>
+      <%= link_to student_courses_path, class: 'small-box-footer' do %>
         <%= t('more_info') %> <%= icon('fas', 'arrow-circle-right') %>
       <% end %>
     </div>
   </div>
   <div class="col-lg-3">
-    <div class="small-box bg-info">
+    <div class="small-box bg-gradient-info">
       <div class="inner">
-        <h3><%= t('courses') %></h3>
-        <p><%= t('my_courses') %></p>
+        <h3><%= current_user.student.student_homeworks.count %></h3>
+        <p><%= t('student_homeworks') %></p>
       </div>
       <div class="icon">
-        <%= icon('fas', 'chalkboard-teacher') %>
+        <%= icon('fas', 'building') %>
       </div>
-      <%= link_to '#', class: 'small-box-footer' do %>
-        <%= t('more_info') %> <%= icon('fas', 'arrow-circle-right') %>
-      <% end %>
-    </div>
-  </div>
-  <div class="col-lg-3">
-    <div class="small-box bg-info">
-      <div class="inner">
-        <h3><%= t('courses') %></h3>
-        <p><%= t('my_courses') %></p>
-      </div>
-      <div class="icon">
-        <%= icon('fas', 'chalkboard-teacher') %>
-      </div>
-      <%= link_to '#', class: 'small-box-footer' do %>
-        <%= t('more_info') %> <%= icon('fas', 'arrow-circle-right') %>
-      <% end %>
-    </div>
-  </div>
-  <div class="col-lg-3">
-    <div class="small-box bg-info">
-      <div class="inner">
-        <h3><%= t('courses') %></h3>
-        <p><%= t('my_courses') %></p>
-      </div>
-      <div class="icon">
-        <%= icon('fas', 'chalkboard-teacher') %>
-      </div>
-      <%= link_to '#', class: 'small-box-footer' do %>
+      <%= link_to student_homeworks_path, class: 'small-box-footer' do %>
         <%= t('more_info') %> <%= icon('fas', 'arrow-circle-right') %>
       <% end %>
     </div>

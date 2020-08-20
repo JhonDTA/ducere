@@ -1,5 +1,5 @@
 <%= render 'layouts/dashboards/super_admin' if current_user&.student? %>
 <%= render 'layouts/dashboards/admin' if current_user&.student? %>
-<%= render 'layouts/dashboards/professor' if current_user&.student? %>
+<%= render 'layouts/dashboards/professor' if current_user&.professor? %>
 <%= render 'layouts/dashboards/student' if current_user&.student? %>
-<%= render 'layouts/dashboards/parent' if current_user&.student? %>
+<%= render 'layouts/dashboards/parent' if current_user&.parent? %>
