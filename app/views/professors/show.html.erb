@@ -1,8 +1,12 @@
 <% provide :title, @professor.name %>
 <% provide :card_title, t('activerecord.models.professor') %>
 <% content_for :card_footer do %>
-  <%= link_to t('edit'), edit_professor_path(@professor), class: 'btn btn-sm btn-success' %>
-  <%= link_to t('back'), professors_path, class: 'btn btn-sm btn-danger' %>
+  <%= link_to edit_professor_path(@professor), class: 'btn btn-sm btn-success' do %>
+    <%= icon('fas', 'edit') %> <%= t('edit') %>
+  <% end %>
+  <%= link_to professors_path, class: 'btn btn-sm btn-danger' do %>
+    <%= icon('fas', 'undo-alt') %> <%= t('back') %>
+  <% end %>
 <% end %>
 
 <%= render 'shared/cards/show' do %>

@@ -6,8 +6,9 @@
 <% end %>
 
 <% content_for :card_footer do %>
-  <%= link_to t('new_resource', resource: t('activerecord.models.building')),
-              new_building_path, class: 'btn btn-sm btn-primary' %>
+  <%= link_to new_building_path, class: 'btn btn-sm btn-primary' do %>
+    <%= icon('fas', 'plus-circle') %> <%= t('new_resource', resource: t('activerecord.models.building')) %>
+  <% end %>
   <%= will_paginate @buildings, class: 'pagination-sm m-0 float-right',
                     :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
 <% end %>
@@ -32,9 +33,15 @@
         <td><%= building.campus.name %></td>
         <td><%= building.status.name %></td>
         <td>
-          <%= link_to t('show'), building, class: 'btn btn-sm btn-info' %>
-          <%= link_to t('edit'), edit_building_path(building), class: 'btn btn-sm btn-success' %>
-          <%= link_to t('destroy'), building, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' %>
+          <%= link_to building, class: 'btn btn-sm btn-info' do %>
+            <%= icon('fas', 'eye') %> <%= t('show') %>
+          <% end %>
+          <%= link_to edit_building_path(building), class: 'btn btn-sm btn-success' do %>
+            <%= icon('fas', 'edit') %> <%= t('edit') %>
+          <% end %>
+          <%= link_to building, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' do %>
+            <%= icon('fas', 'trash-alt') %> <%= t('destroy') %>
+          <% end %>
         </td>
       </tr>
     <% end %>

@@ -4,6 +4,8 @@
 <%= render 'shared/cards/form_card' do %>
   <%= render 'form', attendance_type: @attendance_type %>
   <% content_for :card_footer do %>
-    <%= link_to t('back'), attendance_types_path, class: 'btn btn-sm btn-danger' %>
+    <%= link_to attendance_types_path, class: 'btn btn-sm btn-danger' do %>
+      <%= icon('fas', 'undo-alt') %> <%= t('back') %>
+    <% end %>
   <% end %>
 <% end %>

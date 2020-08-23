@@ -6,8 +6,10 @@
 <% end %>
 
 <% content_for :card_footer do %>
-  <%= link_to t('new_resource', resource: t('activerecord.models.attendance_type')),
-              new_attendance_type_path, class: 'btn btn-sm btn-primary' %>
+  <%= link_to new_attendance_type_path, class: 'btn btn-sm btn-primary' do %>
+    <%= icon('fas', 'plus-circle') %>
+    <%= t('new_resource', resource: t('activerecord.models.attendance_type')) %>
+  <% end %>
   <%= will_paginate @attendance_types, class: 'pagination-sm m-0 float-right',
                     :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
 <% end %>
@@ -32,9 +34,15 @@
         <td><%= attendance_type.description %></td>
         <td><%= attendance_type.status.name %></td>
         <td>
-          <%= link_to t('show'), attendance_type, class: 'btn btn-sm btn-info' %>
-          <%= link_to t('edit'), edit_attendance_type_path(attendance_type), class: 'btn btn-sm btn-success' %>
-          <%= link_to t('destroy'), attendance_type, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' %>
+          <%= link_to attendance_type, class: 'btn btn-sm btn-info' do %>
+            <%= icon('fas', 'eye') %> <%= t('show') %>
+          <% end %>
+          <%= link_to edit_attendance_type_path(attendance_type), class: 'btn btn-sm btn-success' do %>
+            <%= icon('fas', 'edit') %> <%= t('edit') %>
+          <% end %>
+          <%= link_to attendance_type, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' do %>
+            <%= icon('fas', 'trash-alt') %> <%= t('destroy') %>
+          <% end %>
         </td>
       </tr>
     <% end %>

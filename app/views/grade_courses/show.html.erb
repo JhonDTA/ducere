@@ -1,8 +1,12 @@
 <% provide :title, @grade_course.name %>
 <% provide :card_title, t('activerecord.models.grade_course') %>
 <% content_for :card_footer do %>
-  <%= link_to t('edit'), edit_grade_course_path(@grade_course), class: 'btn btn-sm btn-success' %>
-  <%= link_to t('back'), grade_courses_path, class: 'btn btn-sm btn-danger' %>
+  <%= link_to edit_grade_course_path(@grade_course), class: 'btn btn-sm btn-success' do %>
+    <%= icon('fas', 'edit') %> <%= t('edit') %>
+  <% end %>
+  <%= link_to grade_courses_path, class: 'btn btn-sm btn-danger' do %>
+    <%= icon('fas', 'undo-alt') %> <%= t('back') %>
+  <% end %>
 <% end %>
 
 <%= render 'shared/cards/show' do %>

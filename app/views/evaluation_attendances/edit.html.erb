@@ -4,7 +4,11 @@
 <%= render 'shared/cards/form_card' do %>
   <%= render 'form', evaluation_attendance: @evaluation_attendance %>
   <% content_for :card_footer do %>
-    <%= link_to t('show'), @evaluation_attendance, class: 'btn btn-sm btn-info' %>
-    <%= link_to t('back'), evaluation_attendances_path, class: 'btn btn-sm btn-danger' %>
+    <%= link_to @evaluation_attendance, class: 'btn btn-sm btn-info' do %>
+      <%= icon('fas', 'eye') %> <%= t('show') %>
+    <% end %>
+    <%= link_to evaluation_attendances_path, class: 'btn btn-sm btn-danger' do %>
+      <%= icon('fas', 'undo-alt') %> <%= t('back') %>
+    <% end %>
   <% end %>
 <% end %>

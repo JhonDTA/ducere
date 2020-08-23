@@ -1,8 +1,12 @@
 <% provide :title, @building.name %>
 <% provide :card_title, t('activerecord.models.building') %>
 <% content_for :card_footer do %>
-  <%= link_to t('edit'), edit_building_path(@building), class: 'btn btn-sm btn-success' %>
-  <%= link_to t('back'), buildings_path, class: 'btn btn-sm btn-danger' %>
+  <%= link_to edit_building_path(@building), class: 'btn btn-sm btn-success' do %>
+    <%= icon('fas', 'edit') %> <%= t('edit') %>
+  <% end %>
+  <%= link_to buildings_path, class: 'btn btn-sm btn-danger' do %>
+    <%= icon('fas', 'undo-alt') %> <%= t('back') %>
+  <% end %>
 <% end %>
 
 <%= render 'shared/cards/show' do %>

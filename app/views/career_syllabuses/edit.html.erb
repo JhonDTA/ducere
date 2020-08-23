@@ -4,7 +4,11 @@
 <%= render 'shared/cards/form_card' do %>
   <%= render 'form', career_syllabus: @career_syllabus %>
   <% content_for :card_footer do %>
-    <%= link_to t('show'), @career_syllabus, class: 'btn btn-sm btn-info' %>
-    <%= link_to t('back'), career_syllabuses_path, class: 'btn btn-sm btn-danger' %>
+    <%= link_to @career_syllabus, class: 'btn btn-sm btn-info' do %>
+      <%= icon('fas', 'eye') %> <%= t('show') %>
+    <% end %>
+    <%= link_to career_syllabuses_path, class: 'btn btn-sm btn-danger' do %>
+      <%= icon('fas', 'undo-alt') %> <%= t('back') %>
+    <% end %>
   <% end %>
 <% end %>

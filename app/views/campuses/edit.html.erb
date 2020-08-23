@@ -4,7 +4,11 @@
 <%= render 'shared/cards/form_card' do %>
   <%= render 'form', campus: @campus %>
   <% content_for :card_footer do %>
-    <%= link_to t('show'), @campus, class: 'btn btn-sm btn-info' %>
-    <%= link_to t('back'), campuses_path, class: 'btn btn-sm btn-danger' %>
+    <%= link_to @campus, class: 'btn btn-sm btn-info' do %>
+      <%= icon('fas', 'eye') %> <%= t('show') %>
+    <% end %>
+    <%= link_to campuses_path, class: 'btn btn-sm btn-danger' do %>
+      <%= icon('fas', 'undo-alt') %> <%= t('back') %>
+    <% end %>
   <% end %>
 <% end %>

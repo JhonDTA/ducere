@@ -4,7 +4,11 @@
 <%= render 'shared/cards/form_card' do %>
   <%= render 'form', cycle_turn: @cycle_turn %>
   <% content_for :card_footer do %>
-    <%= link_to t('show'), @cycle_turn, class: 'btn btn-sm btn-info' %>
-    <%= link_to t('back'), cycle_turns_path, class: 'btn btn-sm btn-danger' %>
+    <%= link_to @cycle_turn, class: 'btn btn-sm btn-info' do %>
+      <%= icon('fas', 'eye') %> <%= t('show') %>
+    <% end %>
+    <%= link_to cycle_turns_path, class: 'btn btn-sm btn-danger' do %>
+      <%= icon('fas', 'undo-alt') %> <%= t('back') %>
+    <% end %>
   <% end %>
 <% end %>

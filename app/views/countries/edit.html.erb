@@ -4,7 +4,11 @@
 <%= render 'shared/cards/form_card' do %>
   <%= render 'form', country: @country %>
   <% content_for :card_footer do %>
-    <%= link_to t('show'), @country, class: 'btn btn-sm btn-info' %>
-    <%= link_to t('back'), countries_path, class: 'btn btn-sm btn-danger' %>
+    <%= link_to @country, class: 'btn btn-sm btn-info' do %>
+      <%= icon('fas', 'eye') %> <%= t('show') %>
+    <% end %>
+    <%= link_to countries_path, class: 'btn btn-sm btn-danger' do %>
+      <%= icon('fas', 'undo-alt') %> <%= t('back') %>
+    <% end %>
   <% end %>
 <% end %>

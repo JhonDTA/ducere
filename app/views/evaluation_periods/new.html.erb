@@ -4,6 +4,8 @@
 <%= render 'shared/cards/form_card' do %>
   <%= render 'form', evaluation_period: @evaluation_period %>
   <% content_for :card_footer do %>
-    <%= link_to t('back'), evaluation_periods_path, class: 'btn btn-sm btn-danger' %>
+    <%= link_to evaluation_periods_path, class: 'btn btn-sm btn-danger' do %>
+      <%= icon('fas', 'undo-alt') %> <%= t('back') %>
+    <% end %>
   <% end %>
 <% end %>

@@ -1,8 +1,12 @@
 <% provide :title, @turn_evaluation.name %>
 <% provide :card_title, t('activerecord.models.turn_evaluation') %>
 <% content_for :card_footer do %>
-  <%= link_to t('edit'), edit_turn_evaluation_path(@turn_evaluation), class: 'btn btn-sm btn-success' %>
-  <%= link_to t('back'), turn_evaluations_path, class: 'btn btn-sm btn-danger' %>
+  <%= link_to edit_turn_evaluation_path(@turn_evaluation), class: 'btn btn-sm btn-success' do %>
+    <%= icon('fas', 'edit') %> <%= t('edit') %>
+  <% end %>
+  <%= link_to turn_evaluations_path, class: 'btn btn-sm btn-danger' do %>
+    <%= icon('fas', 'undo-alt') %> <%= t('back') %>
+  <% end %>
 <% end %>
 
 <%= render 'shared/cards/show' do %>

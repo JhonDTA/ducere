@@ -4,6 +4,8 @@
 <%= render 'shared/cards/form_card' do %>
   <%= render 'form', campus_evaluation: @campus_evaluation %>
   <% content_for :card_footer do %>
-    <%= link_to t('back'), campus_evaluations_path, class: 'btn btn-sm btn-danger' %>
+    <%= link_to campus_evaluations_path, class: 'btn btn-sm btn-danger' do %>
+      <%= icon('fas', 'undo-alt') %> <%= t('back') %>
+    <% end %>
   <% end %>
 <% end %>

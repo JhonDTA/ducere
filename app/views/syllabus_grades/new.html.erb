@@ -4,6 +4,8 @@
 <%= render 'shared/cards/form_card' do %>
   <%= render 'form', syllabus_grade: @syllabus_grade %>
   <% content_for :card_footer do %>
-    <%= link_to t('back'), syllabus_grades_path, class: 'btn btn-sm btn-danger' %>
+    <%= link_to syllabus_grades_path, class: 'btn btn-sm btn-danger' do %>
+      <%= icon('fas', 'undo-alt') %> <%= t('back') %>
+    <% end %>
   <% end %>
 <% end %>
