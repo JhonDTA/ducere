@@ -5,8 +5,7 @@
     <!-- Add the bg color to the header using any of the bg-* classes -->
     <div class="widget-user-header bg-gradient-info">
       <h3 class="widget-user-username"><%= @student.name %></h3>
-      <h5 class="widget-user-desc"><%= t('activerecord.attributes.student.enrollment') %>
-        : <%= @student.enrollment %></h5>
+      <h5 class="widget-user-desc"><%= t('activerecord.attributes.student.enrollment') %>: <%= @student.enrollment %></h5>
     </div>
     <div class="widget-user-image">
       <%= image_tag @student.avatar.variant(resize_to_limit: [100, 100]), class: 'img-size-100 img-circle mr-3 elevation-2',

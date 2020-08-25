@@ -9,9 +9,11 @@ class Professor < ApplicationRecord
   has_many :professor_courses, dependent: :restrict_with_error
 
   # Validations ---------------------------------------------------------------
-  validates :user_id, uniqueness: true
+  validates :enrollment, presence: true
+  validates :user_id, :enrollment, uniqueness: true
+  validates :enrollment, length: { minimum: 1, maximum: 32 }
 
-  delegate :name, to: :user
+  delegate :name, :avatar, to: :user
 
   def self.collection
     all.includes(:user)

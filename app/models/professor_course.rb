@@ -8,4 +8,8 @@ class ProfessorCourse < ApplicationRecord
 
   # Validations ---------------------------------------------------------------
   validates :course_id, uniqueness: { scope: :professor_id }
+
+  def name
+    "#{course.name} #{professor.name}"
+  end
 end

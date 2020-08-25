@@ -11,5 +11,5 @@ class Parent < ApplicationRecord
   # Validations ---------------------------------------------------------------
   validates :user_id, uniqueness: true
 
-  delegate :name, to: :user
+  delegate :name, :avatar, to: :user
 end

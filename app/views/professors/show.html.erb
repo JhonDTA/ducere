@@ -1,5 +1,16 @@
 <% provide :title, @professor.name %>
 <% provide :card_title, t('activerecord.models.professor') %>
+<% content_for :name, @professor.user.name %>
+<% content_for :enrollment, @professor.enrollment %>
+<% content_for :profile_picture do %>
+  <% if @professor.avatar.attached? %>
+    <%= image_tag @professor.avatar.variant(resize_to_limit: [200, 200]),
+                  class: 'profile-user-img img-fluid img-circle' %>
+  <% else %>
+    <%= image_tag 'avatar.jpg', class: 'profile-user-img img-fluid img-circle' %>
+  <% end %>
+<% end %>
+
 <% content_for :card_footer do %>
   <%= link_to edit_professor_path(@professor), class: 'btn btn-sm btn-success' do %>
     <%= icon('fas', 'edit') %> <%= t('edit') %>
@@ -9,16 +20,4 @@
   <% end %>
 <% end %>
 
-<%= render 'shared/cards/show' do %>
-  <p>
-    <strong>
-      <%= t('activerecord.attributes.professor.user_id') %>:</strong>
-    <%= @professor.user.name %>
-  </p>
-
-  <p>
-    <strong>
-      <%= t('activerecord.attributes.professor.enrollment') %>:</strong>
-    <%= @professor.enrollment %>
-  </p>
-<% end %>
+<%= render 'shared/cards/profile' %>
