@@ -3,7 +3,6 @@
 # Institution model
 class Institution < ApplicationRecord
   # Belongs to associations ---------------------------------------------------
-  belongs_to :country
   belongs_to :status
 
   # Has many associations -----------------------------------------------------

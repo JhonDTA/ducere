@@ -8,8 +8,7 @@ class InstitutionsController < ApplicationController
   # GET /institutions.json
   def index
     pagination = { page: params[:page], per_page: 20 }
-    @institutions = Institution.paginate(pagination)
-                               .includes(%i[country status])
+    @institutions = Institution.paginate(pagination).includes(:status)
   end
 
   # GET /institutions/1
@@ -73,6 +72,6 @@ class InstitutionsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def institution_params
-    params.require(:institution).permit(:code, :name, :description, :country_id, :status_id)
+    params.require(:institution).permit(:code, :name, :description, :status_id)
   end
 end

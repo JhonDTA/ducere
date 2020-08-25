@@ -31,13 +31,10 @@ def create_countries
 end
 
 def create_institutions
-  country_codes = %w[MEX USA DEU]
-  countries = Country.where(iso_code: country_codes)
   30.times do
     Institution.create(code: Faker::Alphanumeric.alphanumeric(number: 10).upcase,
                        name: Faker::University.name,
                        description: Faker::Lorem.paragraph(sentence_count: 2),
-                       country: countries.sample,
                        status: @status)
   end
 end

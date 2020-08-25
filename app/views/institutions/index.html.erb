@@ -18,16 +18,10 @@
   <table class="table table-hover table-head-fixed text-nowrap">
     <thead>
     <tr>
-      <th>
-        <%= t('activerecord.attributes.institution.code') %></th>
-      <th>
-        <%= t('activerecord.attributes.institution.name') %></th>
-      <th>
-        <%= t('activerecord.attributes.institution.description') %></th>
-      <th>
-        <%= t('activerecord.attributes.institution.country_id') %></th>
-      <th>
-        <%= t('activerecord.attributes.institution.status_id') %></th>
+      <th><%= t('activerecord.attributes.institution.code') %></th>
+      <th><%= t('activerecord.attributes.institution.name') %></th>
+      <th><%= t('activerecord.attributes.institution.description') %></th>
+      <th><%= t('activerecord.attributes.institution.status_id') %></th>
       <th colspan="1"></th>
     </tr>
     </thead>
@@ -37,7 +31,6 @@
         <td><%= institution.code %></td>
         <td><%= institution.name %></td>
         <td><%= institution.description %></td>
-        <td><%= institution.country.name %></td>
         <td><%= institution.status.name %></td>
         <td>
           <%= link_to institution, class: 'btn btn-sm btn-info' do %>
