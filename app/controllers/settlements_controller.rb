@@ -8,7 +8,7 @@ class SettlementsController < ApplicationController
   # GET /settlements.json
   def index
     pagination = { page: params[:page], per_page: 20 }
-    @settlements = Settlement.paginate(pagination)
+    @settlements = Settlement.paginate(pagination).includes(:municipality)
   end
 
   # GET /settlements/1

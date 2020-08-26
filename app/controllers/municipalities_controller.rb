@@ -8,7 +8,7 @@ class MunicipalitiesController < ApplicationController
   # GET /municipalities.json
   def index
     pagination = { page: params[:page], per_page: 20 }
-    @municipalities = Municipality.paginate(pagination)
+    @municipalities = Municipality.paginate(pagination).includes(:state)
   end
 
   # GET /municipalities/1

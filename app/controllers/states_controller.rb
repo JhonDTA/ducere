@@ -8,7 +8,7 @@ class StatesController < ApplicationController
   # GET /states.json
   def index
     pagination = { page: params[:page], per_page: 20 }
-    @states = State.paginate(pagination)
+    @states = State.paginate(pagination).includes(:country)
   end
 
   # GET /states/1
