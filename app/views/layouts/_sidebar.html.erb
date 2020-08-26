@@ -273,6 +273,39 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item has-treeview">
+            <%= link_to '#', class: 'nav-link' do %>
+              <%= icon('fas', 'book', class: 'nav-icon') %>
+              <p><%= t('addresses') %><%= icon('fas', 'angle-left', class: 'right') %></p>
+            <% end %>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <%= link_to countries_path, class: 'nav-link' do %>
+                  <%= icon('fas', 'school', class: 'nav-icon') %><%= t('countries') %>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to states_path, class: 'nav-link' do %>
+                  <%= icon('fas', 'school', class: 'nav-icon') %><%= t('states') %>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to municipalities_path, class: 'nav-link' do %>
+                  <%= icon('fas', 'school', class: 'nav-icon') %><%= t('municipalities') %>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to settlements_path, class: 'nav-link' do %>
+                  <%= icon('fas', 'school', class: 'nav-icon') %><%= t('settlements') %>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to addresses_path, class: 'nav-link' do %>
+                  <%= icon('fas', 'school', class: 'nav-icon') %><%= t('addresses') %>
+                <% end %>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

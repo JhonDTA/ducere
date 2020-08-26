@@ -3,6 +3,7 @@ es-MX:
   activerecord:
     models:
       academic_cycle: "Ciclo académico"
+      address: "Direccion"
       attendance_type: "Tipo de asistencia"
       building: "Edificio"
       campus: "Plantel"
@@ -29,10 +30,13 @@ es-MX:
       institution: "Institución"
       level_career: "Carrera del nivel"
       modality: "Modalidad"
+      municipality: "Municipio"
       parent: "Padre"
       professor: "Profesor"
       professor_course: "Materia del profesor"
       relationship: "Parentezco"
+      settlement: "Población"
+      state: "Estado"
       status: "Estatus"
       student: "Estudiante"
       student_course: "Materia del estudiante"
@@ -52,6 +56,12 @@ es-MX:
         status_id: "Estatus"
         start: "Inicio"
         finish: "Finalización"
+      address:
+        settlement_id: "Población"
+        street: "Calle"
+        interior_number: "Número interior"
+        exterior_number: "Número exterior"
+        reference: "Referencia"
       attendance_type:
         code: "Clave"
         name: "Nombre"
@@ -159,7 +169,6 @@ es-MX:
         name: "Nombre"
         code: "Clave"
         description: "Descripción"
-        country_id: "País"
         status_id: "Estatus"
       level_career:
         educative_level_id: "Nivel educativo"
@@ -169,6 +178,9 @@ es-MX:
         name: "Nombre"
         description: "Descripción"
         status_id: "Estatus"
+      municipality:
+        state_id: "Estado"
+        name: "Nombre"
       parent:
         user_id: "Usuario"
       professor:
@@ -180,6 +192,13 @@ es-MX:
       relationship:
         name: "Nombre"
         status_id: "Estatus"
+      settlement:
+        municipality_id: "Municipio"
+        name: "Nombre"
+        zip_code: "Código Postal"
+      state:
+        country_id: "País"
+        name: "Nombre"
       status:
         code: "Clave"
         name: "Nombre"
@@ -553,6 +572,7 @@ es-MX:
   destroyed_resource: "El %{resource} fue eliminado correctamente."
 
   academic_cycles: "Ciclos escolares"
+  addresses: "Direcciones"
   attendance_types: "Tipos de asistencia"
   buildings: "Edificios"
   campuses: "Planteles"
@@ -580,10 +600,13 @@ es-MX:
   institutions: "Instituciones"
   level_careers: "Carreras del nivel"
   modalities: "Modalidades"
+  municipalities: "Municipios"
   parents: "Padres"
   professors: "Profesores"
   professor_courses: "Materias del profesor"
   relationships: "Parentezcos"
+  settlements: "Poblaciones"
+  states: "Estados"
   statuses: "Estatus"
   students: "Estudiantes"
   student_courses: "Materias del alumno"

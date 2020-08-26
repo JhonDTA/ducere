@@ -1,0 +1,48 @@
+<% provide(:title, t('settlements')) %>
+
+<% content_for :card_header do %>
+  <%= will_paginate @settlements, class: 'pagination-sm float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<% content_for :card_footer do %>
+  <%= link_to new_settlement_path, class: 'btn btn-sm btn-primary' do %>
+    <%= icon('fas', 'plus-circle') %> <%= t('new_resource', resource: t('activerecord.models.settlement')) %>
+  <% end %>
+  <%= will_paginate @settlements, class: 'pagination-sm m-0 float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<%= render 'shared/cards/index_card' do %>
+  <table class="table table-hover table-head-fixed text-nowrap">
+    <thead>
+    <tr>
+      <th><%= t('activerecord.attributes.settlement.municipality_id') %></th>
+      <th><%= t('activerecord.attributes.settlement.name') %></th>
+      <th><%= t('activerecord.attributes.settlement.zip_code') %></th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @settlements.each do |settlement| %>
+      <tr>
+        <td><%= settlement.municipality.name %></td>
+        <td><%= settlement.name %></td>
+        <td><%= settlement.zip_code %></td>
+        <td>
+          <%= link_to settlement, class: 'btn btn-sm btn-info' do %>
+            <%= icon('fas', 'eye') %> <%= t('show') %>
+          <% end %>
+          <%= link_to edit_settlement_path(settlement), class: 'btn btn-sm btn-success' do %>
+            <%= icon('fas', 'edit') %> <%= t('edit') %>
+          <% end %>
+          <%= link_to settlement, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' do %>
+            <%= icon('fas', 'trash-alt') %> <%= t('destroy') %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>

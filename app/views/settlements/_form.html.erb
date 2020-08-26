@@ -1,0 +1,23 @@
+<%= form_with(model: settlement, local: true) do |form| %>
+  <%= render 'shared/error_messages', object: form.object %>
+
+  <div class="field">
+    <%= form.label :municipality_id %>
+    <%= form.collection_select :municipality_id, Municipality.take(100),
+                               :id, :name, {}, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zip_code %>
+    <%= form.text_field :zip_code, class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: 'btn btn-primary form-control' %>
+  </div>
+<% end %>

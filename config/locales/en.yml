@@ -3,6 +3,7 @@ en:
   activerecord:
     models:
       academic_cycle: "Academic cycle"
+      address: "Address"
       attendance_type: "Attendance type"
       building: "Building"
       campus: "Campus"
@@ -29,10 +30,13 @@ en:
       institution: "Institution"
       level_career: "Level career"
       modality: "Modality"
+      municipality: "Municipality"
       parent: "Parent"
       professor: "Professor"
       professor_course: "Professor course"
       relationship: "Relationship"
+      settlement: "Settlement"
+      state: "State"
       status: "Status"
       student: "Student"
       student_course: "Student course"
@@ -52,6 +56,12 @@ en:
         status_id: "Status"
         start: "Start"
         finish: "Finish"
+      address:
+        settlement_id: "Settlement"
+        street: "Street"
+        interior_number: "Interior number"
+        exterior_number: "Exterior number"
+        reference: "Reference"
       attendance_type:
         code: "Code"
         name: "Name"
@@ -169,6 +179,9 @@ en:
         name: "Name"
         description: "Description"
         status_id: "Status"
+      municipality:
+        state_id: "State"
+        name: "Name"
       parent:
         user_id: "User"
       professor:
@@ -180,6 +193,13 @@ en:
       relationship:
         name: "Name"
         status_id: "Status"
+      settlement:
+        municipality_id: "Municipality"
+        name: "Name"
+        zip_code: "Zip code"
+      state:
+        country_id: "Country"
+        name: "Name"
       status:
         code: "Code"
         name: "Name"
@@ -334,6 +354,7 @@ en:
   destroyed_resource: "%{resource} was successfully destroyed."
 
   academic_cycles: "Academic cycles"
+  addresses: "Addresses"
   attendance_types: "Attendance types"
   buildings: "Buildings"
   campuses: "Campuses"
@@ -361,10 +382,13 @@ en:
   institutions: "Institutions"
   level_careers: "Level careers"
   modalities: "Modalities"
+  municipalities: "Municipalities"
   parents: "Parents"
   professors: "Professors"
   professor_courses: "Professor courses"
   relationships: "Relationships"
+  settlements: "Settlements"
+  states: "States"
   statuses: "Statuses"
   students: "Students"
   student_courses: "Student courses"

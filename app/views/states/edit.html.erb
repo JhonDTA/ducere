@@ -1,0 +1,14 @@
+<% provide :title, t('edit_resource', resource: t('activerecord.models.state')) %>
+<% provide :card_title, t('activerecord.models.state') %>
+
+<%= render 'shared/cards/form_card' do %>
+  <%= render 'form', state: @state %>
+  <% content_for :card_footer do %>
+    <%= link_to @state, class: 'btn btn-sm btn-info' do %>
+      <%= icon('fas', 'eye') %> <%= t('show') %>
+    <% end %>
+    <%= link_to states_path, class: 'btn btn-sm btn-danger' do %>
+      <%= icon('fas', 'undo-alt') %> <%= t('back') %>
+    <% end %>
+  <% end %>
+<% end %>

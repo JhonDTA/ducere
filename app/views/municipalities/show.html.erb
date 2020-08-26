@@ -1,0 +1,22 @@
+<% provide :title, @municipality.name %>
+<% provide :card_title, t('activerecord.models.municipality') %>
+<% content_for :card_footer do %>
+  <%= link_to edit_municipality_path(@municipality), class: 'btn btn-sm btn-success' do %>
+    <%= icon('fas', 'edit') %> <%= t('edit') %>
+  <% end %>
+  <%= link_to municipalities_path, class: 'btn btn-sm btn-danger' do %>
+    <%= icon('fas', 'undo-alt') %> <%= t('back') %>
+  <% end %>
+<% end %>
+
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong><%= t('activerecord.attributes.municipality.state_id') %>:</strong>
+    <%= @municipality.state.name %>
+  </p>
+
+  <p>
+    <strong><%= t('activerecord.attributes.municipality.name') %>:</strong>
+    <%= @municipality.name %>
+  </p>
+<% end %>

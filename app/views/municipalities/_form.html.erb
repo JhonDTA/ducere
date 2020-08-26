@@ -1,0 +1,18 @@
+<%= form_with(model: municipality, local: true) do |form| %>
+  <%= render 'shared/error_messages', object: form.object %>
+
+  <div class="field">
+    <%= form.label :state_id %>
+    <%= form.collection_select :state_id, State.all, :id, :name, {},
+                               class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: 'btn btn-primary form-control' %>
+  </div>
+<% end %>

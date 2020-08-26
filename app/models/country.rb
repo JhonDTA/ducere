@@ -3,7 +3,7 @@
 # Country model
 class Country < ApplicationRecord
   # Has many associations -----------------------------------------------------
-  has_many :institutions, dependent: :restrict_with_error
+  has_many :states, dependent: :restrict_with_error
 
   # Validations ---------------------------------------------------------------
   validates :name, :iso_code, presence: true

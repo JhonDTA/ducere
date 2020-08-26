@@ -1,0 +1,33 @@
+<%= form_with(model: address, local: true) do |form| %>
+  <%= render 'shared/error_messages', object: form.object %>
+
+  <div class="field">
+    <%= form.label :settlement_id %>
+    <%= form.collection_select :settlement_id, Settlement.take(10), :id, :name,
+                               {}, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :street %>
+    <%= form.text_field :street, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :interior_number %>
+    <%= form.text_field :interior_number, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :exterior_number %>
+    <%= form.text_field :exterior_number, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :reference %>
+    <%= form.text_area :reference, class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: 'btn btn-primary form-control' %>
+  </div>
+<% end %>

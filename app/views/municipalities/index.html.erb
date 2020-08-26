@@ -1,0 +1,46 @@
+<% provide(:title, t('municipalities')) %>
+
+<% content_for :card_header do %>
+  <%= will_paginate @municipalities, class: 'pagination-sm float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<% content_for :card_footer do %>
+  <%= link_to new_municipality_path, class: 'btn btn-sm btn-primary' do %>
+    <%= icon('fas', 'plus-circle') %> <%= t('new_resource', resource: t('activerecord.models.municipality')) %>
+  <% end %>
+  <%= will_paginate @municipalities, class: 'pagination-sm m-0 float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<%= render 'shared/cards/index_card' do %>
+  <table class="table table-hover table-head-fixed text-nowrap">
+    <thead>
+    <tr>
+      <th><%= t('activerecord.attributes.municipality.state_id') %></th>
+      <th><%= t('activerecord.attributes.municipality.name') %></th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @municipalities.each do |municipality| %>
+      <tr>
+        <td><%= municipality.state.name %></td>
+        <td><%= municipality.name %></td>
+        <td>
+          <%= link_to municipality, class: 'btn btn-sm btn-info' do %>
+            <%= icon('fas', 'eye') %> <%= t('show') %>
+          <% end %>
+          <%= link_to edit_municipality_path(municipality), class: 'btn btn-sm btn-success' do %>
+            <%= icon('fas', 'edit') %> <%= t('edit') %>
+          <% end %>
+          <%= link_to municipality, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' do %>
+            <%= icon('fas', 'trash-alt') %> <%= t('destroy') %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>

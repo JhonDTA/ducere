@@ -1,0 +1,14 @@
+<% provide :title, t('edit_resource', resource: t('activerecord.models.municipality')) %>
+<% provide :card_title, t('activerecord.models.municipality') %>
+
+<%= render 'shared/cards/form_card' do %>
+  <%= render 'form', municipality: @municipality %>
+  <% content_for :card_footer do %>
+    <%= link_to @municipality, class: 'btn btn-sm btn-info' do %>
+      <%= icon('fas', 'eye') %> <%= t('show') %>
+    <% end %>
+    <%= link_to municipalities_path, class: 'btn btn-sm btn-danger' do %>
+      <%= icon('fas', 'undo-alt') %> <%= t('back') %>
+    <% end %>
+  <% end %>
+<% end %>

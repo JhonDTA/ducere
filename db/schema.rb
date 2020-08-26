@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_13_044849) do
+ActiveRecord::Schema.define(version: 2020_08_25_081101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,17 @@ ActiveRecord::Schema.define(version: 2020_08_13_044849) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "addresses", force: :cascade do |t|
+    t.bigint "settlement_id", null: false
+    t.string "street", limit: 255, null: false
+    t.string "interior_number", limit: 50
+    t.string "exterior_number", limit: 50
+    t.text "reference"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["settlement_id"], name: "index_addresses_on_settlement_id"
   end
 
   create_table "attendance_types", force: :cascade do |t|
@@ -305,12 +316,10 @@ ActiveRecord::Schema.define(version: 2020_08_13_044849) do
     t.string "code", limit: 16, null: false
     t.string "name", limit: 255, null: false
     t.text "description"
-    t.bigint "country_id", null: false
     t.bigint "status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["code"], name: "uidx_institutions_code", unique: true
-    t.index ["country_id"], name: "index_institutions_on_country_id"
     t.index ["status_id"], name: "index_institutions_on_status_id"
   end
 
@@ -333,6 +342,15 @@ ActiveRecord::Schema.define(version: 2020_08_13_044849) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["code"], name: "uidx_modalities_code", unique: true
     t.index ["status_id"], name: "index_modalities_on_status_id"
+  end
+
+  create_table "municipalities", force: :cascade do |t|
+    t.bigint "state_id", null: false
+    t.string "name", limit: 255, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["state_id", "name"], name: "uidx_municipalities_state_name", unique: true
+    t.index ["state_id"], name: "index_municipalities_on_state_id"
   end
 
   create_table "parents", force: :cascade do |t|
@@ -369,6 +387,26 @@ ActiveRecord::Schema.define(version: 2020_08_13_044849) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "uidx_relationships_name", unique: true
     t.index ["status_id"], name: "index_relationships_on_status_id"
+  end
+
+  create_table "settlements", force: :cascade do |t|
+    t.bigint "municipality_id", null: false
+    t.string "name", limit: 255, null: false
+    t.string "zip_code", limit: 16, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["municipality_id", "name", "zip_code"], name: "uidx_settlements", unique: true
+    t.index ["municipality_id"], name: "index_settlements_on_municipality_id"
+    t.index ["zip_code"], name: "idx_settlement_zip_codes"
+  end
+
+  create_table "states", force: :cascade do |t|
+    t.bigint "country_id", null: false
+    t.string "name", limit: 255, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["country_id", "name"], name: "uidx_states_country_name", unique: true
+    t.index ["country_id"], name: "index_states_on_country_id"
   end
 
   create_table "statuses", force: :cascade do |t|
@@ -503,6 +541,7 @@ ActiveRecord::Schema.define(version: 2020_08_13_044849) do
   add_foreign_key "academic_cycles", "cycle_types"
   add_foreign_key "academic_cycles", "statuses"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "addresses", "settlements"
   add_foreign_key "attendance_types", "statuses"
   add_foreign_key "buildings", "campuses"
   add_foreign_key "buildings", "statuses"
@@ -536,16 +575,18 @@ ActiveRecord::Schema.define(version: 2020_08_13_044849) do
   add_foreign_key "grades", "statuses"
   add_foreign_key "groups", "statuses"
   add_foreign_key "homework_marks", "student_homeworks"
-  add_foreign_key "institutions", "countries"
   add_foreign_key "institutions", "statuses"
   add_foreign_key "level_careers", "careers"
   add_foreign_key "level_careers", "educative_levels"
   add_foreign_key "modalities", "statuses"
+  add_foreign_key "municipalities", "states"
   add_foreign_key "parents", "users"
   add_foreign_key "professor_courses", "courses"
   add_foreign_key "professor_courses", "professors"
   add_foreign_key "professors", "users"
   add_foreign_key "relationships", "statuses"
+  add_foreign_key "settlements", "municipalities"
+  add_foreign_key "states", "countries"
   add_foreign_key "student_courses", "course_evaluations"
   add_foreign_key "student_courses", "students"
   add_foreign_key "student_homeworks", "course_homeworks"

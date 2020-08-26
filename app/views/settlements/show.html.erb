@@ -1,0 +1,28 @@
+<% provide :title, @settlement.name %>
+<% provide :card_title, t('activerecord.models.settlement') %>
+<% content_for :card_footer do %>
+  <%= link_to edit_settlement_path(@settlement), class: 'btn btn-sm btn-success' do %>
+    <%= icon('fas', 'edit') %> <%= t('edit') %>
+  <% end %>
+  <%= link_to settlements_path, class: 'btn btn-sm btn-danger' do %>
+    <%= icon('fas', 'undo-alt') %> <%= t('back') %>
+  <% end %>
+<% end %>
+
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong><%= t('activerecord.attributes.settlement.municipality_id') %>
+      :</strong>
+    <%= @settlement.municipality.name %>
+  </p>
+
+  <p>
+    <strong><%= t('activerecord.attributes.settlement.name') %>:</strong>
+    <%= @settlement.name %>
+  </p>
+
+  <p>
+    <strong><%= t('activerecord.attributes.settlement.zip_code') %>:</strong>
+    <%= @settlement.zip_code %>
+  </p>
+<% end %>

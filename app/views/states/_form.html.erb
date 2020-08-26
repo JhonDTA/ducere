@@ -1,0 +1,18 @@
+<%= form_with(model: state, local: true) do |form| %>
+  <%= render 'shared/error_messages', object: form.object %>
+
+  <div class="field">
+    <%= form.label :country_id %>
+    <%= form.collection_select :country_id, Country.all, :id, :name, {},
+                               class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: 'btn btn-primary form-control' %>
+  </div>
+<% end %>

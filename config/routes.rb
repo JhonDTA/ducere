@@ -8,6 +8,10 @@ Rails.application.routes.draw do
 
   devise_for :user
   resources :countries
+  resources :states
+  resources :municipalities
+  resources :settlements
+  resources :addresses
   resources :relationships
   resources :attendance_types
   resources :groups

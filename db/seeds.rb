@@ -30,6 +30,32 @@ def create_countries
   end
 end
 
+def create_settlements
+  country = Country.find_by(iso_code: 'MEX')
+  memo = { states: [] }
+  CSV.foreach('db/external_data/zip_codes.txt', headers: true, col_sep: '|') do |row|
+    state_name = row['d_estado']
+    memo_state = memo[:states].detect { |e| e[:name].eql?(state_name) }
+    state = memo_state.blank? ? State.create(country_id: country.id, name: state_name) : nil
+    memo[:states] << { id: state.id, name: state.name } if state.present?
+    memo_state = memo[:states].detect { |e| e[:name].eql?(state_name) }
+    memo_state[:municipalities] = [] if memo_state[:municipalities].blank?
+
+    municipality_name = row['D_mnpio']
+    memo_municipality = memo_state[:municipalities].detect { |e| e[:name].eql?(municipality_name) }
+    municipality = memo_municipality.blank? ? Municipality.create(state_id: memo_state[:id], name: municipality_name) : nil
+    memo_state[:municipalities] << { id: municipality.id, name: municipality.name } if municipality.present?
+    memo_municipality = memo_state[:municipalities].detect { |e| e[:name].eql?(municipality_name) }
+    memo_municipality[:settlements] = [] if memo_municipality[:settlements].blank?
+
+    set_name = row['d_asenta']
+    zip_code = row['d_codigo']
+    memo_set = memo_municipality[:settlements].detect { |e| e[:name].eql?(set_name) }
+    settlement = memo_set.blank? ? Settlement.create(municipality_id: memo_municipality[:id], name: set_name, zip_code: zip_code) : nil
+    memo_municipality[:settlements] << { id: settlement.id, name: settlement.name } if settlement.present?
+  end
+end
+
 def create_institutions
   30.times do
     Institution.create(code: Faker::Alphanumeric.alphanumeric(number: 10).upcase,
@@ -501,4 +527,5 @@ create_course_homeworks
 create_student_homeworks
 create_homework_marks
 create_attendance_types
+create_settlements
 # create_evaluation_attendances
