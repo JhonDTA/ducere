@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Campus:</strong>
+  <%= @campus_address.campus_id %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @campus_address.address_id %>
+</p>
+
+<%= link_to 'Edit', edit_campus_address_path(@campus_address) %> |
+<%= link_to 'Back', campus_addresses_path %>

@@ -1,0 +1,27 @@
+<%= form_with(model: campus_address, local: true) do |form| %>
+  <% if campus_address.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(campus_address.errors.count, "error") %> prohibited this campus_address from being saved:</h2>
+
+      <ul>
+        <% campus_address.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :campus_id %>
+    <%= form.text_field :campus_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address_id %>
+    <%= form.text_field :address_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

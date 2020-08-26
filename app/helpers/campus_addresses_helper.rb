@@ -1,0 +1,2 @@
+module CampusAddressesHelper
+end

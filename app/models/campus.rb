@@ -8,6 +8,7 @@ class Campus < ApplicationRecord
 
   # Has many associations -----------------------------------------------------
   has_many :buildings, dependent: :restrict_with_error
+  has_one :campus_address, dependent: :restrict_with_error
 
   # Validations ---------------------------------------------------------------
   validates :code, :name, presence: true

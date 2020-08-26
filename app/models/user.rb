@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_one :professor, dependent: :restrict_with_error
   has_one :student, dependent: :restrict_with_error
   has_one_attached :avatar
+  has_one :user_address, dependent: :restrict_with_error
 
   # Validations ---------------------------------------------------------------
   validates :avatar, content_type: { in: %w[image/jpeg image/gif image/png],

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_25_081101) do
+ActiveRecord::Schema.define(version: 2020_08_26_064607) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,16 @@ ActiveRecord::Schema.define(version: 2020_08_25_081101) do
     t.index ["campus_id", "code"], name: "uidx_buildings_campus_code", unique: true
     t.index ["campus_id"], name: "index_buildings_on_campus_id"
     t.index ["status_id"], name: "index_buildings_on_status_id"
+  end
+
+  create_table "campus_addresses", force: :cascade do |t|
+    t.bigint "campus_id", null: false
+    t.bigint "address_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["address_id"], name: "index_campus_addresses_on_address_id"
+    t.index ["campus_id", "address_id"], name: "uidx_campus_address", unique: true
+    t.index ["campus_id"], name: "index_campus_addresses_on_campus_id"
   end
 
   create_table "campus_evaluations", force: :cascade do |t|
@@ -323,6 +333,16 @@ ActiveRecord::Schema.define(version: 2020_08_25_081101) do
     t.index ["status_id"], name: "index_institutions_on_status_id"
   end
 
+  create_table "instution_addresses", force: :cascade do |t|
+    t.bigint "institution_id", null: false
+    t.bigint "address_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["address_id"], name: "index_instution_addresses_on_address_id"
+    t.index ["institution_id", "address_id"], name: "uidx_institution_address", unique: true
+    t.index ["institution_id"], name: "index_instution_addresses_on_institution_id"
+  end
+
   create_table "level_careers", force: :cascade do |t|
     t.bigint "educative_level_id", null: false
     t.bigint "career_id", null: false
@@ -506,6 +526,16 @@ ActiveRecord::Schema.define(version: 2020_08_25_081101) do
     t.index ["student_id"], name: "index_tutors_on_student_id"
   end
 
+  create_table "user_addresses", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "address_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["address_id"], name: "index_user_addresses_on_address_id"
+    t.index ["user_id", "address_id"], name: "uidx_user_address", unique: true
+    t.index ["user_id"], name: "index_user_addresses_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "first_name", default: "", null: false
     t.string "last_name", default: "", null: false
@@ -545,6 +575,8 @@ ActiveRecord::Schema.define(version: 2020_08_25_081101) do
   add_foreign_key "attendance_types", "statuses"
   add_foreign_key "buildings", "campuses"
   add_foreign_key "buildings", "statuses"
+  add_foreign_key "campus_addresses", "addresses"
+  add_foreign_key "campus_addresses", "campuses"
   add_foreign_key "campus_evaluations", "campuses"
   add_foreign_key "campus_evaluations", "turn_evaluations"
   add_foreign_key "campuses", "institutions"
@@ -576,6 +608,8 @@ ActiveRecord::Schema.define(version: 2020_08_25_081101) do
   add_foreign_key "groups", "statuses"
   add_foreign_key "homework_marks", "student_homeworks"
   add_foreign_key "institutions", "statuses"
+  add_foreign_key "instution_addresses", "addresses"
+  add_foreign_key "instution_addresses", "institutions"
   add_foreign_key "level_careers", "careers"
   add_foreign_key "level_careers", "educative_levels"
   add_foreign_key "modalities", "statuses"
@@ -601,4 +635,6 @@ ActiveRecord::Schema.define(version: 2020_08_25_081101) do
   add_foreign_key "tutors", "parents"
   add_foreign_key "tutors", "relationships"
   add_foreign_key "tutors", "students"
+  add_foreign_key "user_addresses", "addresses"
+  add_foreign_key "user_addresses", "users"
 end
