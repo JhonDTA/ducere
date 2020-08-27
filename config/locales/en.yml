@@ -246,6 +246,7 @@ en:
         password_confirmation: "Password confirmation"
         current_password: "Current password"
         remember_me: "Remember me"
+        name: "Name"
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."
@@ -407,3 +408,4 @@ en:
   my_courses: "My courses"
   dashboard: "Dashboard"
   evaluations: "Evaluations"
+  personal_info: "Personal information"

@@ -245,6 +245,7 @@ es-MX:
         password_confirmation: "Confirmación"
         current_password: "Contraseña actual"
         remember_me: "Recordarme"
+        name: "Nombre"
     errors:
       messages:
         record_invalid: 'La validación falló: %{errors}'
@@ -625,3 +626,4 @@ es-MX:
   my_courses: "Mis materias"
   dashboard: "Panel principal"
   evaluations: "Evaluaciones"
+  personal_info: "Información personal"
