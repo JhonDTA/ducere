@@ -8,6 +8,9 @@ class LevelCareer < ApplicationRecord
 
   # Has many associations -----------------------------------------------------
   has_many :career_syllabuses, dependent: :restrict_with_error
+  has_many :syllabuses, through: :career_syllabuses
+  has_many :grades, through: :career_syllabuses
+  has_many :courses, through: :career_syllabuses
 
   # Validations ---------------------------------------------------------------
   validates :career_id, uniqueness: { scope: :educative_level }

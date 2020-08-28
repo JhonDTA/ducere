@@ -6,7 +6,11 @@ class Career < ApplicationRecord
   belongs_to :status
 
   # Has many associations -----------------------------------------------------
-  has_many :level_careers, dependent: :restrict_with_error
+  has_one :level_career, dependent: :restrict_with_error
+  has_one :educative_level, through: :level_career
+  has_many :syllabuses, through: :level_career
+  has_many :grades, through: :level_career
+  has_many :courses, through: :level_career
 
   # Validations ---------------------------------------------------------------
   validates :code, :name, presence: true

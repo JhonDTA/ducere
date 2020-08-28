@@ -7,6 +7,10 @@ class EducativeLevel < ApplicationRecord
 
   # Has many associations -----------------------------------------------------
   has_many :level_careers, dependent: :restrict_with_error
+  has_many :careers, through: :level_careers
+  has_many :syllabuses, through: :level_careers
+  has_many :grades, through: :level_careers
+  has_many :courses, through: :level_careers
 
   # Validations ---------------------------------------------------------------
   validates :code, :name, presence: true

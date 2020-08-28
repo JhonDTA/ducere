@@ -7,6 +7,7 @@ class Grade < ApplicationRecord
 
   # Has many associations -----------------------------------------------------
   has_many :syllabus_grades, dependent: :restrict_with_error
+  has_many :courses, through: :syllabus_grades
 
   # Validations ---------------------------------------------------------------
   validates :code, :name, presence: true

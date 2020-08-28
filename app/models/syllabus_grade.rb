@@ -8,6 +8,7 @@ class SyllabusGrade < ApplicationRecord
 
   # Has many associations -----------------------------------------------------
   has_many :grade_courses, dependent: :restrict_with_error
+  has_many :courses, through: :grade_courses
 
   # Validations ---------------------------------------------------------------
   validates :career_syllabus_id, uniqueness: { scope: :grade_id }
