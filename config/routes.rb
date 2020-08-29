@@ -53,6 +53,5 @@ Rails.application.routes.draw do
   resources :grade_courses
   resources :syllabus_grades
   resources :career_syllabuses
-  resources :level_careers
   resources :professor_courses
 end

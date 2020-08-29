@@ -13,4 +13,6 @@ class Course < ApplicationRecord
   validates :code, uniqueness: true, length: { minimum: 1, maximum: 16 }
   validates :name, length: { minimum: 1, maximum: 255 }
   validates :credits, numericality: true
+
+  delegate :career, to: :grade_courses
 end

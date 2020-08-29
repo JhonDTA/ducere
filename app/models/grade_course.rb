@@ -12,6 +12,8 @@ class GradeCourse < ApplicationRecord
   # Validations ---------------------------------------------------------------
   validates :syllabus_grade_id, uniqueness: { scope: :course_id }
 
+  delegate :career, to: :syllabus_grade
+
   def name
     "#{syllabus_grade.name} - #{course.name}"
   end

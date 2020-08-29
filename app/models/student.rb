@@ -7,6 +7,7 @@ class Student < ApplicationRecord
   # Has many associations -----------------------------------------------------
   has_many :student_courses, dependent: :restrict_with_error
   has_many :student_homeworks, dependent: :restrict_with_error
+  has_many :tutors, dependent: :restrict_with_error
 
   # Validations ---------------------------------------------------------------
   validates :enrollment, presence: true
@@ -14,4 +15,8 @@ class Student < ApplicationRecord
   validates :enrollment, length: { minimum: 1, maximum: 32 }
 
   delegate :name, :avatar, to: :user
+
+  def current_career
+    career = Career.joins()
+  end
 end

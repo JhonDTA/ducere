@@ -3,10 +3,13 @@
 # Career syllabus model
 class CareerSyllabus < ApplicationRecord
   # Belongs to associations ---------------------------------------------------
-  belongs_to :level_career
+  belongs_to :career
   belongs_to :syllabus
 
   # Has many associations -----------------------------------------------------
+  has_many :educative_levels, through: :level_career
+  has_one :career, through: :level_career
+
   has_many :syllabus_grades, dependent: :restrict_with_error
   has_many :grade_courses, through: :syllabus_grades
   has_many :grades, through: :syllabus_grades

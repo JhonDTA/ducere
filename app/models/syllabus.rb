@@ -7,6 +7,10 @@ class Syllabus < ApplicationRecord
 
   # Has many associations -----------------------------------------------------
   has_many :career_syllabuses, dependent: :restrict_with_error
+
+  has_many :educative_levels, through: :career_syllabuses
+  has_many :careers, through: :career_syllabuses
+
   has_many :grades, through: :career_syllabuses
   has_many :courses, through: :career_syllabuses
 
