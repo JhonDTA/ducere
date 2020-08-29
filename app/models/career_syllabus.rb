@@ -7,8 +7,7 @@ class CareerSyllabus < ApplicationRecord
   belongs_to :syllabus
 
   # Has many associations -----------------------------------------------------
-  has_many :educative_levels, through: :level_career
-  has_one :career, through: :level_career
+  has_one :educative_level, through: :career
 
   has_many :syllabus_grades, dependent: :restrict_with_error
   has_many :grade_courses, through: :syllabus_grades
@@ -16,9 +15,9 @@ class CareerSyllabus < ApplicationRecord
   has_many :courses, through: :syllabus_grades
 
   # Validations ---------------------------------------------------------------
-  validates :level_career_id, uniqueness: { scope: :syllabus_id }
+  validates :career_id, uniqueness: { scope: :syllabus_id }
 
   def name
-    "#{level_career.name} #{syllabus.code}"
+    "#{career.code} #{syllabus.code}"
   end
 end

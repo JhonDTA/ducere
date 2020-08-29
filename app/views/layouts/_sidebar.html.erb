@@ -29,11 +29,6 @@
                 <% end %>
               </li>
               <li class="nav-item">
-                <%= link_to countries_path, class: 'nav-link' do %>
-                  <%= icon('fas', 'globe', class: 'nav-icon') %><%= t('countries') %>
-                <% end %>
-              </li>
-              <li class="nav-item">
                 <%= link_to institutions_path, class: 'nav-link' do %>
                   <%= icon('fas', 'school', class: 'nav-icon') %><%= t('institutions') %>
                 <% end %>
@@ -165,11 +160,6 @@
               <p><%= t('grade_courses') %><%= icon('fas', 'angle-left', class: 'right') %></p>
             <% end %>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <%= link_to level_careers_path, class: 'nav-link' do %>
-                  <%= icon('fas', 'school', class: 'nav-icon') %><%= t('level_careers') %>
-                <% end %>
-              </li>
               <li class="nav-item">
                 <%= link_to career_syllabuses_path, class: 'nav-link' do %>
                   <%= icon('fas', 'school', class: 'nav-icon') %><%= t('career_syllabuses') %>

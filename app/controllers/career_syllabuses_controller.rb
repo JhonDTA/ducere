@@ -8,7 +8,7 @@ class CareerSyllabusesController < ApplicationController
   # GET /career_syllabuses.json
   def index
     pagination = { page: params[:page], per_page: 20 }
-    includes = [{ level_career: %i[educative_level career] }, :syllabus]
+    includes = %i[career syllabus]
     @career_syllabuses = CareerSyllabus.paginate(pagination)
                                        .includes(includes)
   end
@@ -74,6 +74,6 @@ class CareerSyllabusesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def career_syllabus_params
-    params.require(:career_syllabus).permit(:level_career_id, :syllabus_id)
+    params.require(:career_syllabus).permit(:career_id, :syllabus_id)
   end
 end

@@ -17,6 +17,12 @@
   </div>
 
   <div class="field">
+    <%= form.label :educative_level_id %>
+    <%= form.collection_select :educative_level_id, EducativeLevel.all, :id, :name, {},
+                               class: 'form-control' %>
+  </div>
+
+  <div class="field">
     <%= form.label :status_id %>
     <%= form.collection_select :status_id, Status.all, :id, :name, {},
                                class: 'form-control' %>

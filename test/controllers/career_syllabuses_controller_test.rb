@@ -17,7 +17,7 @@ class CareerSyllabusesControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create career_syllabus' do
     assert_difference('CareerSyllabus.count') do
-      post career_syllabuses_url, params: { career_syllabus: { level_career_id: @career_syllabus.level_career_id, syllabus_id: @career_syllabus.syllabus_id } }
+      post career_syllabuses_url, params: { career_syllabus: { career_id: @career_syllabus.career_id, syllabus_id: @career_syllabus.syllabus_id } }
     end
 
     assert_redirected_to career_syllabus_url(CareerSyllabus.last)
@@ -34,7 +34,7 @@ class CareerSyllabusesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should update career_syllabus' do
-    patch career_syllabus_url(@career_syllabus), params: { career_syllabus: { level_career_id: @career_syllabus.level_career_id, syllabus_id: @career_syllabus.syllabus_id } }
+    patch career_syllabus_url(@career_syllabus), params: { career_syllabus: { career_id: @career_syllabus.career_id, syllabus_id: @career_syllabus.syllabus_id } }
     assert_redirected_to career_syllabus_url(@career_syllabus)
   end
 

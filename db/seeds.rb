@@ -15,11 +15,13 @@ def create_users
               email: 'foo@bar.com', password: 'password',
               password_confirmation: 'password', confirmed_at: Time.zone.now)
   299.times do |n|
-    User.create(first_name: Faker::Name.first_name,
-                last_name: Faker::Name.last_name,
-                second_last_name: Faker::Name.last_name,
-                email: "foo#{n}@bar.com", password: 'password',
-                password_confirmation: 'password', confirmed_at: Time.zone.now)
+    user = User.new(first_name: Faker::Name.first_name,
+                    last_name: Faker::Name.last_name,
+                    second_last_name: Faker::Name.last_name,
+                    email: "foo#{n}@bar.com", password: 'password',
+                    password_confirmation: 'password',
+                    confirmed_at: Time.zone.now)
+    user.save!(validate: false)
   end
 end
 
@@ -107,20 +109,17 @@ end
 
 def create_careers
   path = 'db/external_data/careers.csv'
+  educative_levels = EducativeLevel.all
   CSV.foreach(path, headers: true) do |row|
+    educative_level = educative_levels.detect { |el| el.code.eql?(row['level']) }
     Career.create(code: row['code'], name: row['name'],
-                  description: row['description'], status: @status)
+                  description: row['description'],
+                  educative_level: educative_level, status: @status)
   end
 end
 
 def create_syllabuses
-  path = 'db/external_data/syllabuses.csv'
-  CSV.foreach(path, headers: true) do |row|
-    Syllabus.create(code: row['code'], name: row['name'],
-                    description: row['description'],
-                    approval_credits: row['credits'], status: @status)
-  end
-  Career.where.not(code: 'GEN').each do |career|
+  Career.all.each do |career|
     ((rand * 2) + 1).floor.times do
       year = (2000..2020).to_a.sample
       Syllabus.create(code: "#{career.code}#{year}",
@@ -231,35 +230,20 @@ def create_groups
   end
 end
 
-def create_level_careers
-  path = 'db/external_data/level_careers.csv'
-  CSV.foreach(path, headers: true) do |row|
-    level = EducativeLevel.find_by(code: row['level'])
-    career = Career.find_by(code: row['career'])
-    LevelCareer.create(educative_level: level, career: career)
-  end
-  level = EducativeLevel.find_by(code: 'LIC')
-  careers = Career.where.not(code: 'GEN')
-  careers.each { |career| LevelCareer.create(educative_level: level, career: career) }
-end
-
 def create_career_syllabuses
   path = 'db/external_data/career_syllabuses.csv'
   CSV.foreach(path, headers: true) do |row|
-    level = EducativeLevel.find_by(code: row['level'])
     career = Career.find_by(code: row['career'])
     syllabus = Syllabus.find_by(code: row['syllabus'])
-    lc = LevelCareer.find_by(educative_level: level, career: career)
-    CareerSyllabus.create(level_career: lc, syllabus: syllabus)
+    CareerSyllabus.create(career: career, syllabus: syllabus)
   end
+
   syllabuses = Syllabus.all
-  level = EducativeLevel.find_by(code: 'LIC')
   syllabuses.each do |syllabus|
     code = syllabus.code.match(/\D+/)[0]
     careers = Career.where(code: code)
     careers.each do |career|
-      lc = LevelCareer.find_by(educative_level: level, career: career)
-      CareerSyllabus.create(level_career: lc, syllabus: syllabus)
+      CareerSyllabus.create(career: career, syllabus: syllabus)
     end
   end
 end
@@ -267,7 +251,7 @@ end
 def create_syllabus_grades
   path = 'db/external_data/syllabus_grades.csv'
   CSV.foreach(path, headers: true) do |row|
-    career_syllabuses = CareerSyllabus.joins(level_career: :educative_level)
+    career_syllabuses = CareerSyllabus.joins(career: :educative_level)
                                       .where(educative_levels: { code: row['level'] })
     grades = row['grades'].to_i
     grades.times do |n|
@@ -379,7 +363,7 @@ end
 def create_course_evaluation
   grade_courses = GradeCourse.joins(syllabus_grade:
                                         [{ career_syllabus:
-                                               [{ level_career: :career },
+                                               [:career,
                                                 :syllabus] },
                                          :grade])
                              .where(careers: { code: 'ISC' },
@@ -507,7 +491,6 @@ create_turns
 create_evaluation_periods
 create_relationships
 create_groups
-create_level_careers
 create_career_syllabuses
 create_syllabus_grades
 create_grade_courses
@@ -527,5 +510,5 @@ create_course_homeworks
 create_student_homeworks
 create_homework_marks
 create_attendance_types
-create_settlements
+# create_settlements
 # create_evaluation_attendances

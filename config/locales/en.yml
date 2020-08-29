@@ -28,7 +28,6 @@ en:
       group: "Group"
       homework_mark: "Homework mark"
       institution: "Institution"
-      level_career: "Level career"
       modality: "Modality"
       municipality: "Municipality"
       parent: "Parent"
@@ -85,9 +84,10 @@ en:
         code: "Code"
         name: "Name"
         description: "Description"
+        educative_level_id: "Educative level"
         status_id: "Status"
       career_syllabus:
-        level_career_id: "Level career"
+        career_id: "Career"
         syllabus_id: "Syllabus"
       classroom:
         code: "Code"
@@ -171,9 +171,6 @@ en:
         description: "Description"
         country_id: "Country"
         status_id: "Status"
-      level_career:
-        educative_level_id: "Educative level"
-        career_id: "Career"
       modality:
         code: "Code"
         name: "Name"

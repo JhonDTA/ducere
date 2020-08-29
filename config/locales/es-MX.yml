@@ -28,7 +28,6 @@ es-MX:
       group: "Grupo"
       homework_mark: "Calificación de la tarea"
       institution: "Institución"
-      level_career: "Carrera del nivel"
       modality: "Modalidad"
       municipality: "Municipio"
       parent: "Padre"
@@ -85,10 +84,11 @@ es-MX:
         code: "Clave"
         name: "Nombre"
         description: "Descripción"
+        educative_level_id: "Nivel educativo"
         status_id: "Estatus"
       career_syllabus:
-        level_career_id: "Carrera del nivel"
-        syllabus_id: "Plan del estudios"
+        career_id: "Carrera"
+        syllabus_id: "Plan de estudios"
       classroom:
         code: "Clave"
         description: "Descripción"
@@ -170,9 +170,6 @@ es-MX:
         code: "Clave"
         description: "Descripción"
         status_id: "Estatus"
-      level_career:
-        educative_level_id: "Nivel educativo"
-        career_id: "Carrera"
       modality:
         code: "Clave"
         name: "Nombre"

@@ -1,10 +1,13 @@
-code,name,description
-GEN,General,Carrera general aplicable desde preescolar hasta bachillerato
-ISC,Sistemas,Ingeniería en Sistemas Computacionales
-PSI,Psicología,Licenciatura en Psicología
-MEC,Mecánica,Ingeniería Mecánica Automotriz
-ARQ,Arquitectura,Ingeniería en Arquitectura
-PED,Pedagogía,Licenciatura en Pedagogía
-IDIO,Idiomas,Licenciatura en Idiomas
-DEP,Deportes,Licenciatura en Educación Física y Cultura del Deporte
-GASTRO,Gastronomía,Licenciatura en Gastronomía
+level,code,name,description
+PRE,PREGEN,Preescolar General,Preescolar General
+PRI,PRIGEN,Primaria General,Primaria General
+SEC,SECGEN,Secundaria General,Secundaria General
+BAC,BACGEN,Bachillerato General,Bachillerato General
+LIC,ISC,Sistemas,Ingeniería en Sistemas Computacionales
+LIC,PSI,Psicología,Licenciatura en Psicología
+LIC,MEC,Mecánica,Ingeniería Mecánica Automotriz
+LIC,ARQ,Arquitectura,Ingeniería en Arquitectura
+LIC,PED,Pedagogía,Licenciatura en Pedagogía
+LIC,IDIO,Idiomas,Licenciatura en Idiomas
+LIC,DEP,Deportes,Licenciatura en Educación Física y Cultura del Deporte
+LIC,GASTRO,Gastronomía,Licenciatura en Gastronomía

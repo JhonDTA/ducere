@@ -119,12 +119,12 @@ ActiveRecord::Schema.define(version: 2020_08_26_064607) do
   end
 
   create_table "career_syllabuses", force: :cascade do |t|
-    t.bigint "level_career_id", null: false
+    t.bigint "career_id", null: false
     t.bigint "syllabus_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["level_career_id", "syllabus_id"], name: "uidx_career_syllabuses", unique: true
-    t.index ["level_career_id"], name: "index_career_syllabuses_on_level_career_id"
+    t.index ["career_id", "syllabus_id"], name: "uidx_career_syllabuses", unique: true
+    t.index ["career_id"], name: "index_career_syllabuses_on_career_id"
     t.index ["syllabus_id"], name: "index_career_syllabuses_on_syllabus_id"
   end
 
@@ -132,10 +132,12 @@ ActiveRecord::Schema.define(version: 2020_08_26_064607) do
     t.string "code", limit: 16, null: false
     t.string "name", limit: 255, null: false
     t.text "description"
+    t.bigint "educative_level_id", null: false
     t.bigint "status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["code"], name: "uidx_careers_code", unique: true
+    t.index ["educative_level_id"], name: "index_careers_on_educative_level_id"
     t.index ["status_id"], name: "index_careers_on_status_id"
   end
 
@@ -341,16 +343,6 @@ ActiveRecord::Schema.define(version: 2020_08_26_064607) do
     t.index ["address_id"], name: "index_instution_addresses_on_address_id"
     t.index ["institution_id", "address_id"], name: "uidx_institution_address", unique: true
     t.index ["institution_id"], name: "index_instution_addresses_on_institution_id"
-  end
-
-  create_table "level_careers", force: :cascade do |t|
-    t.bigint "educative_level_id", null: false
-    t.bigint "career_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["career_id"], name: "index_level_careers_on_career_id"
-    t.index ["educative_level_id", "career_id"], name: "uidx_level_careers", unique: true
-    t.index ["educative_level_id"], name: "index_level_careers_on_educative_level_id"
   end
 
   create_table "modalities", force: :cascade do |t|
@@ -581,8 +573,9 @@ ActiveRecord::Schema.define(version: 2020_08_26_064607) do
   add_foreign_key "campus_evaluations", "turn_evaluations"
   add_foreign_key "campuses", "institutions"
   add_foreign_key "campuses", "statuses"
-  add_foreign_key "career_syllabuses", "level_careers"
+  add_foreign_key "career_syllabuses", "careers"
   add_foreign_key "career_syllabuses", "syllabuses"
+  add_foreign_key "careers", "educative_levels"
   add_foreign_key "careers", "statuses"
   add_foreign_key "classrooms", "buildings"
   add_foreign_key "classrooms", "statuses"
@@ -610,8 +603,6 @@ ActiveRecord::Schema.define(version: 2020_08_26_064607) do
   add_foreign_key "institutions", "statuses"
   add_foreign_key "instution_addresses", "addresses"
   add_foreign_key "instution_addresses", "institutions"
-  add_foreign_key "level_careers", "careers"
-  add_foreign_key "level_careers", "educative_levels"
   add_foreign_key "modalities", "statuses"
   add_foreign_key "municipalities", "states"
   add_foreign_key "parents", "users"

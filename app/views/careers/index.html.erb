@@ -21,6 +21,7 @@
       <th><%= t('activerecord.attributes.career.code') %></th>
       <th><%= t('activerecord.attributes.career.name') %></th>
       <th><%= t('activerecord.attributes.career.description') %></th>
+      <th><%= t('activerecord.attributes.career.educative_level_id') %></th>
       <th><%= t('activerecord.attributes.career.status_id') %></th>
       <th colspan="1"></th>
     </tr>
@@ -32,6 +33,7 @@
         <td><%= career.code %></td>
         <td><%= career.name %></td>
         <td><%= career.description %></td>
+        <td><%= career.educative_level.name %></td>
         <td><%= career.status.name %></td>
         <td>
           <%= link_to career, class: 'btn btn-sm btn-info' do %>

@@ -2,8 +2,8 @@
   <%= render 'shared/error_messages', object: form.object %>
 
   <div class="field">
-    <%= form.label :level_career_id %>
-    <%= form.collection_select :level_career_id, LevelCareer.all, :id, :name,
+    <%= form.label :career_id %>
+    <%= form.collection_select :level_career_id, Career.all, :id, :name,
                                {}, class: 'form-control' %>
   </div>
 

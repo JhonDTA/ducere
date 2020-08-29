@@ -1,7 +1,7 @@
 <% provide(:title, t('career_syllabuses')) %>
 
 <% content_for :card_header do %>
-  <%= will_paginate @attendance_types, class: 'pagination-sm float-right',
+  <%= will_paginate @career_syllabuses, class: 'pagination-sm float-right',
                     :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
 <% end %>
 
@@ -10,7 +10,7 @@
     <%= icon('fas', 'plus-circle') %>
     <%= t('new_resource', resource: t('activerecord.models.career_syllabus')) %>
   <% end %>
-  <%= will_paginate @attendance_types, class: 'pagination-sm m-0 float-right',
+  <%= will_paginate @career_syllabuses, class: 'pagination-sm m-0 float-right',
                     :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
 <% end %>
 
@@ -18,7 +18,7 @@
   <table class="table table-hover table-head-fixed text-nowrap">
     <thead>
     <tr>
-      <th><%= t('activerecord.attributes.career_syllabus.level_career_id') %></th>
+      <th><%= t('activerecord.attributes.career_syllabus.career_id') %></th>
       <th><%= t('activerecord.attributes.career_syllabus.syllabus_id') %></th>
       <th colspan="1"></th>
     </tr>
@@ -27,7 +27,7 @@
     <tbody>
     <% @career_syllabuses.each do |career_syllabus| %>
       <tr>
-        <td><%= career_syllabus.level_career.name %></td>
+        <td><%= career_syllabus.career.name %></td>
         <td><%= career_syllabus.syllabus.name %></td>
         <td>
           <%= link_to career_syllabus, class: 'btn btn-sm btn-info' do %>

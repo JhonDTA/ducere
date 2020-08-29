@@ -14,7 +14,7 @@ class CareerSyllabusesTest < ApplicationSystemTestCase
     visit career_syllabuses_url
     click_on 'New Career Syllabus'
 
-    fill_in 'Level career', with: @career_syllabus.level_career_id
+    fill_in 'Career', with: @career_syllabus.career_id
     fill_in 'Syllabus', with: @career_syllabus.syllabus_id
     click_on 'Create Career syllabus'
 
@@ -26,7 +26,7 @@ class CareerSyllabusesTest < ApplicationSystemTestCase
     visit career_syllabuses_url
     click_on 'Edit', match: :first
 
-    fill_in 'Level career', with: @career_syllabus.level_career_id
+    fill_in 'Career', with: @career_syllabus.career_id
     fill_in 'Syllabus', with: @career_syllabus.syllabus_id
     click_on 'Update Career syllabus'
 
