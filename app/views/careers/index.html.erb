@@ -30,10 +30,10 @@
     <tbody>
     <% @careers.each do |career| %>
       <tr>
+        <td><%= career.educative_level.name %></td>
         <td><%= career.code %></td>
         <td><%= career.name %></td>
         <td><%= career.description %></td>
-        <td><%= career.educative_level.name %></td>
         <td><%= career.status.name %></td>
         <td>
           <%= link_to career, class: 'btn btn-sm btn-info' do %>

@@ -77,10 +77,7 @@ class GradeCoursesController < ApplicationController
   end
 
   def index_includes
-    [{ syllabus_grade:
-           [{ career_syllabus:
-                   %i[syllabus career] },
-            :grade] },
+    [{ syllabus_grade: %i[syllabus grade] },
      :course]
   end
 end

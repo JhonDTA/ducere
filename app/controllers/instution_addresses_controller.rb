@@ -1,5 +1,5 @@
 class InstutionAddressesController < ApplicationController
-  before_action :set_instution_address, only: [:show, :edit, :update, :destroy]
+  before_action :set_instution_address, only: %i[show edit update destroy]
 
   # GET /instution_addresses
   # GET /instution_addresses.json
@@ -9,8 +9,7 @@ class InstutionAddressesController < ApplicationController
 
   # GET /instution_addresses/1
   # GET /instution_addresses/1.json
-  def show
-  end
+  def show; end
 
   # GET /instution_addresses/new
   def new
@@ -18,8 +17,7 @@ class InstutionAddressesController < ApplicationController
   end
 
   # GET /instution_addresses/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /instution_addresses
   # POST /instution_addresses.json
@@ -62,13 +60,14 @@ class InstutionAddressesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_instution_address
-      @instution_address = InstutionAddress.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def instution_address_params
-      params.require(:instution_address).permit(:institution_id, :address_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_instution_address
+    @instution_address = InstutionAddress.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def instution_address_params
+    params.require(:instution_address).permit(:institution_id, :address_id)
+  end
 end

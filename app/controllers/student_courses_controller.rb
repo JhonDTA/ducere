@@ -79,10 +79,7 @@ class StudentCoursesController < ApplicationController
   def index_includes
     [{ course_evaluation:
            [{ grade_course:
-                  [{ syllabus_grade:
-                         [{ career_syllabus:
-                                [{ level_career: %i[educative_level career] },
-                                 :syllabus] }, :grade] }, :course] },
+                  [{ syllabus_grade: %i[syllabus grade] }, :course] },
             { campus_evaluation:
                   [{ turn_evaluation:
                          [{ cycle_turn:

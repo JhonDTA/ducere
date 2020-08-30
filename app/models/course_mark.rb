@@ -7,4 +7,6 @@ class CourseMark < ApplicationRecord
 
   # Validations ---------------------------------------------------------------
   validates :mark, :attendance, presence: true, numericality: true
+
+  delegate :name, to: :student_course
 end

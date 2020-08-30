@@ -19,7 +19,7 @@
     <thead>
     <tr>
       <th>
-        <%= t('activerecord.attributes.syllabus_grade.career_syllabus_id') %></th>
+        <%= t('activerecord.attributes.syllabus_grade.syllabus_id') %></th>
       <th>
         <%= t('activerecord.attributes.syllabus_grade.grade_id') %></th>
       <th colspan="1"></th>
@@ -29,7 +29,7 @@
     <tbody>
     <% @syllabus_grades.each do |syllabus_grade| %>
       <tr>
-        <td><%= syllabus_grade.career_syllabus.name %></td>
+        <td><%= syllabus_grade.syllabus.name %></td>
         <td><%= syllabus_grade.grade.name %></td>
         <td>
           <%= link_to syllabus_grade, class: 'btn btn-sm btn-info' do %>

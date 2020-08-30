@@ -1,5 +1,5 @@
 class UserAddressesController < ApplicationController
-  before_action :set_user_address, only: [:show, :edit, :update, :destroy]
+  before_action :set_user_address, only: %i[show edit update destroy]
 
   # GET /user_addresses
   # GET /user_addresses.json
@@ -9,8 +9,7 @@ class UserAddressesController < ApplicationController
 
   # GET /user_addresses/1
   # GET /user_addresses/1.json
-  def show
-  end
+  def show; end
 
   # GET /user_addresses/new
   def new
@@ -18,8 +17,7 @@ class UserAddressesController < ApplicationController
   end
 
   # GET /user_addresses/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /user_addresses
   # POST /user_addresses.json
@@ -62,13 +60,14 @@ class UserAddressesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user_address
-      @user_address = UserAddress.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def user_address_params
-      params.require(:user_address).permit(:user_id, :address_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user_address
+    @user_address = UserAddress.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def user_address_params
+    params.require(:user_address).permit(:user_id, :address_id)
+  end
 end

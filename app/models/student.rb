@@ -17,6 +17,6 @@ class Student < ApplicationRecord
   delegate :name, :avatar, to: :user
 
   def current_career
-    career = Career.joins()
+    career = Career.joins
   end
 end

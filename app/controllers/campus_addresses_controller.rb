@@ -1,5 +1,5 @@
 class CampusAddressesController < ApplicationController
-  before_action :set_campus_address, only: [:show, :edit, :update, :destroy]
+  before_action :set_campus_address, only: %i[show edit update destroy]
 
   # GET /campus_addresses
   # GET /campus_addresses.json
@@ -9,8 +9,7 @@ class CampusAddressesController < ApplicationController
 
   # GET /campus_addresses/1
   # GET /campus_addresses/1.json
-  def show
-  end
+  def show; end
 
   # GET /campus_addresses/new
   def new
@@ -18,8 +17,7 @@ class CampusAddressesController < ApplicationController
   end
 
   # GET /campus_addresses/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /campus_addresses
   # POST /campus_addresses.json
@@ -62,13 +60,14 @@ class CampusAddressesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_campus_address
-      @campus_address = CampusAddress.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def campus_address_params
-      params.require(:campus_address).permit(:campus_id, :address_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_campus_address
+    @campus_address = CampusAddress.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def campus_address_params
+    params.require(:campus_address).permit(:campus_id, :address_id)
+  end
 end

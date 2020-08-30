@@ -8,4 +8,6 @@ class HomeworkMark < ApplicationRecord
   # Validations ---------------------------------------------------------------
   validates :student_homework_id, uniqueness: true
   validates :mark, presence: true, numericality: true
+
+  delegate :name, to: :student_homework
 end
