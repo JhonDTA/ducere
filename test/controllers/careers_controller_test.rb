@@ -17,7 +17,9 @@ class CareersControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create career' do
     assert_difference('Career.count') do
-      post careers_url, params: { career: { code: @career.code, description: @career.description, name: @career.name, status_id: @career.status_id } }
+      post careers_url, params: { career: { code: @career.code, description: @career.description,
+                                            educative_level_id: @career.educative_level_id, name: @career.name,
+                                            status_id: @career.status_id } }
     end
 
     assert_redirected_to career_url(Career.last)
@@ -34,7 +36,9 @@ class CareersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should update career' do
-    patch career_url(@career), params: { career: { code: @career.code, description: @career.description, name: @career.name, status_id: @career.status_id } }
+    patch career_url(@career), params: { career: { code: @career.code, description: @career.description,
+                                                   educative_level_id: @career.educative_level_id, name: @career.name,
+                                                   status_id: @career.status_id } }
     assert_redirected_to career_url(@career)
   end
 

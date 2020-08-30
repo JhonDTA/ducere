@@ -19,6 +19,9 @@
     <thead>
     <tr>
       <th>
+        <%= t('activerecord.attributes.syllabus.career_id') %>
+      </th>
+      <th>
         <%= t('activerecord.attributes.syllabus.code') %></th>
       <th>
         <%= t('activerecord.attributes.syllabus.name') %></th>
@@ -35,6 +38,7 @@
     <tbody>
     <% @syllabuses.each do |syllabus| %>
       <tr>
+        <td><%= syllabus.career.name %></td>
         <td><%= syllabus.code %></td>
         <td><%= syllabus.name %></td>
         <td><%= syllabus.description %></td>

@@ -15,6 +15,7 @@ class SyllabusesTest < ApplicationSystemTestCase
     click_on 'New Syllabus'
 
     fill_in 'Approval credits', with: @syllabus.approval_credits
+    fill_in 'Career', with: @syllabus.career_id
     fill_in 'Code', with: @syllabus.code
     fill_in 'Description', with: @syllabus.description
     fill_in 'Name', with: @syllabus.name
@@ -30,6 +31,7 @@ class SyllabusesTest < ApplicationSystemTestCase
     click_on 'Edit', match: :first
 
     fill_in 'Approval credits', with: @syllabus.approval_credits
+    fill_in 'Career', with: @syllabus.career_id
     fill_in 'Code', with: @syllabus.code
     fill_in 'Description', with: @syllabus.description
     fill_in 'Name', with: @syllabus.name

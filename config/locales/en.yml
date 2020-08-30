@@ -9,7 +9,6 @@ en:
       campus: "Campus"
       campus_evaluation: "Campus evaluation"
       career: "Career"
-      career_syllabus: "Career syllabus"
       classroom: "Classroom"
       country: "Country"
       course: "Course"
@@ -81,14 +80,11 @@ en:
         campus_id: "Campus"
         turn_evaluation_id: "Turn evaluation"
       career:
+        educative_level_id: "Educative level"
         code: "Code"
         name: "Name"
         description: "Description"
-        educative_level_id: "Educative level"
         status_id: "Status"
-      career_syllabus:
-        career_id: "Career"
-        syllabus_id: "Syllabus"
       classroom:
         code: "Code"
         description: "Description"
@@ -212,13 +208,14 @@ en:
         student_id: "Student"
         observations: "Observations"
       syllabus:
+        career_id: "Career"
         code: "Code"
         name: "Name"
         description: "Description"
         approval_credits: "Approval credits"
         status_id: "Status"
       syllabus_grade:
-        career_syllabus_id: "Career syllabus"
+        syllabus_id: "Syllabus"
         grade_id: "Grade"
       turn:
         code: "Code"
@@ -358,7 +355,6 @@ en:
   campuses: "Campuses"
   campus_evaluations: "Campus evaluations"
   careers: "Careers"
-  career_syllabuses: "Career syllabuses"
   classrooms: "Classrooms"
   catalogs: "Catalogs"
   countries: "Countries"

@@ -2,6 +2,12 @@
   <%= render 'shared/error_messages', object: form.object %>
 
   <div class="field">
+    <%= form.label :educative_level_id %>
+    <%= form.collection_select :educative_level_id, EducativeLevel.all, :id, :name, {},
+                               class: 'form-control' %>
+  </div>
+
+  <div class="field">
     <%= form.label :code %>
     <%= form.text_field :code, class: 'form-control' %>
   </div>
@@ -14,12 +20,6 @@
   <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description, class: 'form-control' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :educative_level_id %>
-    <%= form.collection_select :educative_level_id, EducativeLevel.all, :id, :name, {},
-                               class: 'form-control' %>
   </div>
 
   <div class="field">

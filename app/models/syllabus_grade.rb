@@ -3,7 +3,7 @@
 # Syllabus grades model
 class SyllabusGrade < ApplicationRecord
   # Belongs to associations ---------------------------------------------------
-  belongs_to :career_syllabus
+  belongs_to :syllabus
   belongs_to :grade
 
   # Has many associations -----------------------------------------------------
@@ -11,11 +11,9 @@ class SyllabusGrade < ApplicationRecord
   has_many :courses, through: :grade_courses
 
   # Validations ---------------------------------------------------------------
-  validates :career_syllabus_id, uniqueness: { scope: :grade_id }
-
-  delegate :career, to: :career_syllabus
+  validates :grade_id, uniqueness: { scope: :syllabus_id }
 
   def name
-    "#{career_syllabus.name} - #{grade.name} grado"
+    "#{syllabus.name} - #{grade.name} grado"
   end
 end

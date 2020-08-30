@@ -8,6 +8,6 @@ class CreateGrades < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
-    add_index :grades, :code, unique: true, name: 'uidx_gardes_code'
+    add_index :grades, :code, unique: true, name: 'uidx_grades_code'
   end
 end

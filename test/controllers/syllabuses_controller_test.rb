@@ -17,7 +17,8 @@ class SyllabusesControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create syllabus' do
     assert_difference('Syllabus.count') do
-      post syllabuses_url, params: { syllabus: { approval_credits: @syllabus.approval_credits, code: @syllabus.code, description: @syllabus.description, name: @syllabus.name, status_id: @syllabus.status_id } }
+      post syllabuses_url, params: { syllabus: { approval_credits: @syllabus.approval_credits, career_id: @syllabus.career_id,
+                                                 code: @syllabus.code, description: @syllabus.description, name: @syllabus.name, status_id: @syllabus.status_id } }
     end
 
     assert_redirected_to syllabus_url(Syllabus.last)
@@ -34,7 +35,8 @@ class SyllabusesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should update syllabus' do
-    patch syllabus_url(@syllabus), params: { syllabus: { approval_credits: @syllabus.approval_credits, code: @syllabus.code, description: @syllabus.description, name: @syllabus.name, status_id: @syllabus.status_id } }
+    patch syllabus_url(@syllabus), params: { syllabus: { approval_credits: @syllabus.approval_credits, career_id: @syllabus.career_id,
+                                                         code: @syllabus.code, description: @syllabus.description, name: @syllabus.name, status_id: @syllabus.status_id } }
     assert_redirected_to syllabus_url(@syllabus)
   end
 

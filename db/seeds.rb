@@ -122,7 +122,7 @@ def create_syllabuses
   Career.all.each do |career|
     ((rand * 2) + 1).floor.times do
       year = (2000..2020).to_a.sample
-      Syllabus.create(code: "#{career.code}#{year}",
+      Syllabus.create(career: career, code: "#{career.code}#{year}",
                       name: "#{career.name} #{year}",
                       description: "Plan de Estudios #{career.name} México #{year}",
                       approval_credits: 800, status: @status)
@@ -230,34 +230,16 @@ def create_groups
   end
 end
 
-def create_career_syllabuses
-  path = 'db/external_data/career_syllabuses.csv'
-  CSV.foreach(path, headers: true) do |row|
-    career = Career.find_by(code: row['career'])
-    syllabus = Syllabus.find_by(code: row['syllabus'])
-    CareerSyllabus.create(career: career, syllabus: syllabus)
-  end
-
-  syllabuses = Syllabus.all
-  syllabuses.each do |syllabus|
-    code = syllabus.code.match(/\D+/)[0]
-    careers = Career.where(code: code)
-    careers.each do |career|
-      CareerSyllabus.create(career: career, syllabus: syllabus)
-    end
-  end
-end
-
 def create_syllabus_grades
   path = 'db/external_data/syllabus_grades.csv'
   CSV.foreach(path, headers: true) do |row|
-    career_syllabuses = CareerSyllabus.joins(career: :educative_level)
-                                      .where(educative_levels: { code: row['level'] })
+    syllabuses = Syllabus.joins(career: :educative_level)
+                         .where(educative_levels: { code: row['level'] })
     grades = row['grades'].to_i
     grades.times do |n|
-      career_syllabuses.each do |career_syllabus|
+      syllabuses.each do |syllabus|
         grade = Grade.find_by(code: (n + 1).to_s)
-        SyllabusGrade.create(career_syllabus: career_syllabus, grade: grade)
+        SyllabusGrade.create(syllabus: syllabus, grade: grade)
       end
     end
   end
@@ -361,11 +343,7 @@ def create_campus_evaluations
 end
 
 def create_course_evaluation
-  grade_courses = GradeCourse.joins(syllabus_grade:
-                                        [{ career_syllabus:
-                                               [:career,
-                                                :syllabus] },
-                                         :grade])
+  grade_courses = GradeCourse.joins(syllabus_grade: [{ syllabus: :career }, :grade])
                              .where(careers: { code: 'ISC' },
                                     grades: { code: '1' })
 
@@ -491,7 +469,6 @@ create_turns
 create_evaluation_periods
 create_relationships
 create_groups
-create_career_syllabuses
 create_syllabus_grades
 create_grade_courses
 create_students

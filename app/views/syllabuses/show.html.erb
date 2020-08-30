@@ -10,6 +10,13 @@
 <% end %>
 
 <%= render 'shared/cards/show' do %>
+
+  <p>
+    <strong>
+      <%= t('activerecord.attributes.syllabus.career_id') %>:</strong>
+    <%= @syllabus.career.name %>
+  </p>
+
   <p>
     <strong>
       <%= t('activerecord.attributes.syllabus.code') %>:</strong>

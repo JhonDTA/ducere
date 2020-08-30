@@ -9,6 +9,6 @@ class CreateEducativeLevels < ActiveRecord::Migration[6.0]
       t.timestamps
     end
     add_index :educative_levels, :code, unique: true,
-              name: 'uidx_edicative_levels_code'
+              name: 'uidx_educative_levels_code'
   end
 end

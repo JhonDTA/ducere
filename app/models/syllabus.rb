@@ -3,16 +3,14 @@
 # Syllabus model
 class Syllabus < ApplicationRecord
   # Belongs to associations ---------------------------------------------------
+  belongs_to :career
   belongs_to :status
 
   # Has many associations -----------------------------------------------------
-  has_many :career_syllabuses, dependent: :restrict_with_error
+  has_many :syllabus_grades, dependent: :restrict_with_error
 
-  has_one :educative_level, through: :career_syllabuses
-  has_one :career, through: :career_syllabuses
-
-  has_many :grades, through: :career_syllabuses
-  has_many :courses, through: :career_syllabuses
+  has_many :grades, through: :syllabus_grades
+  has_many :courses, through: :syllabus_grades
 
   # Validations ---------------------------------------------------------------
   validates :code, :name, :approval_credits, presence: true

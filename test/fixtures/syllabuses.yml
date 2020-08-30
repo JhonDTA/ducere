@@ -1,6 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  career: one
   code: MyString
   name: MyString
   description: MyText
@@ -8,6 +9,7 @@ one:
   status: one
 
 two:
+  career: two
   code: MyString
   name: MyString
   description: MyText

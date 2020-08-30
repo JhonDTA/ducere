@@ -118,25 +118,15 @@ ActiveRecord::Schema.define(version: 2020_08_26_064607) do
     t.index ["status_id"], name: "index_campuses_on_status_id"
   end
 
-  create_table "career_syllabuses", force: :cascade do |t|
-    t.bigint "career_id", null: false
-    t.bigint "syllabus_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["career_id", "syllabus_id"], name: "uidx_career_syllabuses", unique: true
-    t.index ["career_id"], name: "index_career_syllabuses_on_career_id"
-    t.index ["syllabus_id"], name: "index_career_syllabuses_on_syllabus_id"
-  end
-
   create_table "careers", force: :cascade do |t|
+    t.bigint "educative_level_id", null: false
     t.string "code", limit: 16, null: false
     t.string "name", limit: 255, null: false
     t.text "description"
-    t.bigint "educative_level_id", null: false
     t.bigint "status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["code"], name: "uidx_careers_code", unique: true
+    t.index ["educative_level_id", "code"], name: "uidx_careers_educative_level_code", unique: true
     t.index ["educative_level_id"], name: "index_careers_on_educative_level_id"
     t.index ["status_id"], name: "index_careers_on_status_id"
   end
@@ -256,7 +246,7 @@ ActiveRecord::Schema.define(version: 2020_08_26_064607) do
     t.bigint "status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["code"], name: "uidx_edicative_levels_code", unique: true
+    t.index ["code"], name: "uidx_educative_levels_code", unique: true
     t.index ["status_id"], name: "index_educative_levels_on_status_id"
   end
 
@@ -299,7 +289,7 @@ ActiveRecord::Schema.define(version: 2020_08_26_064607) do
     t.bigint "status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["code"], name: "uidx_gardes_code", unique: true
+    t.index ["code"], name: "uidx_grades_code", unique: true
     t.index ["status_id"], name: "index_grades_on_status_id"
   end
 
@@ -462,16 +452,17 @@ ActiveRecord::Schema.define(version: 2020_08_26_064607) do
   end
 
   create_table "syllabus_grades", force: :cascade do |t|
-    t.bigint "career_syllabus_id", null: false
+    t.bigint "syllabus_id", null: false
     t.bigint "grade_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["career_syllabus_id", "grade_id"], name: "uidx_syllabus_grades", unique: true
-    t.index ["career_syllabus_id"], name: "index_syllabus_grades_on_career_syllabus_id"
     t.index ["grade_id"], name: "index_syllabus_grades_on_grade_id"
+    t.index ["syllabus_id", "grade_id"], name: "uidx_syllabus_grades", unique: true
+    t.index ["syllabus_id"], name: "index_syllabus_grades_on_syllabus_id"
   end
 
   create_table "syllabuses", force: :cascade do |t|
+    t.bigint "career_id", null: false
     t.string "code", limit: 16, null: false
     t.string "name", limit: 255, null: false
     t.text "description"
@@ -479,7 +470,8 @@ ActiveRecord::Schema.define(version: 2020_08_26_064607) do
     t.bigint "status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["code"], name: "uidx_syllabuses_code", unique: true
+    t.index ["career_id", "code"], name: "uidx_syllabuses_career_code", unique: true
+    t.index ["career_id"], name: "index_syllabuses_on_career_id"
     t.index ["status_id"], name: "index_syllabuses_on_status_id"
   end
 
@@ -573,8 +565,6 @@ ActiveRecord::Schema.define(version: 2020_08_26_064607) do
   add_foreign_key "campus_evaluations", "turn_evaluations"
   add_foreign_key "campuses", "institutions"
   add_foreign_key "campuses", "statuses"
-  add_foreign_key "career_syllabuses", "careers"
-  add_foreign_key "career_syllabuses", "syllabuses"
   add_foreign_key "careers", "educative_levels"
   add_foreign_key "careers", "statuses"
   add_foreign_key "classrooms", "buildings"
@@ -617,8 +607,9 @@ ActiveRecord::Schema.define(version: 2020_08_26_064607) do
   add_foreign_key "student_homeworks", "course_homeworks"
   add_foreign_key "student_homeworks", "students"
   add_foreign_key "students", "users"
-  add_foreign_key "syllabus_grades", "career_syllabuses"
   add_foreign_key "syllabus_grades", "grades"
+  add_foreign_key "syllabus_grades", "syllabuses"
+  add_foreign_key "syllabuses", "careers"
   add_foreign_key "syllabuses", "statuses"
   add_foreign_key "turn_evaluations", "cycle_turns"
   add_foreign_key "turn_evaluations", "evaluation_periods"

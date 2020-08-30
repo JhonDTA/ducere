@@ -6,11 +6,10 @@ class EducativeLevel < ApplicationRecord
   belongs_to :status
 
   # Has many associations -----------------------------------------------------
-  has_many :level_careers, dependent: :restrict_with_error
-  has_many :careers, through: :level_careers
-  has_many :syllabuses, through: :level_careers
-  has_many :grades, through: :level_careers
-  has_many :courses, through: :level_careers
+  has_many :careers, dependent: :restrict_with_error
+  has_many :syllabuses, through: :careers
+  has_many :grades, through: :careers
+  has_many :courses, through: :careers
 
   # Validations ---------------------------------------------------------------
   validates :code, :name, presence: true

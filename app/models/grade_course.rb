@@ -20,10 +20,7 @@ class GradeCourse < ApplicationRecord
 
   def self.collection
     all.includes([{ syllabus_grade: [
-                   { career_syllabus: [
-                     { level_career: %i[educative_level career] },
-                     :syllabus
-                   ] }, :grade
-                 ] }, :course])
+        { career_syllabus: [:syllabus] }, :grade
+    ] }, :course])
   end
 end

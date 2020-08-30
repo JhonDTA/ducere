@@ -14,6 +14,7 @@ class CareersTest < ApplicationSystemTestCase
     visit careers_url
     click_on 'New Career'
 
+    fill_in 'Educative level', with: @career.educative_level_id
     fill_in 'Code', with: @career.code
     fill_in 'Description', with: @career.description
     fill_in 'Name', with: @career.name
@@ -28,6 +29,7 @@ class CareersTest < ApplicationSystemTestCase
     visit careers_url
     click_on 'Edit', match: :first
 
+    fill_in 'Educative level', with: @career.educative_level_id
     fill_in 'Code', with: @career.code
     fill_in 'Description', with: @career.description
     fill_in 'Name', with: @career.name

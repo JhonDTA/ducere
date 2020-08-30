@@ -1,6 +1,7 @@
 class CreateSyllabuses < ActiveRecord::Migration[6.0]
   def change
     create_table :syllabuses do |t|
+      t.references :career, null: false, foreign_key: true
       t.string :code, limit: 16, null: false
       t.string :name, limit: 255, null: false
       t.text :description
@@ -9,6 +10,7 @@ class CreateSyllabuses < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
-    add_index :syllabuses, :code, unique: true, name: 'uidx_syllabuses_code'
+    add_index :syllabuses, %i[career_id code], unique: true,
+              name: 'uidx_syllabuses_career_code'
   end
 end

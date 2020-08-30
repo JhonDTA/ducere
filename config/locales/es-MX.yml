@@ -9,7 +9,6 @@ es-MX:
       campus: "Plantel"
       campus_evaluation: "Evaluacion del plantel"
       career: "Carrera"
-      career_syllabus: "Plan de estudios de la carrera"
       classroom: "Aula"
       country: "País"
       course: "Materia"
@@ -81,14 +80,11 @@ es-MX:
         campus_id: "Plantel"
         turn_evaluation_id: "Evaluación del turno"
       career:
+        educative_level_id: "Nivel educativo"
         code: "Clave"
         name: "Nombre"
         description: "Descripción"
-        educative_level_id: "Nivel educativo"
         status_id: "Estatus"
-      career_syllabus:
-        career_id: "Carrera"
-        syllabus_id: "Plan de estudios"
       classroom:
         code: "Clave"
         description: "Descripción"
@@ -211,13 +207,14 @@ es-MX:
         student_id: "Estudiante"
         observations: "Observaciones"
       syllabus:
+        career_id: "Carrera"
         code: "Clave"
         name: "Nombre"
         description: "Descripción"
         approval_credits: "Créditos para aprobar"
         status_id: "Estatus"
       syllabus_grade:
-        career_syllabus_id: "Plan de estudios de la carrera"
+        syllabus_id: "Plan de estudios"
         grade_id: "Grado"
       turn:
         code: "Clave"
@@ -576,7 +573,6 @@ es-MX:
   campuses: "Planteles"
   campus_evaluations: "Evaluaciones del plantel"
   careers: "Carreras"
-  career_syllabuses: "Planes de estudio de la carrera"
   classrooms: "Aulas"
   catalogs: "Catálogos"
   countries: "Paises"

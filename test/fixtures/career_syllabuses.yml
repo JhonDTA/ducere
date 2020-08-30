@@ -1,9 +1,0 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  career: one
-  syllabus: one
-
-two:
-  career: two
-  syllabus: two
