@@ -37,3 +37,4 @@ yarn-debug.log*
 
 # IDE settings
 .idea/*
+.DS_Store

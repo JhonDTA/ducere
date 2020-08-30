@@ -73,6 +73,6 @@ class SyllabusesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def syllabus_params
-    params.require(:syllabus).permit(:code, :name, :description, :approval_credits, :status_id)
+    params.require(:syllabus).permit(:career_id, :code, :name, :description, :approval_credits, :status_id)
   end
 end
