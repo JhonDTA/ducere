@@ -6,6 +6,10 @@ class Classroom < ApplicationRecord
   belongs_to :building
   belongs_to :status
 
+  # Has many associations -----------------------------------------------------
+  has_one :campus, through: :building
+  has_one :institution, through: :campus
+
   # Validations ---------------------------------------------------------------
   validates :code, presence: true, uniqueness: { scope: :building_id },
                    length: { minimum: 1, maximum: 16 }

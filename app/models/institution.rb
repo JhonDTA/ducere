@@ -7,7 +7,9 @@ class Institution < ApplicationRecord
 
   # Has many associations -----------------------------------------------------
   has_many :campuses, dependent: :restrict_with_error
-  has_one :instution_address, dependent: :restrict_with_error
+  has_many :buildings, through: :campuses
+  has_many :classrooms, through: :campuses
+  has_many :instution_addresses, dependent: :restrict_with_error
 
   # Validations ---------------------------------------------------------------
   validates :code, :name, presence: true
