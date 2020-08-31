@@ -8,10 +8,10 @@ class Course < ApplicationRecord
   # Has many associations -----------------------------------------------------
   has_many :grade_courses, dependent: :restrict_with_error
 
-  has_one :grade, through: :grade_courses
-  has_one :syllabus, through: :grade_courses
-  has_one :career, through: :grade_courses
-  has_one :educative_level, through: :grade_courses
+  has_many :grades, through: :grade_courses
+  has_many :syllabuses, through: :grade_courses
+  has_many :careers, through: :grade_courses
+  has_many :educative_levels, through: :grade_courses
 
   # Validations ---------------------------------------------------------------
   validates :code, :name, :credits, presence: true

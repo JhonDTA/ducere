@@ -13,6 +13,7 @@ class Career < ApplicationRecord
 
   # Validations ---------------------------------------------------------------
   validates :code, :name, presence: true
-  validates :code, uniqueness: true, length: { minimum: 1, maximum: 16 }
+  validates :code, uniqueness: { scope: :educative_level_id },
+                   length: { minimum: 1, maximum: 16 }
   validates :name, length: { minimum: 1, maximum: 255 }
 end

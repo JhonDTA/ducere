@@ -7,14 +7,16 @@ class Syllabus < ApplicationRecord
   belongs_to :status
 
   # Has many associations -----------------------------------------------------
-  has_many :syllabus_grades, dependent: :restrict_with_error
+  has_one :educative_level, through: :career
 
+  has_many :syllabus_grades, dependent: :restrict_with_error
   has_many :grades, through: :syllabus_grades
   has_many :courses, through: :syllabus_grades
 
   # Validations ---------------------------------------------------------------
   validates :code, :name, :approval_credits, presence: true
-  validates :code, uniqueness: true, length: { minimum: 1, maximum: 16 }
+  validates :code, uniqueness: { scope: :career_id },
+                   length: { minimum: 1, maximum: 16 }
   validates :name, length: { minimum: 1, maximum: 255 }
   validates :approval_credits, numericality: true
 end

@@ -7,6 +7,11 @@ class GradeCourse < ApplicationRecord
   belongs_to :course
 
   # Has many associations -----------------------------------------------------
+  has_one :grade, through: :syllabus_grade
+  has_one :syllabus, through: :syllabus_grade
+  has_one :career, through: :syllabus_grade
+  has_one :educative_level, through: :syllabus_grade
+
   has_many :course_evaluations, dependent: :restrict_with_error
 
   # Validations ---------------------------------------------------------------

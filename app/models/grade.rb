@@ -9,6 +9,7 @@ class Grade < ApplicationRecord
   has_many :syllabus_grades, dependent: :restrict_with_error
   has_many :courses, through: :syllabus_grades
 
+
   has_one :syllabus, through: :syllabus_grades
   has_one :career, through: :syllabus_grades
   has_one :educative_level, through: :syllabus_grades
