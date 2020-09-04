@@ -72,6 +72,6 @@ class SyllabusGradesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def syllabus_grade_params
-    params.require(:syllabus_grade).permit(:career_syllabus_id, :grade_id)
+    params.require(:syllabus_grade).permit(:syllabus_id, :grade_id)
   end
 end
