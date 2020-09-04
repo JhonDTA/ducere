@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class InstutionAddressesController < ApplicationController
   before_action :set_instution_address, only: %i[show edit update destroy]
 

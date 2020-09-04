@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UserAddressesController < ApplicationController
   before_action :set_user_address, only: %i[show edit update destroy]
 
