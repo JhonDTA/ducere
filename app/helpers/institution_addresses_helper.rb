@@ -1,4 +1,4 @@
 # frozen_string_literal: true
 
-module InstutionAddressesHelper
+module InstitutionAddressesHelper
 end

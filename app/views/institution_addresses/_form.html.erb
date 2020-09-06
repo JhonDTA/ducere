@@ -1,10 +1,10 @@
-<%= form_with(model: instution_address, local: true) do |form| %>
-  <% if instution_address.errors.any? %>
+<%= form_with(model: institution_address, local: true) do |form| %>
+  <% if institution_address.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(instution_address.errors.count, "error") %> prohibited this instution_address from being saved:</h2>
+      <h2><%= pluralize(institution_address.errors.count, "error") %> prohibited this institution_address from being saved:</h2>
 
       <ul>
-        <% instution_address.errors.full_messages.each do |message| %>
+        <% institution_address.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>

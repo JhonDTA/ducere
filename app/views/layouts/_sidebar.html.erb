@@ -289,6 +289,21 @@
                   <%= icon('fas', 'school', class: 'nav-icon') %><%= t('addresses') %>
                 <% end %>
               </li>
+              <li class="nav-item">
+                <%= link_to institution_addresses_path, class: 'nav-link' do %>
+                  <%= icon('fas', 'school', class: 'nav-icon') %><%= t('institution_addresses') %>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to campus_addresses_path, class: 'nav-link' do %>
+                  <%= icon('fas', 'school', class: 'nav-icon') %><%= t('campus_addresses') %>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to user_addresses_path, class: 'nav-link' do %>
+                  <%= icon('fas', 'school', class: 'nav-icon') %><%= t('user_addresses') %>
+                <% end %>
+              </li>
             </ul>
           </li>
         </ul>
