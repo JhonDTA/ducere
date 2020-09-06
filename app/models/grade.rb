@@ -14,7 +14,9 @@ class Grade < ApplicationRecord
   has_one :educative_level, through: :syllabus_grades
 
   # Validations ---------------------------------------------------------------
-  validates :code, :name, presence: true
-  validates :code, uniqueness: true, length: { minimum: 1, maximum: 16 }
+  validates :name, :sequence, presence: true
+  validates :name, uniqueness: { scope: :sequence }
   validates :name, length: { minimum: 1, maximum: 255 }
+
+  default_scope { order(sequence: :asc) }
 end

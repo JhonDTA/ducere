@@ -19,9 +19,9 @@
     <thead>
     <tr>
       <th>
-        <%= t('activerecord.attributes.grade.code') %></th>
-      <th>
         <%= t('activerecord.attributes.grade.name') %></th>
+      <th>
+        <%= t('activerecord.attributes.grade.sequence') %></th>
       <th>
         <%= t('activerecord.attributes.grade.description') %></th>
       <th>
@@ -33,8 +33,8 @@
     <tbody>
     <% @grades.each do |grade| %>
       <tr>
-        <td><%= grade.code %></td>
         <td><%= grade.name %></td>
+        <td><%= grade.sequence %></td>
         <td><%= grade.description %></td>
         <td><%= grade.status.name %></td>
         <td>

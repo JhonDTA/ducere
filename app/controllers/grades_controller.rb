@@ -8,8 +8,7 @@ class GradesController < ApplicationController
   # GET /grades.json
   def index
     pagination = { page: params[:page], per_page: 20 }
-    @grades = Grade.paginate(pagination)
-                   .includes(:status)
+    @grades = Grade.paginate(pagination).includes(:status)
   end
 
   # GET /grades/1
@@ -73,6 +72,6 @@ class GradesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def grade_params
-    params.require(:grade).permit(:code, :name, :description, :status_id)
+    params.require(:grade).permit(:name, :description, :sequence, :status_id)
   end
 end

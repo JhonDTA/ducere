@@ -145,9 +145,9 @@ es-MX:
         description: "Descripción"
         status_id: "Estatus"
       grade:
-        code: "Clave"
         name: "Nombre"
         description: "Descripción"
+        sequence: "Secuencia"
         status_id: "Estatus"
       grade_course:
         syllabus_grade_id: "Grado del plan de estudios"

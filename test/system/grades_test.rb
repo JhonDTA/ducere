@@ -16,9 +16,9 @@ class GradesTest < ApplicationSystemTestCase
     visit grades_url
     click_on 'New Grade'
 
-    fill_in 'Code', with: @grade.code
     fill_in 'Description', with: @grade.description
     fill_in 'Name', with: @grade.name
+    fill_in 'Sequence', with: @grade.sequence
     fill_in 'Status', with: @grade.status_id
     click_on 'Create Grade'
 
@@ -30,9 +30,9 @@ class GradesTest < ApplicationSystemTestCase
     visit grades_url
     click_on 'Edit', match: :first
 
-    fill_in 'Code', with: @grade.code
     fill_in 'Description', with: @grade.description
     fill_in 'Name', with: @grade.name
+    fill_in 'Sequence', with: @grade.sequence
     fill_in 'Status', with: @grade.status_id
     click_on 'Update Grade'
 

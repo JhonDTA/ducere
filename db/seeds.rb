@@ -134,7 +134,7 @@ def create_grades
   grades = %w[Primer Segundo Tercer Cuarto Quinto Sexto Septimo Octavo Noveno
               Decimo Onceavo Doceavo]
   grades.each_with_index do |grade, index|
-    Grade.create(code: index + 1, name: grade, description: "#{grade} grado",
+    Grade.create(name: grade, sequence: index + 1, description: "#{grade} grado",
                  status: @status)
   end
 end
