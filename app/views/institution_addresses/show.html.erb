@@ -1,14 +1,24 @@
-<p id="notice"><%= notice %></p>
+<% provide :title, @institution_address.address.street %>
+<% provide :card_title, t('activerecord.models.institution_address') %>
+<% content_for :card_footer do %>
+  <%= link_to edit_institution_address_path(@institution_address), class: 'btn btn-sm btn-success' do %>
+    <%= icon('fas', 'edit') %> <%= t('edit') %>
+  <% end %>
+  <%= link_to institution_addresses_path, class: 'btn btn-sm btn-danger' do %>
+    <%= icon('fas', 'undo-alt') %> <%= t('back') %>
+  <% end %>
+<% end %>
 
-<p>
-  <strong>Institution:</strong>
-  <%= @institution_address.institution_id %>
-</p>
+<%= render 'shared/cards/show' do %>
+  <p>
+    <strong><%= t('activerecord.attributes.institution_address.institution_id') %>
+      :</strong>
+    <%= @institution_address.institution.name %>
+  </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @institution_address.address_id %>
-</p>
-
-<%= link_to 'Edit', edit_institution_address_path(@institution_address) %> |
-<%= link_to 'Back', institution_addresses_path %>
+  <p>
+    <strong><%= t('activerecord.attributes.institution_address.address_id') %>
+      :</strong>
+    <%= @institution_address.address.street %>
+  </p>
+<% end %>

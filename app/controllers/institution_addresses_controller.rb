@@ -6,7 +6,8 @@ class InstitutionAddressesController < ApplicationController
   # GET /institution_addresses
   # GET /institution_addresses.json
   def index
-    @institution_addresses = InstitutionAddress.all
+    pagination = { page: params[:page], per_page: 20 }
+    @institution_addresses = InstitutionAddress.paginate(pagination)
   end
 
   # GET /institution_addresses/1
@@ -65,7 +66,7 @@ class InstitutionAddressesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_institution_address
-    @institution_address = InstutionAddress.find(params[:id])
+    @institution_address = InstitutionAddress.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.

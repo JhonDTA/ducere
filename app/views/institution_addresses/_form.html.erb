@@ -1,27 +1,19 @@
 <%= form_with(model: institution_address, local: true) do |form| %>
-  <% if institution_address.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(institution_address.errors.count, "error") %> prohibited this institution_address from being saved:</h2>
-
-      <ul>
-        <% institution_address.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'shared/error_messages', object: form.object %>
 
   <div class="field">
     <%= form.label :institution_id %>
-    <%= form.text_field :institution_id %>
+    <%= form.collection_select :institution_id, Institution.all, :id, :name, {},
+                               class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :address_id %>
-    <%= form.text_field :address_id %>
+    <%= form.collection_select :address_id, Address.all, :id, :street, {},
+                               class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary form-control' %>
   </div>
 <% end %>

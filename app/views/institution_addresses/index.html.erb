@@ -1,29 +1,47 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, t('institution_addresses')) %>
 
-<h1>Instution Addresses</h1>
+<% content_for :card_header do %>
+  <%= will_paginate @institution_addresses, class: 'pagination-sm float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
 
-<table>
-  <thead>
+<% content_for :card_footer do %>
+  <%= link_to new_institution_address_path, class: 'btn btn-sm btn-primary' do %>
+    <%= icon('fas', 'plus-circle') %>
+    <%= t('new_resource', resource: t('activerecord.models.institution_address')) %>
+  <% end %>
+  <%= will_paginate @institution_addresses, class: 'pagination-sm m-0 float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<%= render 'shared/cards/index_card' do %>
+  <table class="table table-hover table-head-fixed text-nowrap">
+    <thead>
     <tr>
-      <th>Institution</th>
-      <th>Address</th>
+      <th><%= t('activerecord.attributes.institution_address.institution_id') %></th>
+      <th><%= t('activerecord.attributes.institution_address.address_id') %></th>
       <th colspan="3"></th>
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
+    <tbody>
     <% @institution_addresses.each do |institution_address| %>
       <tr>
-        <td><%= institution_address.institution_id %></td>
-        <td><%= institution_address.address_id %></td>
-        <td><%= link_to 'Show', institution_address %></td>
-        <td><%= link_to 'Edit', edit_institution_address_path(institution_address) %></td>
-        <td><%= link_to 'Destroy', institution_address, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= institution_address.institution.name %></td>
+        <td><%= institution_address.address.street %></td>
+        <td>
+          <%= link_to institution_address, class: 'btn btn-sm btn-info' do %>
+            <%= icon('fas', 'eye') %> <%= t('show') %>
+          <% end %>
+          <%= link_to edit_institution_address_path(institution_address), class: 'btn btn-sm btn-success' do %>
+            <%= icon('fas', 'edit') %> <%= t('edit') %>
+          <% end %>
+          <%= link_to institution_address, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' do %>
+            <%= icon('fas', 'trash-alt') %> <%= t('destroy') %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Instution Address', new_institution_address_path %>
+    </tbody>
+  </table>
+<% end %>

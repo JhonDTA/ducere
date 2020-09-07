@@ -27,6 +27,7 @@ es-MX:
       group: "Grupo"
       homework_mark: "Calificación de la tarea"
       institution: "Institución"
+      institution_address: "Direccion de la institución"
       modality: "Modalidad"
       municipality: "Municipio"
       parent: "Padre"
@@ -166,6 +167,9 @@ es-MX:
         code: "Clave"
         description: "Descripción"
         status_id: "Estatus"
+      institution_address:
+        institution_id: "Institución"
+        address_id: "Dirección"
       modality:
         code: "Clave"
         name: "Nombre"
@@ -593,7 +597,7 @@ es-MX:
   groups: "Grupos"
   homework_marks: "Calificación de las tareas"
   institutions: "Instituciones"
-  institution_addresses: "Direccciones del instituto"
+  institution_addresses: "Direcciones del instituto"
   level_careers: "Carreras del nivel"
   modalities: "Modalidades"
   municipalities: "Municipios"

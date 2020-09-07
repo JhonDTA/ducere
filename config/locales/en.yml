@@ -27,6 +27,7 @@ en:
       group: "Group"
       homework_mark: "Homework mark"
       institution: "Institution"
+      institution_address: "Institution address"
       modality: "Modality"
       municipality: "Municipality"
       parent: "Parent"
@@ -167,6 +168,9 @@ en:
         description: "Description"
         country_id: "Country"
         status_id: "Status"
+      institution_address:
+        institution_id: "Institution"
+        address_id: "Address"
       modality:
         code: "Code"
         name: "Name"

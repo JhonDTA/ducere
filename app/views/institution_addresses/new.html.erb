@@ -1,5 +1,11 @@
-<h1>New Instution Address</h1>
+<% provide(:title, t('new_resource', resource: t('activerecord.models.institution_address'))) %>
+<% provide :card_title, t('activerecord.models.institution_address') %>
 
-<%= render 'form', institution_address: @institution_address %>
-
-<%= link_to 'Back', institution_addresses_path %>
+<%= render 'shared/cards/form_card' do %>
+  <%= render 'form', institution_address: @institution_address %>
+  <% content_for :card_footer do %>
+    <%= link_to institution_addresses_path, class: 'btn btn-sm btn-danger' do %>
+      <%= icon('fas', 'undo-alt') %> <%= t('back') %>
+    <% end %>
+  <% end %>
+<% end %>
