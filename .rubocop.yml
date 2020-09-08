@@ -7,3 +7,5 @@ AllCops:
     - 'db/schema.rb'
     - 'Guardfile'
     - 'db/migrate/**/*'
+    - 'tmp/**/*'
+    - 'storage/**/*'
