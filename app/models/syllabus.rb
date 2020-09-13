@@ -19,4 +19,12 @@ class Syllabus < ApplicationRecord
                    length: { minimum: 1, maximum: 16 }
   validates :name, length: { minimum: 1, maximum: 255 }
   validates :approval_credits, numericality: true
+
+  # @param [Grade] grade
+  #
+  def courses_by_grade(grade)
+    name = grade.name
+    Course.joins(grade_courses: [:grade, { syllabus_grade: :syllabus }])
+          .where(syllabuses: { code: code }, grades: { name: name })
+  end
 end
