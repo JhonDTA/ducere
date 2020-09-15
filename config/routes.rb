@@ -6,6 +6,11 @@ Rails.application.routes.draw do
   get 'about', to: 'static_pages#about'
   get 'contact', to: 'static_pages#contact'
 
+  resources :channels do
+    resource :channel_user
+    resources :messages
+  end
+
   devise_for :user
   resources :countries
   resources :states

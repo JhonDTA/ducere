@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_26_064607) do
+ActiveRecord::Schema.define(version: 2020_09_15_031402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -129,6 +129,21 @@ ActiveRecord::Schema.define(version: 2020_08_26_064607) do
     t.index ["educative_level_id", "code"], name: "uidx_careers_educative_level_code", unique: true
     t.index ["educative_level_id"], name: "index_careers_on_educative_level_id"
     t.index ["status_id"], name: "index_careers_on_status_id"
+  end
+
+  create_table "channel_users", force: :cascade do |t|
+    t.bigint "channel_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["channel_id"], name: "index_channel_users_on_channel_id"
+    t.index ["user_id"], name: "index_channel_users_on_user_id"
+  end
+
+  create_table "channels", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "classrooms", force: :cascade do |t|
@@ -283,13 +298,13 @@ ActiveRecord::Schema.define(version: 2020_08_26_064607) do
   end
 
   create_table "grades", force: :cascade do |t|
-    t.string "code", limit: 16, null: false
     t.string "name", limit: 255, null: false
     t.text "description"
     t.bigint "status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["code"], name: "uidx_grades_code", unique: true
+    t.integer "sequence", limit: 2, null: false
+    t.index ["name", "sequence"], name: "uidx_grades_name_sequence", unique: true
     t.index ["status_id"], name: "index_grades_on_status_id"
   end
 
@@ -314,6 +329,16 @@ ActiveRecord::Schema.define(version: 2020_08_26_064607) do
     t.index ["student_homework_id"], name: "uidx_homework_marks", unique: true
   end
 
+  create_table "institution_addresses", id: :bigint, default: -> { "nextval('instution_addresses_id_seq'::regclass)" }, force: :cascade do |t|
+    t.bigint "institution_id", null: false
+    t.bigint "address_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["address_id"], name: "index_instution_addresses_on_address_id"
+    t.index ["institution_id", "address_id"], name: "uidx_institution_address", unique: true
+    t.index ["institution_id"], name: "index_instution_addresses_on_institution_id"
+  end
+
   create_table "institutions", force: :cascade do |t|
     t.string "code", limit: 16, null: false
     t.string "name", limit: 255, null: false
@@ -325,14 +350,14 @@ ActiveRecord::Schema.define(version: 2020_08_26_064607) do
     t.index ["status_id"], name: "index_institutions_on_status_id"
   end
 
-  create_table "instution_addresses", force: :cascade do |t|
-    t.bigint "institution_id", null: false
-    t.bigint "address_id", null: false
+  create_table "messages", force: :cascade do |t|
+    t.bigint "channel_id", null: false
+    t.bigint "user_id", null: false
+    t.text "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["address_id"], name: "index_instution_addresses_on_address_id"
-    t.index ["institution_id", "address_id"], name: "uidx_institution_address", unique: true
-    t.index ["institution_id"], name: "index_instution_addresses_on_institution_id"
+    t.index ["channel_id"], name: "index_messages_on_channel_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "modalities", force: :cascade do |t|
@@ -353,6 +378,17 @@ ActiveRecord::Schema.define(version: 2020_08_26_064607) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["state_id", "name"], name: "uidx_municipalities_state_name", unique: true
     t.index ["state_id"], name: "index_municipalities_on_state_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "item_type"
+    t.bigint "item_id"
+    t.boolean "viewed", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_type", "item_id"], name: "index_notifications_on_item_type_and_item_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "parents", force: :cascade do |t|
@@ -567,6 +603,8 @@ ActiveRecord::Schema.define(version: 2020_08_26_064607) do
   add_foreign_key "campuses", "statuses"
   add_foreign_key "careers", "educative_levels"
   add_foreign_key "careers", "statuses"
+  add_foreign_key "channel_users", "channels"
+  add_foreign_key "channel_users", "users"
   add_foreign_key "classrooms", "buildings"
   add_foreign_key "classrooms", "statuses"
   add_foreign_key "course_evaluations", "campus_evaluations"
@@ -590,11 +628,14 @@ ActiveRecord::Schema.define(version: 2020_08_26_064607) do
   add_foreign_key "grades", "statuses"
   add_foreign_key "groups", "statuses"
   add_foreign_key "homework_marks", "student_homeworks"
+  add_foreign_key "institution_addresses", "addresses"
+  add_foreign_key "institution_addresses", "institutions"
   add_foreign_key "institutions", "statuses"
-  add_foreign_key "instution_addresses", "addresses"
-  add_foreign_key "instution_addresses", "institutions"
+  add_foreign_key "messages", "channels"
+  add_foreign_key "messages", "users"
   add_foreign_key "modalities", "statuses"
   add_foreign_key "municipalities", "states"
+  add_foreign_key "notifications", "users"
   add_foreign_key "parents", "users"
   add_foreign_key "professor_courses", "courses"
   add_foreign_key "professor_courses", "professors"

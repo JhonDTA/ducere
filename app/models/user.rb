@@ -12,6 +12,9 @@ class User < ApplicationRecord
   has_one :student, dependent: :restrict_with_error
   has_one_attached :avatar
   has_one :user_address, dependent: :restrict_with_error
+  has_many :channel_users, dependent: :destroy
+  has_many :channels, through: :channel_users
+  has_many :messages, dependent: :delete_all
 
   # Validations ---------------------------------------------------------------
   validates :avatar, content_type: { in: %w[image/jpeg image/gif image/png],
