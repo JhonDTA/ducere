@@ -1,8 +1,3 @@
-<p>
-  <strong>Name:</strong>
-  <%= @channel.name %>
-</p>
-
 <div class="row" data-controller="channel" data-channel-id="<%= @channel.id %>">
   <div class="col-sm-2">
     <div class="d-flex justify-content-between">
@@ -11,7 +6,7 @@
     </div>
 
     <% Channel.all.each do |channel| %>
-      <div>
+      <div class="d-flex justify-content-between">
         <%= link_to channel.name, channel %>
         <% if current_user.channels.include?(channel) %>
           <%= link_to icon('fas', 'times'), channel_channel_user_path(channel), method: :delete %>
@@ -20,8 +15,9 @@
     <% end %>
 
     <hr/>
+
     <div class="d-flex justify-content-between">
-      <h6><%= t('activerecord.models.user') %></h6>
+      <h6><%= t('users') %></h6>
     </div>
     <% @channel.users.each do |user| %>
       <div><%= user.name %></div>
@@ -44,7 +40,4 @@
       <%= link_to "Join #{@channel.name}", channel_channel_user_path(@channel), method: :post %>
     <% end %>
   </div>
-
-  <%= link_to 'Edit', edit_channel_path(@channel) %> |
-  <%= link_to 'Back', channels_path %>
 </div>

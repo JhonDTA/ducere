@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Message channel
 class MessageChannel < ApplicationCable::Channel
   def subscribed
     stop_all_streams
