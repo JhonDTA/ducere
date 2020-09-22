@@ -307,6 +307,9 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+  time:
+    formats:
+      chat: "%d %b at %H:%M:%S hrs"
   flash:
     success: 'Success'
     warning: 'Warning'

@@ -2,7 +2,16 @@
   <% @bar_shown = true %>
   <div class="border-bottom border-danger"></div>
 <% end %>
-<div>
-  <div class="font-weight-bold"><%= message.user.name %></div>
-  <div><%= message.body %></div>
+<div class="direct-chat-msg <%= 'right' if message.user == current_user %>">
+  <div class="direct-chat-infos clearfix">
+    <span class="direct-chat-name float-<%= message.user == current_user ? 'left' : 'right' %>">
+      <%= message.user.name %>
+    </span>
+    <span class="direct-chat-timestamp float-<%= message.user == current_user ? 'right' : 'left' %>">
+      <%= l(message.created_at, format: :chat) %>
+    </span>
+  </div>
+  <%= image_tag current_user.avatar.attached? ? current_user.display_avatar : 'avatar.jpg',
+                class: 'direct-chat-img' %>
+  <div class="direct-chat-text"><%= message.body %></div>
 </div>
