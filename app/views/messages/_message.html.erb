@@ -2,7 +2,8 @@
   <% @bar_shown = true %>
   <div class="border-bottom border-danger"></div>
 <% end %>
-<div class="direct-chat-msg <%= 'right' if message.user == current_user %>">
+<div class="direct-chat-msg <%= 'right' if message.user == current_user %>"
+     data-user-id="<%= message.user.id %>">
   <div class="direct-chat-infos clearfix">
     <span class="direct-chat-name float-<%= message.user == current_user ? 'left' : 'right' %>">
       <%= message.user.name %>
@@ -11,7 +12,7 @@
       <%= l(message.created_at, format: :chat) %>
     </span>
   </div>
-  <%= image_tag current_user.avatar.attached? ? current_user.display_avatar : 'avatar.jpg',
+  <%= image_tag message.user.avatar.attached? ? message.user.avatar : 'avatar.jpg',
                 class: 'direct-chat-img' %>
   <div class="direct-chat-text"><%= message.body %></div>
 </div>

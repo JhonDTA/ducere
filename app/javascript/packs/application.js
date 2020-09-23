@@ -12,6 +12,7 @@ require('bootstrap/dist/js/bootstrap')
 require('admin-lte/dist/js/adminlte')
 require('@fortawesome/fontawesome-free/css/all.css')
 
+import "controllers"
 import '../stylesheets/application'
 
 document.addEventListener("turbolinks:load", () => {
@@ -25,5 +26,3 @@ document.addEventListener("turbolinks:load", () => {
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-
-import "controllers"

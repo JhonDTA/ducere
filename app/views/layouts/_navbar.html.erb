@@ -27,7 +27,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <%= image_tag current_user.avatar.attached? ? current_user.display_avatar : 'avatar.jpg',
+              <%= image_tag current_user.avatar.attached? ? current_user.avatar : 'avatar.jpg',
                             class: 'img-size-50 img-circle mr-3' %>
               <div class="media-body">
                 <h3 class="dropdown-item-title">
@@ -46,7 +46,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <%= image_tag current_user.avatar.attached? ? current_user.display_avatar : 'avatar.jpg',
+              <%= image_tag current_user.avatar.attached? ? current_user.avatar : 'avatar.jpg',
                             class: 'img-size-50 img-circle mr-3' %>
               <div class="media-body">
                 <h3 class="dropdown-item-title">
@@ -65,7 +65,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <%= image_tag current_user.avatar.attached? ? current_user.display_avatar : 'avatar.jpg',
+              <%= image_tag current_user.avatar.attached? ? current_user.avatar : 'avatar.jpg',
                             class: 'img-size-50 img-circle mr-3' %>
               <div class="media-body">
                 <h3 class="dropdown-item-title">
@@ -115,7 +115,7 @@
       <!-- User Dropdown Menu -->
       <li class="nav-item dropdown user-menu">
         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-          <%= image_tag current_user.avatar.attached? ? current_user.display_avatar : 'avatar.jpg',
+          <%= image_tag current_user.avatar.attached? ? current_user.avatar : 'avatar.jpg',
                         class: 'user-image img-circle elevation-2' %>
 
           <span class="d-none d-md-inline"><%= current_user.first_name %></span>
@@ -123,7 +123,7 @@
         <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0;">
           <!-- User image -->
           <li class="user-header bg-primary">
-            <%= image_tag current_user.avatar.attached? ? current_user.display_avatar : 'avatar.jpg',
+            <%= image_tag current_user.avatar.attached? ? current_user.avatar : 'avatar.jpg',
                           class: 'img-circle elevation-2' %>
             <p>
               <%= current_user.name %>

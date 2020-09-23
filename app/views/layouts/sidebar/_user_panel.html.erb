@@ -1,6 +1,6 @@
 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
   <div class="image">
-    <%= image_tag current_user.avatar.attached? ? current_user.display_avatar : 'avatar.jpg',
+    <%= image_tag current_user.avatar.attached? ? current_user.avatar : 'avatar.jpg',
                   class: 'img-circle elevation-2' %>
   </div>
   <div class="info">
