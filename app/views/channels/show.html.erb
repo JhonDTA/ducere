@@ -1,38 +1,46 @@
 <div class="row" data-controller="channel" data-channel-id="<%= @channel.id %>">
   <div class="col-md-4">
-    <div class="card">
+    <div class="card card-outline card-primary">
       <div class="card-header">
         <h3 class="card-title"><%= t('channels') %></h3>
         <div class="card-tools">
           <%= link_to icon('fas', 'plus'), new_channel_path, class: 'btn btn-tool' %>
         </div>
       </div>
-      <div class="card-body p-0">
-        <ul class="nav nav-pills flex-column">
+      <div class="card-body table-responsive p-0" style="height: 75vh">
+        <table class="table table-hover table-head-fixed text-nowrap">
+          <thead>
+          <tr>
+            <th><%= t('activerecord.attributes.cycle_type.name') %></th>
+            <th colspan="1"></th>
+          </tr>
+          </thead>
+
+          <tbody>
           <% Channel.all.each do |channel| %>
-            <li class="nav-item">
-              <%= link_to channel.name, channel, class: 'nav-link' %>
-              <% if current_user.channels.include?(channel) %>
-                <%= link_to icon('fas', 'times'), channel_channel_user_path(channel),
-                            method: :delete, class: 'btn btn-tool' %>
-              <% end %>
-            </li>
+            <tr>
+              <td><%= channel.name %></td>
+              <td>
+                <%= link_to channel, class: 'btn btn-sm btn-info' do %>
+                  <%= icon('fas', 'eye') %> <%= t('show') %>
+                <% end %>
+                <%= link_to edit_channel_path(channel), class: 'btn btn-sm btn-success' do %>
+                  <%= icon('fas', 'edit') %> <%= t('edit') %>
+                <% end %>
+                <%= link_to channel, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' do %>
+                  <%= icon('fas', 'trash-alt') %> <%= t('destroy') %>
+                <% end %>
+              </td>
+            </tr>
           <% end %>
-        </ul>
+          </tbody>
+        </table>
       </div>
     </div>
-
-    <div class="d-flex justify-content-between">
-      <h6><%= t('users') %></h6>
-    </div>
-    <% @channel.users.each do |user| %>
-      <div><%= user.name %></div>
-    <% end %>
   </div>
 
   <div class="col-md-8">
-    <div class="card card-primary cardtutline direct-chat direct-chat-primary"
-    >
+    <div class="card card-primary direct-chat direct-chat-primary">
       <div class="card-header">
         <h3 class="card-title"><%= @channel.name %></h3>
       </div>
@@ -46,11 +54,16 @@
         <% if current_user.channels.include?(@channel) %>
           <%= form_with model: [@channel, Message.new],
                         data: { action: "ajax:success->channel#clearMessage" } do |form| %>
-            <%= form.text_field :body, placeholder: "Message ##{@channel.name}",
-                                class: "form-control", data: { target: "channel.newMessage" } %>
+            <div class="input-group">
+              <%= form.text_field :body, placeholder: "Message ##{@channel.name}",
+                                  class: "form-control", data: { target: "channel.newMessage" } %>
+              <span class="input-group-append">
+                <%= form.submit t('send'), class: 'btn btn-primary form-control' %>
+              </span>
+            </div>
           <% end %>
         <% else %>
-          <%= link_to "Join #{@channel.name}", channel_channel_user_path(@channel),
+          <%= link_to "#{t('join')} #{@channel.name}", channel_channel_user_path(@channel),
                       method: :post, class: 'btn btn-primary' %>
         <% end %>
       </div>
