@@ -1,27 +1,47 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, t('channels')) %>
 
-<h1>Channels</h1>
+<% content_for :card_header do %>
+  <%= will_paginate @channels, class: 'pagination-sm float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
 
-<table>
-  <thead>
+<% content_for :card_footer do %>
+  <%= link_to new_channel_path, class: 'btn btn-sm btn-primary' do %>
+    <%= icon('fas', 'plus-circle') %>
+    <%= t('new_resource', resource: t('activerecord.models.channel')) %>
+  <% end %>
+  <%= will_paginate @channels, class: 'pagination-sm m-0 float-right',
+                    :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<% end %>
+
+<%= render 'shared/cards/index_card' do %>
+  <table class="table table-hover table-head-fixed text-nowrap">
+    <thead>
     <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
+      <th>
+        <%= t('activerecord.attributes.modality.name') %>
+      </th>
+      <th colspan="1"></th>
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
+    <tbody>
     <% @channels.each do |channel| %>
       <tr>
         <td><%= channel.name %></td>
-        <td><%= link_to 'Show', channel %></td>
-        <td><%= link_to 'Edit', edit_channel_path(channel) %></td>
-        <td><%= link_to 'Destroy', channel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to channel, class: 'btn btn-sm btn-info' do %>
+            <%= icon('fas', 'eye') %> <%= t('show') %>
+          <% end %>
+          <%= link_to edit_channel_path(channel), class: 'btn btn-sm btn-success' do %>
+            <%= icon('fas', 'edit') %> <%= t('edit') %>
+          <% end %>
+          <%= link_to channel, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' do %>
+            <%= icon('fas', 'trash-alt') %> <%= t('destroy') %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Channel', new_channel_path %>
+    </tbody>
+  </table>
+<% end %>

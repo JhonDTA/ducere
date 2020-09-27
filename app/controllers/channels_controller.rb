@@ -7,7 +7,8 @@ class ChannelsController < ApplicationController
   # GET /channels
   # GET /channels.json
   def index
-    @channels = Channel.all
+    pagination = { page: params[:page], per_page: 20 }
+    @channels = Channel.paginate(pagination)
   end
 
   # GET /channels/1

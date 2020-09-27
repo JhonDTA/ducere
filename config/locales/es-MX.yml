@@ -46,6 +46,7 @@ es-MX:
       turn_evaluation: "Evaluación del turno"
       tutor: "Tutor"
       user: "Usuario"
+      channel: "Canal"
     attributes:
       academic_cycle:
         code: "Clave"

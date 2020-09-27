@@ -46,6 +46,7 @@ en:
       turn_evaluation: "Turn evaluation"
       tutor: "Tutor"
       user: "User"
+      channel: "Channel"
     attributes:
       academic_cycle:
         code: "Code"
