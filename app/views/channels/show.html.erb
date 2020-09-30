@@ -7,34 +7,17 @@
           <%= link_to icon('fas', 'plus'), new_channel_path, class: 'btn btn-tool' %>
         </div>
       </div>
-      <div class="card-body table-responsive p-0" style="height: 75vh">
-        <table class="table table-hover table-head-fixed text-nowrap">
-          <thead>
-          <tr>
-            <th><%= t('activerecord.attributes.cycle_type.name') %></th>
-            <th colspan="1"></th>
-          </tr>
-          </thead>
-
-          <tbody>
+      <div class="card-body p-0" style="height: 70vh">
+        <ul class="nav nav-pills flex-column">
           <% Channel.all.each do |channel| %>
-            <tr>
-              <td><%= channel.name %></td>
-              <td>
-                <%= link_to channel, class: 'btn btn-sm btn-info' do %>
-                  <%= icon('fas', 'eye') %> <%= t('show') %>
-                <% end %>
-                <%= link_to edit_channel_path(channel), class: 'btn btn-sm btn-success' do %>
-                  <%= icon('fas', 'edit') %> <%= t('edit') %>
-                <% end %>
-                <%= link_to channel, method: :delete, data: { confirm: t('you_sure') }, class: 'btn btn-sm btn-danger' do %>
-                  <%= icon('fas', 'trash-alt') %> <%= t('destroy') %>
-                <% end %>
-              </td>
-            </tr>
+            <li class="nav-item" data-controller="unreads" data-unreads-id="<%= channel.id %>">
+              <%= link_to channel, class: "nav-link #{ 'active' if active_channel?(channel)}" do %>
+                <%= channel.name %>
+                <span class="badge bg-primary float-right">10</span>
+              <% end %>
+            </li>
           <% end %>
-          </tbody>
-        </table>
+        </ul>
       </div>
     </div>
   </div>
@@ -46,7 +29,8 @@
       </div>
       <div class="card-body">
         <div id="chat-messages" data-user-id="<%= current_user.id %>"
-             class="direct-chat-messages" data-target="channel.messages">
+             class="direct-chat-messages" data-target="channel.messages"
+             style="height: 60vh">
           <%= render @channel.messages.includes(:user) %>
         </div>
       </div>
