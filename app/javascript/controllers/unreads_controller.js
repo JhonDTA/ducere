@@ -35,6 +35,13 @@ export default class extends Controller {
     }
 
     _received(data) {
-        this.element.classList.add("font-weight-bold")
+        this.addUnreadCount(data)
+    }
+
+    addUnreadCount(data) {
+        const element = "#channel_"+ data.channel_id + " a span"
+        const span = $(element)[0]
+        const number = span.innerHTML
+        span.innerHTML = parseInt(number) + 1
     }
 }

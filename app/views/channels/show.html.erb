@@ -10,7 +10,8 @@
       <div class="card-body p-0" style="height: 70vh">
         <ul class="nav nav-pills flex-column">
           <% Channel.all.each do |channel| %>
-            <li class="nav-item" data-controller="unreads" data-unreads-id="<%= channel.id %>">
+            <li id="channel_<%= channel.id %>" class="nav-item" data-controller="unreads"
+                data-unreads-id="<%= channel.id %>">
               <%= link_to channel, class: "nav-link #{ 'active' if active_channel?(channel)}" do %>
                 <%= channel.name %>
                 <span class="badge bg-primary float-right">10</span>
