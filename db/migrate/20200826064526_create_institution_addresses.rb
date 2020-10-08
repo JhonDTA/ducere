@@ -1,4 +1,4 @@
-class CreateInstutionAddresses < ActiveRecord::Migration[6.0]
+class CreateInstitutionAddresses < ActiveRecord::Migration[6.0]
   def change
     create_table :institution_addresses do |t|
       t.references :institution, null: false, foreign_key: true

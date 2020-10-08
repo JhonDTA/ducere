@@ -238,7 +238,7 @@ def create_syllabus_grades
     grades = row['grades'].to_i
     grades.times do |n|
       syllabuses.each do |syllabus|
-        grade = Grade.find_by(code: (n + 1).to_s)
+        grade = Grade.find_by(sequence: (n + 1).to_s)
         SyllabusGrade.create(syllabus: syllabus, grade: grade)
       end
     end
@@ -345,7 +345,7 @@ end
 def create_course_evaluation
   grade_courses = GradeCourse.joins(syllabus_grade: [{ syllabus: :career }, :grade])
                              .where(careers: { code: 'ISC' },
-                                    grades: { code: '1' })
+                                    grades: { sequence: '1' })
 
   campus_evaluation = CampusEvaluation.joins(turn_evaluation:
                                                  [{ cycle_turn:

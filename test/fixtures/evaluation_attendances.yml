@@ -1,13 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  student: one
-  course_evaluation: one
+  student_course: one
   attendance_type: one
   date: 2020-07-24
 
 two:
-  student: two
-  course_evaluation: two
+  student_course: two
   attendance_type: two
   date: 2020-07-24
