@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <%= tag.meta name: 'user_id', content: current_user.id if user_signed_in? %>
   <%= render 'layouts/rails_default' %>
 </head>
 

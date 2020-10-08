@@ -12,6 +12,7 @@ import consumer from "./../channels/consumer"
 
 export default class extends Controller {
     connect() {
+        this.user_id = document.querySelector("meta[name='user_id']").getAttribute("content")
         this.subscription = consumer.subscriptions.create({
                 channel: "UnreadsChannel",
                 id: this.data.get("id")
@@ -39,9 +40,14 @@ export default class extends Controller {
     }
 
     addUnreadCount(data) {
-        const element = "#channel_"+ data.channel_id + " a span"
+        const msgLimit = 9
+        const element = "#channel_" + data.channel_id + " a span"
         const span = $(element)[0]
         const number = span.innerHTML
-        span.innerHTML = parseInt(number) + 1
+        if (number > msgLimit) {
+            span.innerHTML = msgLimit + "+"
+        } else {
+            span.innerHTML = parseInt(number) + 1
+        }
     }
 }

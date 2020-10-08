@@ -14,6 +14,7 @@ export default class extends Controller {
     static targets = ["messages", "newMessage"]
 
     connect() {
+        this.user_id = document.querySelector("meta[name='user_id']").getAttribute("content")
         this.subscription = consumer.subscriptions.create({
                 channel: "MessageChannel",
                 id: this.data.get("id")
@@ -57,7 +58,7 @@ export default class extends Controller {
         const message = $('.direct-chat-msg:last')
         const message_user_name = $('.direct-chat-msg:last .direct-chat-name')
         const message_time = $('.direct-chat-msg:last .direct-chat-timestamp')
-        const self_id = $('#chat-messages').attr('data-user-id')
+        const self_id = this.user_id
         const message_user_id = message.attr('data-user-id')
 
         if (self_id === message_user_id) {

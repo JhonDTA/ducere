@@ -14,7 +14,7 @@
                 data-unreads-id="<%= channel.id %>">
               <%= link_to channel, class: "nav-link #{ 'active' if active_channel?(channel)}" do %>
                 <%= channel.name %>
-                <span class="badge bg-primary float-right">10</span>
+                <span class="badge bg-primary float-right">0</span>
               <% end %>
             </li>
           <% end %>
@@ -29,9 +29,8 @@
         <h3 class="card-title"><%= @channel.name %></h3>
       </div>
       <div class="card-body">
-        <div id="chat-messages" data-user-id="<%= current_user.id %>"
-             class="direct-chat-messages" data-target="channel.messages"
-             style="height: 60vh">
+        <div id="chat-messages" class="direct-chat-messages"
+             data-target="channel.messages" style="height: 60vh">
           <%= render @channel.messages.includes(:user) %>
         </div>
       </div>
