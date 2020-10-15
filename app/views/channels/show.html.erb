@@ -14,7 +14,9 @@
                 data-unreads-id="<%= channel.id %>">
               <%= link_to channel, class: "nav-link #{ 'active' if active_channel?(channel)}" do %>
                 <%= channel.name %>
-                <span class="badge bg-primary float-right">0</span>
+                <span class="badge bg-danger float-right <%= 'd-none' if channel.unreads_count(current_user).zero? %>">
+                  <%= channel.unreads_count(current_user) %>
+                </span>
               <% end %>
             </li>
           <% end %>

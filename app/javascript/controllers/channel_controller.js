@@ -41,6 +41,7 @@ export default class extends Controller {
     _received(data) {
         if (data.message) {
             this.appendLine(data)
+            this.updateBadge(data)
         }
 
         if (!document.hidden) {
@@ -50,7 +51,7 @@ export default class extends Controller {
 
     appendLine(data) {
         this.messagesTarget.insertAdjacentHTML('beforeend', data.message)
-        this.scrollToBottom(500)
+        this.scrollToBottom(300)
         this.styleMessage()
     }
 
@@ -85,5 +86,12 @@ export default class extends Controller {
 
     clearMessage(event) {
         this.newMessageTarget.value = ''
+    }
+
+    updateBadge(data) {
+        const element = "#channel_" + data.channel_id + " a span"
+        const badge = $(element)[0]
+        badge.innerHTML = '0'
+        badge.classList.add('d-none')
     }
 }

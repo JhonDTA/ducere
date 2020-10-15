@@ -29,6 +29,7 @@ export default class extends Controller {
     }
 
     _connected() {
+
     }
 
     _disconnected() {
@@ -41,13 +42,22 @@ export default class extends Controller {
 
     addUnreadCount(data) {
         const msgLimit = 9
-        const element = "#channel_" + data.channel_id + " a span"
-        const span = $(element)[0]
-        const number = span.innerHTML
-        if (number > msgLimit) {
-            span.innerHTML = msgLimit + "+"
+        const channel_div = $("#channel_" + data.channel_id + " a")[0]
+        const badge = $("#channel_" + data.channel_id + " a span")[0]
+
+        if (channel_div.classList.contains('active')) {
+            badge.innerHTML = '0'
+            badge.classList.add('d-none')
         } else {
-            span.innerHTML = parseInt(number) + 1
+            badge.classList.remove('d-none')
+        }
+
+        const number = badge.innerHTML
+
+        if (number > msgLimit) {
+            badge.innerHTML = msgLimit + "+"
+        } else {
+            badge.innerHTML = parseInt(number) + 1
         }
     }
 }

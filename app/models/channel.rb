@@ -6,4 +6,9 @@ class Channel < ApplicationRecord
   has_many :messages, dependent: :delete_all
 
   validates :name, presence: true
+
+  def unreads_count(user)
+    channel_user = channel_users.find_by(user: user)
+    channel_user.unreads.count
+  end
 end
