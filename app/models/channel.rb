@@ -9,6 +9,6 @@ class Channel < ApplicationRecord
 
   def unreads_count(user)
     channel_user = channel_users.find_by(user: user)
-    channel_user.unreads.count
+    channel_user.present? ? channel_user.unreads.count : 0
   end
 end
